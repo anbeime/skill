@@ -1,6 +1,5 @@
 # 技能商店自动更新系统
 
-自动从 [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) 仓库爬取并更新技能数据。
 
 ## 功能特性
 
