@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技能商店 - Skill Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🎯 技能商店</h1>
+            <p class="subtitle">收录最全、更新最快的AI Agent技能库</p>
+            <nav>
+                <a href="index.html" class="active">官方技能商店</a>
+                <a href="local-skills.html">本地技能库</a>
+                <a href="comparison.html">技能对比</a>
+                <a href="https://github.com/anbeime/skill" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="stats">
+            <div class="stat-card">
+                <h3>140+</h3>
+                <p>官方技能</p>
+            </div>
+            <div class="stat-card">
+                <h3>41</h3>
+                <p>本地已安装</p>
+            </div>
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p>备份覆盖</p>
+            </div>
+            <div class="stat-card">
+                <h3>自动更新</h3>
+                <p>每24小时</p>
+            </div>
+        </section>
+
+        <section class="intro">
+            <h2>📚 关于技能商店</h2>
+            <p>本技能商店自动爬取 <a href="https://github.com/VoltAgent/awesome-agent-skills" target="_blank">awesome-agent-skills</a> 仓库，收录了来自 Anthropic、Vercel、Cloudflare、Google Labs、Hugging Face、Stripe、Trail of Bits 等顶级团队的官方技能。</p>
+            <p>所有技能已打包完成，可直接安装使用！支持 Claude Code、Codex、Antigravity、Gemini CLI、Cursor、GitHub Copilot 等多种AI编程助手。</p>
+        </section>
+
+        <section class="categories">
+            <h2>🗂️ 技能分类</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <h3>📄 文档处理</h3>
+                    <p>docx, pptx, xlsx, pdf 等文档创建和编辑</p>
+                    <span class="badge">Anthropic官方</span>
+                </div>
+                <div class="category-card">
+                    <h3>🎨 创意设计</h3>
+                    <p>algorithmic-art, canvas-design, frontend-design</p>
+                    <span class="badge">Anthropic官方</span>
+                </div>
+                <div class="category-card">
+                    <h3>💻 开发工具</h3>
+                    <p>mcp-builder, webapp-testing, web-artifacts-builder</p>
+                    <span class="badge">Anthropic官方</span>
+                </div>
+                <div class="category-card">
+                    <h3>⚛️ React/Next.js</h3>
+                    <p>react-best-practices, next-best-practices, composition-patterns</p>
+                    <span class="badge">Vercel官方</span>
+                </div>
+                <div class="category-card">
+                    <h3>☁️ Cloudflare</h3>
+                    <p>agents-sdk, durable-objects, wrangler</p>
+                    <span class="badge">Cloudflare官方</span>
+                </div>
+                <div class="category-card">
+                    <h3>🤗 机器学习</h3>
+                    <p>model-trainer, datasets, evaluation, jobs</p>
+                    <span class="badge">Hugging Face官方</span>
+                </div>
+                <div class="category-card">
+                    <h3>🔒 安全审计</h3>
+                    <p>building-secure-contracts, static-analysis, property-based-testing</p>
+                    <span class="badge">Trail of Bits官方</span>
+                </div>
+                <div class="category-card">
+                    <h3>💳 支付集成</h3>
+                    <p>stripe-best-practices, upgrade-stripe</p>
+                    <span class="badge">Stripe官方</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>✨ 核心特性</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🤖 自动更新</h3>
+                    <p>每24小时自动爬取最新技能，确保技能库始终保持最新状态</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📦 即开即用</h3>
+                    <p>所有技能已打包完成，下载即可使用，无需额外配置</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏷️ 智能分类</h3>
+                    <p>按照功能、来源、Star数量等多维度标签进行分类整理</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 数据导出</h3>
+                    <p>支持JSON和CSV格式导出，方便数据分析和二次开发</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-start">
+            <h2>🚀 快速开始</h2>
+            <div class="code-block">
+                <h3>1. 克隆仓库</h3>
+                <pre><code>git clone https://github.com/anbeime/skill.git
+cd skill</code></pre>
+            </div>
+            <div class="code-block">
+                <h3>2. 安装依赖</h3>
+                <pre><code>pip install -r requirements.txt</code></pre>
+            </div>
+            <div class="code-block">
+                <h3>3. 运行更新</h3>
+                <pre><code># 立即执行一次更新
+python main.py --once
+
+# 启动定时更新守护进程
+python main.py --daemon
+
+# 显示数据统计
+python main.py --stats</code></pre>
+            </div>
+        </section>
+
+        <section class="links">
+            <h2>🔗 相关链接</h2>
+            <div class="link-grid">
+                <a href="https://github.com/anbeime/skill" target="_blank" class="link-card">
+                    <h3>📦 GitHub仓库</h3>
+                    <p>查看源代码和技能数据</p>
+                </a>
+                <a href="https://github.com/VoltAgent/awesome-agent-skills" target="_blank" class="link-card">
+                    <h3>⭐ Awesome Agent Skills</h3>
+                    <p>官方技能源仓库（6.5k+ stars）</p>
+                </a>
+                <a href="local-skills.html" class="link-card">
+                    <h3>💾 本地技能库</h3>
+                    <p>查看已安装的41个技能</p>
+                </a>
+                <a href="comparison.html" class="link-card">
+                    <h3>📊 技能对比</h3>
+                    <p>对比官方技能和本地技能</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Skill Store. 数据来源: <a href="https://github.com/VoltAgent/awesome-agent-skills" target="_blank">awesome-agent-skills</a></p>
+            <p>最后更新: <span id="last-update">加载中...</span></p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

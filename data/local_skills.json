@@ -1,0 +1,301 @@
+{
+  "metadata": {
+    "total_skills": 41,
+    "independent_skills": 19,
+    "skill_collections": 3,
+    "sub_skills": 22,
+    "last_updated": "2026-02-09T22:50:00",
+    "location": "D:\\tool\\skills",
+    "backup_location": "D:\\tool\\skills\\skill压缩文件",
+    "backup_coverage": "100%"
+  },
+  "independent_skills": [
+    {
+      "id": 1,
+      "name": "content-creation-publisher",
+      "category": "内容创作与发布",
+      "description": "内容创作与发布全流程技能，整合网页采集、Markdown格式化、智能配图、多平台发布（微信公众号、X/Twitter）",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": true,
+      "api_type": "Google Gemini API, Chrome CDP",
+      "usage_frequency": 5,
+      "size_mb": 0.16,
+      "integrated_sub_skills": ["article-illustrator", "baoyu-url-to-markdown", "baoyu-format-markdown", "baoyu-post-to-wechat", "baoyu-post-to-x"]
+    },
+    {
+      "id": 2,
+      "name": "intelligent-content-system",
+      "category": "内容创作与发布",
+      "description": "智能内容创作与发布全流程系统，根据用户需求自动识别场景，编排调用技能链，支持14个场景",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": true,
+      "api_type": "Google Gemini API, Chrome CDP",
+      "usage_frequency": 5,
+      "size_mb": 0.02,
+      "integrated_sub_skills": ["baoyu-xhs-images", "wechat-hotspot-publisher"]
+    },
+    {
+      "id": 3,
+      "name": "NanoBanana-PPT-Skills",
+      "category": "PPT与演示",
+      "description": "基于AI自动生成高质量PPT图片和视频，支持智能转场和交互式播放，内置渐变毛玻璃、矢量插画两种专业风格",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": true,
+      "api_type": "Google Gemini API, 可灵AI API（可选）",
+      "usage_frequency": 5,
+      "size_mb": 19.98
+    },
+    {
+      "id": 4,
+      "name": "obsidian-skills-integrated",
+      "category": "工具与辅助",
+      "description": "Obsidian技能集成，包含obsidian-markdown、obsidian-bases、json-canvas三个子技能，由Obsidian CEO开发",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": false,
+      "api_type": "纯本地处理",
+      "usage_frequency": 5,
+      "size_mb": 0.02
+    },
+    {
+      "id": 5,
+      "name": "infinitetalk",
+      "category": "数字人与视频配音",
+      "description": "音频驱动的稀疏帧视频配音工具，支持音频驱动的Video-to-Video和Image-to-Video生成，实现精准的唇形、头部、身体姿态同步",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": "optional",
+      "api_type": "本地模型（Wan2.1-I2V-14B-480P），Dashscope API（可选）",
+      "usage_frequency": 5,
+      "size_mb": 0.07
+    },
+    {
+      "id": 6,
+      "name": "tts-voice-synthesis",
+      "category": "语音与音频",
+      "description": "智能语音合成服务，支持音色克隆、拟人化语义适配配音、流式实时生成、多语言与方言支持，提供1.7B/0.6B双模型选择",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": "optional",
+      "api_type": "本地模型（1.7B/0.6B，无需API）或云端API",
+      "usage_frequency": 5,
+      "size_mb": 0.05
+    },
+    {
+      "id": 7,
+      "name": "qwen3-tts-local",
+      "category": "语音与音频",
+      "description": "真正的本地语音合成服务，使用Edge-TTS引擎，零依赖、零配置、完全离线可用，支持多语言和多种音色",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": false,
+      "api_type": "完全离线（Edge-TTS）",
+      "usage_frequency": 4,
+      "size_mb": 0.02
+    },
+    {
+      "id": 8,
+      "name": "qwen3-asr-assistant",
+      "category": "语音与音频",
+      "description": "智能语音转文字助手，基于本地Whisper模型，支持实时语音识别和智能文本改写，可将录音转换为文字并一键改写成邮件、笔记、社交媒体文案",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": false,
+      "api_type": "本地Whisper模型",
+      "usage_frequency": 4,
+      "size_mb": 0.03
+    },
+    {
+      "id": 9,
+      "name": "agent-team",
+      "category": "智能体协作",
+      "description": "智能体团队协作技能，提供智能体模板、协作模板、会议智能体等",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": false,
+      "api_type": "纯本地处理",
+      "usage_frequency": 3,
+      "size_mb": 0.10
+    },
+    {
+      "id": 10,
+      "name": "multi-agent-meeting",
+      "category": "智能体协作",
+      "description": "多智能体会议技能，支持会议记录、角色分工、会议总结",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": false,
+      "api_type": "纯本地处理",
+      "usage_frequency": 2,
+      "size_mb": 0.03
+    },
+    {
+      "id": 11,
+      "name": "product-manager-toolkit",
+      "category": "产品与项目管理",
+      "description": "产品经理工具包，包含PRD模板、客户访谈分析、RICE优先级排序等",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": false,
+      "api_type": "纯本地处理",
+      "usage_frequency": 3,
+      "size_mb": 0.05
+    },
+    {
+      "id": 12,
+      "name": "ai-drawio",
+      "category": "设计与可视化",
+      "description": "流程图和图表生成技能，支持mxGraph格式",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": false,
+      "api_type": "纯本地处理（mxGraph）",
+      "usage_frequency": 4,
+      "size_mb": 0.02
+    },
+    {
+      "id": 13,
+      "name": "three-body-video-creator",
+      "category": "特殊场景",
+      "description": "《三体》赛道AI视频创作工具，提供结构化的多智能体协作流程、GLM-4V-Flash免费视觉分析、素材生成与视频合成",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": "optional",
+      "api_type": "GLM-4V-Flash（免费）",
+      "usage_frequency": 2,
+      "size_mb": 0.11
+    },
+    {
+      "id": 14,
+      "name": "poetry-music-visual",
+      "category": "特殊场景",
+      "description": "为古诗词提供配图与配乐的全流程创作指导，支持深度解析诗词意境、生成画面描述、提供配乐创作蓝图（Suno格式）",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": "optional",
+      "api_type": "Google Gemini API, Suno API（可选）",
+      "usage_frequency": 2,
+      "size_mb": 0.04
+    },
+    {
+      "id": 15,
+      "name": "moltbook",
+      "category": "工具与辅助",
+      "description": "AI Agent的社交网络，支持发布帖子、评论、点赞和创建社区",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": true,
+      "api_type": "Moltbook API (https://www.moltbook.com/api/v1)",
+      "usage_frequency": 2,
+      "size_mb": 0.01
+    },
+    {
+      "id": 16,
+      "name": "OpenCut-main",
+      "category": "视频创作",
+      "description": "视频剪辑工具（新发现的技能）",
+      "installed": true,
+      "has_backup": false,
+      "needs_api": false,
+      "api_type": "待确认",
+      "usage_frequency": 0,
+      "size_mb": 0
+    }
+  ],
+  "skill_collections": [
+    {
+      "id": 17,
+      "name": "baoyu-skills",
+      "category": "工具与辅助",
+      "description": "宝玉技能集，包含17个子技能（文章配图、漫画生成、图片压缩、封面图生成、信息图生成、幻灯片生成等）",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": "optional",
+      "api_type": "Google Gemini API（部分），Chrome CDP（部分）",
+      "usage_frequency": 4,
+      "size_mb": 15.99,
+      "sub_skills_count": 17,
+      "sub_skills": [
+        "baoyu-article-illustrator",
+        "baoyu-comic",
+        "baoyu-compress-image",
+        "baoyu-cover-image",
+        "baoyu-danger-gemini-web",
+        "baoyu-danger-x-to-markdown",
+        "baoyu-format-markdown",
+        "baoyu-image-gen",
+        "baoyu-infographic",
+        "baoyu-markdown-to-html",
+        "baoyu-post-to-wechat",
+        "baoyu-post-to-x",
+        "baoyu-slide-deck",
+        "baoyu-url-to-markdown",
+        "baoyu-xhs-images",
+        "baoyu-compress-image",
+        "baoyu-cover-image"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "jiamu-skills",
+      "category": "工具与辅助",
+      "description": "佳木技能集，包含5个子技能（gif-splitter、magazine-layout、video-downloader等）",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": false,
+      "api_type": "纯本地处理",
+      "usage_frequency": 3,
+      "size_mb": 12.98,
+      "sub_skills_count": 5,
+      "sub_skills": [
+        "gif-splitter",
+        "magazine-layout",
+        "peers-advisory-group",
+        "sales-ai-assistant",
+        "video-downloader"
+      ]
+    },
+    {
+      "id": 19,
+      "name": "legal-assistant-skills-main",
+      "category": "工具与辅助",
+      "description": "法律助手技能集，包含contract-review和law-to-markdown两个子技能",
+      "installed": true,
+      "has_backup": true,
+      "needs_api": false,
+      "api_type": "纯本地处理",
+      "usage_frequency": 2,
+      "size_mb": 0.07,
+      "sub_skills_count": 2,
+      "sub_skills": [
+        "contract-review",
+        "law-to-markdown"
+      ]
+    }
+  ],
+  "statistics": {
+    "by_category": {
+      "内容创作与发布": 2,
+      "PPT与演示": 1,
+      "语音与音频": 3,
+      "数字人与视频配音": 1,
+      "智能体协作": 2,
+      "产品与项目管理": 1,
+      "设计与可视化": 1,
+      "特殊场景": 2,
+      "工具与辅助": 5,
+      "视频创作": 1
+    },
+    "by_api_requirement": {
+      "必需API": 4,
+      "可选API": 6,
+      "完全免费": 9
+    },
+    "total_size_mb": 49.24,
+    "backup_count": 73,
+    "backup_size_mb": 69.20
+  }
+}
