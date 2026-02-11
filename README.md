@@ -1,46 +1,128 @@
 # 🎯 技能商店 - Skill Store
 
-收录最全、更新最快的AI Agent技能库，涵盖**文档处理、内容创作、编程开发、机器学习、自动化工作流**等多个领域的精选技能包。
+收录最全、更新最快的AI Agent技能库，涵盖**内容创作、视频制作、文档处理、智能体协作、电商营销**等多个领域的精选技能包。
 
-[![技能数量](https://img.shields.io/badge/技能-140+-blue?style=flat-square)](https://github.com/anbeime/skill)
-[![本地已安装](https://img.shields.io/badge/本地已安装-41-green?style=flat-square)](https://github.com/anbeime/skill)
+[![技能数量](https://img.shields.io/badge/技能-61+-blue?style=flat-square)](https://github.com/anbeime/skill)
+[![本地已安装](https://img.shields.io/badge/本地已安装-61-green?style=flat-square)](https://github.com/anbeime/skill)
 [![备份覆盖](https://img.shields.io/badge/备份覆盖-100%25-success?style=flat-square)](https://github.com/anbeime/skill)
-[![自动更新](https://img.shields.io/badge/更新-每24小时-orange?style=flat-square)](https://github.com/anbeime/skill)
+[![最后更新](https://img.shields.io/badge/更新-2026--02--11-orange?style=flat-square)](https://github.com/anbeime/skill)
 
 ## 📊 统计数据
 
-- **官方技能**: 140+ 个（来自 awesome-agent-skills）
-- **本地已安装**: 41 个（19独立 + 3技能集 + 22子技能）
-- **备份覆盖率**: 100%（73个压缩包，69.20 MB）
-- **自动更新**: 每24小时自动爬取最新技能
+- **技能总数**: 61 个（25核心技能 + 30子技能 + 6系统内置）
+- **备份覆盖率**: 100%（71个压缩包，完整备份）
+- **分类数量**: 14 个主要分类
+- **API需求**: 15个必需API，20个可选API，26个完全免费
 
 ## 🌟 核心特性
 
-### 🤖 自动更新
-每24小时自动爬取 [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) 仓库，确保技能库始终保持最新状态。
+### 🎨 内容创作全流程
+从网页采集、Markdown格式化、智能配图到多平台发布（微信公众号、X/Twitter、小红书），一站式解决方案。
 
-### 📦 即开即用
-所有技能已打包完成，下载即可使用，无需额外配置。
+### 🎬 视频创作套件
+支持原创创作、视频二创、爆款分析、数字人配音等全流程视频制作能力。
 
-### 🏷️ 智能分类
-按照功能、来源、Star数量等多维度标签进行分类整理。
+### 📊 PPT与演示
+AI自动生成高质量PPT图片和视频，支持智能转场、路演视频、交互式播放。
 
-### 📊 数据导出
-支持JSON和CSV格式导出，方便数据分析和二次开发。
+### 🎙️ 语音与音频
+智能语音合成、音色克隆、语音识别，支持本地模型和云端API。
 
-## 📚 技能来源
+### 🤖 智能体协作
+多智能体团队协作、会议记录、同行顾问团等协作框架。
 
-本技能商店收录了来自以下顶级团队的官方技能：
+### 💼 电商与营销
+萌宠带货、电商文案、营销视频、小红书美妆等垂直领域专用技能。
 
-- **Anthropic** - docx, pptx, xlsx, pdf, mcp-builder, webapp-testing 等
-- **Vercel** - react-best-practices, next-best-practices, composition-patterns 等
-- **Cloudflare** - agents-sdk, durable-objects, wrangler 等
-- **Google Labs** - design-md, enhance-prompt, react-components, remotion 等
-- **Hugging Face** - model-trainer, datasets, evaluation, jobs 等
-- **Stripe** - stripe-best-practices, upgrade-stripe
-- **Trail of Bits** - building-secure-contracts, static-analysis, property-based-testing 等
-- **Supabase** - postgres-best-practices
-- **Expo** - expo-app-design, expo-deployment, upgrading-expo
+## 📚 技能分类
+
+### 📝 内容创作与发布（10个）
+- **content-creation-publisher** ⭐⭐⭐⭐⭐ - 内容创作与发布全流程
+- **intelligent-content-system** ⭐⭐⭐⭐⭐ - 智能内容系统，自动识别场景
+- **article-illustrator** ⭐⭐⭐⭐ - 文章智能配图
+- **baoyu-url-to-markdown** ⭐⭐⭐⭐ - 网页转Markdown
+- **baoyu-format-markdown** ⭐⭐⭐⭐ - Markdown格式化
+- **baoyu-post-to-wechat** ⭐⭐⭐⭐ - 微信公众号发布
+- **baoyu-post-to-x** ⭐⭐⭐ - X/Twitter发布
+- **baoyu-xhs-images** ⭐⭐⭐⭐ - 小红书图文生成
+- **wechat-hotspot-publisher** ⭐⭐⭐ - 微信热点文章生成
+
+### 🎬 视频创作（9个）
+- **video-creation-suite** ⭐⭐⭐⭐⭐ - 完整视频创作套件
+- **video-creation-collaborator** ⭐⭐⭐⭐ - 多智能体协同视频创作
+- **video-creation-pro** ⭐⭐⭐ - 商品视频创作系统
+- **video-recreation** ⭐⭐⭐⭐ - 视频二创工具
+- **video-frame-extractor** ⭐⭐⭐ - 视频反推工具
+- **viral-video-copywriting** ⭐⭐⭐⭐ - 爆款短视频文案
+- **historical-science-video-prod** ⭐⭐ - 历史科学类视频
+- **historical-interview-scripts** ⭐⭐ - 历史访谈文案
+- **three-body-video-creator** ⭐⭐ - 《三体》视频创作
+
+### 🛒 电商与营销（6个）
+- **pet-commerce-creator** ⭐⭐⭐ - 萌宠带货短视频
+- **ecommerce-copywriter** ⭐⭐⭐ - 电商图片文案
+- **ecommerce-video-marketing** ⭐⭐⭐ - 电商视频营销
+- **product-marketing-copywriter** ⭐⭐⭐ - 产品营销文案
+- **product-video-creator** ⭐⭐⭐⭐ - 商品视频创作
+- **xiaohongshu-makeup** ⭐⭐⭐ - 小红书美妆内容
+
+### 📊 PPT与演示（6个）
+- **NanoBanana-PPT-Skills** ⭐⭐⭐⭐⭐ - AI生成PPT图片和视频
+- **ppt-generator** ⭐⭐⭐⭐ - 智能PPT生成
+- **pptx-generator** ⭐⭐⭐ - JSON转PPTX
+- **nanobanana-ppt-visualizer** ⭐⭐⭐ - PPT视觉增强
+- **ppt-roadshow-generator** ⭐⭐ - PPT路演视频
+- **remotion-video-enhancer** ⭐⭐ - 视频转场动画
+
+### 🎙️ 语音与音频（3个）
+- **tts-voice-synthesis** ⭐⭐⭐⭐⭐ - 智能语音合成
+- **qwen3-tts-local** ⭐⭐⭐⭐ - 本地语音合成（Edge-TTS）
+- **qwen3-asr-assistant** ⭐⭐⭐⭐ - 语音转文字
+
+### 🤖 数字人与视频配音（5个）
+- **infinitetalk** ⭐⭐⭐⭐⭐ - 音频驱动视频配音
+- **infinitetalk-shopping-avatar** ⭐⭐ - 小省导购员提示词
+- **digital-avatar-shopping-video** ⭐⭐ - 数字人口播带货
+- **dream-video-prompt-generator** ⭐⭐ - 即梦视频提示词
+- **agentkit-multimedia-shopping** ⭐⭐ - 多媒体带货视频
+
+### 📄 文档与分析（4个）
+- **paper-analysis-assistant** ⭐⭐⭐⭐ - arXiv论文分析
+- **contract-review** ⭐⭐⭐ - 合同审核
+- **law-to-markdown** ⭐⭐ - 法律文档转换
+- **stock-analysis** ⭐⭐⭐ - 股票个股分析
+
+### 🤝 智能体协作（3个）
+- **agent-team** ⭐⭐⭐ - 智能体团队协作
+- **multi-agent-meeting** ⭐⭐ - 多智能体会议
+- **peers-advisory-group** ⭐⭐ - 同行顾问团
+
+### 💼 产品与项目管理（2个）
+- **product-manager-toolkit** ⭐⭐⭐ - 产品经理工具包
+- **sales-ai-assistant** ⭐⭐ - 销售AI助手
+
+### 🎨 设计与可视化（4个）
+- **frontend-design** ⭐⭐⭐ - 前端界面设计
+- **ai-drawio** ⭐⭐⭐⭐ - 流程图绘制
+- **pop-up-book-illustration** ⭐⭐ - 3D纸艺插画
+- **web-to-app** ⭐⭐ - 网页转桌面应用
+
+### 📑 文档处理（4个 - 系统内置）
+- **pptx** ⭐⭐⭐⭐⭐ - PPT文件处理
+- **xlsx** ⭐⭐⭐⭐⭐ - Excel文件处理
+- **pdf** ⭐⭐⭐⭐⭐ - PDF文件处理
+- **docx** ⭐⭐⭐⭐⭐ - Word文件处理
+
+### 🔧 技能管理（2个 - 系统内置）
+- **find-skill** ⭐⭐⭐ - 技能发现工具
+- **skill-creator** ⭐⭐⭐ - 技能创建工具
+
+### 💰 财务分析（2个）
+- **creating-financial-models** ⭐⭐⭐⭐ - 财务建模套件
+- **market-research-reports** ⭐⭐⭐⭐ - 市场研究报告
+
+### 🎭 文化创作（1个）
+- **poetry-music-visual** ⭐⭐ - 古诗词配图配乐
 
 ## 🚀 快速开始
 
@@ -51,150 +133,89 @@ git clone https://github.com/anbeime/skill.git
 cd skill
 ```
 
-### 2. 安装依赖
+### 2. 浏览技能
+
+访问 [在线技能商店](https://skill.vercel.app) 或查看本地文件：
 
 ```bash
-pip install -r requirements.txt
+# 查看技能列表
+cat data/local_skills.json
+
+# 查看技能文档
+ls docs/
 ```
 
-### 3. 运行更新
+### 3. 下载技能压缩包
 
-```bash
-# 立即执行一次更新
-python main.py --once
+所有技能压缩包位于 `skills/skill压缩文件/` 目录，包含71个压缩包。
 
-# 启动定时更新守护进程
-python main.py --daemon
+## 💾 技能备份
 
-# 显示数据统计
-python main.py --stats
+### 备份位置
+- **主目录**: `D:\tool\skills\`
+- **压缩备份**: `D:\tool\skills\skill压缩文件\`（71个压缩包）
+- **备份覆盖率**: 100%
 
-# 导出为 CSV 格式
-python main.py --export skills.csv
-
-# 详细日志模式
-python main.py --once -v
-```
-
-## 💾 本地技能库
-
-### 已安装技能（41个）
-
-#### 独立技能（19个）
-
-1. **content-creation-publisher** - 内容创作与发布全流程
-2. **intelligent-content-system** - 智能内容系统
-3. **NanoBanana-PPT-Skills** - PPT生成
-4. **obsidian-skills-integrated** - Obsidian集成
-5. **infinitetalk** - 音频驱动视频配音
-6. **tts-voice-synthesis** - 语音合成
-7. **qwen3-tts-local** - 本地语音合成
-8. **qwen3-asr-assistant** - 语音转文字
-9. **agent-team** - 智能体团队协作
-10. **multi-agent-meeting** - 多智能体会议
-11. **product-manager-toolkit** - 产品经理工具包
-12. **ai-drawio** - 流程图绘制
-13. **three-body-video-creator** - 三体视频创作
-14. **poetry-music-visual** - 诗词配乐
-15. **moltbook** - AI Agent社交网络
-16. **OpenCut-main** - 视频剪辑
-
-#### 技能集（3个，包含22个子技能）
-
-17. **baoyu-skills** - 宝玉技能集（17个子技能）
-18. **jiamu-skills** - 佳木技能集（5个子技能）
-19. **legal-assistant-skills-main** - 法律助手技能集（2个子技能）
+### 备份说明
+- 所有技能均有对应压缩包
+- 系统内置技能（pptx、xlsx、pdf、docx、find-skill、skill-creator）无需压缩包
+- 包含backup标记的文件为历史版本备份
 
 ## 📖 文档
 
 - [技能管理数据库](docs/技能管理数据库.md) - 完整的技能索引和说明
 - [技能清理与迁移指南](docs/技能清理与迁移指南.md) - 技能迁移和备份指南
-- [整理完成报告](docs/D盘tool目录整理完成报告.md) - 详细的整理过程
 - [技能数量差异分析](docs/技能数量差异分析报告.md) - 技能数量统计分析
-
-## 🗂️ 技能分类
-
-### 📄 文档处理
-docx, pptx, xlsx, pdf 等文档创建和编辑（Anthropic官方）
-
-### 🎨 创意设计
-algorithmic-art, canvas-design, frontend-design（Anthropic官方）
-
-### 💻 开发工具
-mcp-builder, webapp-testing, web-artifacts-builder（Anthropic官方）
-
-### ⚛️ React/Next.js
-react-best-practices, next-best-practices, composition-patterns（Vercel官方）
-
-### ☁️ Cloudflare
-agents-sdk, durable-objects, wrangler（Cloudflare官方）
-
-### 🤗 机器学习
-model-trainer, datasets, evaluation, jobs（Hugging Face官方）
-
-### 🔒 安全审计
-building-secure-contracts, static-analysis, property-based-testing（Trail of Bits官方）
-
-### 💳 支付集成
-stripe-best-practices, upgrade-stripe（Stripe官方）
-
-## ⚙️ 配置说明
-
-### 环境变量
-
-- `UPDATE_INTERVAL`: 更新间隔（默认24小时）
-- `GITHUB_RAW_README_URL`: GitHub源地址
-- `DATA_DIR`: 数据目录（data/）
-- `LOG_DIR`: 日志目录（logs/）
-
-### Windows 定时任务
-
-支持两种方式：
-
-1. **任务计划程序**: 使用 `setup_scheduled_task.ps1` 脚本设置
-2. **Daemon 模式**: 使用 `start_daemon.bat` 启动守护进程
+- [整理完成报告](docs/D盘tool目录整理完成报告.md) - 详细的整理过程
 
 ## 📊 数据格式
-
-### skills.json
-
-```json
-{
-  "skills": [
-    {
-      "name": "组织名/技能名",
-      "description": "技能描述",
-      "link": "GitHub链接",
-      "category": "分类名称",
-      "source": "来源仓库",
-      "crawled_at": "2026-02-02T17:07:33"
-    }
-  ],
-  "total": 140,
-  "updated_at": "2026-02-02T17:07:33"
-}
-```
 
 ### local_skills.json
 
 ```json
 {
   "metadata": {
-    "total_skills": 41,
-    "independent_skills": 19,
-    "skill_collections": 3,
-    "sub_skills": 22
+    "total_skills": 61,
+    "core_skills": 25,
+    "sub_skills": 30,
+    "system_builtin": 6,
+    "last_updated": "2026-02-11T15:30:00"
   },
-  "independent_skills": [...],
-  "skill_collections": [...]
+  "categories": {
+    "内容创作与发布": {...},
+    "视频创作": {...},
+    ...
+  },
+  "statistics": {
+    "by_api_requirement": {
+      "必需API": 15,
+      "可选API": 20,
+      "完全免费": 26
+    }
+  }
 }
 ```
+
+## 🎯 核心技能推荐
+
+### ⭐⭐⭐⭐⭐ 五星技能（10个）
+
+1. **content-creation-publisher** - 内容创作与发布全流程
+2. **intelligent-content-system** - 智能内容系统
+3. **video-creation-suite** - 完整视频创作套件
+4. **NanoBanana-PPT-Skills** - AI生成PPT
+5. **tts-voice-synthesis** - 智能语音合成
+6. **infinitetalk** - 音频驱动视频配音
+7. **pptx** - PPT文件处理（系统内置）
+8. **xlsx** - Excel文件处理（系统内置）
+9. **pdf** - PDF文件处理（系统内置）
+10. **docx** - Word文件处理（系统内置）
 
 ## 🔗 相关链接
 
 - [GitHub仓库](https://github.com/anbeime/skill)
-- [Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills)（官方技能源仓库，6.5k+ stars）
-- [在线演示](https://skill.vercel.app)（即将上线）
+- [在线演示](https://skill.vercel.app)
+- [技能管理数据库](https://github.com/anbeime/skill/blob/main/docs/技能管理数据库.md)
 
 ## 🤝 贡献
 
@@ -206,11 +227,24 @@ MIT License
 
 ## 🙏 致谢
 
-- [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) - 官方技能源仓库
-- 所有贡献技能的开发团队和个人
+感谢所有贡献技能的开发团队和个人。
+
+## 📝 更新日志
+
+### v2.0 (2026-02-11)
+- ✨ 新增12个技能
+- 📊 技能总数从49个增加到61个
+- 🏷️ 完善技能分类体系（14个分类）
+- 📦 更新技能管理数据库
+- 🔄 更新前端页面和文档
+
+### v1.0 (2026-02-09)
+- 🎉 初始版本发布
+- 📦 包含49个技能
+- 🗂️ 建立技能仓库
 
 ---
 
-**最后更新**: 2026-02-09  
+**最后更新**: 2026-02-11  
 **维护者**: anbeime  
 **联系方式**: GitHub Issues
