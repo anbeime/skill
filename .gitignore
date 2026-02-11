@@ -33,10 +33,6 @@ env/
 *.swo
 *~
 
-# OS
-.DS_Store
-Thumbs.db
-
 # Logs
 logs/
 *.log
@@ -52,3 +48,19 @@ node_modules/
 
 # Vercel
 .vercel
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config (如果包含敏感信息)
+# config.py
+
+# Test files
+test.csv
+*_test.csv
+skills_export.csv
+
+# Data (可选：如果不想提交数据文件)
+# data/skills.json
+# data/last_update.txt
