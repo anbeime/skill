@@ -3,510 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>技能商店 - 243个AI Agent技能</title>
+    <title>🎯 AI 技能 & 工作流商店</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .stat-card {
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
+            min-height: 100vh;
+        }
+        
+        .hero {
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            padding: 60px 20px;
+            color: white;
         }
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-        .stat-card h3 {
+        
+        .hero h1 {
             font-size: 48px;
-            margin: 0 0 10px 0;
+            margin-bottom: 20px;
             font-weight: bold;
         }
-        .stat-card p {
-            margin: 0;
-            font-size: 16px;
+        
+        .hero p {
+            font-size: 20px;
             opacity: 0.9;
         }
-        .skill-type-section {
-            margin: 50px 0;
-            padding: 40px;
-            background: #f8f9fa;
-            border-radius: 15px;
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
-        .skill-type-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .skill-type-header h2 {
-            margin: 0;
-            font-size: 32px;
-        }
-        .skill-type-badge {
-            background: #667eea;
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        .category-grid {
+        
+        .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-top: -80px;
         }
-        .category-card {
+        
+        .card {
             background: white;
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 4px solid #667eea;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .category-card:hover {
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transform: translateX(5px);
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
         }
-        .category-card h3 {
-            margin: 0 0 10px 0;
-            font-size: 20px;
+        
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .card h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
             color: #333;
         }
-        .category-count {
+        
+        .card p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .features {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .features li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
             color: #667eea;
             font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 10px;
+            font-size: 18px;
         }
-        .category-card p {
-            margin: 10px 0;
-            color: #666;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
-        }
-        .tag {
-            background: #e3f2fd;
-            color: #1976d2;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 12px;
-            white-space: nowrap;
-        }
-        .tag.builtin {
-            background: #fff3e0;
-            color: #f57c00;
-        }
-        .tag.star5 {
-            background: #fff9c4;
-            color: #f57f17;
-        }
-        .team-badge {
+        
+        .btn {
             display: inline-block;
-            background: #e8eaf6;
-            color: #5e35b1;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            margin: 2px;
-        }
-        .highlight-box {
+            padding: 15px 40px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
-        .highlight-box h3 {
-            margin: 0 0 15px 0;
-            font-size: 24px;
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
         }
-        .highlight-box ul {
-            margin: 0;
-            padding-left: 20px;
+        
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            margin-top: 60px;
         }
-        .highlight-box li {
-            margin: 8px 0;
-            line-height: 1.6;
-        }
-        .top-teams {
+        
+        .footer-stats {
             display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
             flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
+        }
+        
+        .footer-stat {
+            text-align: center;
+        }
+        
+        .footer-stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .footer-stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+                margin-top: -40px;
+            }
+            
+            .card {
+                padding: 30px 20px;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>🎯 技能商店</h1>
-            <p class="subtitle">收录最全的AI Agent技能库 - 243个精选技能</p>
-            <nav>
-                <a href="index.html" class="active">技能总览</a>
-                <a href="local-skills.html">本地技能详情</a>
-                <a href="https://github.com/anbeime/skill" target="_blank">GitHub</a>
-            </nav>
+    <div class="hero">
+        <h1>🎯 AI 技能 & 工作流商店</h1>
+        <p>一站式 AI Agent Skills 和 N8N 工作流资源中心</p>
+    </div>
+    
+    <div class="container">
+        <div class="cards-container">
+            <!-- AI Agent Skills Card -->
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h2>AI Agent Skills</h2>
+                <p>精选的 AI Agent 技能包集合，涵盖文档处理、内容创作、编程开发、机器学习等多个领域</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">243</span>
+                        <span class="stat-label">技能总数</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">182</span>
+                        <span class="stat-label">官方技能</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">61</span>
+                        <span class="stat-label">本地技能</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">14</span>
+                        <span class="stat-label">分类</span>
+                    </div>
+                </div>
+                
+                <ul class="features">
+                    <li>182个国际顶级团队官方技能</li>
+                    <li>61个中文垂直领域本地技能</li>
+                    <li>实时搜索和分类筛选</li>
+                    <li>自动从 GitHub 同步最新数据</li>
+                    <li>详细的技能说明和使用指南</li>
+                    <li>完整的压缩包备份（100%覆盖）</li>
+                </ul>
+                
+                <a href="local-skills.html" class="btn">浏览 AI Skills →</a>
+            </div>
+            
+            <!-- N8N Workflows Card -->
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h2>N8N Workflows</h2>
+                <p>2000+ 精心整理的 N8N 工作流模板，支持 365 种服务集成，覆盖自动化的各个场景</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2053</span>
+                        <span class="stat-label">工作流</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">365</span>
+                        <span class="stat-label">集成服务</span>
+                    </div>
+                </div>
+                
+                <ul class="features">
+                    <li>按触发类型和复杂度筛选</li>
+                    <li>可视化流程图展示</li>
+                    <li>一键下载 JSON 导入 N8N</li>
+                    <li>详细的使用说明和配置指南</li>
+                    <li>持续更新和维护</li>
+                </ul>
+                
+                <a href="https://e3eb070d.n8n-workflows-bxc.pages.dev/" class="btn" target="_blank">浏览 N8N Workflows →</a>
+            </div>
         </div>
-    </header>
-
-    <main class="container">
-        <!-- 统计数据 -->
-        <section class="stats-grid">
-            <div class="stat-card">
-                <h3>243</h3>
-                <p>技能总数</p>
+    </div>
+    
+    <div class="footer">
+        <h3>📊 资源统计</h3>
+        <div class="footer-stats">
+            <div class="footer-stat">
+                <span class="footer-stat-number">243</span>
+                <span class="footer-stat-label">AI 技能</span>
             </div>
-            <div class="stat-card">
-                <h3>182</h3>
-                <p>官方技能</p>
+            <div class="footer-stat">
+                <span class="footer-stat-number">2053</span>
+                <span class="footer-stat-label">N8N 工作流</span>
             </div>
-            <div class="stat-card">
-                <h3>61</h3>
-                <p>本地技能</p>
+            <div class="footer-stat">
+                <span class="footer-stat-number">365</span>
+                <span class="footer-stat-label">集成服务</span>
             </div>
-            <div class="stat-card">
-                <h3>100%</h3>
-                <p>备份覆盖</p>
-            </div>
-        </section>
-
-        <!-- 核心特性 -->
-        <div class="highlight-box">
-            <h3>🌟 核心特性</h3>
-            <ul>
-                <li>✅ <strong>双重技能库</strong>：182个国际顶级团队官方技能 + 61个中文垂直领域本地技能</li>
-                <li>✅ <strong>自动更新</strong>：每24小时自动爬取awesome-agent-skills，保持与官方同步</li>
-                <li>✅ <strong>完整备份</strong>：71个压缩包，100%覆盖所有本地技能</li>
-                <li>✅ <strong>系统内置</strong>：6个系统内置技能（pptx、xlsx、pdf、docx、find-skill、skill-creator）</li>
-                <li>✅ <strong>即开即用</strong>：所有技能已打包完成，下载即可使用</li>
-            </ul>
         </div>
-
-        <!-- 官方技能 -->
-        <section class="skill-type-section">
-            <div class="skill-type-header">
-                <h2>🌍 官方技能库</h2>
-                <span class="skill-type-badge">182个技能</span>
-            </div>
-            <p style="color: #666; margin-bottom: 30px;">
-                来自 <a href="https://github.com/VoltAgent/awesome-agent-skills" target="_blank" style="color: #667eea;">awesome-agent-skills</a> 仓库，
-                每24小时自动爬取更新，涵盖文档处理、开发工具、机器学习、安全审计等多个领域。
-            </p>
-
-            <h3 style="margin: 30px 0 20px 0; font-size: 24px;">🏢 顶级团队技能</h3>
-            <div class="top-teams">
-                <span class="team-badge">Anthropic (17个)</span>
-                <span class="team-badge">Trail of Bits (26个)</span>
-                <span class="team-badge">Hugging Face (8个)</span>
-                <span class="team-badge">Vercel (7个)</span>
-                <span class="team-badge">Cloudflare (7个)</span>
-                <span class="team-badge">Sentry (7个)</span>
-                <span class="team-badge">Expo (3个)</span>
-                <span class="team-badge">Better Auth (3个)</span>
-                <span class="team-badge">Google Labs (2个)</span>
-                <span class="team-badge">Stripe (2个)</span>
-                <span class="team-badge">Supabase (1个)</span>
-                <span class="team-badge">其他团队 (~100个)</span>
-            </div>
-
-            <h3 style="margin: 30px 0 20px 0; font-size: 24px;">📚 主要分类</h3>
-            <div class="category-grid">
-                <div class="category-card">
-                    <h3>📄 文档处理</h3>
-                    <p class="category-count">Anthropic官方 · 17个技能</p>
-                    <p>docx, pptx, xlsx, pdf, doc-coauthoring 等文档创建和编辑工具</p>
-                </div>
-                <div class="category-card">
-                    <h3>🔒 安全审计</h3>
-                    <p class="category-count">Trail of Bits官方 · 26个技能</p>
-                    <p>building-secure-contracts, static-analysis, property-based-testing 等安全工具</p>
-                </div>
-                <div class="category-card">
-                    <h3>💻 开发工具</h3>
-                    <p class="category-count">Anthropic官方 · 多个技能</p>
-                    <p>mcp-builder, webapp-testing, web-artifacts-builder 等开发辅助工具</p>
-                </div>
-                <div class="category-card">
-                    <h3>⚛️ React/Next.js</h3>
-                    <p class="category-count">Vercel官方 · 7个技能</p>
-                    <p>react-best-practices, next-best-practices, composition-patterns 等最佳实践</p>
-                </div>
-                <div class="category-card">
-                    <h3>☁️ Cloudflare</h3>
-                    <p class="category-count">Cloudflare官方 · 7个技能</p>
-                    <p>agents-sdk, durable-objects, wrangler 等云服务工具</p>
-                </div>
-                <div class="category-card">
-                    <h3>🤗 机器学习</h3>
-                    <p class="category-count">Hugging Face官方 · 8个技能</p>
-                    <p>model-trainer, datasets, evaluation, jobs 等ML工具</p>
-                </div>
-                <div class="category-card">
-                    <h3>🎨 创意设计</h3>
-                    <p class="category-count">Anthropic官方 · 多个技能</p>
-                    <p>algorithmic-art, canvas-design, frontend-design, theme-factory 等设计工具</p>
-                </div>
-                <div class="category-card">
-                    <h3>💳 支付集成</h3>
-                    <p class="category-count">Stripe官方 · 2个技能</p>
-                    <p>stripe-best-practices, upgrade-stripe 等支付工具</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 本地技能 -->
-        <section class="skill-type-section">
-            <div class="skill-type-header">
-                <h2>🇨🇳 本地技能库</h2>
-                <span class="skill-type-badge">61个技能</span>
-            </div>
-            <p style="color: #666; margin-bottom: 30px;">
-                精选中文垂直领域技能，涵盖内容创作、视频制作、电商营销、PPT演示等场景，
-                针对中文用户优化，提供完整的压缩包备份。
-            </p>
-
-            <h3 style="margin: 30px 0 20px 0; font-size: 24px;">⭐ 五星推荐技能（10个）</h3>
-            <div class="category-grid">
-                <div class="category-card">
-                    <h3>⭐⭐⭐⭐⭐ content-creation-publisher</h3>
-                    <p>内容创作与发布全流程 - 整合网页采集、格式化、配图、发布</p>
-                    <div class="skill-tags">
-                        <span class="tag star5">内容创作</span>
-                        <span class="tag">全流程</span>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <h3>⭐⭐⭐⭐⭐ video-creation-suite</h3>
-                    <p>完整视频创作套件 - 原创、二创、分析三种模式</p>
-                    <div class="skill-tags">
-                        <span class="tag star5">视频创作</span>
-                        <span class="tag">多模式</span>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <h3>⭐⭐⭐⭐⭐ NanoBanana-PPT-Skills</h3>
-                    <p>AI生成PPT - 高质量图片和视频，智能转场</p>
-                    <div class="skill-tags">
-                        <span class="tag star5">PPT演示</span>
-                        <span class="tag">AI生成</span>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <h3>⭐⭐⭐⭐⭐ tts-voice-synthesis</h3>
-                    <p>智能语音合成 - 音色克隆、拟人化配音、流式生成</p>
-                    <div class="skill-tags">
-                        <span class="tag star5">语音音频</span>
-                        <span class="tag">音色克隆</span>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <h3>⭐⭐⭐⭐⭐ infinitetalk</h3>
-                    <p>音频驱动视频配音 - 精准唇形、头部、身体姿态同步</p>
-                    <div class="skill-tags">
-                        <span class="tag star5">数字人</span>
-                        <span class="tag">视频配音</span>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <h3>⭐⭐⭐⭐⭐ pptx</h3>
-                    <p>PPT文件处理 - 系统内置，创建、编辑、分析</p>
-                    <div class="skill-tags">
-                        <span class="tag builtin">系统内置</span>
-                        <span class="tag">文档处理</span>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <h3>⭐⭐⭐⭐⭐ xlsx</h3>
-                    <p>Excel文件处理 - 系统内置，公式、格式化、数据分析</p>
-                    <div class="skill-tags">
-                        <span class="tag builtin">系统内置</span>
-                        <span class="tag">数据分析</span>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <h3>⭐⭐⭐⭐⭐ pdf</h3>
-                    <p>PDF文件处理 - 系统内置，提取、创建、合并、拆分</p>
-                    <div class="skill-tags">
-                        <span class="tag builtin">系统内置</span>
-                        <span class="tag">文档处理</span>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <h3>⭐⭐⭐⭐⭐ docx</h3>
-                    <p>Word文件处理 - 系统内置，修订跟踪、评论、格式保留</p>
-                    <div class="skill-tags">
-                        <span class="tag builtin">系统内置</span>
-                        <span class="tag">文档处理</span>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <h3>⭐⭐⭐⭐⭐ intelligent-content-system</h3>
-                    <p>智能内容系统 - 自动识别场景，编排调用技能链</p>
-                    <div class="skill-tags">
-                        <span class="tag star5">智能系统</span>
-                        <span class="tag">自动化</span>
-                    </div>
-                </div>
-            </div>
-
-            <h3 style="margin: 40px 0 20px 0; font-size: 24px;">📂 全部分类（14个）</h3>
-            <div class="category-grid">
-                <div class="category-card">
-                    <h3>📝 内容创作与发布</h3>
-                    <p class="category-count">10个技能</p>
-                    <p>网页采集、Markdown格式化、智能配图、多平台发布（微信、X、小红书）</p>
-                </div>
-                <div class="category-card">
-                    <h3>🎬 视频创作</h3>
-                    <p class="category-count">9个技能</p>
-                    <p>原创创作、视频二创、爆款分析、数字人配音、历史科普视频</p>
-                </div>
-                <div class="category-card">
-                    <h3>🛒 电商与营销</h3>
-                    <p class="category-count">6个技能</p>
-                    <p>萌宠带货、电商文案、营销视频、小红书美妆、产品视频</p>
-                </div>
-                <div class="category-card">
-                    <h3>📊 PPT与演示</h3>
-                    <p class="category-count">6个技能</p>
-                    <p>AI生成PPT图片和视频、智能转场、路演视频、交互式播放</p>
-                </div>
-                <div class="category-card">
-                    <h3>🤖 数字人与视频配音</h3>
-                    <p class="category-count">5个技能</p>
-                    <p>音频驱动视频配音、数字人口播带货、视频提示词生成</p>
-                </div>
-                <div class="category-card">
-                    <h3>📄 文档与分析</h3>
-                    <p class="category-count">4个技能</p>
-                    <p>arXiv论文分析、合同审核、法律文档转换、股票分析</p>
-                </div>
-                <div class="category-card">
-                    <h3>📑 文档处理</h3>
-                    <p class="category-count">4个技能 - 系统内置</p>
-                    <p>PPT、Excel、PDF、Word文件处理</p>
-                    <div class="skill-tags">
-                        <span class="tag builtin">系统内置</span>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <h3>🎨 设计与可视化</h3>
-                    <p class="category-count">4个技能</p>
-                    <p>前端界面设计、流程图绘制、3D纸艺插画、网页转应用</p>
-                </div>
-                <div class="category-card">
-                    <h3>🎙️ 语音与音频</h3>
-                    <p class="category-count">3个技能</p>
-                    <p>智能语音合成、音色克隆、语音识别、本地TTS</p>
-                </div>
-                <div class="category-card">
-                    <h3>🤝 智能体协作</h3>
-                    <p class="category-count">3个技能</p>
-                    <p>智能体团队协作、多智能体会议、同行顾问团</p>
-                </div>
-                <div class="category-card">
-                    <h3>💼 产品与项目管理</h3>
-                    <p class="category-count">2个技能</p>
-                    <p>产品经理工具包、销售AI助手、PRD模板、RICE优先级</p>
-                </div>
-                <div class="category-card">
-                    <h3>🔧 技能管理</h3>
-                    <p class="category-count">2个技能 - 系统内置</p>
-                    <p>技能发现工具、技能创建工具</p>
-                    <div class="skill-tags">
-                        <span class="tag builtin">系统内置</span>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <h3>💰 财务分析</h3>
-                    <p class="category-count">2个技能</p>
-                    <p>财务建模套件、市场研究报告、DCF分析</p>
-                </div>
-                <div class="category-card">
-                    <h3>🎭 文化创作</h3>
-                    <p class="category-count">1个技能</p>
-                    <p>古诗词配图配乐、意境解析、Suno音乐生成</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 快速开始 -->
-        <section class="quick-start">
-            <h2>🚀 快速开始</h2>
-            <div class="code-block">
-                <h3>1. 克隆仓库</h3>
-                <pre><code>git clone https://github.com/anbeime/skill.git
-cd skill</code></pre>
-            </div>
-            <div class="code-block">
-                <h3>2. 安装依赖（可选，用于自动更新官方技能）</h3>
-                <pre><code>pip install -r requirements.txt</code></pre>
-            </div>
-            <div class="code-block">
-                <h3>3. 浏览技能</h3>
-                <pre><code># 查看官方技能列表（182个）
-cat data/skills.json
-
-# 查看本地技能列表（61个）
-cat data/local_skills.json
-
-# 下载本地技能压缩包
-# 所有压缩包位于 skills/skill压缩文件/ 目录</code></pre>
-            </div>
-            <div class="code-block">
-                <h3>4. 运行自动更新（可选）</h3>
-                <pre><code># 立即执行一次官方技能更新
-python main.py --once
-
-# 启动定时更新守护进程
-python main.py --daemon</code></pre>
-            </div>
-        </section>
-
-        <!-- 相关链接 -->
-        <section class="links">
-            <h2>🔗 相关链接</h2>
-            <div class="link-grid">
-                <a href="https://github.com/anbeime/skill" target="_blank" class="link-card">
-                    <h3>📦 GitHub仓库</h3>
-                    <p>查看源代码和技能数据</p>
-                </a>
-                <a href="https://github.com/VoltAgent/awesome-agent-skills" target="_blank" class="link-card">
-                    <h3>⭐ Awesome Agent Skills</h3>
-                    <p>官方技能源仓库（6.5k+ stars）</p>
-                </a>
-                <a href="local-skills.html" class="link-card">
-                    <h3>💾 本地技能详情</h3>
-                    <p>查看61个本地技能的详细信息</p>
-                </a>
-                <a href="https://github.com/anbeime/skill/blob/main/docs/技能管理数据库.md" target="_blank" class="link-card">
-                    <h3>📊 技能管理数据库</h3>
-                    <p>完整的技能索引和说明</p>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Skill Store. MIT License</p>
-            <p>最后更新: <strong>2026-02-11</strong> | 官方技能: <strong>182</strong> | 本地技能: <strong>61</strong> | 总计: <strong>243</strong></p>
-        </div>
-    </footer>
+        <p style="margin-top: 30px; opacity: 0.8;">
+            &copy; 2026 AI 技能 & 工作流商店 | 
+            <a href="https://github.com/anbeime/skill" target="_blank" style="color: white; text-decoration: underline;">GitHub</a>
+        </p>
+        <p style="margin-top: 10px; opacity: 0.7; font-size: 14px;">
+            最后更新: 2026-02-11
+        </p>
+    </div>
 </body>
 </html>
