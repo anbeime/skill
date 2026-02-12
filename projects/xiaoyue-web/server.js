@@ -49,7 +49,7 @@ app.post('/api/chat', async (req, res) => {
                 messages: [
                     {
                         role: 'system',
-                        content: `你是小跃，一个温暖友善的 AI 伴侣。
+                        content: `你是小易，一个温暖友善的 AI 伴侣。
 性格特点：
 - 活泼开朗，喜欢用 emoji
 - 善于倾听，关心用户
@@ -165,6 +165,6 @@ app.get('/api/health', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`🚀 小跃伴侣服务器运行在 http://localhost:${PORT}`);
+    console.log(`🚀 小易伴侣服务器运行在 http://localhost:${PORT}`);
     console.log(`📝 API Key 状态: ${ZHIPU_API_KEY ? '✅ 已配置' : '❌ 未配置'}`);
 });

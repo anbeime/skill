@@ -1,7 +1,7 @@
 {
   "name": "xiaoyue-web",
   "version": "1.0.0",
-  "description": "小跃伴侣 Web 版 - 可直接运行的对话和图片生成系统",
+  "description": "小易伴侣 Web 版 - 可直接运行的对话和图片生成系统",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
