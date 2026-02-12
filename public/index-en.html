@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 AI Skills & Workflows Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .lang-switch a {
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .lang-switch a:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-top: -80px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+        }
+        
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .card h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .card p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .features {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .features li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            margin-top: 60px;
+        }
+        
+        .footer-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-stat {
+            text-align: center;
+        }
+        
+        .footer-stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .footer-stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+                margin-top: -40px;
+            }
+            
+            .card {
+                padding: 30px 20px;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch">
+        <a href="index.html">中文</a>
+    </div>
+    
+    <div class="hero">
+        <h1>🎯 AI Skills & Workflows Store</h1>
+        <p>One-Stop AI Agent Skills and N8N Workflows Resource Center</p>
+    </div>
+    
+    <div class="container">
+        <div class="cards-container">
+            <!-- AI Agent Skills Card -->
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h2>AI Agent Skills</h2>
+                <p>Curated collection of AI Agent skill packages covering document processing, content creation, programming, machine learning, and more</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">243</span>
+                        <span class="stat-label">Total Skills</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">182</span>
+                        <span class="stat-label">Official Skills</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">61</span>
+                        <span class="stat-label">Local Skills</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">14</span>
+                        <span class="stat-label">Categories</span>
+                    </div>
+                </div>
+                
+                <ul class="features">
+                    <li>182 official skills from top international teams</li>
+                    <li>61 local skills for Chinese vertical domains</li>
+                    <li>Real-time search and category filtering</li>
+                    <li>Auto-sync latest data from GitHub</li>
+                    <li>Detailed skill descriptions and guides</li>
+                    <li>Complete backup packages (100% coverage)</li>
+                </ul>
+                
+                <a href="skills-en.html" class="btn">Browse AI Skills →</a>
+            </div>
+            
+            <!-- N8N Workflows Card -->
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h2>N8N Workflows</h2>
+                <p>2000+ carefully curated N8N workflow templates with 365 service integrations covering all automation scenarios</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2053</span>
+                        <span class="stat-label">Workflows</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">365</span>
+                        <span class="stat-label">Integrations</span>
+                    </div>
+                </div>
+                
+                <ul class="features">
+                    <li>Filter by trigger type and complexity</li>
+                    <li>Visual flowchart display</li>
+                    <li>One-click JSON download for N8N import</li>
+                    <li>Detailed usage and configuration guides</li>
+                    <li>Continuously updated and maintained</li>
+                </ul>
+                
+                <a href="https://e3eb070d.n8n-workflows-bxc.pages.dev/" class="btn" target="_blank">Browse N8N Workflows →</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <h3>📊 Resource Statistics</h3>
+        <div class="footer-stats">
+            <div class="footer-stat">
+                <span class="footer-stat-number">243</span>
+                <span class="footer-stat-label">AI Skills</span>
+            </div>
+            <div class="footer-stat">
+                <span class="footer-stat-number">2053</span>
+                <span class="footer-stat-label">N8N Workflows</span>
+            </div>
+            <div class="footer-stat">
+                <span class="footer-stat-number">365</span>
+                <span class="footer-stat-label">Integrations</span>
+            </div>
+        </div>
+        <p style="margin-top: 30px; opacity: 0.8;">
+            &copy; 2026 AI Skills & Workflows Store | 
+            <a href="https://github.com/anbeime/skill" target="_blank" style="color: white; text-decoration: underline;">GitHub</a>
+        </p>
+        <p style="margin-top: 10px; opacity: 0.7; font-size: 14px;">
+            Last Updated: 2026-02-11
+        </p>
+    </div>
+</body>
+</html>

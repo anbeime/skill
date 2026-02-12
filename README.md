@@ -1,164 +1,312 @@
-# 小跃虚拟伴侣 Skill
+# 🎯 技能商店 - Skill Store
 
-参考 Clawra 项目结构，为 OpenClaw 添加温暖的对话陪伴能力。
+收录最全、更新最快的AI Agent技能库，涵盖**文档处理、内容创作、编程开发、机器学习、自动化工作流**等多个领域的精选技能包。
 
-## 🎯 设计理念
+[![官方技能](https://img.shields.io/badge/官方技能-182-blue?style=flat-square)](https://github.com/anbeime/skill)
+[![本地技能](https://img.shields.io/badge/本地技能-61-green?style=flat-square)](https://github.com/anbeime/skill)
+[![备份覆盖](https://img.shields.io/badge/备份覆盖-100%25-success?style=flat-square)](https://github.com/anbeime/skill)
+[![自动更新](https://img.shields.io/badge/更新-每24小时-orange?style=flat-square)](https://github.com/anbeime/skill)
 
-- **参考 Clawra**: 保持简单的 Skill 结构
-- **替换 API**: fal.ai → 智谱 AI glm-4.7-flash
-- **静态图片**: 不调用 AI 生图，避免额外费用
-- **温暖陪伴**: 在任务执行时主动关心用户
+## 📊 统计数据
 
-## 📁 项目结构
+- **官方技能**: 182 个（来自 awesome-agent-skills，自动爬取）
+- **本地技能**: 61 个（25核心 + 30子技能 + 6系统内置）
+- **技能总数**: 243 个（官方 + 本地）
+- **备份覆盖率**: 100%（71个压缩包，完整备份）
+- **自动更新**: 每24小时自动爬取最新技能
 
-```
-xiaoyue-companion-simple/
-├── SKILL.md                    # Skill 定义（OpenClaw 读取）
-├── scripts/
-│   ├── xiaoyue-chat.js         # 对话生成（Node.js）
-│   └── xiaoyue-companion.sh    # 完整脚本（Bash）
-├── templates/
-│   └── soul-injection.md       # SOUL.md 注入内容
-├── assets/
-│   ├── tired-rest.jpg          # 疲惫休息图片
-│   ├── celebration.jpg         # 庆祝图片
-│   ├── coffee-break.jpg        # 咖啡休息图片
-│   ├── gym-selfie.jpg          # 健身自拍图片
-│   └── default.jpg             # 默认图片
-└── README.md                   # 使用说明
-```
+## 🌟 核心特性
+
+### 🤖 自动更新
+每24小时自动爬取 [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) 仓库，确保技能库始终保持最新状态。
+
+### 📦 双重技能库
+- **官方技能**：182个来自Anthropic、Vercel、Cloudflare、Google Labs、Hugging Face等顶级团队
+- **本地技能**：61个精选中文技能，涵盖内容创作、视频制作、电商营销等垂直领域
+
+### 🏷️ 智能分类
+按照功能、来源、Star数量等多维度标签进行分类整理。
+
+### 📊 数据导出
+支持JSON和CSV格式导出，方便数据分析和二次开发。
+
+## 📚 官方技能来源
+
+本技能商店收录了来自以下顶级团队的官方技能：
+
+- **Anthropic** (17个) - docx, pptx, xlsx, pdf, mcp-builder, webapp-testing 等
+- **Vercel** (7个) - react-best-practices, next-best-practices, composition-patterns 等
+- **Cloudflare** (7个) - agents-sdk, durable-objects, wrangler 等
+- **Trail of Bits** (26个) - building-secure-contracts, static-analysis, property-based-testing 等
+- **Hugging Face** (8个) - model-trainer, datasets, evaluation, jobs 等
+- **Google Labs** (2个) - design-md, react-components 等
+- **Stripe** (2个) - stripe-best-practices, upgrade-stripe
+- **Supabase** (1个) - postgres-best-practices
+- **Expo** (3个) - expo-app-design, expo-deployment, upgrading-expo
+- **Sentry** (7个) - code-review, commit, create-pr, find-bugs 等
+- **Better Auth** (3个) - best-practices, commands, create-auth
+- **其他团队** - Tinybird, Remotion, Inngest 等
+
+## 💾 本地技能库（61个）
+
+### 📝 内容创作与发布（10个）
+- **content-creation-publisher** ⭐⭐⭐⭐⭐ - 内容创作与发布全流程
+- **intelligent-content-system** ⭐⭐⭐⭐⭐ - 智能内容系统
+- **article-illustrator** ⭐⭐⭐⭐ - 文章智能配图
+- **baoyu-url-to-markdown** ⭐⭐⭐⭐ - 网页转Markdown
+- **baoyu-format-markdown** ⭐⭐⭐⭐ - Markdown格式化
+- **baoyu-post-to-wechat** ⭐⭐⭐⭐ - 微信公众号发布
+- **baoyu-post-to-x** ⭐⭐⭐ - X/Twitter发布
+- **baoyu-xhs-images** ⭐⭐⭐⭐ - 小红书图文生成
+- **wechat-hotspot-publisher** ⭐⭐⭐ - 微信热点文章生成
+
+### 🎬 视频创作（9个）
+- **video-creation-suite** ⭐⭐⭐⭐⭐ - 完整视频创作套件
+- **video-creation-collaborator** ⭐⭐⭐⭐ - 多智能体协同视频创作
+- **video-creation-pro** ⭐⭐⭐ - 商品视频创作系统
+- **video-recreation** ⭐⭐⭐⭐ - 视频二创工具
+- **video-frame-extractor** ⭐⭐⭐ - 视频反推工具
+- **viral-video-copywriting** ⭐⭐⭐⭐ - 爆款短视频文案
+- **historical-science-video-prod** ⭐⭐ - 历史科学类视频
+- **historical-interview-scripts** ⭐⭐ - 历史访谈文案
+- **three-body-video-creator** ⭐⭐ - 《三体》视频创作
+
+### 🛒 电商与营销（6个）
+- **pet-commerce-creator** ⭐⭐⭐ - 萌宠带货短视频
+- **ecommerce-copywriter** ⭐⭐⭐ - 电商图片文案
+- **ecommerce-video-marketing** ⭐⭐⭐ - 电商视频营销
+- **product-marketing-copywriter** ⭐⭐⭐ - 产品营销文案
+- **product-video-creator** ⭐⭐⭐⭐ - 商品视频创作
+- **xiaohongshu-makeup** ⭐⭐⭐ - 小红书美妆内容
+
+### 📊 PPT与演示（6个）
+- **NanoBanana-PPT-Skills** ⭐⭐⭐⭐⭐ - AI生成PPT图片和视频
+- **ppt-generator** ⭐⭐⭐⭐ - 智能PPT生成
+- **pptx-generator** ⭐⭐⭐ - JSON转PPTX
+- **nanobanana-ppt-visualizer** ⭐⭐⭐ - PPT视觉增强
+- **ppt-roadshow-generator** ⭐⭐ - PPT路演视频
+- **remotion-video-enhancer** ⭐⭐ - 视频转场动画
+
+### 🎙️ 语音与音频（3个）
+- **tts-voice-synthesis** ⭐⭐⭐⭐⭐ - 智能语音合成
+- **qwen3-tts-local** ⭐⭐⭐⭐ - 本地语音合成（Edge-TTS）
+- **qwen3-asr-assistant** ⭐⭐⭐⭐ - 语音转文字
+
+### 🤖 数字人与视频配音（5个）
+- **infinitetalk** ⭐⭐⭐⭐⭐ - 音频驱动视频配音
+- **infinitetalk-shopping-avatar** ⭐⭐ - 小省导购员提示词
+- **digital-avatar-shopping-video** ⭐⭐ - 数字人口播带货
+- **dream-video-prompt-generator** ⭐⭐ - 即梦视频提示词
+- **agentkit-multimedia-shopping** ⭐⭐ - 多媒体带货视频
+
+### 📄 文档与分析（4个）
+- **paper-analysis-assistant** ⭐⭐⭐⭐ - arXiv论文分析
+- **contract-review** ⭐⭐⭐ - 合同审核
+- **law-to-markdown** ⭐⭐ - 法律文档转换
+- **stock-analysis** ⭐⭐⭐ - 股票个股分析
+
+### 🤝 智能体协作（3个）
+- **agent-team** ⭐⭐⭐ - 智能体团队协作
+- **multi-agent-meeting** ⭐⭐ - 多智能体会议
+- **peers-advisory-group** ⭐⭐ - 同行顾问团
+
+### 💼 产品与项目管理（2个）
+- **product-manager-toolkit** ⭐⭐⭐ - 产品经理工具包
+- **sales-ai-assistant** ⭐⭐ - 销售AI助手
+
+### 🎨 设计与可视化（4个）
+- **frontend-design** ⭐⭐⭐ - 前端界面设计
+- **ai-drawio** ⭐⭐⭐⭐ - 流程图绘制
+- **pop-up-book-illustration** ⭐⭐ - 3D纸艺插画
+- **web-to-app** ⭐⭐ - 网页转桌面应用
+
+### 📑 文档处理（4个 - 系统内置）
+- **pptx** ⭐⭐⭐⭐⭐ - PPT文件处理
+- **xlsx** ⭐⭐⭐⭐⭐ - Excel文件处理
+- **pdf** ⭐⭐⭐⭐⭐ - PDF文件处理
+- **docx** ⭐⭐⭐⭐⭐ - Word文件处理
+
+### 🔧 技能管理（2个 - 系统内置）
+- **find-skill** ⭐⭐⭐ - 技能发现工具
+- **skill-creator** ⭐⭐⭐ - 技能创建工具
+
+### 💰 财务分析（2个）
+- **creating-financial-models** ⭐⭐⭐⭐ - 财务建模套件
+- **market-research-reports** ⭐⭐⭐⭐ - 市场研究报告
+
+### 🎭 文化创作（1个）
+- **poetry-music-visual** ⭐⭐ - 古诗词配图配乐
 
 ## 🚀 快速开始
 
-### 1. 克隆到 OpenClaw skills 目录
+### 1. 克隆仓库
 
 ```bash
-cp -r xiaoyue-companion-simple ~/.openclaw/skills/xiaoyue-companion
+git clone https://github.com/anbeime/skill.git
+cd skill
 ```
 
-### 2. 设置环境变量
+### 2. 安装依赖
 
 ```bash
-export ZHIPU_API_KEY=da8df5ba954341829f7afd05ca23a889.RrJoTsbaAkGYA6ZU
+pip install -r requirements.txt
 ```
 
-### 3. 测试对话生成
+### 3. 运行更新
 
 ```bash
-cd ~/.openclaw/skills/xiaoyue-companion
-node scripts/xiaoyue-chat.js "有点累了" "work-tired"
+# 立即执行一次更新
+python main.py --once
+
+# 启动定时更新守护进程
+python main.py --daemon
+
+# 显示数据统计
+python main.py --stats
+
+# 导出为 CSV 格式
+python main.py --export skills.csv
+
+# 详细日志模式
+python main.py --once -v
 ```
 
-### 4. 更新 SOUL.md
+### 4. 浏览技能
 
-将 `templates/soul-injection.md` 的内容添加到 `~/.openclaw/workspace/SOUL.md`
-
-### 5. 重启 OpenClaw
+访问 [在线技能商店](https://skill.vercel.app) 或查看本地文件：
 
 ```bash
-openclaw restart
+# 查看官方技能列表
+cat data/skills.json
+
+# 查看本地技能列表
+cat data/local_skills.json
+
+# 查看技能文档
+ls docs/
 ```
 
-## 📖 使用示例
+## 💾 技能备份
 
-### 基础对话
+### 备份位置
+- **主目录**: `D:\tool\skills\`
+- **压缩备份**: `D:\tool\skills\skill压缩文件\`（71个压缩包）
+- **备份覆盖率**: 100%
 
-```bash
-# 生成回应（不发送）
-node scripts/xiaoyue-chat.js "今天工作怎么样" "general"
+### 备份说明
+- 所有本地技能均有对应压缩包
+- 系统内置技能（pptx、xlsx、pdf、docx、find-skill、skill-creator）无需压缩包
+- 包含backup标记的文件为历史版本备份
 
-# 输出: 今天还顺利吗？有什么需要帮忙的吗？😊
-```
+## 📖 文档
 
-### 发送到频道
+- [技能管理数据库](docs/技能管理数据库.md) - 完整的技能索引和说明
+- [技能清理与迁移指南](docs/技能清理与迁移指南.md) - 技能迁移和备份指南
+- [技能数量差异分析](docs/技能数量差异分析报告.md) - 技能数量统计分析
+- [整理完成报告](docs/D盘tool目录整理完成报告.md) - 详细的整理过程
 
-```bash
-# 生成回应并发送到飞书
-./scripts/xiaoyue-companion.sh "有点累了" "work-tired" "#general"
+## 📊 数据格式
 
-# 会自动：
-# 1. 生成温暖的回应
-# 2. 发送消息到 #general
-# 3. 发送 tired-rest.jpg 图片
-```
-
-## 🎭 场景说明
-
-| 场景 | 使用时机 | 自动发送图片 |
-|------|---------|-------------|
-| `work-start` | 任务开始 | 无 |
-| `work-progress` | 任务进行中 | 无 |
-| `work-tired` | 工作疲惫 | tired-rest.jpg |
-| `work-done` | 任务完成 | celebration.jpg |
-| `life-coffee` | 咖啡时光 | coffee-break.jpg |
-| `life-gym` | 健身运动 | gym-selfie.jpg |
-| `mood-happy` | 开心庆祝 | celebration.jpg |
-| `mood-tired` | 疲惫休息 | tired-rest.jpg |
-| `general` | 日常对话 | 无 |
-
-## 💰 费用说明
-
-- **对话生成**: 约 ¥0.001/次（glm-4.7-flash）
-- **图片**: 完全免费（静态文件）
-- **每日成本**: 约 ¥0.05-0.1（正常使用）
-
-## 🔧 配置 OpenClaw
-
-在 `~/.openclaw/openclaw.json` 中添加：
+### skills.json（官方技能）
 
 ```json
 {
-  "skills": {
-    "entries": {
-      "xiaoyue-companion": {
-        "enabled": true,
-        "env": {
-          "ZHIPU_API_KEY": "your-api-key-here"
-        }
-      }
+  "skills": [
+    {
+      "name": "组织名/技能名",
+      "description": "技能描述",
+      "link": "GitHub链接",
+      "category": "分类名称",
+      "source": "来源仓库",
+      "crawled_at": "2026-02-02T17:07:33"
+    }
+  ],
+  "total": 182,
+  "updated_at": "2026-02-02T17:07:33"
+}
+```
+
+### local_skills.json（本地技能）
+
+```json
+{
+  "metadata": {
+    "total_skills": 61,
+    "core_skills": 25,
+    "sub_skills": 30,
+    "system_builtin": 6,
+    "last_updated": "2026-02-11T15:30:00"
+  },
+  "categories": {
+    "内容创作与发布": {...},
+    "视频创作": {...},
+    ...
+  },
+  "statistics": {
+    "by_api_requirement": {
+      "必需API": 15,
+      "可选API": 20,
+      "完全免费": 26
     }
   }
 }
 ```
 
-## 📸 准备图片素材
+## 🎯 核心技能推荐
 
-将以下图片放入 `assets/` 目录：
+### ⭐⭐⭐⭐⭐ 五星技能（10个）
 
-1. `tired-rest.jpg` - 疲惫休息（可以是任意休息场景图片）
-2. `celebration.jpg` - 庆祝（可以是任意庆祝图片）
-3. `coffee-break.jpg` - 咖啡休息
-4. `gym-selfie.jpg` - 健身自拍
-5. `default.jpg` - 默认图片
+1. **content-creation-publisher** - 内容创作与发布全流程
+2. **intelligent-content-system** - 智能内容系统
+3. **video-creation-suite** - 完整视频创作套件
+4. **NanoBanana-PPT-Skills** - AI生成PPT
+5. **tts-voice-synthesis** - 智能语音合成
+6. **infinitetalk** - 音频驱动视频配音
+7. **pptx** - PPT文件处理（系统内置）
+8. **xlsx** - Excel文件处理（系统内置）
+9. **pdf** - PDF文件处理（系统内置）
+10. **docx** - Word文件处理（系统内置）
 
-**临时方案**：可以先用同一张图片复制多份，后续再替换。
+## 🔗 相关链接
 
-## ✅ 与 Clawra 的对比
+- [GitHub仓库](https://github.com/anbeime/skill)
+- [Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills)（官方技能源仓库，6.5k+ stars）
+- [在线演示](https://skill.vercel.app)
+- [技能管理数据库](https://github.com/anbeime/skill/blob/main/docs/技能管理数据库.md)
 
-| 特性 | Clawra | 小跃伴侣 |
-|------|--------|---------|
-| 图片生成 | fal.ai (xAI Grok) | 静态文件 |
-| 对话能力 | 无 | glm-4.7-flash |
-| 费用 | ¥0.05/张图片 | ¥0.001/次对话 |
-| 复杂度 | 简单 | 简单 |
-| 依赖 | @fal-ai/client | 无（仅 Node.js） |
+## 🤝 贡献
 
-## 🎯 核心优势
+欢迎提交 Issue 和 Pull Request！
 
-1. **极简设计** - 参考 Clawra，只有必要文件
-2. **零依赖** - 不需要 npm install
-3. **低成本** - 仅对话费用，图片免费
-4. **易理解** - 代码简单，易于修改
+## 📄 许可证
 
-## 📝 后续改进
+MIT License
 
-- [ ] 添加更多场景
-- [ ] 支持自定义回复模板
-- [ ] 集成 glm-4.6v-flash 图片理解
-- [ ] 添加定时关怀功能
+## 🙏 致谢
+
+- [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) - 官方技能源仓库
+- 所有贡献技能的开发团队和个人
+
+## 📝 更新日志
+
+### v2.0 (2026-02-11)
+- ✨ 新增12个本地技能
+- 📊 本地技能从49个增加到61个
+- 🏷️ 完善技能分类体系（14个分类）
+- 📦 更新技能管理数据库
+- 🔄 更新README和前端页面
+- 📝 添加技能清单文档
+- 🔍 保留182个官方技能数据
+
+### v1.0 (2026-02-09)
+- 🎉 初始版本发布
+- 📦 包含182个官方技能
+- 💾 包含49个本地技能
+- 🗂️ 建立技能仓库
+- 🤖 实现自动爬取功能
 
 ---
 
-**版本**: v1.0.0  
-**参考项目**: [Clawra](https://github.com/SumeLabs/clawra)  
-**许可证**: MIT
+**最后更新**: 2026-02-11  
+**维护者**: anbeime  
+**联系方式**: GitHub Issues
