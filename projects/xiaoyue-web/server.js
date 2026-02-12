@@ -156,6 +156,35 @@ app.post('/api/generate-image', async (req, res) => {
     }
 });
 
+// 语音合成（TTS）
+app.post('/api/tts', async (req, res) => {
+    try {
+        const { text } = req.body;
+
+        if (!text) {
+            return res.json({
+                success: false,
+                error: '缺少文本内容'
+            });
+        }
+
+        // 使用浏览器端 Web Speech API，服务器端只返回文本
+        // 如果需要服务器端生成音频，可以集成 Edge-TTS 或其他 TTS 服务
+        res.json({
+            success: true,
+            text: text,
+            useClientTTS: true // 标记使用客户端 TTS
+        });
+
+    } catch (error) {
+        console.error('TTS error:', error.message);
+        res.json({
+            success: false,
+            error: '语音合成失败'
+        });
+    }
+});
+
 // 健康检查
 app.get('/api/health', (req, res) => {
     res.json({

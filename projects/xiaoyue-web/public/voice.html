@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小易伴侣 - 真实 AI 对话（语音版）</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .chat-container {
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-left h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .header-left p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        .voice-controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .voice-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+        
+        .voice-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+        
+        .voice-btn.active {
+            background: #10b981;
+            animation: pulse-ring 1.5s infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+            }
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 25px;
+            background: #f8f9fa;
+        }
+        
+        .message {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 12px;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .message.user {
+            flex-direction: row-reverse;
+        }
+        
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .message.user .avatar {
+            background: #667eea;
+        }
+        
+        .message.ai .avatar {
+            background: #10b981;
+        }
+        
+        .message-content {
+            max-width: 70%;
+            padding: 15px 20px;
+            border-radius: 18px;
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        .message.user .message-content {
+            background: #667eea;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .message.ai .message-content {
+            background: white;
+            color: #333;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .message-audio-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.1);
+            border: none;
+            color: #667eea;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .message-audio-btn:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: scale(1.1);
+        }
+        
+        .message-audio-btn.playing {
+            color: #10b981;
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .message-image {
+            max-width: 100%;
+            border-radius: 12px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .message-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .typing-indicator {
+            display: none;
+            padding: 15px 20px;
+            background: white;
+            border-radius: 18px;
+            width: fit-content;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .typing-indicator.active {
+            display: block;
+        }
+        
+        .typing-dots {
+            display: flex;
+            gap: 6px;
+        }
+        
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            background: #667eea;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite;
+        }
+        
+        .typing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes bounce {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .chat-input-area {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .input-wrapper {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .chat-input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .chat-input:focus {
+            border-color: #667eea;
+        }
+        
+        .input-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        
+        .mic-btn {
+            background: #10b981;
+            color: white;
+        }
+        
+        .mic-btn:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        }
+        
+        .mic-btn.recording {
+            background: #ef4444;
+            animation: pulse-ring 1.5s infinite;
+        }
+        
+        .send-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .send-button:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.6);
+        }
+        
+        .send-button:disabled, .mic-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .quick-action {
+            padding: 8px 16px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .quick-action:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .chat-container {
+                height: 100vh;
+                border-radius: 0;
+            }
+            
+            .message-content {
+                max-width: 85%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="header-left">
+                <h1>🤖 小易伴侣</h1>
+                <p>支持语音对话、图片生成和视觉理解</p>
+            </div>
+            <div class="voice-controls">
+                <button class="voice-btn" id="ttsToggle" title="语音播报">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message ai">
+                <div class="avatar">🤖</div>
+                <div class="message-content">
+                    你好！我是小易，你的 AI 伴侣 😊<br><br>
+                    我可以：<br>
+                    📸 生成场景图片（咖啡馆、办公室等）<br>
+                    💬 自然对话和情感陪伴<br>
+                    🎤 语音对话（点击麦克风说话）<br>
+                    🔊 语音播报（自动朗读回复）<br><br>
+                    试试下面的快捷操作或直接说话吧！
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input-area">
+            <div class="quick-actions">
+                <button class="quick-action" onclick="sendQuickMessage('发张你在咖啡馆的照片')">📸 咖啡馆照片</button>
+                <button class="quick-action" onclick="sendQuickMessage('你在做什么？')">💬 你在做什么</button>
+                <button class="quick-action" onclick="sendQuickMessage('今天心情怎么样？')">😊 聊聊天</button>
+            </div>
+            
+            <div class="input-wrapper">
+                <button class="input-btn mic-btn" id="micButton" title="按住说话">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <input 
+                    type="text" 
+                    class="chat-input" 
+                    id="messageInput" 
+                    placeholder="输入消息...或按住麦克风说话"
+                    onkeypress="handleKeyPress(event)"
+                >
+                <button class="input-btn send-button" id="sendButton" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        const micButton = document.getElementById('micButton');
+        const ttsToggle = document.getElementById('ttsToggle');
+        
+        let ttsEnabled = true;
+        let recognition = null;
+        let synthesis = window.speechSynthesis;
+        
+        // 初始化语音识别
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.lang = 'zh-CN';
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                messageInput.value = transcript;
+                sendMessage();
+            };
+            
+            recognition.onerror = (event) => {
+                console.error('语音识别错误:', event.error);
+                micButton.classList.remove('recording');
+            };
+            
+            recognition.onend = () => {
+                micButton.classList.remove('recording');
+            };
+        }
+        
+        // 麦克风按钮
+        micButton.addEventListener('click', () => {
+            if (!recognition) {
+                alert('您的浏览器不支持语音识别');
+                return;
+            }
+            
+            if (micButton.classList.contains('recording')) {
+                recognition.stop();
+            } else {
+                recognition.start();
+                micButton.classList.add('recording');
+            }
+        });
+        
+        // TTS 开关
+        ttsToggle.addEventListener('click', () => {
+            ttsEnabled = !ttsEnabled;
+            ttsToggle.innerHTML = ttsEnabled ? 
+                '<i class="fas fa-volume-up"></i>' : 
+                '<i class="fas fa-volume-mute"></i>';
+            ttsToggle.style.background = ttsEnabled ? 
+                'rgba(255,255,255,0.2)' : 
+                'rgba(255,255,255,0.1)';
+        });
+        
+        // 文本转语音
+        function speakText(text) {
+            if (!ttsEnabled || !synthesis) return;
+            
+            // 停止当前播放
+            synthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'zh-CN';
+            utterance.rate = 1.0;
+            utterance.pitch = 1.1;
+            
+            // 尝试使用中文女声
+            const voices = synthesis.getVoices();
+            const chineseVoice = voices.find(voice => 
+                voice.lang.includes('zh') && voice.name.includes('Female')
+            ) || voices.find(voice => voice.lang.includes('zh'));
+            
+            if (chineseVoice) {
+                utterance.voice = chineseVoice;
+            }
+            
+            synthesis.speak(utterance);
+        }
+        
+        function addMessage(content, type, image = null) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'avatar';
+            avatar.textContent = type === 'user' ? '👤' : '🤖';
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            contentDiv.innerHTML = content.replace(/\n/g, '<br>');
+            
+            // 为 AI 消息添加语音播放按钮
+            if (type === 'ai') {
+                const audioBtn = document.createElement('button');
+                audioBtn.className = 'message-audio-btn';
+                audioBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                audioBtn.onclick = () => speakText(content);
+                contentDiv.appendChild(audioBtn);
+                
+                // 自动播放
+                if (ttsEnabled) {
+                    setTimeout(() => speakText(content), 500);
+                }
+            }
+            
+            if (image) {
+                const img = document.createElement('img');
+                img.src = image;
+                img.className = 'message-image';
+                img.alt = 'Generated image';
+                contentDiv.appendChild(img);
+            }
+            
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(contentDiv);
+            chatMessages.appendChild(messageDiv);
+            
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message ai';
+            typingDiv.id = 'typingIndicator';
+            
+            typingDiv.innerHTML = `
+                <div class="avatar">🤖</div>
+                <div class="typing-indicator active">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            `;
+            
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function hideTyping() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+        
+        async function sendMessage() {
+            const message = messageInput.value.trim();
+            if (!message) return;
+            
+            addMessage(message, 'user');
+            messageInput.value = '';
+            sendButton.disabled = true;
+            micButton.disabled = true;
+            
+            showTyping();
+            
+            try {
+                // 调用后端 API
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message })
+                });
+                
+                const data = await response.json();
+                
+                hideTyping();
+                
+                if (data.success) {
+                    addMessage(data.message, 'ai');
+                    
+                    // 如果需要生成图片
+                    if (data.needImage) {
+                        showTyping();
+                        
+                        const imageResponse = await fetch('/api/generate-image', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ scene: 'coffee-shop' })
+                        });
+                        
+                        const imageData = await imageResponse.json();
+                        hideTyping();
+                        
+                        if (imageData.success) {
+                            addMessage('', 'ai', imageData.imageUrl);
+                        }
+                    }
+                } else {
+                    addMessage('抱歉，出现了一些问题：' + data.error, 'ai');
+                }
+            } catch (error) {
+                hideTyping();
+                addMessage('抱歉，网络连接失败，请稍后重试', 'ai');
+            }
+            
+            sendButton.disabled = false;
+            micButton.disabled = false;
+            messageInput.focus();
+        }
+        
+        function sendQuickMessage(message) {
+            messageInput.value = message;
+            sendMessage();
+        }
+        
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        // 加载语音列表
+        if (synthesis) {
+            synthesis.onvoiceschanged = () => {
+                const voices = synthesis.getVoices();
+                console.log('可用语音:', voices.filter(v => v.lang.includes('zh')));
+            };
+        }
+        
+        messageInput.focus();
+    </script>
+</body>
+</html>
