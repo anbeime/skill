@@ -56,6 +56,66 @@
         .voice-controls {
             display: flex;
             gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .voice-select {
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            color: white;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+            max-width: 200px;
+        }
+        
+        .voice-select option {
+            background: #667eea;
+            color: white;
+        }
+        
+        .voice-slider-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+        
+        .voice-slider-group label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        .voice-slider {
+            width: 60px;
+            height: 4px;
+            -webkit-appearance: none;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+            outline: none;
+        }
+        
+        .voice-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .voice-slider::-moz-range-thumb {
+            width: 14px;
+            height: 14px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
         }
         
         .voice-btn {
@@ -366,6 +426,17 @@
                 <p>支持语音对话、图片生成和视觉理解</p>
             </div>
             <div class="voice-controls">
+                <select class="voice-select" id="voiceSelect" title="选择音色">
+                    <option value="">默认音色</option>
+                </select>
+                <div class="voice-slider-group">
+                    <label>语速</label>
+                    <input type="range" class="voice-slider" id="rateSlider" min="0.5" max="2" step="0.1" value="1" title="语速">
+                </div>
+                <div class="voice-slider-group">
+                    <label>音调</label>
+                    <input type="range" class="voice-slider" id="pitchSlider" min="0.5" max="2" step="0.1" value="1" title="音调">
+                </div>
                 <button class="voice-btn" id="ttsToggle" title="语音播报">
                     <i class="fas fa-volume-up"></i>
                 </button>
