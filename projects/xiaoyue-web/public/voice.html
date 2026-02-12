@@ -501,7 +501,11 @@
             
             const avatar = document.createElement('div');
             avatar.className = 'avatar';
-            avatar.textContent = type === 'user' ? '👤' : '🤖';
+            // 用户显示 emoji，AI 显示图片（通过 CSS background-image）
+            if (type === 'user') {
+                avatar.textContent = '👤';
+            }
+            // AI 头像通过 CSS 显示图片，不设置 textContent
             
             const contentDiv = document.createElement('div');
             contentDiv.className = 'message-content';
