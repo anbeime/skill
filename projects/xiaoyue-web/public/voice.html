@@ -477,7 +477,18 @@
             // 停止当前播放
             synthesis.cancel();
             
-            const utterance = new SpeechSynthesisUtterance(text);
+            // 清理文本：移除 emoji 和特殊符号
+            const cleanText = text
+                .replace(/[\u{1F300}-\u{1F9FF}]/gu, '') // 移除 emoji
+                .replace(/[\u{2600}-\u{26FF}]/gu, '')   // 移除符号
+                .replace(/[\u{2700}-\u{27BF}]/gu, '')   // 移除装饰符号
+                .replace(/[📸💬🎤🔊👁️🎯🖼️]/g, '')      // 移除常见 emoji
+                .replace(/\s+/g, ' ')                    // 合并多余空格
+                .trim();
+            
+            if (!cleanText) return; // 如果清理后没有文本，不播放
+            
+            const utterance = new SpeechSynthesisUtterance(cleanText);
             utterance.lang = 'zh-CN';
             utterance.rate = 1.0;
             utterance.pitch = 1.1;
