@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小跃助手项目 - 可交互的 AI 伴侣</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+        
+        .highlight {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+        
+        .project-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .project-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .project-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+        
+        .features-list {
+            margin: 25px 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 15px 0;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .feature-icon {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .tech-tag {
+            background: #f0f0f0;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 14px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .demo-section {
+            background: white;
+            border-radius: 24px;
+            padding: 50px;
+            margin-top: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .demo-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .demo-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 16px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .demo-item h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .demo-dialogue {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 10px 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .user-msg {
+            color: #555;
+            margin-bottom: 8px;
+        }
+        
+        .ai-msg {
+            color: #667eea;
+            font-weight: 500;
+        }
+        
+        .image-placeholder {
+            background: linear-gradient(135deg, #e0e7ff, #fce7f3);
+            height: 150px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            color: #667eea;
+            font-size: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 小跃助手项目集</h1>
+            <p class="subtitle">三个可交互的 AI 伴侣项目，支持对话、图像生成和情感陪伴</p>
+            <div class="highlight">✨ 全部支持图像生成 | 💬 自然对话 | 🎯 任务执行</div>
+        </header>
+
+        <div class="projects-grid">
+            <!-- Companion Skill -->
+            <div class="project-card">
+                <div class="project-icon">🎨</div>
+                <h2 class="project-title">Companion Skill</h2>
+                <p class="project-subtitle">虚拟伴侣技能版 - 最完整的交互体验</p>
+                
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">📸</span>
+                        <span><strong>AI 图片生成</strong>：使用 CogView-3 生成工作/生活场景照片</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">👁️</span>
+                        <span><strong>视觉理解</strong>：GLM-4V 多模态图片分析能力</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💬</span>
+                        <span><strong>自然对话</strong>：GLM-4-Flash 流畅对话生成</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎭</span>
+                        <span><strong>场景识别</strong>：智能识别工作/生活/情绪场景</span>
+                    </div>
+                </div>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">GLM-4-Flash</span>
+                    <span class="tech-tag">CogView-3</span>
+                    <span class="tech-tag">OpenClaw</span>
+                </div>
+                
+                <div class="buttons">
+                    <a href="https://github.com/anbeime/skill/tree/main/projects/companion-skill" class="btn btn-primary">查看项目</a>
+                    <a href="https://github.com/anbeime/skill/blob/main/projects/companion-skill/README.md" class="btn btn-secondary">文档</a>
+                </div>
+            </div>
+
+            <!-- Companion Simple -->
+            <div class="project-card">
+                <div class="project-icon">🌐</div>
+                <h2 class="project-title">Companion Simple</h2>
+                <p class="project-subtitle">技能管理版 - Web 界面展示</p>
+                
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">🕷️</span>
+                        <span><strong>技能爬取</strong>：自动同步 GitHub 最新技能数据</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <span><strong>数据管理</strong>：243 个技能的完整管理系统</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎨</span>
+                        <span><strong>Web 展示</strong>：精美的技能商店界面</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⏰</span>
+                        <span><strong>定时更新</strong>：每 24 小时自动更新技能库</span>
+                    </div>
+                </div>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">Vercel</span>
+                    <span class="tech-tag">JSON</span>
+                </div>
+                
+                <div class="buttons">
+                    <a href="https://github.com/anbeime/skill/tree/main/projects/companion-simple" class="btn btn-primary">查看项目</a>
+                    <a href="https://skill.miyucaicai.cn/" class="btn btn-secondary">在线演示</a>
+                </div>
+            </div>
+
+            <!-- Assistant -->
+            <div class="project-card">
+                <div class="project-icon">🤖</div>
+                <h2 class="project-title">Assistant</h2>
+                <p class="project-subtitle">核心助手系统 - 完整的 AI 框架</p>
+                
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">🖼️</span>
+                        <span><strong>图片生成</strong>：使用 fal.ai 生成场景图片</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🧠</span>
+                        <span><strong>长期记忆</strong>：记住用户偏好和历史对话</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <span><strong>任务执行</strong>：文件管理、代码操作等技能</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔌</span>
+                        <span><strong>多平台</strong>：支持飞书、钉钉、Telegram 等</span>
+                    </div>
+                </div>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Claude/GPT</span>
+                    <span class="tech-tag">fal.ai</span>
+                    <span class="tech-tag">Node.js</span>
+                </div>
+                
+                <div class="buttons">
+                    <a href="https://github.com/anbeime/skill/tree/main/projects/assistant" class="btn btn-primary">查看项目</a>
+                    <a href="https://github.com/anbeime/skill/blob/main/projects/assistant/README.md" class="btn btn-secondary">文档</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Demo Section -->
+        <div class="demo-section">
+            <h2 class="demo-title">💬 交互演示</h2>
+            
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <h3>📸 场景1：图片生成</h3>
+                    <div class="demo-dialogue">
+                        <div class="user-msg">👤 用户：发张你在咖啡馆的照片</div>
+                        <div class="ai-msg">🤖 小跃：好的，稍等一下～</div>
+                    </div>
+                    <div class="image-placeholder">🖼️</div>
+                    <div class="demo-dialogue">
+                        <div class="ai-msg">🤖 小跃：刚在咖啡馆点了杯拿铁，准备继续写代码 ☕</div>
+                    </div>
+                </div>
+
+                <div class="demo-item">
+                    <h3>💼 场景2：任务陪伴</h3>
+                    <div class="demo-dialogue">
+                        <div class="user-msg">👤 用户：帮我整理一下桌面文件</div>
+                        <div class="ai-msg">🤖 小跃：好的！我这就开始整理～顺便问一下，今天工作还顺利吗？</div>
+                    </div>
+                    <div class="demo-dialogue">
+                        <div class="user-msg">👤 用户：有点累</div>
+                        <div class="ai-msg">🤖 小跃：辛苦啦！[发送休息照片] 要不要我帮你生成今日工作总结？</div>
+                    </div>
+                </div>
+
+                <div class="demo-item">
+                    <h3>👁️ 场景3：视觉理解</h3>
+                    <div class="demo-dialogue">
+                        <div class="user-msg">👤 用户：[上传图片] 这是什么？</div>
+                        <div class="ai-msg">🤖 小跃：这是一张代码截图，看起来是 Python 代码。我看到了一个数据处理的函数...</div>
+                    </div>
+                    <div class="demo-dialogue">
+                        <div class="ai-msg">🤖 小跃：需要我帮你优化这段代码吗？</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; color: white;">
+            <p style="font-size: 1.2rem; margin-bottom: 15px;">
+                <a href="https://github.com/anbeime/skill" style="color: white; text-decoration: none; border-bottom: 2px solid white;">
+                    🔗 查看完整项目仓库
+                </a>
+            </p>
+            <p style="opacity: 0.8;">Made with ❤️ by anbeime | 最后更新: 2026-02-12</p>
+        </div>
+    </div>
+</body>
+</html>
