@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent Skills - 243 Skills</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .header-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        
+        .header-nav a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #666;
+            margin-top: 8px;
+        }
+        
+        .filter-bar {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-tab {
+            padding: 8px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-tab:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+        
+        .filter-tab.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            margin: 40px 0 20px 0;
+            color: #333;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .skill-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-left: 4px solid #667eea;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+        
+        .skill-card.local {
+            border-left-color: #f59e0b;
+        }
+        
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 12px;
+        }
+        
+        .skill-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            flex: 1;
+        }
+        
+        .skill-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .badge-official {
+            background: #e0e7ff;
+            color: #667eea;
+        }
+        
+        .badge-local {
+            background: #fef3c7;
+            color: #f59e0b;
+        }
+        
+        .skill-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .skill-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 13px;
+            color: #888;
+        }
+        
+        .skill-tag {
+            background: #f3f4f6;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+        
+        .skill-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .skill-link:hover {
+            text-decoration: underline;
+        }
+        
+        .rating {
+            color: #fbbf24;
+        }
+        
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-tabs {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>🎯 AI Agent Skills</h1>
+            <p>243 Curated Skills - 182 Official + 61 Local Skills</p>
+            <div class="header-nav">
+                <a href="index-en.html">← Back to Home</a>
+                <a href="skills.html">中文</a>
+                <a href="https://github.com/anbeime/skill" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-number">243</div>
+                <div class="stat-label">Total Skills</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">182</div>
+                <div class="stat-label">Official Skills</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">61</div>
+                <div class="stat-label">Local Skills</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">14</div>
+                <div class="stat-label">Categories</div>
+            </div>
+        </div>
+        
+        <div class="filter-bar">
+            <input type="text" class="search-box" id="searchBox" placeholder="🔍 Search skills by name or description...">
+            <div class="filter-tabs">
+                <div class="filter-tab active" data-filter="all">All (243)</div>
+                <div class="filter-tab" data-filter="official">Official (182)</div>
+                <div class="filter-tab" data-filter="local">Local (61)</div>
+                <div class="filter-tab" data-filter="5star">5-Star (10)</div>
+            </div>
+        </div>
+        
+        <!-- Local Skills Section -->
+        <h2 class="section-title">🇨🇳 Local Skills (61)</h2>
+        
+        <h3 style="margin: 20px 0; color: #666;">⭐⭐⭐⭐⭐ 5-Star Recommended (10)</h3>
+        <div class="skills-grid" id="localSkills5Star">
+            <div class="skill-card local" data-type="local" data-rating="5">
+                <div class="skill-header">
+                    <div class="skill-name">content-creation-publisher</div>
+                    <span class="skill-badge badge-local">Local</span>
+                </div>
+                <div class="skill-description">Full-process content creation and publishing - web scraping, Markdown formatting, smart illustrations, multi-platform publishing</div>
+                <div class="skill-meta">
+                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                    <span class="skill-tag">Content Creation</span>
+                </div>
+            </div>
+            
+            <div class="skill-card local" data-type="local" data-rating="5">
+                <div class="skill-header">
+                    <div class="skill-name">video-creation-suite</div>
+                    <span class="skill-badge badge-local">Local</span>
+                </div>
+                <div class="skill-description">Complete video creation suite - original, recreation, and analysis modes</div>
+                <div class="skill-meta">
+                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                    <span class="skill-tag">Video Creation</span>
+                </div>
+            </div>
+            
+            <div class="skill-card local" data-type="local" data-rating="5">
+                <div class="skill-header">
+                    <div class="skill-name">NanoBanana-PPT-Skills</div>
+                    <span class="skill-badge badge-local">Local</span>
+                </div>
+                <div class="skill-description">AI-generated PPT - high-quality images and videos with smart transitions</div>
+                <div class="skill-meta">
+                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                    <span class="skill-tag">PPT</span>
+                </div>
+            </div>
+            
+            <div class="skill-card local" data-type="local" data-rating="5">
+                <div class="skill-header">
+                    <div class="skill-name">pptx / xlsx / pdf / docx</div>
+                    <span class="skill-badge badge-local">Built-in</span>
+                </div>
+                <div class="skill-description">System built-in document processing skills for PPT, Excel, PDF, and Word files</div>
+                <div class="skill-meta">
+                    <span class="rating">⭐⭐⭐⭐⭐</span>
+                    <span class="skill-tag">Document Processing</span>
+                </div>
+            </div>
+            
+            <div class="skill-card local" data-type="local" data-rating="5">
+                <div class="skill-header">
+                    <div class="skill-name">More 6 5-Star Skills</div>
+                    <span class="skill-badge badge-local">Local</span>
+                </div>
+                <div class="skill-description">Including tts-voice-synthesis, infinitetalk, intelligent-content-system, etc.</div>
+                <div class="skill-meta">
+                    <a href="local-skills.html" class="skill-link">View Full List →</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Official Skills Section -->
+        <h2 class="section-title">🌍 Official Skills (182)</h2>
+        
+        <h3 style="margin: 20px 0; color: #666;">Anthropic Official (17)</h3>
+        <div class="skills-grid">
+            <div class="skill-card" data-type="official">
+                <div class="skill-header">
+                    <div class="skill-name">docx / pptx / xlsx / pdf</div>
+                    <span class="skill-badge badge-official">Official</span>
+                </div>
+                <div class="skill-description">Document processing skills from Anthropic - create, edit, and analyze documents</div>
+                <div class="skill-meta">
+                    <span class="skill-tag">Anthropic</span>
+                    <span class="skill-tag">Document Processing</span>
+                    <a href="https://github.com/anthropics/skills" target="_blank" class="skill-link">GitHub →</a>
+                </div>
+            </div>
+            
+            <div class="skill-card" data-type="official">
+                <div class="skill-header">
+                    <div class="skill-name">More 13 Anthropic Skills</div>
+                    <span class="skill-badge badge-official">Official</span>
+                </div>
+                <div class="skill-description">Including mcp-builder, webapp-testing, algorithmic-art, and more development and creative tools</div>
+                <div class="skill-meta">
+                    <a href="https://github.com/anthropics/skills" target="_blank" class="skill-link">View Full List →</a>
+                </div>
+            </div>
+        </div>
+        
+        <h3 style="margin: 30px 0 20px 0; color: #666;">Other Top Teams (165)</h3>
+        <div class="skills-grid">
+            <div class="skill-card" data-type="official">
+                <div class="skill-header">
+                    <div class="skill-name">Trail of Bits (26)</div>
+                    <span class="skill-badge badge-official">Official</span>
+                </div>
+                <div class="skill-description">Security audit tools - building-secure-contracts, static-analysis, property-based-testing, etc.</div>
+                <div class="skill-meta">
+                    <span class="skill-tag">Security</span>
+                </div>
+            </div>
+            
+            <div class="skill-card" data-type="official">
+                <div class="skill-header">
+                    <div class="skill-name">Hugging Face (8)</div>
+                    <span class="skill-badge badge-official">Official</span>
+                </div>
+                <div class="skill-description">Machine learning tools - model-trainer, datasets, evaluation, jobs, etc.</div>
+                <div class="skill-meta">
+                    <span class="skill-tag">Machine Learning</span>
+                </div>
+            </div>
+            
+            <div class="skill-card" data-type="official">
+                <div class="skill-header">
+                    <div class="skill-name">Vercel / Cloudflare / Sentry</div>
+                    <span class="skill-badge badge-official">Official</span>
+                </div>
+                <div class="skill-description">Development tools from Vercel (7), Cloudflare (7), and Sentry (7)</div>
+                <div class="skill-meta">
+                    <span class="skill-tag">Development</span>
+                </div>
+            </div>
+            
+            <div class="skill-card" data-type="official">
+                <div class="skill-header">
+                    <div class="skill-name">More Teams (~110)</div>
+                    <span class="skill-badge badge-official">Official</span>
+                </div>
+                <div class="skill-description">Skills from Expo, Better Auth, Google Labs, Stripe, Supabase, and more</div>
+                <div class="skill-meta">
+                    <a href="https://github.com/VoltAgent/awesome-agent-skills" target="_blank" class="skill-link">View Full List →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Search functionality
+        const searchBox = document.getElementById('searchBox');
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const skillCards = document.querySelectorAll('.skill-card');
+        
+        let currentFilter = 'all';
+        
+        searchBox.addEventListener('input', filterSkills);
+        
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentFilter = tab.dataset.filter;
+                filterSkills();
+            });
+        });
+        
+        function filterSkills() {
+            const searchTerm = searchBox.value.toLowerCase();
+            
+            skillCards.forEach(card => {
+                const name = card.querySelector('.skill-name').textContent.toLowerCase();
+                const description = card.querySelector('.skill-description').textContent.toLowerCase();
+                const type = card.dataset.type;
+                const rating = card.dataset.rating;
+                
+                const matchesSearch = name.includes(searchTerm) || description.includes(searchTerm);
+                const matchesFilter = 
+                    currentFilter === 'all' ||
+                    (currentFilter === 'official' && type === 'official') ||
+                    (currentFilter === 'local' && type === 'local') ||
+                    (currentFilter === '5star' && rating === '5');
+                
+                card.style.display = matchesSearch && matchesFilter ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
