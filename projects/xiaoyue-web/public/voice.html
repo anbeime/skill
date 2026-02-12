@@ -130,6 +130,8 @@
             justify-content: center;
             font-size: 1.5rem;
             flex-shrink: 0;
+            background-size: cover;
+            background-position: center;
         }
         
         .message.user .avatar {
@@ -137,7 +139,8 @@
         }
         
         .message.ai .avatar {
-            background: #10b981;
+            background-image: url('xiaoyi-avatar.png');
+            background-color: #f0f0f0;
         }
         
         .message-content {
@@ -368,7 +371,7 @@
         
         <div class="chat-messages" id="chatMessages">
             <div class="message ai">
-                <div class="avatar">🤖</div>
+                <div class="avatar"></div>
                 <div class="message-content">
                     你好！我是小易，你的 AI 伴侣 😊<br><br>
                     我可以：<br>
