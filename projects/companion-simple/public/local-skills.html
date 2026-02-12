@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地技能库 - Local Skills</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💾 本地技能库</h1>
+            <p class="subtitle">已安装的41个可用技能</p>
+            <nav>
+                <a href="index.html">官方技能商店</a>
+                <a href="local-skills.html" class="active">本地技能库</a>
+                <a href="comparison.html">技能对比</a>
+                <a href="https://github.com/anbeime/skill" target="_blank">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="stats">
+            <div class="stat-card">
+                <h3>19</h3>
+                <p>独立技能</p>
+            </div>
+            <div class="stat-card">
+                <h3>3</h3>
+                <p>技能集</p>
+            </div>
+            <div class="stat-card">
+                <h3>22</h3>
+                <p>子技能</p>
+            </div>
+            <div class="stat-card">
+                <h3>49.24 MB</h3>
+                <p>总大小</p>
+            </div>
+        </section>
+
+        <section class="filters">
+            <h2>🔍 筛选技能</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">全部 (41)</button>
+                <button class="filter-btn" data-filter="independent">独立技能 (19)</button>
+                <button class="filter-btn" data-filter="collection">技能集 (3)</button>
+                <button class="filter-btn" data-filter="needs-api">需要API (10)</button>
+                <button class="filter-btn" data-filter="free">完全免费 (9)</button>
+            </div>
+            <div class="category-filters">
+                <select id="category-select">
+                    <option value="all">所有分类</option>
+                    <option value="内容创作与发布">内容创作与发布</option>
+                    <option value="PPT与演示">PPT与演示</option>
+                    <option value="语音与音频">语音与音频</option>
+                    <option value="数字人与视频配音">数字人与视频配音</option>
+                    <option value="智能体协作">智能体协作</option>
+                    <option value="产品与项目管理">产品与项目管理</option>
+                    <option value="设计与可视化">设计与可视化</option>
+                    <option value="特殊场景">特殊场景</option>
+                    <option value="工具与辅助">工具与辅助</option>
+                    <option value="视频创作">视频创作</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="skills-list" id="skills-container">
+            <h2>📦 技能列表</h2>
+            <div id="skills-grid" class="skills-grid">
+                <!-- 技能卡片将通过JavaScript动态加载 -->
+                <div class="loading">加载中...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Skill Store. 本地技能库位置: D:\tool\skills</p>
+            <p>备份位置: D:\tool\skills\skill压缩文件 (73个压缩包, 69.20 MB)</p>
+        </div>
+    </footer>
+
+    <script>
+        // 加载本地技能数据
+        async function loadSkills() {
+            try {
+                const response = await fetch('/data/local_skills.json');
+                const data = await response.json();
+                displaySkills(data);
+            } catch (error) {
+                console.error('加载技能数据失败:', error);
+                document.getElementById('skills-grid').innerHTML = '<p class="error">加载失败，请刷新页面重试</p>';
+            }
+        }
+
+        function displaySkills(data) {
+            const container = document.getElementById('skills-grid');
+            container.innerHTML = '';
+
+            // 显示独立技能
+            data.independent_skills.forEach(skill => {
+                const card = createSkillCard(skill, 'independent');
+                container.appendChild(card);
+            });
+
+            // 显示技能集
+            data.skill_collections.forEach(collection => {
+                const card = createSkillCard(collection, 'collection');
+                container.appendChild(card);
+            });
+        }
+
+        function createSkillCard(skill, type) {
+            const card = document.createElement('div');
+            card.className = `skill-card ${type}`;
+            card.dataset.category = skill.category;
+            card.dataset.needsApi = skill.needs_api;
+            
+            const apiStatus = skill.needs_api === true ? '需要API' : 
+                            skill.needs_api === 'optional' ? '可选API' : '完全免费';
+            const apiClass = skill.needs_api === true ? 'needs-api' : 
+                           skill.needs_api === 'optional' ? 'optional-api' : 'free';
+
+            const subSkillsInfo = type === 'collection' ? 
+                `<p class="sub-skills">包含 ${skill.sub_skills_count} 个子技能</p>` : '';
+
+            const integratedSkillsInfo = skill.integrated_sub_skills ? 
+                `<p class="integrated-skills">已整合: ${skill.integrated_sub_skills.join(', ')}</p>` : '';
+
+            card.innerHTML = `
+                <div class="skill-header">
+                    <h3>${skill.name}</h3>
+                    <span class="badge ${apiClass}">${apiStatus}</span>
+                </div>
+                <p class="category">${skill.category}</p>
+                <p class="description">${skill.description}</p>
+                ${subSkillsInfo}
+                ${integratedSkillsInfo}
+                <div class="skill-meta">
+                    <span class="size">📦 ${skill.size_mb} MB</span>
+                    <span class="frequency">${'⭐'.repeat(skill.usage_frequency)}</span>
+                    <span class="backup">${skill.has_backup ? '✅ 已备份' : '❌ 无备份'}</span>
+                </div>
+                <div class="skill-api">
+                    <small>API: ${skill.api_type}</small>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // 筛选功能
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                filterSkills(filter);
+            });
+        });
+
+        document.getElementById('category-select').addEventListener('change', function() {
+            const category = this.value;
+            filterByCategory(category);
+        });
+
+        function filterSkills(filter) {
+            const cards = document.querySelectorAll('.skill-card');
+            cards.forEach(card => {
+                let show = false;
+                switch(filter) {
+                    case 'all':
+                        show = true;
+                        break;
+                    case 'independent':
+                        show = card.classList.contains('independent');
+                        break;
+                    case 'collection':
+                        show = card.classList.contains('collection');
+                        break;
+                    case 'needs-api':
+                        show = card.dataset.needsApi === 'true';
+                        break;
+                    case 'free':
+                        show = card.dataset.needsApi === 'false';
+                        break;
+                }
+                card.style.display = show ? 'block' : 'none';
+            });
+        }
+
+        function filterByCategory(category) {
+            const cards = document.querySelectorAll('.skill-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 页面加载时执行
+        document.addEventListener('DOMContentLoaded', loadSkills);
+    </script>
+</body>
+</html>

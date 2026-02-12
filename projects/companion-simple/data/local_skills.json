@@ -1,0 +1,215 @@
+{
+  "metadata": {
+    "total_skills": 61,
+    "core_skills": 25,
+    "sub_skills": 30,
+    "system_builtin": 6,
+    "last_updated": "2026-02-11T15:30:00",
+    "location": "D:\\tool\\skills",
+    "backup_location": "D:\\tool\\skills\\skill压缩文件",
+    "backup_coverage": "100%",
+    "repository": "https://github.com/anbeime/skill"
+  },
+  "categories": {
+    "内容创作与发布": {
+      "count": 10,
+      "skills": [
+        "content-creation-publisher",
+        "intelligent-content-system",
+        "article-illustrator",
+        "baoyu-url-to-markdown",
+        "baoyu-format-markdown",
+        "baoyu-post-to-wechat",
+        "baoyu-post-to-x",
+        "baoyu-xhs-images",
+        "wechat-hotspot-publisher"
+      ]
+    },
+    "视频创作": {
+      "count": 9,
+      "skills": [
+        "video-creation-suite",
+        "video-creation-collaborator",
+        "video-creation-pro",
+        "video-recreation",
+        "video-frame-extractor",
+        "viral-video-copywriting",
+        "historical-science-video-prod",
+        "historical-interview-scripts",
+        "three-body-video-creator"
+      ]
+    },
+    "电商与营销": {
+      "count": 6,
+      "skills": [
+        "pet-commerce-creator",
+        "ecommerce-copywriter",
+        "ecommerce-video-marketing",
+        "product-marketing-copywriter",
+        "product-video-creator",
+        "xiaohongshu-makeup"
+      ]
+    },
+    "PPT与演示": {
+      "count": 6,
+      "skills": [
+        "NanoBanana-PPT-Skills",
+        "ppt-generator",
+        "pptx-generator",
+        "nanobanana-ppt-visualizer",
+        "ppt-roadshow-generator",
+        "remotion-video-enhancer"
+      ]
+    },
+    "语音与音频": {
+      "count": 3,
+      "skills": [
+        "tts-voice-synthesis",
+        "qwen3-tts-local",
+        "qwen3-asr-assistant"
+      ]
+    },
+    "数字人与视频配音": {
+      "count": 5,
+      "skills": [
+        "infinitetalk",
+        "infinitetalk-shopping-avatar",
+        "digital-avatar-shopping-video",
+        "dream-video-prompt-generator",
+        "agentkit-multimedia-shopping"
+      ]
+    },
+    "文档与分析": {
+      "count": 4,
+      "skills": [
+        "paper-analysis-assistant",
+        "contract-review",
+        "law-to-markdown",
+        "stock-analysis"
+      ]
+    },
+    "智能体协作": {
+      "count": 3,
+      "skills": [
+        "agent-team",
+        "multi-agent-meeting",
+        "peers-advisory-group"
+      ]
+    },
+    "产品与项目管理": {
+      "count": 2,
+      "skills": [
+        "product-manager-toolkit",
+        "sales-ai-assistant"
+      ]
+    },
+    "设计与可视化": {
+      "count": 4,
+      "skills": [
+        "frontend-design",
+        "ai-drawio",
+        "pop-up-book-illustration",
+        "web-to-app"
+      ]
+    },
+    "文档处理": {
+      "count": 4,
+      "skills": [
+        "pptx",
+        "xlsx",
+        "pdf",
+        "docx"
+      ],
+      "note": "系统内置技能"
+    },
+    "技能管理": {
+      "count": 2,
+      "skills": [
+        "find-skill",
+        "skill-creator"
+      ],
+      "note": "系统内置技能"
+    },
+    "财务分析": {
+      "count": 2,
+      "skills": [
+        "creating-financial-models",
+        "market-research-reports"
+      ]
+    },
+    "文化创作": {
+      "count": 1,
+      "skills": [
+        "poetry-music-visual"
+      ]
+    }
+  },
+  "statistics": {
+    "by_api_requirement": {
+      "必需API": 15,
+      "可选API": 20,
+      "完全免费": 26
+    },
+    "by_usage_frequency": {
+      "⭐⭐⭐⭐⭐": 10,
+      "⭐⭐⭐⭐": 18,
+      "⭐⭐⭐": 21,
+      "⭐⭐": 12
+    }
+  },
+  "highlights": {
+    "core_skills": [
+      {
+        "name": "content-creation-publisher",
+        "category": "内容创作与发布",
+        "rating": 5,
+        "description": "内容创作与发布全流程技能，整合网页采集、Markdown格式化、智能配图、多平台发布"
+      },
+      {
+        "name": "video-creation-suite",
+        "category": "视频创作",
+        "rating": 5,
+        "description": "完整的视频创作套件，支持原创创作、视频二创、视频分析三种模式"
+      },
+      {
+        "name": "NanoBanana-PPT-Skills",
+        "category": "PPT与演示",
+        "rating": 5,
+        "description": "基于AI自动生成高质量PPT图片和视频，支持智能转场和交互式播放"
+      },
+      {
+        "name": "tts-voice-synthesis",
+        "category": "语音与音频",
+        "rating": 5,
+        "description": "智能语音合成服务，支持音色克隆、拟人化语义适配配音、流式实时生成"
+      },
+      {
+        "name": "infinitetalk",
+        "category": "数字人与视频配音",
+        "rating": 5,
+        "description": "音频驱动的稀疏帧视频配音工具，支持音频驱动的Video-to-Video和Image-to-Video"
+      }
+    ]
+  },
+  "update_log": [
+    {
+      "date": "2026-02-11",
+      "version": "2.0",
+      "changes": [
+        "新增12个技能：pptx、xlsx、pdf、docx、find-skill、skill-creator、creating-financial-models、market-research-reports、poetry-music-visual、historical-science-video-prod、historical-interview-scripts、three-body-video-creator",
+        "技能总数从49个增加到61个",
+        "完善技能分类体系",
+        "更新技能管理数据库"
+      ]
+    },
+    {
+      "date": "2026-02-09",
+      "version": "1.0",
+      "changes": [
+        "初始版本发布",
+        "包含49个技能",
+        "建立技能仓库"
+      ]
+    }
+  ]
+}

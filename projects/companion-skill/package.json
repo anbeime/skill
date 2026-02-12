@@ -1,0 +1,37 @@
+{
+  "name": "xiaoyue-companion-skill",
+  "version": "0.2.0-lite",
+  "description": "Virtual companion skill for OpenClaw - 小跃虚拟伴侣（简化版）",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "npm run build && node dist/test.js",
+    "lint": "eslint src --ext .ts"
+  },
+  "keywords": [
+    "openclaw",
+    "skill",
+    "companion",
+    "ai-assistant",
+    "zhipu-ai"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "zhipuai-sdk-nodejs-v4": "^0.1.12",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0",
+    "eslint": "^8.55.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
