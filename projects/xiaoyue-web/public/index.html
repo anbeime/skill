@@ -460,7 +460,8 @@
                 hideTyping();
                 
                 if (!chatData.success) {
-                    addSystemMessage(`错误: ${chatData.error}`);
+                    const errorMsg = chatData.error || chatData.message || '未知错误';
+                    addSystemMessage(`错误: ${errorMsg}`);
                     sendButton.disabled = false;
                     return;
                 }
@@ -497,7 +498,8 @@
                     if (imageData.success) {
                         addMessage('', 'ai', imageData.imageUrl);
                     } else {
-                        addSystemMessage(`图片生成失败: ${imageData.error}`);
+                        const errorMsg = imageData.error || imageData.message || '未知错误';
+                        addSystemMessage(`图片生成失败: ${errorMsg}`);
                     }
                 }
                 

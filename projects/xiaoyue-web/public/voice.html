@@ -678,7 +678,8 @@
                 hideTyping();
                 
                 if (data.success) {
-                    addMessage(data.message, 'ai');
+                    const aiMessage = data.message || '收到回复';
+                    addMessage(aiMessage, 'ai');
                     
                     // 如果需要生成图片
                     if (data.needImage) {
@@ -700,7 +701,8 @@
                         }
                     }
                 } else {
-                    addMessage('抱歉，出现了一些问题：' + data.error, 'ai');
+                    const errorMsg = data.error || data.message || '未知错误';
+                    addMessage('抱歉，出现了一些问题：' + errorMsg, 'ai');
                 }
             } catch (error) {
                 hideTyping();
