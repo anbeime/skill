@@ -62,10 +62,15 @@ function selectPhoto(message) {
 function detectTask(message) {
     const taskKeywords = [
         '帮我', '帮忙', '执行', '运行', '操作',
-        '打开', '创建', '整理', '搜索', '查找',
-        '下载', '上传', '发送', '删除', '移动',
+        '打开浏览器', '打开文件', '创建文档', '创建', '整理', '搜索', '查找',
+        '下载', '上传', '发送邮件', '删除', '移动',
         '复制', '粘贴', '截图', '录屏'
     ];
+    
+    // 排除照片相关的请求
+    if (message.includes('照片') || message.includes('图片') || message.includes('自拍')) {
+        return false;
+    }
     
     return taskKeywords.some(keyword => message.includes(keyword));
 }
