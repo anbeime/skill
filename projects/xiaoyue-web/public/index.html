@@ -469,37 +469,48 @@
                 // 添加AI回复
                 addMessage(chatData.message, 'ai');
                 
-                // 如果需要生成图�?                if (chatData.needImage) {
-                    showTyping();
-                    
-                    // 判断场景
-                    let scene = 'coffee-shop';
-                    if (message.includes('办公�?) || message.includes('工作')) {
-                        scene = 'office';
-                    } else if (message.includes('�?) || message.includes('家里')) {
-                        scene = 'home';
-                    } else if (message.includes('健身') || message.includes('运动')) {
-                        scene = 'gym';
-                    } else if (message.includes('公园') || message.includes('户外')) {
-                        scene = 'park';
-                    }
-                    
-                    const imageResponse = await fetch(`${API_BASE}/api/generate-image`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ scene })
-                    });
-                    
-                    const imageData = await imageResponse.json();
-                    hideTyping();
-                    
-                    if (imageData.success) {
-                        addMessage('', 'ai', imageData.imageUrl);
+                // 如果需要显示照片
+                if (chatData.needImage) {
+                    // 如果后端已经返回了照片URL，直接使用
+                    if (chatData.photoUrl) {
+                        addMessage('', 'ai', chatData.photoUrl);
                     } else {
-                        const errorMsg = imageData.error || imageData.message || '未知错误';
-                        addSystemMessage(`图片生成失败: ${errorMsg}`);
+                        // 否则调用图片生成接口
+                        showTyping();
+                        
+                        // 判断场景（作为回退）
+                        let scene = 'coffee-shop';
+                        if (message.includes('办公�?) || message.includes('工作')) {
+                            scene = 'office';
+                        } else if (message.includes('�?) || message.includes('家里')) {
+                            scene = 'home';
+                        } else if (message.includes('健身') || message.includes('运动')) {
+                            scene = 'gym';
+                        } else if (message.includes('公园') || message.includes('户外')) {
+                            scene = 'park';
+                        }
+                        
+                        // 传递用户消息作为 prompt，让后端智能匹配照片
+                        const imageResponse = await fetch(`${API_BASE}/api/generate-image`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ 
+                                prompt: message,  // 传递用户消息
+                                scene: scene 
+                            })
+                        });
+                        
+                        const imageData = await imageResponse.json();
+                        hideTyping();
+                        
+                        if (imageData.success) {
+                            addMessage('', 'ai', imageData.imageUrl);
+                        } else {
+                            const errorMsg = imageData.error || imageData.message || '未知错误';
+                            addSystemMessage(`图片加载失败: ${errorMsg}`);
+                        }
                     }
                 }
                 
