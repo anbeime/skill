@@ -47,8 +47,8 @@ async function executeOpenClawTask(task) {
     }
     
     try {
-        // 使用 OpenClaw CLI 执行任务
-        const command = `"${OPENCLAW_NODE}" "${OPENCLAW_CLI}" chat "${task.replace(/"/g, '\\"')}"`;
+        // 使用 OpenClaw agent 命令执行任务
+        const command = `"${OPENCLAW_NODE}" "${OPENCLAW_CLI}" agent --local "${task.replace(/"/g, '\\"')}"`;
         
         console.log('执行 OpenClaw 命令:', command);
         
@@ -58,11 +58,17 @@ async function executeOpenClawTask(task) {
             windowsHide: true
         });
         
-        if (stderr && !stderr.includes('warning')) {
+        if (stderr && !stderr.includes('warning') && !stderr.includes('info')) {
             console.error('OpenClaw stderr:', stderr);
         }
         
-        const result = stdout.trim() || '任务执行完成';
+        // 清理输出，移除 ANSI 颜色代码
+        const cleanOutput = stdout
+            .replace(/\x1b\[[0-9;]*m/g, '') // 移除 ANSI 颜色
+            .replace(/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g, '')
+            .trim();
+        
+        const result = cleanOutput || '任务执行完成';
         
         return {
             success: true,
