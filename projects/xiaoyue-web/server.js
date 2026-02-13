@@ -25,36 +25,11 @@ const OPENCLAW_ENABLED = process.env.OPENCLAW_ENABLED === 'true';
 // 对话历史存储
 const conversations = new Map();
 
-// 小易的照片库（16张照片）- 优化关键词匹配
-const XIAOYI_PHOTOS = [
-    { id: 1, keywords: ['你好', '早上', '早安', '微笑', '打招呼'], emotion: 'greeting' },
-    { id: 2, keywords: ['工作', '编程', '代码', '电脑', '办公', '写代码', '敲代码'], emotion: 'working' },
-    { id: 3, keywords: ['思考', '想想', '考虑', '想一下', '琢磨'], emotion: 'thinking' },
-    { id: 4, keywords: ['累', '疲惫', '休息', '困', '睡觉'], emotion: 'tired' },
-    { id: 5, keywords: ['咖啡', '喝', '饮料', '咖啡馆', '奶茶'], emotion: 'coffee' },
-    { id: 6, keywords: ['看书', '阅读', '学习', '读书', '书'], emotion: 'reading' },
-    { id: 7, keywords: ['运动', '健身', '锻炼', '瑜伽', '跑步'], emotion: 'exercise' },
-    { id: 8, keywords: ['吃饭', '美食', '午餐', '晚餐', '吃', '饭'], emotion: 'eating' },
-    { id: 9, keywords: ['开心', '高兴', '快乐', '哈哈', '笑'], emotion: 'happy' },
-    { id: 10, keywords: ['难过', '伤心', '不开心', '郁闷', '沮丧'], emotion: 'sad' },
-    { id: 11, keywords: ['惊讶', '哇', '厉害', '天哪', '震惊'], emotion: 'surprised' },
-    { id: 12, keywords: ['晚上', '夜晚', '夜里', '深夜', '晚安'], emotion: 'night' },
-    { id: 13, keywords: ['户外', '公园', '散步', '外面', '出去'], emotion: 'outdoor' },
-    { id: 14, keywords: ['音乐', '听歌', '唱歌', '歌', '音乐会'], emotion: 'music' },
-    { id: 15, keywords: ['拍照', '自拍', '照片', '拍', '摄影'], emotion: 'photo' },
-    { id: 16, keywords: ['默认', '随机', '日常', '平时', '一般'], emotion: 'default' }
-];
-
-// 根据对话内容选择合适的照片（优化匹配算法）
+// 根据对话内容选择合适的照片（随机返回，更真实）
 function selectPhoto(message) {
-    // 遍历照片库，找到最匹配的照片
-    for (const photo of XIAOYI_PHOTOS) {
-        if (photo.keywords.some(keyword => message.includes(keyword))) {
-            return `xiaoyi-photos/ren${photo.id}.png`;
-        }
-    }
-    // 默认返回随机照片
+    // 直接随机返回16张照片中的一张
     const randomId = Math.floor(Math.random() * 16) + 1;
+    console.log(`随机选择照片: ren${randomId}.png`);
     return `xiaoyi-photos/ren${randomId}.png`;
 }
 
