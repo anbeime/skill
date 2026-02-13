@@ -1,0 +1,42 @@
+# 音频视频文件
+*.mp3
+*.mp4
+*.wav
+*.avi
+*.mov
+*.flv
+*.wmv
+*.webm
+
+# 图片文件（可选，如果不想排除图片就删掉这几行）
+# *.png
+# *.jpg
+# *.jpeg
+# *.gif
+
+# 大文件
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# 临时文件
+*.tmp
+*.temp
+*.log
+*.cache
+
+# 环境配置
+.env
+.env.local
+
+# 依赖目录
+node_modules/
+__pycache__/
+.venv/
+venv/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini

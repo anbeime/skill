@@ -1,0 +1,140 @@
+{
+  "name": "finance-mcp",
+  "category": "财务与金融",
+  "rating": 5,
+  "description": "基于MCP协议的专业金融数据分析技能，集成Tushare API，支持10大市场、14个专业工具、5种技术指标",
+  "features": [
+    "10大市场覆盖：A股、美股、港股、加密货币、基金、债券、期货、外汇",
+    "14个专业工具：股票数据、财务分析、资金流向、新闻搜索等",
+    "5种技术指标：MACD、RSI、KDJ、BOLL、MA",
+    "实时行情查询",
+    "历史数据分析",
+    "财务报表获取",
+    "宏观经济数据",
+    "新闻资讯搜索"
+  ],
+  "api_requirement": "必需API",
+  "api_info": {
+    "provider": "Tushare Pro",
+    "registration": "https://tushare.pro/register",
+    "free_tier": "基础数据免费，学生可申请2000积分"
+  },
+  "installation": {
+    "method": "NPM全局安装",
+    "command": "npm install -g finance-mcp",
+    "config": "需要配置TUSHARE_TOKEN环境变量"
+  },
+  "tools": [
+    {
+      "name": "current_timestamp",
+      "description": "获取当前时间戳（UTC+8）"
+    },
+    {
+      "name": "finance_news",
+      "description": "财经新闻搜索",
+      "params": ["query"]
+    },
+    {
+      "name": "stock_data",
+      "description": "股票数据和技术指标",
+      "params": ["symbol", "indicators"],
+      "indicators": ["macd", "rsi", "kdj", "boll", "ma"]
+    },
+    {
+      "name": "index_data",
+      "description": "指数数据查询",
+      "params": ["index_code"]
+    },
+    {
+      "name": "csi_index_constituents",
+      "description": "CSI指数成分股及权重",
+      "params": ["index_code"]
+    },
+    {
+      "name": "macro_econ",
+      "description": "宏观经济数据",
+      "indicators": ["GDP", "CPI", "PPI", "PMI", "Shibor"]
+    },
+    {
+      "name": "company_performance",
+      "description": "A股公司财务分析",
+      "params": ["stock_code", "report_type"]
+    },
+    {
+      "name": "company_performance_hk",
+      "description": "港股公司财务分析",
+      "params": ["stock_code"]
+    },
+    {
+      "name": "company_performance_us",
+      "description": "美股公司财务分析",
+      "params": ["stock_code"]
+    },
+    {
+      "name": "fund_data",
+      "description": "基金数据查询",
+      "params": ["fund_code"]
+    },
+    {
+      "name": "fund_manager_by_name",
+      "description": "基金经理查询",
+      "params": ["manager_name"]
+    },
+    {
+      "name": "convertible_bond",
+      "description": "可转债数据"
+    },
+    {
+      "name": "block_trade",
+      "description": "大宗交易数据",
+      "params": ["date", "stock_code"]
+    },
+    {
+      "name": "money_flow",
+      "description": "资金流向数据",
+      "params": ["stock_code", "date"]
+    }
+  ],
+  "technical_indicators": [
+    {
+      "name": "MACD",
+      "params": "macd(12,26,9)",
+      "description": "趋势分析，判断买卖时机"
+    },
+    {
+      "name": "RSI",
+      "params": "rsi(14)",
+      "description": "超买超卖判断"
+    },
+    {
+      "name": "KDJ",
+      "params": "kdj(9,3,3)",
+      "description": "短期买卖点判断"
+    },
+    {
+      "name": "BOLL",
+      "params": "boll(20,2)",
+      "description": "判断价格波动区间"
+    },
+    {
+      "name": "MA",
+      "params": "ma(5,10,20,60)",
+      "description": "趋势判断和支撑压力位"
+    }
+  ],
+  "usage_examples": [
+    "查询贵州茅台(600519.SH)最新股价",
+    "分析比亚迪(002594.SZ)的技术指标MACD、RSI、KDJ",
+    "获取茅台2023年财务报表",
+    "查询宁德时代资金流向情况",
+    "搜索新能源汽车板块最新新闻",
+    "获取最近一年CPI和PPI数据"
+  ],
+  "github": "https://github.com/guangxiangdebizi/FinanceMCP",
+  "npm": "https://www.npmjs.com/package/finance-mcp",
+  "web_demo": "https://finvestai.top/",
+  "documentation": "https://github.com/guangxiangdebizi/FinanceMCP#readme",
+  "version": "4.7.0",
+  "last_updated": "2026-02-13",
+  "tags": ["金融", "股票", "数据分析", "MCP", "技术指标", "财务分析"]
+}
