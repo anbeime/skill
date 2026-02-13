@@ -394,7 +394,8 @@
             
             if (image) {
                 const img = document.createElement('img');
-                img.src = image;
+                // 添加时间戳防止浏览器缓存
+                img.src = image + '?t=' + Date.now();
                 img.className = 'message-image';
                 img.alt = 'Generated image';
                 img.onclick = () => window.open(image, '_blank');
