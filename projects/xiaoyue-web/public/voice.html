@@ -612,7 +612,8 @@
             
             if (image) {
                 const img = document.createElement('img');
-                img.src = image;
+                // 添加时间戳防止浏览器缓存
+                img.src = image + '?t=' + Date.now();
                 img.className = 'message-image';
                 img.alt = 'Generated image';
                 contentDiv.appendChild(img);
@@ -664,13 +665,20 @@
             showTyping();
             
             try {
+                // 生成唯一的请求ID（针对照片请求使用随机sessionId）
+                const isPhotoRequest = message.includes('照片') || message.includes('图片') || message.includes('自拍');
+                const sessionId = isPhotoRequest ? 'session-' + Date.now() : 'default';
+                
                 // 调用后端 API
                 const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ message })
+                    body: JSON.stringify({ 
+                        message: message,
+                        sessionId: sessionId
+                    })
                 });
                 
                 const data = await response.json();
@@ -681,23 +689,32 @@
                     const aiMessage = data.message || '收到回复';
                     addMessage(aiMessage, 'ai');
                     
-                    // 如果需要生成图片
+                    // 如果需要显示照片
                     if (data.needImage) {
-                        showTyping();
-                        
-                        const imageResponse = await fetch('/api/generate-image', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({ scene: 'coffee-shop' })
-                        });
-                        
-                        const imageData = await imageResponse.json();
-                        hideTyping();
-                        
-                        if (imageData.success) {
-                            addMessage('', 'ai', imageData.imageUrl);
+                        // 如果后端已经返回了照片URL，直接使用
+                        if (data.photoUrl) {
+                            addMessage('', 'ai', data.photoUrl);
+                        } else {
+                            // 否则调用图片生成接口
+                            showTyping();
+                            
+                            const imageResponse = await fetch('/api/generate-image', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ 
+                                    prompt: message,
+                                    scene: 'coffee-shop' 
+                                })
+                            });
+                            
+                            const imageData = await imageResponse.json();
+                            hideTyping();
+                            
+                            if (imageData.success) {
+                                addMessage('', 'ai', imageData.imageUrl);
+                            }
                         }
                     }
                 } else {
