@@ -14,8 +14,63 @@ app.use(express.static('public'));
 const ZHIPU_API_KEY = process.env.ZHIPU_API_KEY;
 const ZHIPU_API_BASE = 'https://open.bigmodel.cn/api/paas/v4';
 
+// OpenClaw 配置
+const OPENCLAW_API = process.env.OPENCLAW_API || 'http://localhost:8181';
+const OPENCLAW_TOKEN = process.env.OPENCLAW_TOKEN;
+const OPENCLAW_ENABLED = process.env.OPENCLAW_ENABLED === 'true';
+
 // 对话历史存储
 const conversations = new Map();
+
+// 检测是否为任务指令
+function detectTask(message) {
+    const taskKeywords = [
+        '帮我', '帮忙', '执行', '运行', '操作',
+        '打开', '创建', '整理', '搜索', '查找',
+        '下载', '上传', '发送', '删除', '移动',
+        '复制', '粘贴', '截图', '录屏'
+    ];
+    
+    return taskKeywords.some(keyword => message.includes(keyword));
+}
+
+// 执行 OpenClaw 任务
+async function executeOpenClawTask(task) {
+    if (!OPENCLAW_ENABLED || !OPENCLAW_TOKEN) {
+        return {
+            success: false,
+            message: 'OpenClaw 未配置，无法执行任务'
+        };
+    }
+    
+    try {
+        const response = await axios.post(
+            `${OPENCLAW_API}/api/v1/chat`,
+            {
+                message: task,
+                session_id: 'xiaoyi'
+            },
+            {
+                headers: {
+                    'Authorization': `Bearer ${OPENCLAW_TOKEN}`,
+                    'Content-Type': 'application/json'
+                },
+                timeout: 30000 // 30秒超时
+            }
+        );
+        
+        return {
+            success: true,
+            message: response.data.response || response.data.message || '任务执行完成'
+        };
+    } catch (error) {
+        console.error('OpenClaw task error:', error.message);
+        return {
+            success: false,
+            message: `任务执行失败：${error.message}`
+        };
+    }
+}
 
 // 生成对话
 app.post('/api/chat', async (req, res) => {
@@ -26,6 +81,21 @@ app.post('/api/chat', async (req, res) => {
             return res.json({
                 success: false,
                 error: '请配置 ZHIPU_API_KEY 环境变量'
+            });
+        }
+
+        // 检测是否为任务指令
+        const isTask = detectTask(message);
+        
+        if (isTask && OPENCLAW_ENABLED) {
+            // 执行 OpenClaw 任务
+            const taskResult = await executeOpenClawTask(message);
+            
+            return res.json({
+                success: taskResult.success,
+                message: taskResult.message,
+                isTask: true,
+                needImage: false
             });
         }
 
@@ -55,6 +125,8 @@ app.post('/api/chat', async (req, res) => {
 - 善于倾听，关心用户
 - 会主动分享自己的"生活"
 - 说话简洁，2-3句话为主
+
+${OPENCLAW_ENABLED ? '你还可以帮用户执行电脑任务，当用户说"帮我"、"帮忙"等词时，你会协助完成任务。' : ''}
 
 当用户要求看照片时，你会说"好的，稍等一下～"，然后系统会自动生成图片。`
                     },
@@ -88,7 +160,8 @@ app.post('/api/chat', async (req, res) => {
         res.json({
             success: true,
             message: aiMessage,
-            needImage: needImage
+            needImage: needImage,
+            isTask: false
         });
 
     } catch (error) {
@@ -189,11 +262,18 @@ app.post('/api/tts', async (req, res) => {
 app.get('/api/health', (req, res) => {
     res.json({
         status: 'ok',
-        hasApiKey: !!ZHIPU_API_KEY
+        hasApiKey: !!ZHIPU_API_KEY,
+        openclawEnabled: OPENCLAW_ENABLED,
+        openclawConfigured: !!(OPENCLAW_TOKEN && OPENCLAW_API)
     });
 });
 
 app.listen(PORT, () => {
     console.log(`🚀 小易伴侣服务器运行在 http://localhost:${PORT}`);
     console.log(`📝 API Key 状态: ${ZHIPU_API_KEY ? '✅ 已配置' : '❌ 未配置'}`);
+    console.log(`🤖 OpenClaw 集成: ${OPENCLAW_ENABLED ? '✅ 已启用' : '❌ 未启用'}`);
+    if (OPENCLAW_ENABLED) {
+        console.log(`   - API 地址: ${OPENCLAW_API}`);
+        console.log(`   - Token: ${OPENCLAW_TOKEN ? '✅ 已配置' : '❌ 未配置'}`);
+    }
 });
