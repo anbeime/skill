@@ -232,58 +232,38 @@ ${OPENCLAW_ENABLED ? '你还可以帮用户执行电脑任务，当用户说"帮
     }
 });
 
-// 生成图片
+// 生成图片（使用预设照片）
 app.post('/api/generate-image', async (req, res) => {
     try {
         const { prompt, scene = 'coffee-shop' } = req.body;
 
-        if (!ZHIPU_API_KEY) {
-            return res.json({
-                success: false,
-                error: '请配置 ZHIPU_API_KEY 环境变量'
-            });
-        }
-
-        // 场景提示词映射
-        const scenePrompts = {
-            'coffee-shop': '一个年轻女孩在温馨的咖啡馆里，坐在窗边，面前有一杯拿铁咖啡，正在用笔记本电脑工作，阳光透过窗户洒进来，温暖的氛围',
-            'office': '一个年轻女孩在现代化的办公室里，坐在整洁的办公桌前，面前有两台显示器，正在专注地编写代码，背景是落地窗和城市景观',
-            'home': '一个年轻女孩在舒适的家中，坐在沙发上，抱着笔记本电脑，旁边有一只可爱的猫咪，温馨的居家环境',
-            'gym': '一个年轻女孩在健身房里，穿着运动服，正在做瑜伽或拉伸，充满活力的氛围',
-            'park': '一个年轻女孩在公园里，坐在长椅上，周围是绿树和鲜花，正在看书或使用手机，宁静的自然环境'
+        // 场景到照片ID的映射
+        const scenePhotoMap = {
+            'coffee-shop': 5,  // 咖啡照片
+            'office': 2,       // 工作照片
+            'home': 16,        // 默认/居家照片
+            'gym': 7,          // 运动照片
+            'park': 13         // 户外照片
         };
 
-        const imagePrompt = scenePrompts[scene] || scenePrompts['coffee-shop'];
+        // 根据场景选择对应的预设照片
+        const photoId = scenePhotoMap[scene] || scenePhotoMap['coffee-shop'];
+        const photoUrl = `xiaoyi-photos/ren${photoId}.png`;
 
-        // 调用 CogView-3
-        const response = await axios.post(
-            `${ZHIPU_API_BASE}/images/generations`,
-            {
-                model: 'cogview-3',
-                prompt: imagePrompt,
-                size: '1024x1024'
-            },
-            {
-                headers: {
-                    'Authorization': `Bearer ${ZHIPU_API_KEY}`,
-                    'Content-Type': 'application/json'
-                }
-            }
-        );
-
-        const imageUrl = response.data.data[0].url;
+        console.log(`场景 "${scene}" 使用预设照片: ${photoUrl}`);
 
         res.json({
             success: true,
-            imageUrl: imageUrl,
-            scene: scene
+            imageUrl: photoUrl,
+            scene: scene,
+            source: 'preset'
         });
 
     } catch (error) {
-        console.error('Image generation error:', error.response?.data || error.message);
+        console.error('Image generation error:', error.message);
         res.json({
             success: false,
-            error: error.response?.data?.error?.message || '图片生成失败，请稍后重试'
+            error: '图片加载失败，请稍后重试'
         });
     }
 });
