@@ -29,8 +29,9 @@ const conversations = new Map();
 function selectPhoto(message) {
     // 直接随机返回16张照片中的一张
     const randomId = Math.floor(Math.random() * 16) + 1;
-    console.log(`随机选择照片: ren${randomId}.png`);
-    return `xiaoyi-photos/ren${randomId}.png`;
+    const photoUrl = `xiaoyi-photos/ren${randomId}.png`;
+    console.log(`[selectPhoto] 消息: "${message}" -> 随机选择照片: ${photoUrl}`);
+    return photoUrl;
 }
 
 // 检测是否为任务指令
@@ -188,6 +189,7 @@ ${OPENCLAW_ENABLED ? '你还可以帮用户执行电脑任务，当用户说"帮
         let selectedPhoto = null;
         if (needImage) {
             selectedPhoto = selectPhoto(message);
+            console.log(`[/api/chat] needImage=true, selectedPhoto=${selectedPhoto}`);
         }
 
         res.json({

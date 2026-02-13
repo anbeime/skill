@@ -460,6 +460,8 @@
                 const chatData = await chatResponse.json();
                 hideTyping();
                 
+                console.log('[DEBUG] Chat response:', chatData);
+                
                 if (!chatData.success) {
                     const errorMsg = chatData.error || chatData.message || '未知错误';
                     addSystemMessage(`错误: ${errorMsg}`);
@@ -472,8 +474,10 @@
                 
                 // 如果需要显示照片
                 if (chatData.needImage) {
+                    console.log('[DEBUG] needImage=true, photoUrl=', chatData.photoUrl);
                     // 如果后端已经返回了照片URL，直接使用
                     if (chatData.photoUrl) {
+                        console.log('[DEBUG] 使用后端返回的photoUrl:', chatData.photoUrl);
                         addMessage('', 'ai', chatData.photoUrl);
                     } else {
                         // 否则调用图片生成接口

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小跃伴侣 - 在线体验</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .chat-container {
+            width: 100%;
+            max-width: 800px;
+            height: 80vh;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .chat-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+        
+        .chat-header p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 25px;
+            background: #f8f9fa;
+        }
+        
+        .message {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 12px;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .message.user {
+            flex-direction: row-reverse;
+        }
+        
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .message.user .avatar {
+            background: #667eea;
+        }
+        
+        .message.ai .avatar {
+            background: #10b981;
+        }
+        
+        .message-content {
+            max-width: 70%;
+            padding: 15px 20px;
+            border-radius: 18px;
+            line-height: 1.6;
+        }
+        
+        .message.user .message-content {
+            background: #667eea;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .message.ai .message-content {
+            background: white;
+            color: #333;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .message-image {
+            max-width: 100%;
+            border-radius: 12px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .message-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .typing-indicator {
+            display: none;
+            padding: 15px 20px;
+            background: white;
+            border-radius: 18px;
+            width: fit-content;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .typing-indicator.active {
+            display: block;
+        }
+        
+        .typing-dots {
+            display: flex;
+            gap: 6px;
+        }
+        
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            background: #667eea;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite;
+        }
+        
+        .typing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes bounce {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .chat-input-area {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .input-wrapper {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .chat-input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .chat-input:focus {
+            border-color: #667eea;
+        }
+        
+        .send-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .send-button:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.6);
+        }
+        
+        .send-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .quick-action {
+            padding: 8px 16px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .quick-action:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .demo-notice {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #ffeaa7;
+        }
+        
+        .demo-notice a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .chat-container {
+                height: 100vh;
+                border-radius: 0;
+            }
+            
+            .message-content {
+                max-width: 85%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="demo-notice">
+            ⚠️ 这是演示版本，需要配置 API Key 才能使用。
+            <a href="https://github.com/anbeime/skill/tree/main/projects/companion-skill">查看部署指南 →</a>
+        </div>
+        
+        <div class="chat-header">
+            <h1>🤖 小跃伴侣</h1>
+            <p>支持对话、图片生成和视觉理解</p>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message ai">
+                <div class="avatar">🤖</div>
+                <div class="message-content">
+                    你好！我是小跃，你的 AI 伴侣 😊<br><br>
+                    我可以：<br>
+                    📸 生成场景图片（咖啡馆、办公室等）<br>
+                    💬 自然对话和情感陪伴<br>
+                    👁️ 理解和分析图片内容<br>
+                    🎯 执行各种任务<br><br>
+                    试试下面的快捷操作吧！
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input-area">
+            <div class="quick-actions">
+                <button class="quick-action" onclick="sendQuickMessage('发张你在咖啡馆的照片')">📸 咖啡馆照片</button>
+                <button class="quick-action" onclick="sendQuickMessage('你在做什么？')">💬 你在做什么</button>
+                <button class="quick-action" onclick="sendQuickMessage('今天工作累吗？')">😊 聊聊天</button>
+                <button class="quick-action" onclick="sendQuickMessage('帮我整理文件')">🎯 帮我做事</button>
+            </div>
+            
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    class="chat-input" 
+                    id="messageInput" 
+                    placeholder="输入消息...按 Enter 发送"
+                    onkeypress="handleKeyPress(event)"
+                >
+                <button class="send-button" id="sendButton" onclick="sendMessage()">
+                    ➤
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        
+        // 模拟回复数据
+        const mockResponses = {
+            '发张你在咖啡馆的照片': {
+                text: '好的，稍等一下～',
+                image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&h=400&fit=crop',
+                followUp: '刚在咖啡馆点了杯拿铁，准备继续写代码 ☕'
+            },
+            '你在做什么': {
+                text: '我正在整理一些代码文件呢～',
+                image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop',
+                followUp: '看，这是我的工作台！有什么需要帮忙的吗？'
+            },
+            '今天工作累吗': {
+                text: '还好啦！虽然有点累，但看到你来找我聊天就开心了 😊',
+                followUp: '你今天怎么样？需要我帮你做点什么放松一下吗？'
+            },
+            '帮我整理文件': {
+                text: '好的！我这就开始整理～顺便问一下，你今天工作还顺利吗？',
+                followUp: '整理完成！我把文件按类型分成了 5 个文件夹：\n📁 文档 (12个文件)\n📁 图片 (8个文件)\n📁 代码 (5个文件)\n📁 压缩包 (3个文件)\n📁 其他 (2个文件)'
+            }
+        };
+        
+        function addMessage(content, type, image = null) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'avatar';
+            avatar.textContent = type === 'user' ? '👤' : '🤖';
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            contentDiv.innerHTML = content.replace(/\n/g, '<br>');
+            
+            if (image) {
+                const img = document.createElement('img');
+                img.src = image;
+                img.className = 'message-image';
+                img.alt = 'Generated image';
+                contentDiv.appendChild(img);
+            }
+            
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(contentDiv);
+            chatMessages.appendChild(messageDiv);
+            
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message ai';
+            typingDiv.id = 'typingIndicator';
+            
+            typingDiv.innerHTML = `
+                <div class="avatar">🤖</div>
+                <div class="typing-indicator active">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            `;
+            
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function hideTyping() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+        
+        async function sendMessage() {
+            const message = messageInput.value.trim();
+            if (!message) return;
+            
+            // 添加用户消息
+            addMessage(message, 'user');
+            messageInput.value = '';
+            sendButton.disabled = true;
+            
+            // 显示输入中
+            showTyping();
+            
+            // 模拟延迟
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            hideTyping();
+            
+            // 查找匹配的回复
+            let response = null;
+            for (const [key, value] of Object.entries(mockResponses)) {
+                if (message.includes(key) || key.includes(message)) {
+                    response = value;
+                    break;
+                }
+            }
+            
+            // 如果没有匹配，使用默认回复
+            if (!response) {
+                response = {
+                    text: '我理解你的意思了！不过这是演示版本，功能有限。要体验完整功能，请查看 <a href="https://github.com/anbeime/skill/tree/main/projects" style="color: #667eea;">部署指南</a> 来运行完整版本 😊',
+                    followUp: null
+                };
+            }
+            
+            // 添加AI回复
+            addMessage(response.text, 'ai');
+            
+            if (response.image) {
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                addMessage('', 'ai', response.image);
+            }
+            
+            if (response.followUp) {
+                await new Promise(resolve => setTimeout(resolve, 800));
+                addMessage(response.followUp, 'ai');
+            }
+            
+            sendButton.disabled = false;
+            messageInput.focus();
+        }
+        
+        function sendQuickMessage(message) {
+            messageInput.value = message;
+            sendMessage();
+        }
+        
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        // 自动聚焦输入框
+        messageInput.focus();
+    </script>
+</body>
+</html>
