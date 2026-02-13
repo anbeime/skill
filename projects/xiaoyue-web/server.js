@@ -15,8 +15,8 @@ const ZHIPU_API_KEY = process.env.ZHIPU_API_KEY;
 const ZHIPU_API_BASE = 'https://open.bigmodel.cn/api/paas/v4';
 
 // OpenClaw 配置
-const OPENCLAW_API = process.env.OPENCLAW_API || 'http://localhost:8181';
-const OPENCLAW_TOKEN = process.env.OPENCLAW_TOKEN;
+const OPENCLAW_CLI = process.env.OPENCLAW_CLI || 'D:\\openclaw\\npm-global\\node_modules\\openclaw\\dist\\index.js';
+const OPENCLAW_NODE = process.env.OPENCLAW_NODE || 'C:\\Users\\ASUS\\.stepfun\\runtimes\\node\\install_1770628825604_th45cs96cig\\node-v22.18.0-win-x64\\node.exe';
 const OPENCLAW_ENABLED = process.env.OPENCLAW_ENABLED === 'true';
 
 // 对话历史存储
@@ -36,32 +36,35 @@ function detectTask(message) {
 
 // 执行 OpenClaw 任务
 async function executeOpenClawTask(task) {
-    if (!OPENCLAW_ENABLED || !OPENCLAW_TOKEN) {
+    if (!OPENCLAW_ENABLED) {
         return {
             success: false,
-            message: 'OpenClaw 未配置，无法执行任务'
+            message: 'OpenClaw 未启用'
         };
     }
     
     try {
-        const response = await axios.post(
-            `${OPENCLAW_API}/api/v1/chat`,
-            {
-                message: task,
-                session_id: 'xiaoyi'
-            },
-            {
-                headers: {
-                    'Authorization': `Bearer ${OPENCLAW_TOKEN}`,
-                    'Content-Type': 'application/json'
-                },
-                timeout: 30000 // 30秒超时
-            }
-        );
+        const { exec } = require('child_process');
+        const { promisify } = require('util');
+        const execPromise = promisify(exec);
+        
+        // 使用 OpenClaw CLI 执行任务
+        const command = `"${OPENCLAW_NODE}" "${OPENCLAW_CLI}" chat "${task}"`;
+        
+        console.log('执行 OpenClaw 命令:', command);
+        
+        const { stdout, stderr } = await execPromise(command, {
+            timeout: 60000, // 60秒超时
+            maxBuffer: 1024 * 1024 // 1MB buffer
+        });
+        
+        if (stderr && !stderr.includes('warning')) {
+            console.error('OpenClaw stderr:', stderr);
+        }
         
         return {
             success: true,
-            message: response.data.response || response.data.message || '任务执行完成'
+            message: stdout || '任务执行完成'
         };
     } catch (error) {
         console.error('OpenClaw task error:', error.message);
@@ -264,7 +267,7 @@ app.get('/api/health', (req, res) => {
         status: 'ok',
         hasApiKey: !!ZHIPU_API_KEY,
         openclawEnabled: OPENCLAW_ENABLED,
-        openclawConfigured: !!(OPENCLAW_TOKEN && OPENCLAW_API)
+        openclawConfigured: !!(OPENCLAW_CLI && OPENCLAW_NODE)
     });
 });
 
@@ -273,7 +276,7 @@ app.listen(PORT, () => {
     console.log(`📝 API Key 状态: ${ZHIPU_API_KEY ? '✅ 已配置' : '❌ 未配置'}`);
     console.log(`🤖 OpenClaw 集成: ${OPENCLAW_ENABLED ? '✅ 已启用' : '❌ 未启用'}`);
     if (OPENCLAW_ENABLED) {
-        console.log(`   - API 地址: ${OPENCLAW_API}`);
-        console.log(`   - Token: ${OPENCLAW_TOKEN ? '✅ 已配置' : '❌ 未配置'}`);
+        console.log(`   - CLI 路径: ${OPENCLAW_CLI}`);
+        console.log(`   - Node 路径: ${OPENCLAW_NODE}`);
     }
 });
