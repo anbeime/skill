@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>照片随机测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .result {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        img {
+            max-width: 300px;
+            margin: 10px 0;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>照片随机性测试</h1>
+    
+    <button onclick="testChat()">测试 /api/chat 接口</button>
+    <button onclick="testImage()">测试 /api/generate-image 接口</button>
+    <button onclick="clearResults()">清除结果</button>
+    
+    <div id="results"></div>
+    
+    <script>
+        let testCount = 0;
+        
+        async function testChat() {
+            testCount++;
+            const resultsDiv = document.getElementById('results');
+            
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                        message: '发张照片',
+                        sessionId: 'test-' + testCount // 每次用不同的 sessionId
+                    })
+                });
+                
+                const data = await response.json();
+                
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'result';
+                resultDiv.innerHTML = `
+                    <h3>测试 ${testCount} - /api/chat</h3>
+                    <p><strong>needImage:</strong> ${data.needImage}</p>
+                    <p><strong>photoUrl:</strong> ${data.photoUrl}</p>
+                    <p><strong>message:</strong> ${data.message}</p>
+                    ${data.photoUrl ? `<img src="${data.photoUrl}?t=${Date.now()}" alt="Photo">` : ''}
+                `;
+                
+                resultsDiv.insertBefore(resultDiv, resultsDiv.firstChild);
+            } catch (error) {
+                console.error('Error:', error);
+                alert('请求失败: ' + error.message);
+            }
+        }
+        
+        async function testImage() {
+            testCount++;
+            const resultsDiv = document.getElementById('results');
+            
+            try {
+                const response = await fetch('/api/generate-image', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                        prompt: '发张照片',
+                        scene: 'coffee-shop'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'result';
+                resultDiv.innerHTML = `
+                    <h3>测试 ${testCount} - /api/generate-image</h3>
+                    <p><strong>success:</strong> ${data.success}</p>
+                    <p><strong>imageUrl:</strong> ${data.imageUrl}</p>
+                    <p><strong>source:</strong> ${data.source}</p>
+                    ${data.imageUrl ? `<img src="${data.imageUrl}?t=${Date.now()}" alt="Photo">` : ''}
+                `;
+                
+                resultsDiv.insertBefore(resultDiv, resultsDiv.firstChild);
+            } catch (error) {
+                console.error('Error:', error);
+                alert('请求失败: ' + error.message);
+            }
+        }
+        
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+            testCount = 0;
+        }
+    </script>
+</body>
+</html>
