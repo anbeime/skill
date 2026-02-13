@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
+const { exec } = require('child_process');
+const { promisify } = require('util');
+const execPromise = promisify(exec);
 require('dotenv').config();
 
 const app = express();
@@ -44,33 +47,32 @@ async function executeOpenClawTask(task) {
     }
     
     try {
-        const { exec } = require('child_process');
-        const { promisify } = require('util');
-        const execPromise = promisify(exec);
-        
         // 使用 OpenClaw CLI 执行任务
-        const command = `"${OPENCLAW_NODE}" "${OPENCLAW_CLI}" chat "${task}"`;
+        const command = `"${OPENCLAW_NODE}" "${OPENCLAW_CLI}" chat "${task.replace(/"/g, '\\"')}"`;
         
         console.log('执行 OpenClaw 命令:', command);
         
         const { stdout, stderr } = await execPromise(command, {
             timeout: 60000, // 60秒超时
-            maxBuffer: 1024 * 1024 // 1MB buffer
+            maxBuffer: 1024 * 1024, // 1MB buffer
+            windowsHide: true
         });
         
         if (stderr && !stderr.includes('warning')) {
             console.error('OpenClaw stderr:', stderr);
         }
         
+        const result = stdout.trim() || '任务执行完成';
+        
         return {
             success: true,
-            message: stdout || '任务执行完成'
+            message: result
         };
     } catch (error) {
-        console.error('OpenClaw task error:', error.message);
+        console.error('OpenClaw task error:', error);
         return {
             success: false,
-            message: `任务执行失败：${error.message}`
+            message: `任务执行失败：${error.message || '未知错误'}`
         };
     }
 }
