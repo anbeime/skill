@@ -25,6 +25,39 @@ const OPENCLAW_ENABLED = process.env.OPENCLAW_ENABLED === 'true';
 // 对话历史存储
 const conversations = new Map();
 
+// 小易的照片库（16张照片）
+const XIAOYI_PHOTOS = [
+    { id: 1, keywords: ['你好', '早上', '开心', '微笑'], emotion: 'happy' },
+    { id: 2, keywords: ['工作', '编程', '代码', '电脑'], emotion: 'working' },
+    { id: 3, keywords: ['思考', '想想', '考虑'], emotion: 'thinking' },
+    { id: 4, keywords: ['累', '疲惫', '休息'], emotion: 'tired' },
+    { id: 5, keywords: ['咖啡', '喝', '饮料'], emotion: 'coffee' },
+    { id: 6, keywords: ['看书', '阅读', '学习'], emotion: 'reading' },
+    { id: 7, keywords: ['运动', '健身', '锻炼'], emotion: 'exercise' },
+    { id: 8, keywords: ['吃饭', '美食', '午餐', '晚餐'], emotion: 'eating' },
+    { id: 9, keywords: ['开心', '高兴', '快乐'], emotion: 'happy' },
+    { id: 10, keywords: ['难过', '伤心', '不开心'], emotion: 'sad' },
+    { id: 11, keywords: ['惊讶', '哇', '厉害'], emotion: 'surprised' },
+    { id: 12, keywords: ['晚上', '夜晚', '睡觉'], emotion: 'night' },
+    { id: 13, keywords: ['户外', '公园', '散步'], emotion: 'outdoor' },
+    { id: 14, keywords: ['音乐', '听歌', '唱歌'], emotion: 'music' },
+    { id: 15, keywords: ['拍照', '自拍', '照片'], emotion: 'photo' },
+    { id: 16, keywords: ['默认', '随机'], emotion: 'default' }
+];
+
+// 根据对话内容选择合适的照片
+function selectPhoto(message) {
+    // 遍历照片库，找到最匹配的照片
+    for (const photo of XIAOYI_PHOTOS) {
+        if (photo.keywords.some(keyword => message.includes(keyword))) {
+            return `xiaoyi-photos/ren${photo.id}.png`;
+        }
+    }
+    // 默认返回随机照片
+    const randomId = Math.floor(Math.random() * 16) + 1;
+    return `xiaoyi-photos/ren${randomId}.png`;
+}
+
 // 检测是否为任务指令
 function detectTask(message) {
     const taskKeywords = [
@@ -166,12 +199,22 @@ ${OPENCLAW_ENABLED ? '你还可以帮用户执行电脑任务，当用户说"帮
         const needImage = message.includes('照片') || 
                          message.includes('图片') || 
                          message.includes('看看') ||
-                         message.includes('发张');
+                         message.includes('发张') ||
+                         message.includes('自拍') ||
+                         message.includes('你在') ||
+                         message.includes('现在');
+
+        // 如果需要图片，选择合适的照片
+        let selectedPhoto = null;
+        if (needImage) {
+            selectedPhoto = selectPhoto(message);
+        }
 
         res.json({
             success: true,
             message: aiMessage,
             needImage: needImage,
+            photoUrl: selectedPhoto,
             isTask: false
         });
 
