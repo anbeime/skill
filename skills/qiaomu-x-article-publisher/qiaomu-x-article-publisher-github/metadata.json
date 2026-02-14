@@ -1,0 +1,22 @@
+{
+  "name": "qiaomu-x-article-publisher",
+  "version": "1.0.0",
+  "description": "Publish Markdown articles to X (Twitter) Articles editor with proper formatting. Self-contained with built-in browser authentication. Supports persistent login, smart title/cover generation, and one-command publishing.",
+  "author": "Qiaomu",
+  "dependencies": {
+    "python": ">=3.9",
+    "pip_packages": [
+      "Pillow",
+      "pyobjc-framework-Cocoa",
+      "patchright"
+    ]
+  },
+  "platforms": ["macOS"],
+  "tags": ["publishing", "x", "twitter", "articles", "markdown", "automation", "qiaomu"],
+  "triggers": [
+    "publish to X",
+    "post article to Twitter",
+    "X article",
+    "publish markdown to X"
+  ]
+}

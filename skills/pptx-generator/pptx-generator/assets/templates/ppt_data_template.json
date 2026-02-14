@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "title": "演示文稿",
+    "author": "作者姓名",
+    "theme": "主题风格"
+  },
+  "slides": [
+    {
+      "layout": "TitleSlide",
+      "title": "幻灯片标题",
+      "content": [
+        "内容要点1",
+        "内容要点2",
+        "内容要点3"
+      ],
+      "notes": "备注内容"
+    },
+    {
+      "layout": "ContentSlide",
+      "title": "核心内容",
+      "content": [
+        "要点1",
+        "要点2",
+        "要点3",
+        "要点4"
+      ],
+      "notes": "详细说明"
+    },
+    {
+      "layout": "SummarySlide",
+      "title": "总结",
+      "content": [
+        "总结要点1",
+        "总结要点2",
+        "总结要点3"
+      ],
+      "notes": "总结发言"
+    }
+  ]
+}

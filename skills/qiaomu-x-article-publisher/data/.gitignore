@@ -1,0 +1,22 @@
+# ============================================================================
+# X Article Publisher - Data Directory .gitignore
+# ============================================================================
+#
+# PURPOSE:
+#   保护敏感的浏览器认证数据不被提交到 Git
+#
+# EXCLUDED:
+#   - browser_state/state.json (session cookies)
+#   - browser_state/browser_profile/ (persistent cookies + fingerprint)
+#   - auth_info.json (认证元数据)
+# ============================================================================
+
+# 浏览器认证状态文件
+browser_state/state.json
+browser_state/browser_profile/
+
+# 认证元数据
+auth_info.json
+
+# 保留目录结构
+!browser_state/.gitkeep

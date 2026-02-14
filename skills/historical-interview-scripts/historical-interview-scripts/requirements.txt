@@ -1,0 +1,22 @@
+# Python依赖包
+# LLM客户端
+openai>=1.0.0
+anthropic>=0.18.0
+zhipuai>=2.0.0
+
+# 图片生成
+requests>=2.31.0
+Pillow>=10.0.0
+
+# 音频生成
+azure-cognitiveservices-speech>=1.34.0
+google-cloud-texttospeech>=2.17.0
+boto3>=1.34.0
+
+# 视频处理
+ffmpeg-python>=0.2.0
+moviepy>=1.0.3
+
+# 其他工具
+pyyaml>=6.0
+python-dotenv>=1.0.0

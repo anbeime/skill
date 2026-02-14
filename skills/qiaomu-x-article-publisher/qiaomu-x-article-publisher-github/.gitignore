@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Authentication & Browser State (CRITICAL - NEVER COMMIT)
+data/auth_info.json
+data/browser_state/state.json
+data/browser_state/browser_profile/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.log
+*.tmp
+.cache/
+
+# Keep directory structure
+!data/.gitkeep
+!data/browser_state/.gitkeep

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} - PPT Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            height: 90vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            padding: 60px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .slide-content {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 48px;
+            color: #333;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 28px;
+            color: #555;
+            margin: 20px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 18px;
+            color: #999;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .control-btn {
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.9);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .control-btn:hover {
+            background: rgba(102, 126, 234, 1);
+            transform: scale(1.1);
+        }
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: rgba(102, 126, 234, 0.5);
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="slides-container">
+            {{SLIDES}}
+        </div>
+
+        <div class="controls">
+            <button class="control-btn" id="prev-btn" title="上一页">◀</button>
+            <button class="control-btn" id="play-btn" title="播放/暂停">▶</button>
+            <button class="control-btn" id="next-btn" title="下一页">▶</button>
+        </div>
+
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <script>
+        const totalSlides = {{TOTAL_SLIDES}};
+        let currentSlide = 1;
+        let isPlaying = false;
+        let playInterval = null;
+
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const playBtn = document.getElementById('play-btn');
+        const progressBar = document.getElementById('progress-bar');
+
+        function showSlide(index) {
+            if (index < 1) index = 1;
+            if (index > totalSlides) index = totalSlides;
+
+            currentSlide = index;
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i + 1 === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+
+            updateProgressBar();
+        }
+
+        function updateProgressBar() {
+            const progress = (currentSlide / totalSlides) * 100;
+            progressBar.style.width = progress + '%';
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function togglePlay() {
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                playBtn.innerHTML = '⏸';
+                playInterval = setInterval(() => {
+                    nextSlide();
+                    if (currentSlide >= totalSlides) {
+                        togglePlay();
+                    }
+                }, 3000);
+            } else {
+                playBtn.innerHTML = '▶';
+                if (playInterval) {
+                    clearInterval(playInterval);
+                    playInterval = null;
+                }
+            }
+        }
+
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        playBtn.addEventListener('click', togglePlay);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'p' || e.key === 'P') {
+                togglePlay();
+            }
+        });
+
+        // Initialize
+        showSlide(1);
+    </script>
+</body>
+</html>

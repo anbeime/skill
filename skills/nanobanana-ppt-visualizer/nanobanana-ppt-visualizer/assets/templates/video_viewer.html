@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPT视频播放器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            background: #000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* 静态图片显示 */
+        .slide-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+        .slide-image.active {
+            display: block;
+        }
+
+        /* 视频播放器 */
+        .video-player {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+        .video-player.active {
+            display: block;
+        }
+
+        /* 页码指示器 */
+        .indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: white;
+            font-size: 14px;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        /* 控制提示 */
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: white;
+            font-size: 14px;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        .controls.hidden {
+            opacity: 0;
+        }
+
+        /* 加载指示器 */
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px 40px;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            z-index: 200;
+            display: none;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        /* 加载动画 */
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-left: 10px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <!-- 内容将通过JS动态插入 -->
+    </div>
+
+    <div class="indicator">
+        <span id="current">1</span> / <span id="total">0</span>
+    </div>
+
+    <div class="controls" id="controls">
+        ← → 切换页面 | Space 播放/暂停 | H 隐藏控制 | ESC 全屏
+    </div>
+
+    <div class="loading" id="loading">
+        正在加载视频
+    </div>
+
+    <script>
+        // 数据注入（由Python脚本替换）
+        const slidesData = /* SLIDES_DATA_PLACEHOLDER */;
+        const transitionsData = /* TRANSITIONS_DATA_PLACEHOLDER */;
+        const previewData = /* PREVIEW_DATA_PLACEHOLDER */;
+
+        class VideoPPTPlayer {
+            constructor() {
+                this.slides = slidesData;
+                this.transitions = transitionsData;
+                this.preview = previewData;
+                this.currentSlide = 0;
+                this.isTransitioning = false;
+                this.isPreviewMode = true;
+
+                this.container = document.getElementById('container');
+                this.currentIndicator = document.getElementById('current');
+                this.totalIndicator = document.getElementById('total');
+                this.controlsEl = document.getElementById('controls');
+                this.loadingEl = document.getElementById('loading');
+
+                this.videoElement = null;
+                this.imageElements = [];
+
+                this.init();
+            }
+
+            init() {
+                // 创建图片元素
+                this.slides.forEach((slidePath, index) => {
+                    const img = document.createElement('img');
+                    img.src = slidePath;
+                    img.className = 'slide-image';
+                    img.alt = `幻灯片 ${index + 1}`;
+                    this.container.appendChild(img);
+                    this.imageElements.push(img);
+                });
+
+                // 创建视频元素
+                this.videoElement = document.createElement('video');
+                this.videoElement.className = 'video-player';
+                this.videoElement.preload = 'auto';
+                this.container.appendChild(this.videoElement);
+
+                // 更新总页数
+                this.totalIndicator.textContent = this.slides.length;
+
+                // 绑定事件
+                this.bindEvents();
+
+                // 显示预览或第一页
+                if (this.preview) {
+                    this.playPreview();
+                } else {
+                    this.showSlide(0);
+                }
+
+                // 自动隐藏控制提示
+                setTimeout(() => {
+                    this.controlsEl.classList.add('hidden');
+                }, 3000);
+            }
+
+            bindEvents() {
+                // 键盘控制
+                document.addEventListener('keydown', (e) => {
+                    switch(e.key) {
+                        case 'ArrowLeft':
+                        case 'ArrowUp':
+                            this.previousSlide();
+                            break;
+                        case 'ArrowRight':
+                        case 'ArrowDown':
+                            this.nextSlide();
+                            break;
+                        case ' ':
+                            e.preventDefault();
+                            this.togglePlayPause();
+                            break;
+                        case 'Home':
+                            this.goToSlide(0);
+                            break;
+                        case 'End':
+                            this.goToSlide(this.slides.length - 1);
+                            break;
+                        case 'Escape':
+                            this.toggleFullscreen();
+                            break;
+                        case 'h':
+                        case 'H':
+                            this.toggleControls();
+                            break;
+                    }
+                });
+
+                // 视频播放结束事件
+                this.videoElement.addEventListener('ended', () => {
+                    this.onVideoEnded();
+                });
+
+                // 鼠标移动显示控制
+                let hideControlsTimeout;
+                document.addEventListener('mousemove', () => {
+                    this.controlsEl.classList.remove('hidden');
+                    clearTimeout(hideControlsTimeout);
+                    hideControlsTimeout = setTimeout(() => {
+                        this.controlsEl.classList.add('hidden');
+                    }, 3000);
+                });
+            }
+
+            playPreview() {
+                if (!this.preview) return;
+
+                console.log('播放预览视频');
+                this.isPreviewMode = true;
+                this.hideAllSlides();
+                this.videoElement.src = this.preview;
+                this.videoElement.loop = true;
+                this.videoElement.classList.add('active');
+                this.videoElement.play();
+            }
+
+            showSlide(index) {
+                if (index < 0 || index >= this.slides.length) return;
+
+                console.log(`显示第 ${index + 1} 页`);
+                this.currentSlide = index;
+                this.isPreviewMode = false;
+                this.isTransitioning = false;
+
+                // 隐藏所有元素
+                this.hideAllSlides();
+
+                // 显示当前页图片
+                this.imageElements[index].classList.add('active');
+
+                // 更新页码
+                this.updateIndicator();
+            }
+
+            hideAllSlides() {
+                // 隐藏所有图片
+                this.imageElements.forEach(img => {
+                    img.classList.remove('active');
+                });
+
+                // 隐藏视频
+                this.videoElement.classList.remove('active');
+                this.videoElement.pause();
+                this.videoElement.loop = false;
+            }
+
+            playTransition(fromIndex, toIndex) {
+                const fromNum = (fromIndex + 1).toString().padStart(2, '0');
+                const toNum = (toIndex + 1).toString().padStart(2, '0');
+                const transitionKey = `${fromNum}-${toNum}`;
+
+                console.log(`播放过渡视频: ${transitionKey}`);
+
+                if (!this.transitions[transitionKey]) {
+                    console.warn(`过渡视频不存在: ${transitionKey}，直接显示目标页`);
+                    this.showSlide(toIndex);
+                    return;
+                }
+
+                this.isTransitioning = true;
+                this.loadingEl.classList.add('active');
+
+                // 隐藏所有元素
+                this.hideAllSlides();
+
+                // 播放过渡视频
+                this.videoElement.src = this.transitions[transitionKey];
+                this.videoElement.loop = false;
+                this.videoElement.classList.add('active');
+
+                // 等待视频加载
+                this.videoElement.onloadeddata = () => {
+                    this.loadingEl.classList.remove('active');
+                    this.videoElement.play();
+                };
+
+                // 设置目标页
+                this.currentSlide = toIndex;
+                this.isPreviewMode = false; // 退出预览模式
+            }
+
+            onVideoEnded() {
+                console.log('视频播放结束');
+
+                if (this.isPreviewMode) {
+                    // 预览视频循环播放（已设置loop）
+                    return;
+                }
+
+                if (this.isTransitioning) {
+                    // 过渡视频结束，显示目标页
+                    this.showSlide(this.currentSlide);
+                }
+            }
+
+            nextSlide() {
+                if (this.isTransitioning) {
+                    console.log('正在过渡中，请等待');
+                    return;
+                }
+
+                const nextIndex = this.currentSlide + 1;
+                if (nextIndex >= this.slides.length) {
+                    console.log('已经是最后一页');
+                    return;
+                }
+
+                if (this.isPreviewMode) {
+                    // 从预览进入第二页
+                    this.playTransition(0, 1);
+                } else {
+                    // 正常翻页
+                    this.playTransition(this.currentSlide, nextIndex);
+                }
+            }
+
+            previousSlide() {
+                if (this.isTransitioning) {
+                    console.log('正在过渡中，请等待');
+                    return;
+                }
+
+                const prevIndex = this.currentSlide - 1;
+
+                if (this.isPreviewMode) {
+                    console.log('已经在首页预览');
+                    return;
+                }
+
+                if (prevIndex < 0) {
+                    // 返回首页预览
+                    if (this.preview) {
+                        this.playPreview();
+                    } else {
+                        console.log('已经是第一页');
+                    }
+                    return;
+                }
+
+                // 反向过渡（如果有）
+                // 注意：目前过渡视频是单向的，反向翻页直接显示
+                this.showSlide(prevIndex);
+            }
+
+            goToSlide(index) {
+                if (this.isTransitioning) return;
+                if (index === this.currentSlide && !this.isPreviewMode) return;
+
+                if (index === 0 && this.preview) {
+                    this.playPreview();
+                } else {
+                    this.showSlide(index);
+                }
+            }
+
+            togglePlayPause() {
+                if (this.videoElement.classList.contains('active')) {
+                    if (this.videoElement.paused) {
+                        this.videoElement.play();
+                    } else {
+                        this.videoElement.pause();
+                    }
+                }
+            }
+
+            toggleFullscreen() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                } else {
+                    document.exitFullscreen();
+                }
+            }
+
+            toggleControls() {
+                this.controlsEl.classList.toggle('hidden');
+            }
+
+            updateIndicator() {
+                this.currentIndicator.textContent = this.currentSlide + 1;
+            }
+        }
+
+        // 初始化播放器
+        window.addEventListener('DOMContentLoaded', () => {
+            new VideoPPTPlayer();
+        });
+    </script>
+</body>
+</html>

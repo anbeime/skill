@@ -1,0 +1,81 @@
+# Playful 风格动画配置
+
+活泼风格，使用弹性、旋转和弹跳效果，适用于教育内容和儿童内容。
+
+```json
+{
+  "metadata": {
+    "style": "playful",
+    "page_count": 5,
+    "transition_count": 5,
+    "element_animation_count": 10
+  },
+  "transitions": [
+    {
+      "page_index": 1,
+      "type": "bounce",
+      "duration": 1.2,
+      "easing": "ease-out",
+      "params": {
+        "bounce_factor": 0.4
+      }
+    },
+    {
+      "page_index": 2,
+      "type": "rotate",
+      "duration": 1.0,
+      "easing": "ease-out",
+      "params": {
+        "angle": 90,
+        "direction": "clockwise"
+      }
+    },
+    {
+      "page_index": 3,
+      "type": "elastic",
+      "duration": 1.5,
+      "easing": "ease-out",
+      "params": {
+        "elasticity": 0.6
+      }
+    },
+    {
+      "page_index": 4,
+      "type": "bounce",
+      "duration": 1.2,
+      "easing": "ease-out",
+      "params": {
+        "bounce_factor": 0.3
+      }
+    },
+    {
+      "page_index": 5,
+      "type": "rotate",
+      "duration": 1.0,
+      "easing": "ease-out",
+      "params": {
+        "angle": -90,
+        "direction": "counter-clockwise"
+      }
+    }
+  ],
+  "element_animations": [
+    {
+      "page_index": 1,
+      "element": "title",
+      "type": "bounceIn",
+      "delay": 0.1,
+      "duration": 0.8
+    },
+    {
+      "page_index": 1,
+      "element": "content",
+      "type": "bounceIn",
+      "delay": 0.3,
+      "duration": 0.7,
+      "stagger": 0.1,
+      "count": 3
+    }
+  ]
+}
+```
