@@ -545,10 +545,50 @@
         });
         
         // GPT-SoVITS TTS 配置
-        const GPT_SOVITS_URL = 'http://localhost:9874';
+        const GPT_SOVITS_URL = 'http://localhost:9880';  // API 服务端口
+        const GPT_SOVITS_WEBUI_URL = 'http://localhost:9874';  // WebUI 端口（备用）
         const REF_AUDIO_PATH = 'D:/tool/skill/projects/xiaoyue-web/tts_audio/02_红人面对面_采访.wav';
         const REF_TEXT = '大家好';
         let currentAudio = null;
+        let useWebUI = true;  // 默认使用 WebUI 端口
+        let gptSoVITSAvailable = false;  // GPT-SoVITS 是否可用
+        
+        // 检查 GPT-SoVITS 服务状态
+        async function checkGPTSoVITS() {
+            try {
+                // 尝试连接 API 端口
+                const response = await fetch('http://localhost:9880/health', { 
+                    method: 'GET',
+                    signal: AbortSignal.timeout(2000)
+                });
+                if (response.ok) {
+                    gptSoVITSAvailable = true;
+                    console.log('GPT-SoVITS API 服务可用');
+                    return true;
+                }
+            } catch (e) {
+                console.log('GPT-SoVITS API 服务不可用，将使用浏览器 TTS');
+            }
+            
+            // 尝试连接 WebUI 端口
+            try {
+                const response = await fetch('http://localhost:9874/', { 
+                    method: 'GET',
+                    signal: AbortSignal.timeout(2000)
+                });
+                if (response.ok) {
+                    console.log('GPT-SoVITS WebUI 可用，但 API 模式可能不支持');
+                }
+            } catch (e) {
+                console.log('GPT-SoVITS WebUI 也不可用');
+            }
+            
+            gptSoVITSAvailable = false;
+            return false;
+        }
+        
+        // 页面加载时检查服务状态
+        checkGPTSoVITS();
         
         // 文本转语音 - 使用 GPT-SoVITS
         async function speakText(text) {
@@ -581,6 +621,7 @@
                     text_language: 'zh'
                 });
                 
+                // 使用 API 端口 (9880)
                 const url = `${GPT_SOVITS_URL}/?${params.toString()}`;
                 
                 console.log('Generating TTS with GPT-SoVITS...');
@@ -598,7 +639,22 @@
                 
                 // 播放音频
                 currentAudio = new Audio(audioUrl);
-                currentAudio.play();
+                
+                // 添加错误处理
+                currentAudio.onerror = (e) => {
+                    console.error('Audio playback error:', e);
+                    fallbackSpeakText(cleanText);
+                };
+                
+                // 尝试播放
+                const playPromise = currentAudio.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.error('Audio play failed:', error);
+                        // 自动播放被阻止，使用回退方案
+                        fallbackSpeakText(cleanText);
+                    });
+                })
                 
                 // 播放完成后清理
                 currentAudio.onended = () => {
@@ -634,7 +690,7 @@
             }
             
             synthesis.speak(utterance);
-        })
+        }
         
         function addMessage(content, type, image = null) {
             const messageDiv = document.createElement('div');
