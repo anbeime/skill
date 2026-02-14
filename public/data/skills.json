@@ -1,0 +1,1462 @@
+{
+  "skills": [
+    {
+      "name": "anthropics/docx",
+      "description": "Create, edit, and analyze Word documents",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/docx",
+      "category": "Document Creation",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/doc-coauthoring",
+      "description": "Collaborative document editing and co-authoring",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring",
+      "category": "Document Creation",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/pptx",
+      "description": "Create, edit, and analyze PowerPoint presentations",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/pptx",
+      "category": "Document Creation",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/xlsx",
+      "description": "Create, edit, and analyze Excel spreadsheets",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/xlsx",
+      "category": "Document Creation",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/pdf",
+      "description": "Extract text, create PDFs, and handle forms",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/pdf",
+      "category": "Document Creation",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/algorithmic-art",
+      "description": "Create generative art using p5.js with seeded randomness",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/algorithmic-art",
+      "category": "Creative and Design",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/canvas-design",
+      "description": "Design visual art in PNG and PDF formats",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/canvas-design",
+      "category": "Creative and Design",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/frontend-design",
+      "description": "Frontend design and UI/UX development tools",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+      "category": "Creative and Design",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/slack-gif-creator",
+      "description": "Create animated GIFs optimized for Slack size constraints",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/slack-gif-creator",
+      "category": "Creative and Design",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/theme-factory",
+      "description": "Style artifacts with professional themes or generate custom themes",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/theme-factory",
+      "category": "Creative and Design",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/web-artifacts-builder",
+      "description": "Build complex claude.ai HTML artifacts with React and Tailwind",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/web-artifacts-builder",
+      "category": "Development",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/mcp-builder",
+      "description": "Create MCP servers to integrate external APIs and services",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/mcp-builder",
+      "category": "Development",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/webapp-testing",
+      "description": "Test local web applications using Playwright",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/webapp-testing",
+      "category": "Development",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/brand-guidelines",
+      "description": "Apply Anthropic's brand colors and typography to artifacts",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/brand-guidelines",
+      "category": "Branding and Communication",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/internal-comms",
+      "description": "Write status reports, newsletters, and FAQs",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/internal-comms",
+      "category": "Branding and Communication",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/skill-creator",
+      "description": "Guide for creating skills that extend Claude's capabilities",
+      "link": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
+      "category": "Meta",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "anthropics/template",
+      "description": "Basic template for creating new skills",
+      "link": "https://github.com/anthropics/skills/tree/main/template",
+      "category": "Meta",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "vercel-labs/react-best-practices",
+      "description": "React best practices and patterns",
+      "link": "https://github.com/vercel-labs/agent-skills/tree/main/skills/react-best-practices",
+      "category": "Skills by Vercel Engineering Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "vercel-labs/vercel-deploy-claimable",
+      "description": "Deploy projects to Vercel",
+      "link": "https://github.com/vercel-labs/agent-skills/tree/main/skills/claude.ai/vercel-deploy-claimable",
+      "category": "Skills by Vercel Engineering Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "vercel-labs/web-design-guidelines",
+      "description": "Web design guidelines and standards",
+      "link": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines",
+      "category": "Skills by Vercel Engineering Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "vercel-labs/composition-patterns",
+      "description": "React component composition and reusable patterns",
+      "link": "https://github.com/vercel-labs/agent-skills/tree/main/skills/composition-patterns",
+      "category": "Skills by Vercel Engineering Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "vercel-labs/next-best-practices",
+      "description": "Next.js best practices and recommended patterns",
+      "link": "https://github.com/vercel-labs/next-skills/tree/main/skills/next-best-practices",
+      "category": "Skills by Vercel Engineering Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "vercel-labs/next-cache-components",
+      "description": "Caching strategies and cache-aware components in Next.js",
+      "link": "https://github.com/vercel-labs/next-skills/tree/main/skills/next-cache-components",
+      "category": "Skills by Vercel Engineering Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "vercel-labs/next-upgrade",
+      "description": "Upgrade Next.js projects to newer versions",
+      "link": "https://github.com/vercel-labs/next-skills/tree/main/skills/next-upgrade",
+      "category": "Skills by Vercel Engineering Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "vercel-labs/react-native-skills",
+      "description": "React Native best practices and performance guidelines",
+      "link": "https://github.com/vercel-labs/agent-skills/tree/main/skills/react-native-skills",
+      "category": "Skills by Vercel Engineering Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "cloudflare/agents-sdk",
+      "description": "Build stateful AI agents with scheduling, RPC, and MCP servers",
+      "link": "https://github.com/cloudflare/skills/tree/main/agents-sdk",
+      "category": "Skills by Cloudflare Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "cloudflare/building-ai-agent-on-cloudflare",
+      "description": "Build AI agents with state and WebSockets on Cloudflare",
+      "link": "https://github.com/cloudflare/skills/tree/main/building-ai-agent-on-cloudflare",
+      "category": "Skills by Cloudflare Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "cloudflare/building-mcp-server-on-cloudflare",
+      "description": "Build remote MCP servers with tools and OAuth",
+      "link": "https://github.com/cloudflare/skills/tree/main/building-mcp-server-on-cloudflare",
+      "category": "Skills by Cloudflare Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "cloudflare/commands",
+      "description": "Cloudflare CLI commands reference",
+      "link": "https://github.com/cloudflare/skills/tree/main/commands",
+      "category": "Skills by Cloudflare Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "cloudflare/durable-objects",
+      "description": "Stateful coordination with RPC, SQLite, and WebSockets",
+      "link": "https://github.com/cloudflare/skills/tree/main/durable-objects",
+      "category": "Skills by Cloudflare Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "cloudflare/web-perf",
+      "description": "Audit Core Web Vitals and render-blocking resources",
+      "link": "https://github.com/cloudflare/skills/tree/main/web-perf",
+      "category": "Skills by Cloudflare Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "cloudflare/wrangler",
+      "description": "Deploy and manage Workers, KV, R2, D1, Vectorize, Queues, Workflows",
+      "link": "https://github.com/cloudflare/skills/tree/main/wrangler",
+      "category": "Skills by Cloudflare Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "supabase/postgres-best-practices",
+      "description": "PostgreSQL best practices for Supabase",
+      "link": "https://github.com/supabase/agent-skills/tree/main/skills/supabase-postgres-best-practices",
+      "category": "Skills by Supabase Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "google-labs-code/design-md",
+      "description": "Create and manage DESIGN.md files",
+      "link": "https://github.com/google-labs-code/stitch-skills/tree/main/skills/design-md",
+      "category": "Skills by Google Labs (Stitch)",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "google-labs-code/react-components",
+      "description": "Stitch to React components conversion",
+      "link": "https://github.com/google-labs-code/stitch-skills/tree/main/skills/react-components",
+      "category": "Skills by Google Labs (Stitch)",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "huggingface/hugging-face-cli",
+      "description": "HF Hub CLI for models, datasets, repos, and compute jobs",
+      "link": "https://github.com/huggingface/skills/tree/main/skills/hugging-face-cli",
+      "category": "Skills by Hugging Face Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "huggingface/hugging-face-datasets",
+      "description": "Create and manage datasets with configs and SQL querying",
+      "link": "https://github.com/huggingface/skills/tree/main/skills/hugging-face-datasets",
+      "category": "Skills by Hugging Face Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "huggingface/hugging-face-evaluation",
+      "description": "Model evaluation with vLLM/lighteval and eval tables",
+      "link": "https://github.com/huggingface/skills/tree/main/skills/hugging-face-evaluation",
+      "category": "Skills by Hugging Face Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "huggingface/hugging-face-jobs",
+      "description": "Run compute jobs and Python scripts on HF infrastructure",
+      "link": "https://github.com/huggingface/skills/tree/main/skills/hugging-face-jobs",
+      "category": "Skills by Hugging Face Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "huggingface/hugging-face-model-trainer",
+      "description": "Train models with TRL: SFT, DPO, GRPO, GGUF conversion",
+      "link": "https://github.com/huggingface/skills/tree/main/skills/hugging-face-model-trainer",
+      "category": "Skills by Hugging Face Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "huggingface/hugging-face-paper-publisher",
+      "description": "Publish papers on HF Hub with model/dataset links",
+      "link": "https://github.com/huggingface/skills/tree/main/skills/hugging-face-paper-publisher",
+      "category": "Skills by Hugging Face Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "huggingface/hugging-face-tool-builder",
+      "description": "Build reusable scripts for HF API operations",
+      "link": "https://github.com/huggingface/skills/tree/main/skills/hugging-face-tool-builder",
+      "category": "Skills by Hugging Face Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "huggingface/hugging-face-trackio",
+      "description": "Track ML experiments with real-time dashboards",
+      "link": "https://github.com/huggingface/skills/tree/main/skills/hugging-face-trackio",
+      "category": "Skills by Hugging Face Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "stripe/stripe-best-practices",
+      "description": "Best practices for building Stripe integrations",
+      "link": "https://github.com/stripe/ai/tree/main/skills/stripe-best-practices",
+      "category": "Skills by Stripe Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "stripe/upgrade-stripe",
+      "description": "Upgrade Stripe SDK and API versions",
+      "link": "https://github.com/stripe/ai/tree/main/skills/upgrade-stripe",
+      "category": "Skills by Stripe Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "trailofbits/ask-questions-if-underspecified",
+      "description": "Prompt for clarification on ambiguous requirements",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/ask-questions-if-underspecified",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "trailofbits/audit-context-building",
+      "description": "Deep architectural context via ultra-granular code analysis",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/audit-context-building",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "trailofbits/building-secure-contracts",
+      "description": "Smart contract security toolkit with vulnerability scanners for 6 blockchains",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "trailofbits/burpsuite-project-parser",
+      "description": "Search and extract data from Burp Suite project files",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/burpsuite-project-parser",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "trailofbits/claude-in-chrome-troubleshooting",
+      "description": "Diagnose and fix Claude in Chrome MCP extension connectivity issues",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/claude-in-chrome-troubleshooting",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "trailofbits/constant-time-analysis",
+      "description": "Detect compiler-induced timing side-channels in crypto code",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/constant-time-analysis",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "trailofbits/culture-index",
+      "description": "Index and search culture documentation",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/culture-index",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.814751"
+    },
+    {
+      "name": "trailofbits/differential-review",
+      "description": "Security-focused diff review with git history analysis",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/differential-review",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "trailofbits/dwarf-expert",
+      "description": "DWARF debugging format expertise",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/dwarf-expert",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "trailofbits/entry-point-analyzer",
+      "description": "Identify state-changing entry points in smart contracts",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/entry-point-analyzer",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "trailofbits/firebase-apk-scanner",
+      "description": "Scan Android APKs for Firebase misconfigurations and security vulnerabilities",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/firebase-apk-scanner",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "trailofbits/fix-review",
+      "description": "Verify fix commits address audit findings without new bugs",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/fix-review",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "trailofbits/insecure-defaults",
+      "description": "Detect insecure default configurations like hardcoded secrets, default credentials, and weak crypto",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/insecure-defaults",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "trailofbits/modern-python",
+      "description": "Modern Python tooling with uv, ruff, ty, and pytest best practices",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/modern-python",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "trailofbits/property-based-testing",
+      "description": "Property-based testing for multiple languages and smart contracts",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/property-based-testing",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "trailofbits/semgrep-rule-creator",
+      "description": "Create and refine Semgrep rules for vulnerability detection",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/semgrep-rule-creator",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "trailofbits/semgrep-rule-variant-creator",
+      "description": "Port existing Semgrep rules to new target languages with test-driven validation",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/semgrep-rule-variant-creator",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "trailofbits/sharp-edges",
+      "description": "Identify error-prone APIs and dangerous configurations",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/sharp-edges",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "trailofbits/spec-to-code-compliance",
+      "description": "Specification-to-code compliance checker for blockchain audits",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/spec-to-code-compliance",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "trailofbits/static-analysis",
+      "description": "Static analysis toolkit with CodeQL, Semgrep, and SARIF",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/static-analysis",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "trailofbits/testing-handbook-skills",
+      "description": "Testing Handbook skills: fuzzers, static analysis, sanitizers",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "trailofbits/variant-analysis",
+      "description": "Find similar vulnerabilities via pattern-based analysis",
+      "link": "https://github.com/trailofbits/skills/tree/main/plugins/variant-analysis",
+      "category": "Security Skills by Trail of Bits Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "expo/expo-app-design",
+      "description": "Design and build Expo applications",
+      "link": "https://github.com/expo/skills/tree/main/plugins/expo-app-design",
+      "category": "Skills by Expo Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "expo/expo-deployment",
+      "description": "Deploy Expo apps to production",
+      "link": "https://github.com/expo/skills/tree/main/plugins/expo-deployment",
+      "category": "Skills by Expo Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "expo/upgrading-expo",
+      "description": "Upgrade Expo SDK versions",
+      "link": "https://github.com/expo/skills/tree/main/plugins/upgrading-expo",
+      "category": "Skills by Expo Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "getsentry/agents-md",
+      "description": "Generate and manage AGENTS.md files",
+      "link": "https://github.com/getsentry/skills/tree/main/plugins/sentry-skills/skills/agents-md",
+      "category": "Skills by Sentry team for their dev team.",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "getsentry/claude-settings-audit",
+      "description": "Audit Claude settings configuration",
+      "link": "https://github.com/getsentry/skills/tree/main/plugins/sentry-skills/skills/claude-settings-audit",
+      "category": "Skills by Sentry team for their dev team.",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "getsentry/code-review",
+      "description": "Perform code reviews",
+      "link": "https://github.com/getsentry/skills/tree/main/plugins/sentry-skills/skills/code-review",
+      "category": "Skills by Sentry team for their dev team.",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "getsentry/commit",
+      "description": "Create commits with best practices",
+      "link": "https://github.com/getsentry/skills/tree/main/plugins/sentry-skills/skills/commit",
+      "category": "Skills by Sentry team for their dev team.",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "getsentry/create-pr",
+      "description": "Create pull requests",
+      "link": "https://github.com/getsentry/skills/tree/main/plugins/sentry-skills/skills/create-pr",
+      "category": "Skills by Sentry team for their dev team.",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "getsentry/find-bugs",
+      "description": "Find and identify bugs in code",
+      "link": "https://github.com/getsentry/skills/tree/main/plugins/sentry-skills/skills/find-bugs",
+      "category": "Skills by Sentry team for their dev team.",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "getsentry/iterate-pr",
+      "description": "Iterate on pull request feedback",
+      "link": "https://github.com/getsentry/skills/tree/main/plugins/sentry-skills/skills/iterate-pr",
+      "category": "Skills by Sentry team for their dev team.",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "better-auth/best-practices",
+      "description": "Best practices for Better Auth integration",
+      "link": "https://github.com/better-auth/skills/tree/main/better-auth/best-practices",
+      "category": "Skills by Better Auth Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "better-auth/commands",
+      "description": "Better Auth CLI commands",
+      "link": "https://github.com/better-auth/skills/tree/main/better-auth/commands",
+      "category": "Skills by Better Auth Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "better-auth/create-auth",
+      "description": "Create authentication setup with Better Auth",
+      "link": "https://github.com/better-auth/skills/tree/main/better-auth/create-auth",
+      "category": "Skills by Better Auth Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "tinybirdco/tinybird-best-practices",
+      "description": "Tinybird project guidelines for datasources, pipes, endpoints, and SQL",
+      "link": "https://github.com/tinybirdco/tinybird-agent-skills/tree/main/skills/tinybird-best-practices",
+      "category": "Skills by Tinybird Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "neondatabase/using-neon",
+      "description": "Best practices for Neon Serverless Postgres",
+      "link": "https://github.com/neondatabase/agent-skills/tree/main/skills/neon-postgres",
+      "category": "Skills by Neon Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "dmmulroy/cloudflare-skill",
+      "description": "Cloudflare platform reference for Workers, Pages, storage, AI, and networking",
+      "link": "https://github.com/dmmulroy/cloudflare-skill/tree/main/skill/cloudflare",
+      "category": "Skill by Cloudflare Engineer",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "fal-ai-community/fal-audio",
+      "description": "Text-to-speech and speech-to-text using fal.ai audio models",
+      "link": "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-audio/SKILL.md",
+      "category": "Skills by fal.ai Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "fal-ai-community/fal-generate",
+      "description": "Generate images and videos using fal.ai AI models",
+      "link": "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-generate/SKILL.md",
+      "category": "Skills by fal.ai Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "fal-ai-community/fal-image-edit",
+      "description": "AI-powered image editing with style transfer and object removal",
+      "link": "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-image-edit/SKILL.md",
+      "category": "Skills by fal.ai Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "fal-ai-community/fal-platform",
+      "description": "Platform APIs for model management, pricing, and usage tracking",
+      "link": "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-platform/SKILL.md",
+      "category": "Skills by fal.ai Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "fal-ai-community/fal-upscale",
+      "description": "Upscale and enhance image and video resolution using AI",
+      "link": "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-upscale/SKILL.md",
+      "category": "Skills by fal.ai Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "fal-ai-community/fal-workflow",
+      "description": "Generate workflow JSON files for chaining AI models",
+      "link": "https://github.com/fal-ai-community/skills/blob/main/skills/claude.ai/fal-workflow/SKILL.md",
+      "category": "Skills by fal.ai Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "sanity-io/sanity-best-practices",
+      "description": "Best practices for Sanity Studio, GROQ queries, and content workflows",
+      "link": "https://github.com/sanity-io/agent-toolkit/tree/main/skills/sanity-best-practices",
+      "category": "Skills by Sanity Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "sanity-io/content-modeling-best-practices",
+      "description": "Guidelines for designing scalable content models in Sanity",
+      "link": "https://github.com/sanity-io/agent-toolkit/tree/main/skills/content-modeling-best-practices",
+      "category": "Skills by Sanity Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "sanity-io/seo-aeo-best-practices",
+      "description": "SEO and answer engine optimization patterns for content sites",
+      "link": "https://github.com/sanity-io/agent-toolkit/tree/main/skills/seo-aeo-best-practices",
+      "category": "Skills by Sanity Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "sanity-io/content-experimentation-best-practices",
+      "description": "Content A/B testing and experimentation workflows",
+      "link": "https://github.com/sanity-io/agent-toolkit/tree/main/skills/content-experimentation-best-practices",
+      "category": "Skills by Sanity Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "remotion-dev/remotion",
+      "description": "Programmatic video creation with React",
+      "link": "https://github.com/remotion-dev/skills/tree/main/skills/remotion",
+      "category": "Skills by Remotion Team",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "coreyhaines31/marketingskills",
+      "description": "23+ marketing skills for SEO, copywriting, email, and ads",
+      "link": "https://github.com/coreyhaines31/marketingskills",
+      "category": "Marketing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "ComposioHQ/content-research-writer",
+      "description": "Enhance writing with research",
+      "link": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/content-research-writer",
+      "category": "Marketing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "ComposioHQ/competitive-ads-extractor",
+      "description": "Analyze competitor advertising",
+      "link": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/competitive-ads-extractor",
+      "category": "Marketing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "wshuyi/x-article-publisher-skill",
+      "description": "Publish articles to X/Twitter",
+      "link": "https://github.com/wshuyi/x-article-publisher-skill",
+      "category": "Marketing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "notiondevs/Notion Skills for Claude",
+      "description": "Skills for working with Notion",
+      "link": "https://www.notion.so/notiondevs/Notion-Skills-for-Claude-28da4445d27180c7af1df7d8615723d0",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "op7418/NanoBanana-PPT-Skills",
+      "description": "AI-powered PPT generation with document analysis and styled images",
+      "link": "https://github.com/op7418/NanoBanana-PPT-Skills",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "zarazhangrui/frontend-slides",
+      "description": "Generate animation-rich HTML presentations with visual style previews",
+      "link": "https://github.com/zarazhangrui/frontend-slides",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "gokapso/integrate-whatsapp",
+      "description": "Connect WhatsApp, set up webhooks, and send messages",
+      "link": "https://github.com/gokapso/agent-skills/tree/master/skills/integrate-whatsapp",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "gokapso/automate-whatsapp",
+      "description": "Build WhatsApp automations with workflows and agents",
+      "link": "https://github.com/gokapso/agent-skills/tree/master/skills/automate-whatsapp",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "gokapso/observe-whatsapp",
+      "description": "Debug WhatsApp delivery issues and run health checks",
+      "link": "https://github.com/gokapso/agent-skills/tree/master/skills/observe-whatsapp",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "PleasePrompto/notebooklm-skill",
+      "description": "Interact with NotebookLM for document-based conversations",
+      "link": "https://github.com/PleasePrompto/notebooklm-skill",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/superpowers-lab",
+      "description": "Lab environment for Claude superpowers",
+      "link": "https://github.com/obra/superpowers-lab",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/brainstorming",
+      "description": "Generate and explore ideas",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/brainstorming/SKILL.md",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/writing-plans",
+      "description": "Create strategic documentation",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/writing-plans/SKILL.md",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/executing-plans",
+      "description": "Implement and run strategic plans",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/executing-plans/SKILL.md",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/dispatching-parallel-agents",
+      "description": "Coordinate multiple simultaneous agents",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/dispatching-parallel-agents/SKILL.md",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/sharing-skills",
+      "description": "Distribute and communicate capabilities",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/sharing-skills/SKILL.md",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/using-superpowers",
+      "description": "Leverage core platform capabilities",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/using-superpowers/SKILL.md",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "ComposioHQ/meeting-insights-analyzer",
+      "description": "Analyze meeting communication patterns",
+      "link": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/meeting-insights-analyzer",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "ComposioHQ/image-enhancer",
+      "description": "Improve image quality",
+      "link": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/image-enhancer",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "wrsmith108/linear-claude-skill",
+      "description": "Manage Linear issues, projects, and teams",
+      "link": "https://github.com/wrsmith108/linear-claude-skill",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "Shpigford/readme",
+      "description": "Generate comprehensive project documentation",
+      "link": "https://github.com/Shpigford/skills/tree/main/readme",
+      "category": "Productivity and Collaboration",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "robzolkos/skill-rails-upgrade",
+      "description": "Analyze Rails apps and provide upgrade assessments",
+      "link": "https://github.com/robzolkos/skill-rails-upgrade",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "Shpigford/screenshots",
+      "description": "Generate marketing screenshots with Playwright",
+      "link": "https://github.com/Shpigford/skills/tree/main/screenshots",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "antonbabenko/terraform-skill",
+      "description": "Terraform infrastructure as code best practices",
+      "link": "https://github.com/antonbabenko/terraform-skill",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "zxkane/aws-skills",
+      "description": "AWS development with infrastructure automation and cloud architecture patterns",
+      "link": "https://github.com/zxkane/aws-skills",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "Rootly-AI-Labs/rootly-incident-responder",
+      "description": "AI-powered incident response with ML similarity matching, solution suggestions, and on-call coordination. Requires [Rootly MCP Server](https://github.com/Rootly-AI-Labs/Rootly-MCP-server)",
+      "link": "https://github.com/Rootly-AI-Labs/Rootly-MCP-server/blob/main/examples/skills/rootly-incident-responder.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "conorluddy/ios-simulator-skill",
+      "description": "Control iOS Simulator",
+      "link": "https://github.com/conorluddy/ios-simulator-skill",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "sanjay3290/postgres",
+      "description": "Execute safe read-only SQL queries against PostgreSQL databases",
+      "link": "https://github.com/sanjay3290/ai-skills/tree/main/skills/postgres",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "sanjay3290/deep-research",
+      "description": "Autonomous multi-step research using Gemini Deep Research Agent",
+      "link": "https://github.com/sanjay3290/ai-skills/tree/main/skills/deep-research",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "jthack/ffuf-claude-skill",
+      "description": "Web fuzzing with ffuf",
+      "link": "https://github.com/jthack/ffuf_claude_skill",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "lackeyjb/playwright-skill",
+      "description": "Browser automation with Playwright",
+      "link": "https://github.com/lackeyjb/playwright-skill",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "ibelick/ui-skills",
+      "description": "Opinionated, evolving constraints to guide agents when building interfaces",
+      "link": "https://github.com/ibelick/ui-skills",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "description": "UI/UX design patterns and best practices",
+      "link": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "scarletkc/vexor",
+      "description": "Vector-powered CLI for semantic file search with a Claude/Codex skill",
+      "link": "https://github.com/scarletkc/vexor",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/test-driven-development",
+      "description": "Write tests before implementing code",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/test-driven-development/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "ComposioHQ/changelog-generator",
+      "description": "Transform git commits into release notes",
+      "link": "https://github.com/ComposioHQ/awesome-claude-skills/tree/master/changelog-generator",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/subagent-driven-development",
+      "description": "Development using multiple sub-agents",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/subagent-driven-development/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/systematic-debugging",
+      "description": "Methodical problem-solving in code",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/systematic-debugging/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/root-cause-tracing",
+      "description": "Investigate and identify fundamental problems",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/root-cause-tracing/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/testing-skills-with-subagents",
+      "description": "Collaborative testing approaches",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/testing-skills-with-subagents/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/testing-anti-patterns",
+      "description": "Identify ineffective testing practices",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/testing-anti-patterns/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/finishing-a-development-branch",
+      "description": "Complete Git code branches",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/finishing-a-development-branch/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/requesting-code-review",
+      "description": "Initiate code review processes",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/requesting-code-review/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/receiving-code-review",
+      "description": "Process and incorporate code feedback",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/receiving-code-review/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/using-git-worktrees",
+      "description": "Manage multiple Git working trees",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/using-git-worktrees/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/verification-before-completion",
+      "description": "Validate work before finalizing",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/verification-before-completion/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/condition-based-waiting",
+      "description": "Manage conditional pauses or delays",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/condition-based-waiting/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/commands",
+      "description": "Create and manage command structures",
+      "link": "https://github.com/obra/superpowers/tree/main/skills/commands",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "obra/writing-skills",
+      "description": "Develop and document capabilities",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "fvadicamo/dev-agent-skills",
+      "description": "Git and GitHub workflow skills for commits, PRs, and code reviews",
+      "link": "https://github.com/fvadicamo/dev-agent-skills",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "omkamal/pypict-skill",
+      "description": "Pairwise test generation",
+      "link": "https://github.com/omkamal/pypict-claude-skill/blob/main/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "alinaqi/claude-bootstrap",
+      "description": "Opinionated project initialization with security-first guardrails, spec-driven atomic todos, LLM testing patterns, and CLI tool orchestration (gh, vercel, supabase)",
+      "link": "https://github.com/alinaqi/claude-bootstrap",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "ZhangHanDong/makepad-skills",
+      "description": "Makepad UI development skills for Rust apps: setup, patterns, shaders, packaging, and troubleshooting.",
+      "link": "https://github.com/ZhangHanDong/makepad-skills",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "massimodeluisa/recursive-decomposition-skill",
+      "description": "Handle long-context tasks (100+ files, 50k+ tokens) through recursive decomposition strategies based on RLM research",
+      "link": "https://github.com/massimodeluisa/recursive-decomposition-skill",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "callstackincubator/react-native-best-practices",
+      "description": "Performance optimization for React Native apps from Callstack",
+      "link": "https://github.com/callstackincubator/agent-skills/blob/main/skills/react-native-best-practices/SKILL.md",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "AvdLee/swiftui-expert-skill",
+      "description": "Modern SwiftUI best practices and iOS 26+ Liquid Glass adoption",
+      "link": "https://github.com/AvdLee/SwiftUI-Agent-Skill/tree/main/swiftui-expert-skill",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "efremidze/swift-patterns-skill",
+      "description": "Modern Swift/SwiftUI best practices",
+      "link": "https://github.com/efremidze/swift-patterns-skill/tree/main/swift-patterns",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "CloudAI-X/threejs-skills",
+      "description": "Three.js skills for creating 3D elements and interactive experiences",
+      "link": "https://github.com/CloudAI-X/threejs-skills",
+      "category": "Development and Testing",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "muratcankoylan/context-fundamentals",
+      "description": "Understand what context is, why it matters, and the anatomy of context in agent systems",
+      "link": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/context-fundamentals",
+      "category": "Context Engineering",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "muratcankoylan/context-degradation",
+      "description": "Recognize patterns of context failure: lost-in-middle, poisoning, distraction, and clash",
+      "link": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/context-degradation",
+      "category": "Context Engineering",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "muratcankoylan/context-compression",
+      "description": "Design and evaluate compression strategies for long-running sessions",
+      "link": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/context-compression",
+      "category": "Context Engineering",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "muratcankoylan/context-optimization",
+      "description": "Apply compaction, masking, and caching strategies",
+      "link": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/context-optimization",
+      "category": "Context Engineering",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "muratcankoylan/multi-agent-patterns",
+      "description": "Master orchestrator, peer-to-peer, and hierarchical multi-agent architectures",
+      "link": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/multi-agent-patterns",
+      "category": "Context Engineering",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "muratcankoylan/memory-systems",
+      "description": "Design short-term, long-term, and graph-based memory architectures",
+      "link": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/memory-systems",
+      "category": "Context Engineering",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "muratcankoylan/tool-design",
+      "description": "Build tools that agents can use effectively, including architectural reduction patterns",
+      "link": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/tool-design",
+      "category": "Context Engineering",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "muratcankoylan/evaluation",
+      "description": "Build evaluation frameworks for agent systems",
+      "link": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/evaluation",
+      "category": "Context Engineering",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "K-Dense-AI/claude-scientific-skills",
+      "description": "Scientific research and analysis skills",
+      "link": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "category": "Specialized Domains",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.815752"
+    },
+    {
+      "name": "NotMyself/claude-win11-speckit-update-skill",
+      "description": "Windows 11 system management",
+      "link": "https://github.com/NotMyself/claude-win11-speckit-update-skill",
+      "category": "Specialized Domains",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "sanjay3290/imagen",
+      "description": "Generate images using Google Gemini's API",
+      "link": "https://github.com/sanjay3290/ai-skills/tree/main/skills/imagen",
+      "category": "Specialized Domains",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "jeffersonwarrior/claudisms",
+      "description": "SMS messaging integration",
+      "link": "https://github.com/jeffersonwarrior/claudisms",
+      "category": "Specialized Domains",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "SHADOWPR0/security-bluebook-builder",
+      "description": "Build security Blue Books for sensitive apps",
+      "link": "https://github.com/SHADOWPR0/security-bluebook-builder",
+      "category": "Specialized Domains",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "obra/defense-in-depth",
+      "description": "Multi-layered security approaches",
+      "link": "https://github.com/obra/superpowers/blob/main/skills/defense-in-depth/SKILL.md",
+      "category": "Specialized Domains",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "huifer/Claude-Ally-Health",
+      "description": "A health assistant skill for medical information analysis, symptom tracking, and wellness guidance.",
+      "link": "https://github.com/huifer/Claude-Ally-Health",
+      "category": "Specialized Domains",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "frmoretto/clarity-gate",
+      "description": "Pre-ingestion verification for epistemic quality in RAG systems with 9-point verification and Two-Round HITL workflow",
+      "link": "https://github.com/frmoretto/clarity-gate",
+      "category": "Specialized Domains",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "zechenzhangAGI/AI-research-SKILLs",
+      "description": "Comprehensive library of 77 AI research engineering skills across 20 categories including model architecture, fine-tuning, distributed training, inference, evaluation, and MLOps",
+      "link": "https://github.com/zechenzhangAGI/AI-research-SKILLs",
+      "category": "Specialized Domains",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "czlonkowski/n8n-code-javascript",
+      "description": "JavaScript in n8n Code nodes with data access patterns",
+      "link": "https://github.com/czlonkowski/n8n-skills/tree/main/skills/n8n-code-javascript",
+      "category": "n8n Automation",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "czlonkowski/n8n-code-python",
+      "description": "Python coding in n8n Code nodes with limitations",
+      "link": "https://github.com/czlonkowski/n8n-skills/tree/main/skills/n8n-code-python",
+      "category": "n8n Automation",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "czlonkowski/n8n-expression-syntax",
+      "description": "n8n expression syntax with {{}} and $json/$node variables",
+      "link": "https://github.com/czlonkowski/n8n-skills/tree/main/skills/n8n-expression-syntax",
+      "category": "n8n Automation",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "czlonkowski/n8n-mcp-tools-expert",
+      "description": "MCP tools guide with tool selection and node formats",
+      "link": "https://github.com/czlonkowski/n8n-skills/tree/main/skills/n8n-mcp-tools-expert",
+      "category": "n8n Automation",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "czlonkowski/n8n-node-configuration",
+      "description": "Node configuration with dependency rules and AI connections",
+      "link": "https://github.com/czlonkowski/n8n-skills/tree/main/skills/n8n-node-configuration",
+      "category": "n8n Automation",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "czlonkowski/n8n-validation-expert",
+      "description": "Fix n8n validation errors with error catalog",
+      "link": "https://github.com/czlonkowski/n8n-skills/tree/main/skills/n8n-validation-expert",
+      "category": "n8n Automation",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "czlonkowski/n8n-workflow-patterns",
+      "description": "Workflow patterns for webhook, HTTP, database, and AI tasks",
+      "link": "https://github.com/czlonkowski/n8n-skills/tree/main/skills/n8n-workflow-patterns",
+      "category": "n8n Automation",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "materials-simulation-skills",
+      "description": "Agent skills for computational materials science: numerical stability, time-stepping, linear solvers, mesh generation, simulation validation, parameter optimization, and post-processing",
+      "link": "https://github.com/HeshamFS/materials-simulation-skills",
+      "category": "Other",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "wrsmith108/varlock-claude-skill",
+      "description": "Secure environment variable management ensuring secrets are never exposed in Claude sessions, terminals, logs, or git commits",
+      "link": "https://github.com/wrsmith108/varlock-claude-skill",
+      "category": "Other",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "SHADOWPR0/beautiful_prose",
+      "description": "Hard-edged writing style contract for timeless, forceful English prose without AI tics",
+      "link": "https://github.com/SHADOWPR0/beautiful_prose",
+      "category": "Other",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "SeanZoR/claude-speed-reader",
+      "description": "Speed read Claude's responses at 600+ WPM using RSVP with Spritz-style ORP highlighting",
+      "link": "https://github.com/SeanZoR/claude-speed-reader",
+      "category": "Other",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    },
+    {
+      "name": "Skill_Seekers",
+      "description": "Automatically convert documentation websites, GitHub repositories, and PDFs into Claude AI skills in minutes.",
+      "link": "https://github.com/yusufkaraaslan/Skill_Seekers",
+      "category": "Other",
+      "source": "VoltAgent/awesome-agent-skills",
+      "crawled_at": "2026-02-02T17:07:33.816746"
+    }
+  ],
+  "total": 182,
+  "updated_at": "2026-02-02T17:07:33.819738"
+}
