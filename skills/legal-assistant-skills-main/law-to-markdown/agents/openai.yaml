@@ -1,0 +1,3 @@
+interface:
+  display_name: "法条转 Markdown"
+  short_description: "解析 .txt/.docx/.pdf 法条为 Markdown（DOCX/PDF 默认走 mineru-ocr skill，明确同意才回退）"
