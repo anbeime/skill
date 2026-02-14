@@ -544,12 +544,21 @@
                 'rgba(255,255,255,0.1)';
         });
         
-        // 文本转语音
-        function speakText(text) {
-            if (!ttsEnabled || !synthesis) return;
+        // GPT-SoVITS TTS 配置
+        const GPT_SOVITS_URL = 'http://localhost:9874';
+        const REF_AUDIO_PATH = 'D:/tool/skill/projects/xiaoyue-web/tts_audio/02_红人面对面_采访.wav';
+        const REF_TEXT = '大家好';
+        let currentAudio = null;
+        
+        // 文本转语音 - 使用 GPT-SoVITS
+        async function speakText(text) {
+            if (!ttsEnabled) return;
             
             // 停止当前播放
-            synthesis.cancel();
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
             
             // 清理文本：移除 emoji 和特殊符号
             const cleanText = text
@@ -562,12 +571,59 @@
             
             if (!cleanText) return; // 如果清理后没有文本，不播放
             
-            const utterance = new SpeechSynthesisUtterance(cleanText);
+            try {
+                // 构建 GPT-SoVITS API URL
+                const params = new URLSearchParams({
+                    refer_wav_path: REF_AUDIO_PATH,
+                    prompt_text: REF_TEXT,
+                    prompt_language: 'zh',
+                    text: cleanText,
+                    text_language: 'zh'
+                });
+                
+                const url = `${GPT_SOVITS_URL}/?${params.toString()}`;
+                
+                console.log('Generating TTS with GPT-SoVITS...');
+                
+                // 调用 GPT-SoVITS API
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    throw new Error(`TTS API error: ${response.status}`);
+                }
+                
+                // 获取音频数据
+                const audioBlob = await response.blob();
+                const audioUrl = URL.createObjectURL(audioBlob);
+                
+                // 播放音频
+                currentAudio = new Audio(audioUrl);
+                currentAudio.play();
+                
+                // 播放完成后清理
+                currentAudio.onended = () => {
+                    URL.revokeObjectURL(audioUrl);
+                    currentAudio = null;
+                };
+                
+            } catch (error) {
+                console.error('GPT-SoVITS TTS error:', error);
+                // 如果 GPT-SoVITS 失败，回退到浏览器 TTS
+                fallbackSpeakText(cleanText);
+            }
+        }
+        
+        // 浏览器 TTS 回退方案
+        function fallbackSpeakText(text) {
+            if (!synthesis) return;
+            
+            synthesis.cancel();
+            
+            const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'zh-CN';
             utterance.rate = 1.0;
             utterance.pitch = 1.1;
             
-            // 尝试使用中文女声
             const voices = synthesis.getVoices();
             const chineseVoice = voices.find(voice => 
                 voice.lang.includes('zh') && voice.name.includes('Female')
@@ -578,7 +634,7 @@
             }
             
             synthesis.speak(utterance);
-        }
+        })
         
         function addMessage(content, type, image = null) {
             const messageDiv = document.createElement('div');
