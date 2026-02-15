@@ -299,11 +299,11 @@
         <div class="chat-header">
             <div class="header-left">
                 <h1>小易伴侣</h1>
-                <p>真实�?AI 对话和图片生�?/p>
+                <p>真实 AI 对话和图片生成</p>
             </div>
             <div class="status-indicator">
                 <div class="status-dot"></div>
-                <span id="statusText">连接�?..</span>
+                <span id="statusText">连接中...</span>
             </div>
         </div>
         
@@ -313,17 +313,17 @@
                 <div class="message-content">
                     你好！我是小易，你的 AI 伴侣 😊<br><br>
                     我可以：<br>
-                    📸 生成真实的场景图�?br>
+                    📸 生成真实的场景图片<br>
                     💬 和你自然对话<br>
                     🎯 帮你完成各种任务<br><br>
-                    试试下面的快捷操作吧�?                </div>
+                    试试下面的快捷操作吧！               </div>
             </div>
         </div>
         
         <div class="chat-input-area">
             <div class="quick-actions">
-                <button class="quick-action" onclick="sendQuickMessage('发张你在咖啡馆的照片')">📸 咖啡�?/button>
-                <button class="quick-action" onclick="sendQuickMessage('发张你在办公室的照片')">💼 办公�?/button>
+                <button class="quick-action" onclick="sendQuickMessage('发张你在咖啡馆的照片')">📸 咖啡馆</button>
+                <button class="quick-action" onclick="sendQuickMessage('发张你在办公室的照片')">💼 办公室</button>
                 <button class="quick-action" onclick="sendQuickMessage('你在做什么？')">💬 聊天</button>
                 <button class="quick-action" onclick="sendQuickMessage('今天心情怎么样？')">😊 心情</button>
             </div>
@@ -333,11 +333,12 @@
                     type="text" 
                     class="chat-input" 
                     id="messageInput" 
-                    placeholder="输入消息...�?Enter 发�?
+                    placeholder="输入消息...按 Enter 发送"
                     onkeypress="handleKeyPress(event)"
                 >
                 <button class="send-button" id="sendButton" onclick="sendMessage()">
-                    �?                </button>
+                    发送
+                </button>
             </div>
         </div>
     </div>
@@ -349,7 +350,8 @@
         const sendButton = document.getElementById('sendButton');
         const statusText = document.getElementById('statusText');
         
-        // 检查服务器状�?        async function checkHealth() {
+        // 检查服务器状态
+        async function checkHealth() {
             try {
                 const response = await fetch(`${API_BASE}/api/health`);
                 const data = await response.json();
@@ -358,13 +360,13 @@
                     if (data.hasApiKey) {
                         statusText.textContent = '在线';
                     } else {
-                        statusText.textContent = '需要配�?;
-                        addSystemMessage('⚠️ 请在服务器配�?ZHIPU_API_KEY 环境变量才能使用');
+                        statusText.textContent = '需要配置';
+                        addSystemMessage('⚠️ 请在服务器配置 ZHIPU_API_KEY 环境变量才能使用');
                     }
                 }
             } catch (error) {
                 statusText.textContent = '离线';
-                addSystemMessage('�?无法连接到服务器，请确保服务器正在运�?);
+                addSystemMessage('❌ 无法连接到服务器，请确保服务器正在运行');
             }
         }
         
@@ -445,7 +447,8 @@
             messageInput.value = '';
             sendButton.disabled = true;
             
-            // 显示输入�?            showTyping();
+            // 显示输入中
+            showTyping();
             
             try {
                 // 调用对话 API
@@ -485,9 +488,9 @@
                         
                         // 判断场景（作为回退）
                         let scene = 'coffee-shop';
-                        if (message.includes('办公�?) || message.includes('工作')) {
+                        if (message.includes('办公室') || message.includes('工作')) {
                             scene = 'office';
-                        } else if (message.includes('�?) || message.includes('家里')) {
+                        } else if (message.includes('餐厅') || message.includes('美食') || message.includes('户外') || message.includes('旅行') || message.includes('家') || message.includes('家里')) {
                             scene = 'home';
                         } else if (message.includes('健身') || message.includes('运动')) {
                             scene = 'gym';
@@ -539,7 +542,8 @@
             }
         }
         
-        // 初始�?        checkHealth();
+        // 初始化
+        checkHealth();
         messageInput.focus();
     </script>
 </body>

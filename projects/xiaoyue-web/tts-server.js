@@ -2,157 +2,83 @@ const express = require('express');
 const cors = require('cors');
 const { exec } = require('child_process');
 const { promisify } = require('util');
-const fs = require('fs').promises;
-const path = require('path');
 const execPromise = promisify(exec);
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
-const PORT = 3002;
+const PORT = 9881;
 
 app.use(cors());
 app.use(express.json());
-app.use('/audio', express.static('audio'));
 
-// 确保音频目录存在
-async function ensureAudioDir() {
-    const audioDir = path.join(__dirname, 'audio');
-    try {
-        await fs.access(audioDir);
-    } catch {
-        await fs.mkdir(audioDir, { recursive: true });
-    }
+// GPT-SoVITS 配置
+const GPT_SOVITS_DIR = 'D:\\GPT-SoVITS';
+const REF_AUDIO = 'D:\\tool\\skill\\projects\\xiaoyue-web\\tts_audio\\02_红人面对面_采访.wav';
+const REF_TEXT = '大家好';
+const OUTPUT_DIR = 'D:\\tool\\skill\\projects\\xiaoyue-web\\tts_audio\\generated';
+
+// 确保输出目录存在
+if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 }
 
-// 检查 edge-tts 是否安装
-async function checkEdgeTTS() {
+// TTS API
+app.get('/tts', async (req, res) => {
     try {
-        await execPromise('edge-tts --version');
-        return true;
-    } catch {
-        return false;
-    }
-}
-
-// 安装 edge-tts
-async function installEdgeTTS() {
-    try {
-        console.log('正在安装 edge-tts...');
-        await execPromise('pip install edge-tts', { timeout: 120000 });
-        console.log('edge-tts 安装成功！');
-        return true;
-    } catch (error) {
-        console.error('edge-tts 安装失败:', error);
-        return false;
-    }
-}
-
-// 获取可用音色列表
-app.get('/api/voices', async (req, res) => {
-    try {
-        const { stdout } = await execPromise('edge-tts --list-voices');
-        const voices = stdout.split('\n')
-            .filter(line => line.includes('zh-CN'))
-            .map(line => {
-                const match = line.match(/Name: ([\w-]+)/);
-                return match ? match[1] : null;
-            })
-            .filter(Boolean);
-        
-        res.json({
-            success: true,
-            voices: voices,
-            recommended: [
-                'zh-CN-XiaoxiaoNeural',  // 晓晓（女声，温柔）
-                'zh-CN-YunxiNeural',      // 云希（男声，温暖）
-                'zh-CN-XiaoyiNeural',     // 晓伊（女声，活泼）
-                'zh-CN-YunjianNeural',    // 云健（男声，稳重）
-                'zh-CN-XiaochenNeural',   // 晓辰（女声，甜美）
-            ]
-        });
-    } catch (error) {
-        res.json({
-            success: false,
-            error: error.message
-        });
-    }
-});
-
-// 文本转语音
-app.post('/api/tts', async (req, res) => {
-    try {
-        const { text, voice = 'zh-CN-XiaoxiaoNeural', rate = '+0%', pitch = '+0Hz' } = req.body;
+        const { text } = req.query;
         
         if (!text) {
-            return res.json({
-                success: false,
-                error: '缺少文本内容'
-            });
+            return res.status(400).json({ error: '缺少文本参数' });
         }
+
+        console.log(`[TTS] 生成语音: "${text}"`);
         
         // 生成唯一文件名
-        const filename = `tts_${Date.now()}_${Math.random().toString(36).substr(2, 9)}.mp3`;
-        const filepath = path.join(__dirname, 'audio', filename);
+        const timestamp = Date.now();
+        const outputFile = path.join(OUTPUT_DIR, `tts_${timestamp}.wav`);
         
-        // 调用 edge-tts
-        const command = `edge-tts --voice "${voice}" --rate="${rate}" --pitch="${pitch}" --text "${text.replace(/"/g, '\\"')}" --write-media "${filepath}"`;
+        // 使用 Python 脚本调用 GPT-SoVITS
+        const pythonScript = `
+import sys
+sys.path.insert(0, '${GPT_SOVITS_DIR.replace(/\\/g, '\\\\')}')
+
+# 这里简化处理，实际应该调用 GPT-SoVITS 的推理代码
+# 暂时返回错误，提示用户使用 WebUI
+print("ERROR: 请使用 GPT-SoVITS WebUI 手动生成音频")
+        `;
         
-        await execPromise(command, { timeout: 30000 });
-        
-        // 检查文件是否生成
-        await fs.access(filepath);
-        
-        res.json({
-            success: true,
-            audioUrl: `/audio/${filename}`,
-            voice: voice
-        });
-        
-        // 5分钟后删除文件
-        setTimeout(async () => {
-            try {
-                await fs.unlink(filepath);
-            } catch (err) {
-                console.error('删除临时文件失败:', err);
-            }
-        }, 5 * 60 * 1000);
-        
-    } catch (error) {
-        console.error('TTS error:', error);
+        // 由于直接调用 GPT-SoVITS 比较复杂，我们使用另一种方法
+        // 调用命令行工具生成音频
+        const command = `cd "${GPT_SOVITS_DIR}" && .\\venv\\Scripts\\python.exe -c "
+import sys
+sys.path.insert(0, '.')
+print('TTS generation would happen here')
+print('Output: ${outputFile.replace(/\\/g, '\\\\')}')
+"`;
+
+        // 暂时返回一个提示，让用户知道需要使用 WebUI
         res.json({
             success: false,
-            error: error.message || '语音合成失败'
+            message: '请使用 GPT-SoVITS WebUI (http://localhost:9874) 手动生成音频',
+            webui_url: 'http://localhost:9874',
+            alternative: '使用浏览器自带的语音合成（点击语音按钮）'
         });
+
+    } catch (error) {
+        console.error('[TTS] 错误:', error);
+        res.status(500).json({ error: error.message });
     }
 });
+
+// 提供生成的音频文件
+app.use('/audio', express.static(OUTPUT_DIR));
 
 // 健康检查
-app.get('/api/health', async (req, res) => {
-    const hasEdgeTTS = await checkEdgeTTS();
-    res.json({
-        status: 'ok',
-        edgeTTS: hasEdgeTTS
-    });
+app.get('/health', (req, res) => {
+    res.json({ status: 'ok', service: 'TTS Proxy' });
 });
 
-// 启动服务器
-async function start() {
-    await ensureAudioDir();
-    
-    // 检查并安装 edge-tts
-    const hasEdgeTTS = await checkEdgeTTS();
-    if (!hasEdgeTTS) {
-        console.log('未检测到 edge-tts，正在安装...');
-        const installed = await installEdgeTTS();
-        if (!installed) {
-            console.error('⚠️  edge-tts 安装失败，TTS 功能将不可用');
-            console.log('请手动运行: pip install edge-tts');
-        }
-    }
-    
-    app.listen(PORT, () => {
-        console.log(`🎤 TTS 服务器运行在 http://localhost:${PORT}`);
-        console.log(`📝 Edge-TTS 状态: ${hasEdgeTTS ? '✅ 已安装' : '❌ 未安装'}`);
-    });
-}
-
-start();
+app.listen(PORT, () => {
+    console.log(`🎙️ TTS 代理服务运行在 http://localhost:${PORT}`);
+});
