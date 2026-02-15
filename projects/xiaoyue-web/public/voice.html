@@ -802,32 +802,8 @@
                     addMessage(aiMessage, 'ai');
                     
                     // 如果需要显示照片
-                    if (data.needImage) {
-                        // 如果后端已经返回了照片URL，直接使用
-                        if (data.photoUrl) {
-                            addMessage('', 'ai', data.photoUrl);
-                        } else {
-                            // 否则调用图片生成接口
-                            showTyping();
-                            
-                            const imageResponse = await fetch('/api/generate-image', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify({ 
-                                    prompt: message,
-                                    scene: 'coffee-shop' 
-                                })
-                            });
-                            
-                            const imageData = await imageResponse.json();
-                            hideTyping();
-                            
-                            if (imageData.success) {
-                                addMessage('', 'ai', imageData.imageUrl);
-                            }
-                        }
+                    if (data.needImage && data.photoUrl) {
+                        addMessage('', 'ai', data.photoUrl);
                     }
                 } else {
                     const errorMsg = data.error || data.message || '未知错误';
