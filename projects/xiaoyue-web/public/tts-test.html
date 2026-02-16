@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTS 测试 - 任嘉伦AI伴侣</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        button {
+            padding: 12px 24px;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        .btn-secondary {
+            background: #10b981;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background: #059669;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        .status.info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        #log {
+            max-height: 300px;
+            overflow-y: auto;
+            background: #1f2937;
+            color: #10b981;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎙️ TTS 测试页面</h1>
+        <p style="text-align: center; color: #666;">任嘉伦AI伴侣 - 语音合成测试</p>
+
+        <div class="test-section">
+            <h3>1. 浏览器 TTS 测试</h3>
+            <p>测试浏览器自带的语音合成功能：</p>
+            <input type="text" id="browserText" value="你好，我是任嘉伦" placeholder="输入测试文本">
+            <button class="btn-secondary" onclick="testBrowserTTS()">🔊 播放浏览器TTS</button>
+            <div id="browserStatus"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>2. GPT-SoVITS TTS 测试</h3>
+            <p>测试 GPT-SoVITS 语音克隆功能：</p>
+            <input type="text" id="gptText" value="你好，我是任嘉伦，很高兴认识你" placeholder="输入测试文本">
+            <button class="btn-primary" onclick="testGPTSoVITS()">🎵 播放GPT-SoVITS</button>
+            <div id="gptStatus"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>3. 服务状态检查</h3>
+            <button class="btn-primary" onclick="checkServices()">🔍 检查服务状态</button>
+            <div id="serviceStatus"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>4. 调试日志</h3>
+            <div id="log"></div>
+            <button class="btn-secondary" onclick="clearLog()">🗑️ 清除日志</button>
+        </div>
+    </div>
+
+    <script>
+        const GPT_SOVITS_URL = 'http://localhost:9880';  // API 端口
+        const GPT_SOVITS_WEBUI_URL = 'http://localhost:9874';  // WebUI 端口
+        const REF_AUDIO_PATH = 'D:/tool/skill/projects/xiaoyue-web/tts_audio/02_红人面对面_采访.wav';
+        const REF_TEXT = '大家好';
+        let currentAudio = null;
+
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? '#ef4444' : type === 'success' ? '#10b981' : '#60a5fa';
+            logDiv.innerHTML += `<div style="color: ${color}">[${timestamp}] ${message}</div>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(`[${type}] ${message}`);
+        }
+
+        function clearLog() {
+            document.getElementById('log').innerHTML = '';
+        }
+
+        function showStatus(elementId, message, type) {
+            const element = document.getElementById(elementId);
+            element.className = `status ${type}`;
+            element.textContent = message;
+        }
+
+        // 测试浏览器 TTS
+        function testBrowserTTS() {
+            const text = document.getElementById('browserText').value;
+            log(`测试浏览器TTS: "${text}"`);
+
+            if (!window.speechSynthesis) {
+                showStatus('browserStatus', '❌ 浏览器不支持语音合成', 'error');
+                log('浏览器不支持 speechSynthesis', 'error');
+                return;
+            }
+
+            try {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'zh-CN';
+                utterance.rate = 1.0;
+                utterance.pitch = 1.1;
+
+                utterance.onstart = () => {
+                    log('浏览器TTS开始播放', 'success');
+                    showStatus('browserStatus', '🔊 正在播放...', 'info');
+                };
+
+                utterance.onend = () => {
+                    log('浏览器TTS播放完成', 'success');
+                    showStatus('browserStatus', '✅ 播放完成', 'success');
+                };
+
+                utterance.onerror = (e) => {
+                    log(`浏览器TTS错误: ${e.error}`, 'error');
+                    showStatus('browserStatus', `❌ 错误: ${e.error}`, 'error');
+                };
+
+                const voices = window.speechSynthesis.getVoices();
+                const chineseVoice = voices.find(v => v.lang.includes('zh'));
+                if (chineseVoice) {
+                    utterance.voice = chineseVoice;
+                    log(`使用语音: ${chineseVoice.name}`);
+                }
+
+                window.speechSynthesis.speak(utterance);
+            } catch (error) {
+                log(`浏览器TTS异常: ${error.message}`, 'error');
+                showStatus('browserStatus', `❌ 异常: ${error.message}`, 'error');
+            }
+        }
+
+        // 测试 GPT-SoVITS
+        async function testGPTSoVITS() {
+            const text = document.getElementById('gptText').value;
+            log(`测试GPT-SoVITS TTS: "${text}"`);
+            showStatus('gptStatus', '⏳ 正在生成语音...', 'info');
+
+            try {
+                // 停止当前播放
+                if (currentAudio) {
+                    currentAudio.pause();
+                    currentAudio = null;
+                }
+
+                // 构建 URL - 使用 API v2 参数格式
+                const params = new URLSearchParams({
+                    ref_audio_path: REF_AUDIO_PATH,        // API v2 参数名
+                    prompt_text: REF_TEXT,
+                    prompt_lang: 'zh',                      // API v2 参数名
+                    text: text,
+                    text_lang: 'zh',                        // API v2 参数名
+                    text_split_method: 'cut5',             // 添加文本分割方法
+                    media_type: 'wav'                       // 指定返回格式
+                });
+                // 使用 API 端口（9880）和 /tts endpoint
+                const url = `${GPT_SOVITS_URL}/tts?${params.toString()}`; // 修正：使用 API 端口和 /tts 路径
+                log(`请求URL: ${url.substring(0, 100)}...`); // 调试：打印实际请求的URL
+                
+                // 备用方案：如果 API 不可用，尝试 WebUI
+                // const url = `${GPT_SOVITS_WEBUI_URL}/?${params.toString()}`; // 旧代码：错误地调用了WebUI端口，返回的是HTML页面而非音频数据。已修正为调用API端口9880的/tts接口。
+                log(`请求URL: ${url.substring(0, 100)}...`);
+
+                // 调用 API
+                const response = await fetch(url);
+                log(`API响应状态: ${response.status}`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                // 获取音频
+                const audioBlob = await response.blob();
+                log(`音频大小: ${(audioBlob.size / 1024).toFixed(2)} KB`, 'success');
+
+                const audioUrl = URL.createObjectURL(audioBlob);
+                currentAudio = new Audio(audioUrl);
+
+                // 错误处理
+                currentAudio.onerror = (e) => {
+                    log(`音频播放错误: ${e.message || '未知错误'}`, 'error');
+                    showStatus('gptStatus', '❌ 音频播放失败', 'error');
+                };
+
+                // 播放事件
+                currentAudio.onplay = () => {
+                    log('音频开始播放', 'success');
+                    showStatus('gptStatus', '🔊 正在播放任嘉伦语音...', 'info');
+                };
+
+                currentAudio.onended = () => {
+                    log('音频播放完成', 'success');
+                    showStatus('gptStatus', '✅ 播放完成', 'success');
+                    URL.revokeObjectURL(audioUrl);
+                };
+
+                // 尝试播放
+                const playPromise = currentAudio.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        log(`播放失败: ${error.message}`, 'error');
+                        showStatus('gptStatus', `❌ 播放失败: ${error.message}`, 'error');
+                    });
+                }
+
+            } catch (error) {
+                log(`GPT-SoVITS错误: ${error.message}`, 'error');
+                showStatus('gptStatus', `❌ 错误: ${error.message}`, 'error');
+            }
+        }
+
+        // 检查服务状态
+        async function checkServices() {
+            log('检查服务状态...');
+            const statusDiv = document.getElementById('serviceStatus');
+            statusDiv.innerHTML = '<div class="status info">⏳ 正在检查...</div>';
+
+            let html = '';
+
+            // 检查小易服务
+            try {
+                const response = await fetch('http://localhost:3001/api/health');
+                const data = await response.json();
+                log('小易服务: 正常运行', 'success');
+                html += '<div class="status success">✅ 小易伴侣服务: 正常</div>';
+            } catch (error) {
+                log(`小易服务错误: ${error.message}`, 'error');
+                html += '<div class="status error">❌ 小易伴侣服务: 未运行</div>';
+            }
+
+            // 检查 GPT-SoVITS
+            try {
+                const response = await fetch('http://localhost:9874/');
+                if (response.ok) {
+                    log('GPT-SoVITS服务: 正常运行', 'success');
+                    html += '<div class="status success">✅ GPT-SoVITS服务: 正常</div>';
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            } catch (error) {
+                log(`GPT-SoVITS错误: ${error.message}`, 'error');
+                html += '<div class="status error">❌ GPT-SoVITS服务: 未运行</div>';
+            }
+
+            // 检查音频文件
+            try {
+                const response = await fetch('http://localhost:3001/tts_audio/02_%E7%BA%A2%E4%BA%BA%E9%9D%A2%E5%AF%B9%E9%9D%A2_%E9%87%87%E8%AE%BF.wav', { method: 'HEAD' });
+                if (response.ok) {
+                    log('参考音频文件: 可访问', 'success');
+                    html += '<div class="status success">✅ 参考音频文件: 可访问</div>';
+                } else {
+                    throw new Error('不可访问');
+                }
+            } catch (error) {
+                log(`参考音频文件: ${error.message}`, 'error');
+                html += '<div class="status error">❌ 参考音频文件: 不可访问</div>';
+            }
+
+            // 检查浏览器支持
+            if (window.speechSynthesis) {
+                log('浏览器TTS支持: 是', 'success');
+                html += '<div class="status success">✅ 浏览器TTS: 支持</div>';
+            } else {
+                log('浏览器TTS支持: 否', 'error');
+                html += '<div class="status error">❌ 浏览器TTS: 不支持</div>';
+            }
+
+            statusDiv.innerHTML = html;
+        }
+
+        // 页面加载时自动检查
+        window.onload = () => {
+            log('页面加载完成');
+            checkServices();
+        };
+    </script>
+</body>
+</html>

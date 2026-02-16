@@ -600,8 +600,7 @@
                 currentAudio = null;
             }
             
-            // 清理文本：移除 emoji 和特殊符号
-            const cleanText = text
+            // 清理文本：移�?emoji 和特殊符�?            const cleanText = text
                 .replace(/[\u{1F300}-\u{1F9FF}]/gu, '') // 移除 emoji
                 .replace(/[\u{2600}-\u{26FF}]/gu, '')   // 移除符号
                 .replace(/[\u{2700}-\u{27BF}]/gu, '')   // 移除装饰符号
@@ -609,8 +608,7 @@
                 .replace(/\s+/g, ' ')                    // 合并多余空格
                 .trim();
             
-            if (!cleanText) return; // 如果清理后没有文本，不播放
-            
+            if (!cleanText) return; // 如果清理后没有文本，不播�?            
             try {
                 // 构建 GPT-SoVITS API URL
                 const params = new URLSearchParams({
@@ -777,8 +775,7 @@
             showTyping();
             
             try {
-                // 生成唯一的请求ID（针对照片请求使用随机sessionId）
-                const isPhotoRequest = message.includes('照片') || message.includes('图片') || message.includes('自拍');
+                // 生成唯一的请求ID（针对照片请求使用随机sessionId�?                const isPhotoRequest = message.includes('照片') || message.includes('图片') || message.includes('自拍');
                 const sessionId = isPhotoRequest ? 'session-' + Date.now() : 'default';
                 
                 // 调用后端 API
@@ -801,8 +798,7 @@
                     const aiMessage = data.message || '收到回复';
                     addMessage(aiMessage, 'ai');
                     
-                    // 如果需要显示照片
-                    if (data.needImage && data.photoUrl) {
+                    // 如果需要显示照�?                    if (data.needImage && data.photoUrl) {
                         addMessage('', 'ai', data.photoUrl);
                     }
                 } else {
@@ -811,7 +807,7 @@
                 }
             } catch (error) {
                 hideTyping();
-                addMessage('抱歉，网络连接失败，请稍后重试', 'ai');
+                addMessage('抱歉，网络连接失败，请稍后重�?, 'ai');
             }
             
             sendButton.disabled = false;

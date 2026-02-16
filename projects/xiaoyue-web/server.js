@@ -21,6 +21,7 @@ const ZHIPU_API_BASE = 'https://open.bigmodel.cn/api/paas/v4';
 const OPENCLAW_CLI = process.env.OPENCLAW_CLI || 'D:\\openclaw\\npm-global\\node_modules\\openclaw\\dist\\index.js';
 const OPENCLAW_NODE = process.env.OPENCLAW_NODE || 'C:\\Users\\ASUS\\.stepfun\\runtimes\\node\\install_1770628825604_th45cs96cig\\node-v22.18.0-win-x64\\node.exe';
 const OPENCLAW_ENABLED = process.env.OPENCLAW_ENABLED === 'true';
+const OPENCLAW_VERSION = process.env.OPENCLAW_VERSION || '2026.2.14';
 
 // 对话历史存储
 const conversations = new Map();
@@ -402,6 +403,7 @@ app.listen(PORT, () => {
     console.log(`📝 API Key 状态: ${ZHIPU_API_KEY ? '✅ 已配置' : '❌ 未配置'}`);
     console.log(`🤖 OpenClaw 集成: ${OPENCLAW_ENABLED ? '✅ 已启用' : '❌ 未启用'}`);
     if (OPENCLAW_ENABLED) {
+        console.log(`   - 版本: ${OPENCLAW_VERSION}`);
         console.log(`   - CLI 路径: ${OPENCLAW_CLI}`);
         console.log(`   - Node 路径: ${OPENCLAW_NODE}`);
     }
