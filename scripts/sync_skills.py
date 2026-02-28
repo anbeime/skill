@@ -115,56 +115,53 @@ def generate_readme(sources_data):
 
 - **最后更新**: {sources_data['last_updated']}
 - **技能源总数**: {sources_data['total_count']}
-- **来源数量**: {len(sources_data['sources'])}
 
 ## 🔗 上游源
 
+- [OpenAI Skills](https://github.com/openai/skills)
+- [VoltAgent Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills)
+
+## 📦 技能仓库列表
+
 """
-    
-    for source_key, source_info in UPSTREAM_SOURCES.items():
-        content += f"- [{source_info['name']}]({source_info['url'].replace('raw.githubusercontent.com', 'github.com').replace('/main/', '/blob/main/')})\n"
-    
-    content += "\n## 📦 技能仓库列表\n\n"
-    
-    # 按来源分组
+  
     for source_key, source_info in UPSTREAM_SOURCES.items():
         source_name = source_info['name']
         content += f"### {source_name}\n\n"
-        content += "| 仓库 | 描述 | 来源 |\n"
-        content += "|------|------|------|\n"
-        
+        content += "| 仓库 | 来源 |\n"
+        content += "|------|------|\n"
+      
         count = 0
         for repo_id, repo_data in sources_data['sources'].items():
             if repo_data.get('upstream_source') == source_key:
-                owner, repo = repo_id.split('/')
+                # 处理包含多个斜杠的 repo_id
+                parts = repo_id.split('/')
+                if len(parts) == 2:
+                    owner, repo = parts
+                else:
+                    owner = parts[0]
+                    repo = '/'.join(parts[1:])
+              
                 repo_url = f"https://github.com/{owner}/{repo}"
-                description = repo_data.get('description', 'N/A')[:50] + '...' if len(repo_data.get('description', '')) > 50 else repo_data.get('description', 'N/A')
-                content += f"| [{repo}]({repo_url}) | {description} | {source_name} |\n"
+                content += f"| [{repo}]({repo_url}) | {source_name} |\n"
                 count += 1
-        
+      
         if count == 0:
-            content += "| - | 暂无数据 | - |\n"
-        
+            content += "| - | 暂无数据 |\n"
         content += "\n"
-    
+  
     content += """## 🔄 自动同步
 
 本仓库每天自动从上游源同步最新的技能仓库信息。
 
-### 触发方式
-
-- **定时触发**: 每天 02:00 UTC
-- **手动触发**: 通过 GitHub Actions 页面手动运行
-
-### 同步脚本
-
-详见 [scripts/sync_skills.py](scripts/sync_skills.py)
+- **定时触发**: 每天 02\:00 UTC
+- **手动触发**: 通过 GitHub Actions 页面
 
 ---
 
-*此文件由自动化脚本生成，请勿手动修改*
+*此文件由自动化脚本生成*
 """
-    
+  
     with open('README.md', 'w', encoding='utf-8') as f:
         f.write(content)
     print("✅ 已更新 README.md")
