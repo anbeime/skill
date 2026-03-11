@@ -1,0 +1,7 @@
+# FlexAssembly Skill Dependencies
+
+# Core dependencies
+openclaw>=1.0.0
+
+# Optional dependencies for advanced features
+numpy>=1.20.0
