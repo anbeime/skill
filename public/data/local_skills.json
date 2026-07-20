@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "total_skills": 61,
-    "core_skills": 25,
+    "total_skills": 62,
+    "core_skills": 26,
     "sub_skills": 30,
     "system_builtin": 6,
-    "last_updated": "2026-02-11T15:30:00",
+    "last_updated": "2026-05-31T00:00:00",
     "location": "D:\\tool\\skills",
     "backup_location": "D:\\tool\\skills\\skill压缩文件",
     "backup_coverage": "100%",
@@ -80,12 +80,13 @@
       ]
     },
     "文档与分析": {
-      "count": 4,
+      "count": 5,
       "skills": [
         "paper-analysis-assistant",
         "contract-review",
         "law-to-markdown",
-        "stock-analysis"
+        "stock-analysis",
+        "data-flow-skill"
       ]
     },
     "智能体协作": {
@@ -148,10 +149,10 @@
     "by_api_requirement": {
       "必需API": 15,
       "可选API": 20,
-      "完全免费": 26
+      "完全免费": 27
     },
     "by_usage_frequency": {
-      "⭐⭐⭐⭐⭐": 10,
+      "⭐⭐⭐⭐⭐": 11,
       "⭐⭐⭐⭐": 18,
       "⭐⭐⭐": 21,
       "⭐⭐": 12
@@ -188,10 +189,25 @@
         "category": "数字人与视频配音",
         "rating": 5,
         "description": "音频驱动的稀疏帧视频配音工具，支持音频驱动的Video-to-Video和Image-to-Video"
+      },
+      {
+        "name": "data-flow-skill",
+        "category": "文档与分析",
+        "rating": 5,
+        "description": "数据分析全流程 Agent Skill，覆盖数据类型检测、预处理、统计分析、可视化、报告和幻灯片生成"
       }
     ]
   },
   "update_log": [
+    {
+      "date": "2026-05-31",
+      "version": "2.1",
+      "changes": [
+        "新增 data-flow-skill：数据类型检测、统计分析、可视化、报告和幻灯片生成一体化技能",
+        "本地技能总数从61个增加到62个",
+        "文档与分析分类从4个增加到5个"
+      ]
+    },
     {
       "date": "2026-02-11",
       "version": "2.0",
