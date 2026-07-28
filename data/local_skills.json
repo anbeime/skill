@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "total_skills": 61,
-    "core_skills": 25,
+    "total_skills": 62,
+    "core_skills": 26,
     "sub_skills": 30,
     "system_builtin": 6,
-    "last_updated": "2026-02-11T15:30:00",
+    "last_updated": "2026-07-01T22:15:00",
     "location": "D:\\tool\\skills",
     "backup_location": "D:\\tool\\skills\\skill压缩文件",
     "backup_coverage": "100%",
@@ -104,12 +104,13 @@
       ]
     },
     "设计与可视化": {
-      "count": 4,
+      "count": 5,
       "skills": [
         "frontend-design",
         "ai-drawio",
         "pop-up-book-illustration",
-        "web-to-app"
+        "web-to-app",
+        "money-printer-turbo"
       ]
     },
     "文档处理": {
@@ -148,12 +149,12 @@
     "by_api_requirement": {
       "必需API": 15,
       "可选API": 20,
-      "完全免费": 26
+      "完全免费": 27
     },
     "by_usage_frequency": {
       "⭐⭐⭐⭐⭐": 10,
       "⭐⭐⭐⭐": 18,
-      "⭐⭐⭐": 21,
+      "⭐⭐⭐": 22,
       "⭐⭐": 12
     }
   },
@@ -192,6 +193,14 @@
     ]
   },
   "update_log": [
+    {
+      "date": "2026-07-01",
+      "version": "2.1",
+      "changes": [
+        "新增技能：money-printer-turbo - 狂点印刷的增量点击游戏——点击打印机赚金币，购买升级，Turbo爆发，升华重置的完整Idle Clicker体验。",
+        "技能总数从61个增加到62个"
+      ]
+    },
     {
       "date": "2026-02-11",
       "version": "2.0",
