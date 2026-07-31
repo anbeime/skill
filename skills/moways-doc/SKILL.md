@@ -1,7 +1,7 @@
 ---
 name: "Word文档排版"
 description: "一键规范 Word 报告排版：页面设置、字体字号、标题层级、行距段距、页码页眉、 目录、三线表、图表标题、封面附件、署名日期，全部自动刷成标准格式。 独家修复 AI 写作中最隐蔽的'半角冒充全角'标点问题（半角逗号、直引号、半角括号、 连字符冒充破折号、三个英文点冒充省略号），严格执行中文标点国标 GB/T 15834-2011。 三种模式：自动排版（一键刷格式+标点）、排版审查（只出问题清单不改文件）、 新建报告（从零按标准生成）。适用于咨询报告、国企央企报告、规划报告、可研报告、 汇报材料等正式 Word 文档。 当用户提到'排版''Word排版''Word格式''格式化Word''刷格式''统一格式''改格式' '格式不对''排版不对''帮我排版''排版发我''刷一下格式''报告排版''报告格式' '检查Word格式''Word格式检查''排版标准''行文规范''公文排版''公文格式' '国企报告排版''规划报告排版''三线表''页眉页码''标点不对''半角标点''中文标点' '直引号''书名号''破折号''省略号''GB/T 15834''标点符号用法''去AI味' '博维Wo"
-source: "SkillHub 推荐榜 (api.skillhub.cn)"
+source: "SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)"
 skillhub_slug: "moways-doc"
 category: "office-efficiency"
 tags: ["chinese", "docx", "format", "word", "公文", "排版"]
@@ -19,4 +19,4 @@ installs: 0
 - 标签: chinese, docx, format, word, 公文, 排版
 - 主页: https://api.skillhub.cn/user_6113fd9f/moways-doc
 - SkillHub slug: moways-doc
-- 来源: SkillHub 推荐榜 (api.skillhub.cn)
+- 来源: SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)

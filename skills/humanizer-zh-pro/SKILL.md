@@ -1,12 +1,12 @@
 ---
 name: "中文 AI 去痕工具"
 description: "中文AI文本去痕Skill。去除文本中的AI生成痕迹，让内容听起来更自然、更像人类书写。 基于维基百科'AI写作特征'指南，检测并修复24种AI写作模式。 **触发场景**（满足任一即触发）： 1. 用户需要编辑或审阅文本，去除AI写作痕迹 2. 文本包含夸大的象征意义、宣传性语言 3. 文本有破折号过度使用、三段式法则等AI特征 4. 用户希望让AI生成的中文内容更口语化 5. 用户需要优化公众号文章、博客内容的可读性 **识别信号**： - '去除AI痕迹'、'去AI味' - '让这段文字更自然' - 文本含AI词汇：此外、至关重要、深入探讨、织锦 - 文本有过度修饰、模糊归因、否定式排比 - '编辑这段文字'、'审阅这篇文章' **不用于**： - 已经自然流畅的人工写作 - 用户明确要求保持AI风格的情况 - 正式公文、法律文件（需保持严谨） - 学术论文（需保持学术规范） **核心能力**： 1. 24种AI写作模式识别（内容/语言/语法/风格/交流模式） 2. 填充词和过度限定修正 3. 个性与灵魂注入（避免干净但无灵魂的写作） 4. 质量评分（5维度50分制） 5. 改写"
-source: "SkillHub 推荐榜 (api.skillhub.cn)"
+source: "SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)"
 skillhub_slug: "humanizer-zh-pro"
 category: "content-creation"
 tags: []
 homepage: "https://api.skillhub.cn/user_00c9b356/humanizer-zh-pro"
-stars: 21
+stars: 23
 installs: 127
 ---
 
@@ -19,4 +19,4 @@ installs: 127
 - 标签: —
 - 主页: https://api.skillhub.cn/user_00c9b356/humanizer-zh-pro
 - SkillHub slug: humanizer-zh-pro
-- 来源: SkillHub 推荐榜 (api.skillhub.cn)
+- 来源: SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)

@@ -1,7 +1,7 @@
 ---
 name: "全能金融爬虫（优化数据爬取准度）"
 description: "中国金融机构数据爬取工具 v4.6.0。全量金融机构名单（1540+家，36大类）、A股报告爬取（年报+券商研报+公告）、 产品解析（基金/ETF/FOF/股票/债券）、新闻资讯、反爬+双语展示、金融文档分析整理。 🆕 v4.6.0: **严格日期过滤**（修复 cutoff_time 死代码，强制按时间窗过滤）+ **日期核验统计**（date_validation 字段输出越界文章详情）+ **默认开启数据回测**（run_backtest=True）+ **月份识别 NLU**（支持 '7月'/'2026年7月' 等自然语言时间表达）+ **data_validator 日期窗口核验**。 v4.5.1: 回测过滤落地、批量回测汇总、爬取前确认强化、并发抓取加速、快照索引写入节流。 v4.5.0: 全页内容归档器、类人浏览器操作、多搜索引擎集成、4维数据回测增强、爬取前确认流程。 v4.4.0: 新增东方财富数据爬虫（基金净值/龙虎榜/北向资金/热门股票）、巨潮资讯官方公告爬虫、 金融监管机构爬虫（央行/证监会/金监总局）、海外机构扩展至 250+（新增主权基金/PE/做市商）、"
-source: "SkillHub 推荐榜 (api.skillhub.cn)"
+source: "SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)"
 skillhub_slug: "cnfinancialscraper"
 category: "data-analysis"
 tags: []
@@ -19,4 +19,4 @@ installs: 0
 - 标签: —
 - 主页: https://api.skillhub.cn/user_9d5a2a39/cnfinancialscraper
 - SkillHub slug: cnfinancialscraper
-- 来源: SkillHub 推荐榜 (api.skillhub.cn)
+- 来源: SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)

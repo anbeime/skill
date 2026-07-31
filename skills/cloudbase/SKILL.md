@@ -1,7 +1,7 @@
 ---
 name: "cloudbase"
 description: "'Use this skill when you develop, design, build, deploy, debug, migrate, or troubleshoot CloudBase (腾讯云开发, 云开发, TCB, 微信云开发) projects. Covers Web, 微信小程序, 小程序, uni-app, mobile (iOS, Android, Flutter, React Native). UI (页面, 界面, 表单, form, dashboard, prototype, 原型); auth (登录, 注册, OAuth, 微信登录, publishable key); databases (NoSQL 文档数据库, MySQL 关系型数据库, PostgreSQL/CloudBase PG, app.rdb(), queryPgDatabase/managePgDatabase, CRUD, 查询, security rules); 云函数/cloud functions (serverless, scf_bootstrap); CloudRun "
-source: "SkillHub 推荐榜 (api.skillhub.cn)"
+source: "SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)"
 skillhub_slug: "cloudbase"
 category: "dev-programming"
 tags: []
@@ -19,4 +19,4 @@ installs: 9
 - 标签: —
 - 主页: https://api.skillhub.cn/tencent-adm/cloudbase
 - SkillHub slug: cloudbase
-- 来源: SkillHub 推荐榜 (api.skillhub.cn)
+- 来源: SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)

@@ -1,7 +1,7 @@
 ---
 name: "深知公文写作"
 description: "深知公文写作，是面向单位办公室、综合岗、文秘、材料岗和企事业单位用户的正式材料写作助手。核心用于公文写作、正式文书起草、汇报材料整理、讲话稿撰写、工作总结和方案报告生成，帮助用户把零散想法、会议记录、工作素材、调研资料或初稿，整理成结构清楚、表达稳妥、逻辑完整、可直接修改使用的正式文稿。支持通知、请示、报告、函、复函、批复、会议纪要、通报、通告、公告、意见、方案、总结、管理办法、汇报材料、发言稿、讲话稿、调研报告、经验材料等常见文种和工作材料。可进行起草、改写、润色、扩写、压缩、标题优化、结构调整、语气统一和内容审查。涉及政策依据、数据支撑、标准规范或案例参考时，可调用深知可信搜索获取素材，并单独生成素材来源说明，帮助用户写得有依据、能复核、可交付。正式交付时支持生成 Word 文档；用户明确需要时，也可生成红头文件。"
-source: "SkillHub 推荐榜 (api.skillhub.cn)"
+source: "SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)"
 skillhub_slug: "dknowc-official-doc-writer-skillhub"
 category: "office-efficiency"
 tags: []
@@ -19,4 +19,4 @@ installs: 22
 - 标签: —
 - 主页: https://api.skillhub.cn/user_c9faff27/dknowc-official-doc-writer-skillhub
 - SkillHub slug: dknowc-official-doc-writer-skillhub
-- 来源: SkillHub 推荐榜 (api.skillhub.cn)
+- 来源: SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)

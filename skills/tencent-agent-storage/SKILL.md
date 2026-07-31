@@ -1,7 +1,7 @@
 ---
 name: "tencent-agent-storage"
 description: "Cloud file storage, upload, backup, and file management tool for Tencent Agent Storage (专属网盘). Manages the user's personal cloud drive: upload files, list files, download, share links, preview, and backup. MUST trigger when the user mentions ANY of the following concepts: 【云盘/网盘相关 — Cloud Drive Access】 - '网盘', '云盘', '云空间', '龙虾盘', '龙虾云盘', '龙虾网盘', '龙虾空间' - '专属云盘', '专属网盘', '专属空间', '我的云盘', '我的网盘', '我的龙虾' - '打开网盘', '打开云盘', '进入网盘', '进入云盘', '看看云盘', '看看网盘' - 'cloud drive', 'my drive', 'open drive', 'lob"
-source: "SkillHub 推荐榜 (api.skillhub.cn)"
+source: "SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)"
 skillhub_slug: "tencent-agent-storage"
 category: "office-efficiency"
 tags: []
@@ -19,4 +19,4 @@ Cloud file storage, upload, backup, and file management tool for Tencent Agent S
 - 标签: —
 - 主页: https://api.skillhub.cn/tencent-adm/tencent-agent-storage
 - SkillHub slug: tencent-agent-storage
-- 来源: SkillHub 推荐榜 (api.skillhub.cn)
+- 来源: SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)

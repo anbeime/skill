@@ -1,7 +1,7 @@
 ---
 name: "PDF识别提取专家"
 description: "当用户需要从 PDF、图片、扫描件中提取文字内容时使用。适合处理合同、发票、报告等文档，尤其是中文扫描件、手机拍照的弯曲页面、歪斜的文档。支持 PP-OCRv6 三档模型 (Tiny/Small/Medium)。"
-source: "SkillHub 推荐榜 (api.skillhub.cn)"
+source: "SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)"
 skillhub_slug: "pdf-ocr-md"
 category: "office-efficiency"
 tags: []
@@ -19,4 +19,4 @@ installs: 0
 - 标签: —
 - 主页: https://api.skillhub.cn/user_779b44c7/pdf-ocr-md
 - SkillHub slug: pdf-ocr-md
-- 来源: SkillHub 推荐榜 (api.skillhub.cn)
+- 来源: SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)

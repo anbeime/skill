@@ -1,7 +1,7 @@
 ---
 name: "全球12亿文献知识库（8千万中文期刊可下载）"
 description: "全球12亿文献知识库（8千万中文期刊可下载）——覆盖8000万篇授权中文期刊全文+12.28亿条全球文献元数据（含期刊7.19亿、专利2.15亿、会议论文7155万、学位论文2473万、标准268万等）。 内置三级检索策略（宽检索高查全/窄检索高查准/平衡策略），支持关键词检索、文献详情查看、全文下载（中文直接下载+外文十级渠道自动探测+OA免费下载）、迭代优化检索、引文追溯、分类号检索、结果质量评估。 ✨ 亮点：每篇文献提供原始数据库来源链接（覆盖300+数据库，如Scopus/WoS/EI/PubMed等，覆盖率100%，平均4.75个链接/篇），可直接跳转验证文献真实性。 💎 OA文献下载：OA文献（Gold/Hybrid/Bronze/Green OA）通过十级渠道免费获取PDF，不消耗SmartLib配额。 当前为试用版：首次使用自动注册开通，免费 100 次检索 / 月 + 10 次全文下载 / 月，全程对话驱动，无需付费或人工申请。付费套餐（体验卡 / 个人版月 / 专业版月 / 单篇下载 / 下载包）现已开放，价格与额度见下方「💰 套餐与额度」章节；配额不足时会自动弹出"
-source: "SkillHub 推荐榜 (api.skillhub.cn)"
+source: "SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)"
 skillhub_slug: "global-biblio-base"
 category: "knowledge-management"
 tags: []
@@ -19,4 +19,4 @@ installs: 0
 - 标签: —
 - 主页: https://api.skillhub.cn/user_164f4c1f/global-biblio-base
 - SkillHub slug: global-biblio-base
-- 来源: SkillHub 推荐榜 (api.skillhub.cn)
+- 来源: SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)
