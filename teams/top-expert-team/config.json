@@ -1,0 +1,18 @@
+{
+  "name": "top-expert-team",
+  "description": "TOP 专家团 - 9大专业团队协同作战，覆盖金融投资、内容创作、视频制作、技术开发、电商运营、知识管理、办公效率、创意娱乐、外部连接",
+  "createdAt": 1779460673543,
+  "leadAgentId": "team-lead@top-expert-team",
+  "leadSessionId": "2a5eda7c-c819-4e18-b956-2e64f55a1f1a",
+  "members": [
+    {
+      "agentId": "team-lead@top-expert-team",
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "joinedAt": 1779460673543,
+      "tmuxPaneId": "",
+      "cwd": "c:\\D\\skill",
+      "subscriptions": []
+    }
+  ]
+}

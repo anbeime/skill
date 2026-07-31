@@ -1,9 +1,18 @@
-# SkillHub 技能全集（多榜单合并）
+# SkillHub 技能全集（多榜单合并）+ TOP 专家团
+
+> 本仓库 = **SkillHub 公开榜单采集**（336 技能）+ **TOP 专家团团队/调度层**（本地多团队协同体系）。
+
+## 📦 两大组成
+
+- **[SkillHub 公开榜单采集](skills/)** — 合并 recommended/hot/featured/newest/trending 共 **336** 个技能，按分类索引见下文。
+- **[TOP 专家团 · 团队/调度层](teams/README.md)** — agent-dispatcher 总调度中心 + 9 大专业团队配置 + 已装技能目录（共 29 个本地技能）。
+
+---
 
 > 通过 SkillHub 官方 CLI 从 `api.skillhub.cn` 采集并合并多个榜单：**recommended(100)、hot(100)、featured(47)、newest(100)、trending(100)**，去重后共 **336** 个技能。
 > 数据来源：SkillHub 多榜单合并 (api.skillhub.cn: recommended/hot/featured/newest/trending/paid)
 
-## 按分类浏览
+## 按分类浏览（SkillHub 采集）
 
 ### ai-agent（55）
 - [find skill](skills/find-skill-skillhub/SKILL.md)
