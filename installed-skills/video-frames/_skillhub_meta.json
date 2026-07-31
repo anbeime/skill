@@ -1,0 +1,11 @@
+{
+  "name": "视频截帧",
+  "installedAt": 1775320314498,
+  "source": "marketplace",
+  "iconSource": "video-frames",
+  "version": "1.0.0",
+  "skillId": "skill_2053083083996790784",
+  "skillName": "video-frames",
+  "description_zh": "从视频提取帧或短片段",
+  "description_en": "Extract frames or clips from videos"
+}

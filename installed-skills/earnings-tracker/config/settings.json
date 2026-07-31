@@ -1,0 +1,18 @@
+{
+  "watchlist": {
+    "us": ["NVDA", "MSFT", "GOOGL", "META", "AMZN", "TSLA", "AMD"],
+    "cn": ["600519", "000858", "601318", "000001"]
+  },
+  "schedule": {
+    "weeklyScan": "Sunday 18:00",
+    "reportScan": "after_market"
+  },
+  "notify": {
+    "channel": "discord",
+    "to": "channel:1478698808631361647"
+  },
+  "dataSources": {
+    "cn": "akshare",
+    "us": "yahoo_finance"
+  }
+}

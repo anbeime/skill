@@ -1,0 +1,10 @@
+{
+  "name": "财报追踪",
+  "installedAt": 1775320333459,
+  "source": "marketplace",
+  "version": "1.1.0",
+  "skillId": "skill_2053081855772266496",
+  "skillName": "earnings-tracker",
+  "description_zh": "AI 驱动的 A 股/美股财报追踪与智能分析推送",
+  "description_en": "AI-powered earnings tracker for A-share and US stock financial reports"
+}

@@ -1,0 +1,33 @@
+{
+  "name": "douyin-video-download",
+  "version": "1.0.3",
+  "description": "抖音视频批量下载工具 - 支持单视频、批量下载、自动去重、无水印下载",
+  "main": "scripts/download.js",
+  "scripts": {
+    "download": "node scripts/download.js"
+  },
+  "keywords": [
+    "douyin",
+    "tiktok",
+    "video",
+    "download",
+    "batch",
+    "no-watermark"
+  ],
+  "author": "Leo & Neo",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.3.1",
+    "playwright-chromium": "^1.58.2"
+  },
+  "openclaw": {
+    "requires": {
+      "bins": [
+        "node",
+        "yt-dlp"
+      ]
+    }
+  }
+}

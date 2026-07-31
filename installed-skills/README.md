@@ -2,8 +2,8 @@
 
 > 来源：`~/.workbuddy/skills/`，共 **29** 个已安装技能。
 > 这些技能被 TOP 专家团的 9 大团队所引用（见 `teams/`）。
-> 本目录仅收录每个技能的 **SKILL.md 定义**（原样复制），不含其引用的脚本/二进制资源；
-> 如需完整可运行版本，请从本机对应目录取用（`source_path` 见 `installed-skills.json`）。
+> 本目录收录 29 个已安装技能的快照。其中 **15 个「含脚本/引用」的技能已完整搬运**（含 `SKILL.md` + `scripts/` + `references/` + 其他资源文件；已排除 `node_modules` 等可重装依赖），见下方「[完整副本](#完整副本含-scriptsreferences)」清单；其余 14 个仅收录 `SKILL.md` 定义。
+> 完整副本若需在本机实际运行，仍建议以 `~/.workbuddy/skills/<dir>/` 的源目录为准（`source_path` 见 `installed-skills.json`）。
 
 | # | 目录名 | 名称 | 简介 | 资源文件 | 脚本 | 引用 | 二进制 |
 |---|--------|------|------|---------:|-----:|-----:|-------:|
@@ -69,6 +69,30 @@
 - [`wechat-miniprogram/SKILL.md`](wechat-miniprogram/SKILL.md) — wechat-miniprogram：WeChat Mini Program (微信小程序) development framework.
 - [`wechatpay-basic-payment/SKILL.md`](wechatpay-basic-payment/SKILL.md) — wechatpay-basic-payment：微信支付基础支付解决方案，涵盖支付、退款账单、分账、商户进件、开户意愿确认，提供选型/代码示例/业务
 
+## 完整副本（含 scripts/references/）
+
+以下 15 个技能已连同其 `scripts/`、`references/` 及资源文件完整搬入本仓库（排除 `node_modules` 等可重装依赖）：
+
+| # | 目录 | 名称 | 脚本 | 引用 | 资源文件 | 二进制 |
+|---|------|------|-----:|-----:|---------:|-------:|
+| 1 | [`aihot`](aihot/) | aihot | 0 | 3 | 5 | 0 |
+| 2 | [`auto-trading`](auto-trading/) | auto-trading | 4 | 3 | 1 | 0 |
+| 3 | [`cloudbase`](cloudbase/) | cloudbase | 0 | 60 | 3 | 0 |
+| 4 | [`deck-generator`](deck-generator/) | deck-generator | 1 | 0 | 4 | 0 |
+| 5 | [`douyin-video-download`](douyin-video-download/) | douyin-video-download | 3 | 0 | 6 | 0 |
+| 6 | [`earnings-tracker`](earnings-tracker/) | earnings-tracker | 1 | 0 | 5 | 0 |
+| 7 | [`mcp-builder`](mcp-builder/) | mcp-builder | 4 | 4 | 3 | 0 |
+| 8 | [`multi-search-engine`](multi-search-engine/) | multi-search-engine | 0 | 2 | 6 | 0 |
+| 9 | [`remotion-animator`](remotion-animator/) | remotion-animator | 0 | 35 | 2 | 0 |
+| 10 | [`skill_2053082904354750464`](skill_2053082904354750464/) | meituan-coupon-workbuddy | 6 | 3 | 2 | 1 |
+| 11 | [`stock-analysis-team`](stock-analysis-team/) | stock-analysis-team | 5 | 7 | 1 | 0 |
+| 12 | [`stock-analysis`](stock-analysis/) | stock-analysis | 2 | 1 | 4 | 0 |
+| 13 | [`video-frames`](video-frames/) | video-frames | 1 | 0 | 2 | 0 |
+| 14 | [`wechat-miniprogram`](wechat-miniprogram/) | wechat-miniprogram | 0 | 8 | 4 | 0 |
+| 15 | [`wechatpay-basic-payment`](wechatpay-basic-payment/) | wechatpay-basic-payment | 4 | 170 | 3 | 1 |
+
+> 说明：上表「资源文件」包含 `SKILL.md` 以外的配置/元数据/图标/脚本资源（如 `workbuddy.json`、`_skillhub_meta.json`、`_icon.svg`、示例数据等），已与 `installed-skills.json` 中的 `other_resources` 字段对齐。
+
 ---
 
-_由 `gen_installed_skillmd.py` 自动生成。_
+_由 `gen_installed_skillmd.py` 与 `update_full_index.py` 生成/更新。_

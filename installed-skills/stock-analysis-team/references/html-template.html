@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贵州茅台 - 股票分析报告</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2E86AB 0%, #A23B72 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .header .meta-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .risk-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .risk-low { background: #4CAF50; color: white; }
+        .risk-medium { background: #FF9800; color: white; }
+        .risk-high { background: #f44336; color: white; }
+        
+        /* Sections */
+        .section {
+            padding: 40px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #2E86AB;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #2E86AB;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 30px;
+            background: #2E86AB;
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+        
+        /* Core Conclusion */
+        .core-conclusion {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .core-conclusion h2 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .conclusion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .conclusion-item {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .conclusion-item .label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .conclusion-item .value {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .data-table thead {
+            background: linear-gradient(135deg, #2E86AB 0%, #A23B72 100%);
+            color: white;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .data-table tbody tr:hover {
+            background: #f5f5f5;
+            transition: background 0.3s;
+        }
+        
+        .rating-good { color: #4CAF50; font-weight: bold; }
+        .rating-neutral { color: #FF9800; font-weight: bold; }
+        .rating-bad { color: #f44336; font-weight: bold; }
+        
+        /* Charts */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+        }
+        
+        .chart-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .chart-container h3 {
+            color: #2E86AB;
+            margin-bottom: 15px;
+        }
+        
+        .chart-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Risk Assessment */
+        .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .risk-item {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .risk-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .risk-item h4 {
+            color: #2E86AB;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .risk-score {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        
+        .risk-bar {
+            flex: 1;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 15px;
+        }
+        
+        .risk-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50 0%, #FF9800 50%, #f44336 100%);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        
+        /* Trading Points */
+        .trading-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .trading-table th {
+            background: #2E86AB;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .trading-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .trading-table tbody tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .buy { background: #4CAF50 !important; color: white; }
+        .sell { background: #f44336 !important; color: white; }
+        .hold { background: #FF9800 !important; color: white; }
+        
+        /* Footer */
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .disclaimer {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .disclaimer strong {
+            color: #856404;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>贵州茅台股份有限公司</h1>
+            <div class="meta">
+                <div class="meta-item">股票代码: 600519.SH</div>
+                <div class="meta-item">分析日期: 2024-03-04</div>
+                <div class="meta-item">
+                    风险等级: 
+                    <span class="risk-badge risk-low">低风险 (3/10)</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Core Conclusion -->
+        <div class="section">
+            <h2 class="section-title">核心结论</h2>
+            <div class="core-conclusion">
+                <h2>建议积极布局，目标价1900元，止损位1600元</h2>
+                <div class="conclusion-grid">
+                    <div class="conclusion-item">
+                        <div class="label">投资建议</div>
+                        <div class="value">强烈买入</div>
+                    </div>
+                    <div class="conclusion-item">
+                        <div class="label">预期收益</div>
+                        <div class="value">+15%</div>
+                    </div>
+                    <div class="conclusion-item">
+                        <div class="label">最大风险</div>
+                        <div class="value">-8%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Company Overview -->
+        <div class="section">
+            <h2 class="section-title">公司概览</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; border-left: 4px solid #2E86AB;">
+                    <h3 style="color: #2E86AB; margin-bottom: 15px;">基本信息</h3>
+                    <ul style="list-style: none;">
+                        <li style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between;">
+                            <span>公司名称</span><span>贵州茅台股份有限公司</span>
+                        </li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between;">
+                            <span>所属行业</span><span>白酒制造</span>
+                        </li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between;">
+                            <span>总市值</span><span>24000亿元</span>
+                        </li>
+                        <li style="padding: 8px 0; display: flex; justify-content: space-between;">
+                            <span>当前股价</span><span>1650.00元</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Technical Charts -->
+        <div class="section">
+            <h2 class="section-title">技术分析图表</h2>
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h3>股价走势图</h3>
+                    <img src="./charts/600519.SH_price_chart.png" alt="股价走势图">
+                </div>
+                <div class="chart-container">
+                    <h3>K线图</h3>
+                    <img src="./charts/600519.SH_candlestick.png" alt="K线图">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Risk Assessment -->
+        <div class="section">
+            <h2 class="section-title">风险评估</h2>
+            <h3>综合风险评分: 3/10</h3>
+            <div class="risk-grid">
+                <div class="risk-item">
+                    <h4>基本面风险 (权重30%)</h4>
+                    <div class="risk-score">
+                        <span>2/10</span>
+                        <div class="risk-bar">
+                            <div class="risk-fill" style="width: 20%"></div>
+                        </div>
+                        <span>0.6</span>
+                    </div>
+                </div>
+                <div class="risk-item">
+                    <h4>技术面风险 (权重25%)</h4>
+                    <div class="risk-score">
+                        <span>3/10</span>
+                        <div class="risk-bar">
+                            <div class="risk-fill" style="width: 30%"></div>
+                        </div>
+                        <span>0.75</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>报告生成时间: 2024-03-04 10:30:00</p>
+            <div class="disclaimer">
+                <strong>免责声明：</strong>
+                <p>本报告由AI分析系统生成，仅供参考，不构成任何投资建议。股票投资存在风险，市场有风险，投资需谨慎。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

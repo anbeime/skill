@@ -1,0 +1,6 @@
+{
+  "display_name": "MCP开发指南",
+  "display_name_en": "Mcp Builder",
+  "description_zh": "MCP 服务器开发指南，集成外部 API 和服务，支持 Python/Node",
+  "description_en": "Guide for creating MCP servers to integrate external APIs, supporting Python and Node/TypeScript"
+}

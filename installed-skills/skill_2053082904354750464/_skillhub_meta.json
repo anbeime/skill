@@ -1,0 +1,20 @@
+{
+  "name": "美团红包助手",
+  "installedAt": 1781606409828,
+  "source": "marketplace",
+  "version": "1.0.3",
+  "skillId": "skill_2053082904354750464",
+  "examples_zh": [
+    "帮我领取今天可用的美团外卖红包，并确认是否已经到账",
+    "查一下我最近领取过的美团酒店和门票优惠券，列出有效期和使用状态",
+    "我晚上想点药品闪购，帮我看看有没有可领的美团医药优惠券"
+  ],
+  "examples_en": [
+    "Claim today's available Meituan food-delivery coupons and confirm whether they arrived in my account",
+    "Check my recently claimed Meituan hotel and attraction-ticket coupons with expiry dates and usage status",
+    "I need medicine delivery tonight; see whether any Meituan pharmacy coupons are available to claim"
+  ],
+  "iconSource": "https://openplatform-cdn.codebuddy.cn/public/skills/icons/meituan-coupon-workbuddy.png",
+  "iconLocalPath": "C:\\Users\\topgo\\.workbuddy\\skills\\skill_2053082904354750464\\_icon.png",
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/skills/icons/meituan-coupon-workbuddy.png"
+}

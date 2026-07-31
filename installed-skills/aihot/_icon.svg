@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <defs>
+    <linearGradient id="aihot-flame" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FFE066"/>
+      <stop offset="45%" stop-color="#FF7A1A"/>
+      <stop offset="100%" stop-color="#E11D48"/>
+    </linearGradient>
+    <linearGradient id="aihot-spark" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FFE6A8"/>
+    </linearGradient>
+  </defs>
+  <path d="M16 2.4 C17.6 6.6 20.6 8.5 21.8 12.4 C22.4 14.5 21.6 16.1 21.2 17.6 C22.6 17 24.1 16 25 14 C26.4 18.5 26.4 22.5 24 25.6 C21.4 29 17.4 30 14 29.6 C9.4 29 6 26 5.4 21.6 C5 18.6 6 16 7.6 14 C8 16 9 17.2 10.4 18 C9.8 14.4 11.2 11.4 13.4 9.4 C15 8 15.4 5.6 16 2.4 Z" fill="url(#aihot-flame)"/>
+  <path d="M16 13.6 L17.2 16.4 L20 17.4 L17.2 18.4 L16 21.2 L14.8 18.4 L12 17.4 L14.8 16.4 Z" fill="url(#aihot-spark)" opacity="0.95"/>
+  <circle cx="22" cy="9" r="1.2" fill="#FFFFFF" opacity="0.85"/>
+  <circle cx="9.6" cy="11.2" r="0.8" fill="#FFFFFF" opacity="0.7"/>
+</svg>

@@ -1,0 +1,13 @@
+{
+  "name": "腾讯云CloudBase",
+  "installedAt": 1775289907186,
+  "source": "marketplace",
+  "iconSource": "https://openplatform-cdn.codebuddy.cn/public/skills/icons/cloudbase.svg",
+  "version": "2.15.4",
+  "skillId": "skill_2053081473441890304",
+  "iconLocalPath": "C:\\Users\\topgo\\.workbuddy\\skills\\cloudbase\\_icon.svg",
+  "iconDownloadedFrom": "https://openplatform-cdn.codebuddy.cn/public/skills/icons/cloudbase.svg",
+  "skillName": "cloudbase",
+  "description_zh": "帮你从 0 创建，或继续完善网页、小程序和简单工具，支持发布上线、内容保存、用户登录和数据同步。",
+  "description_en": "Create or enhance web apps, mini programs, and lightweight tools with publishing, content saving, user login, and data sync powered by Tencent CloudBase."
+}
