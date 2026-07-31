@@ -1,7 +1,7 @@
 # SkillHub 推荐技能集
 
 > 通过 SkillHub 官方 CLI 从 `api.skillhub.cn` 采集的 **recommended** 榜单，共 **100** 个技能。
-> 采集时间由 SkillHub 榜单决定，数据来源：SkillHub 推荐榜 (api.skillhub.cn)
+> 数据采集自 SkillHub 推荐榜，来源：SkillHub 推荐榜 (api.skillhub.cn)
 
 ## 按分类浏览
 
