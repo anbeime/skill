@@ -2,7 +2,7 @@
 
 > 来源：`~/.workbuddy/skills/`，共 **29** 个已安装技能。
 > 这些技能被 TOP 专家团的 9 大团队所引用（见 `teams/`）。
-> 本目录收录 29 个已安装技能的快照。其中 **15 个「含脚本/引用」的技能已完整搬运**（含 `SKILL.md` + `scripts/` + `references/` + 其他资源文件；已排除 `node_modules` 等可重装依赖），见下方「[完整副本](#完整副本含-scriptsreferences)」清单；其余 14 个仅收录 `SKILL.md` 定义。
+> 本目录收录 29 个已安装技能的快照。其中 **14 个「含脚本/引用」的技能已完整搬运**（含 `SKILL.md` + `scripts/` + `references/` + 其他资源文件；已排除 `node_modules` 等可重装依赖），见下方「[完整副本](#完整副本含-scriptsreferences)」清单；其余 15 个仅收录 `SKILL.md` 定义。
 > 完整副本若需在本机实际运行，仍建议以 `~/.workbuddy/skills/<dir>/` 的源目录为准（`source_path` 见 `installed-skills.json`）。
 
 | # | 目录名 | 名称 | 简介 | 资源文件 | 脚本 | 引用 | 二进制 |
@@ -71,7 +71,7 @@
 
 ## 完整副本（含 scripts/references/）
 
-以下 15 个技能已连同其 `scripts/`、`references/` 及资源文件完整搬入本仓库（排除 `node_modules` 等可重装依赖）：
+以下 14 个技能已连同其 `scripts/`、`references/` 及资源文件完整搬入本仓库（排除 `node_modules` 等可重装依赖）：
 
 | # | 目录 | 名称 | 脚本 | 引用 | 资源文件 | 二进制 |
 |---|------|------|-----:|-----:|---------:|-------:|
@@ -89,9 +89,9 @@
 | 12 | [`stock-analysis`](stock-analysis/) | stock-analysis | 2 | 1 | 4 | 0 |
 | 13 | [`video-frames`](video-frames/) | video-frames | 1 | 0 | 2 | 0 |
 | 14 | [`wechat-miniprogram`](wechat-miniprogram/) | wechat-miniprogram | 0 | 8 | 4 | 0 |
-| 15 | [`wechatpay-basic-payment`](wechatpay-basic-payment/) | wechatpay-basic-payment | 4 | 170 | 3 | 1 |
 
 > 说明：上表「资源文件」包含 `SKILL.md` 以外的配置/元数据/图标/脚本资源（如 `workbuddy.json`、`_skillhub_meta.json`、`_icon.svg`、示例数据等），已与 `installed-skills.json` 中的 `other_resources` 字段对齐。
+> 注：`wechatpay-basic-payment` 原完整副本含 177 个文件（1.6MB，多为微信支付参考文档/示例代码），已回退为仅收录 `SKILL.md`，与其余轻量技能一致。
 
 ---
 

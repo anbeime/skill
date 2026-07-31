@@ -5,7 +5,7 @@
 ## 📦 三大组成
 
 - **[SkillHub 公开榜单采集](skills/)** — 合并 recommended/hot/featured/newest/trending 共 **336** 个技能，按分类索引见下文。
-- **[本机已安装技能快照](installed-skills/README.md)** — 从 `~/.workbuddy/skills/` 收录 **29** 个已安装技能。其中 **15 个「含脚本/引用」的技能已完整搬运**（含 `scripts/`、`references/` 及资源文件，排除 `node_modules`），其余仅收录 SKILL.md 定义；含来源路径与资源依赖说明。
+- **[本机已安装技能快照](installed-skills/README.md)** — 从 `~/.workbuddy/skills/` 收录 **29** 个已安装技能。其中 **14 个「含脚本/引用」的技能已完整搬运**（含 `scripts/`、`references/` 及资源文件，排除 `node_modules`），其余仅收录 SKILL.md 定义；含来源路径与资源依赖说明。
 - **[TOP 专家团 · 团队/调度层](teams/README.md)** — agent-dispatcher 总调度中心 + 9 大专业团队配置 + 已装技能目录。
 
 ---
