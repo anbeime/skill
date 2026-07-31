@@ -1,11 +1,12 @@
-# SkillHub 技能全集（多榜单合并）+ TOP 专家团
+# SkillHub 技能全集 + 本机已装技能 + TOP 专家团
 
-> 本仓库 = **SkillHub 公开榜单采集**（336 技能）+ **TOP 专家团团队/调度层**（本地多团队协同体系）。
+> 本仓库 = **SkillHub 公开榜单采集**（336 技能）+ **本机已安装技能快照**（29 技能）+ **TOP 专家团团队/调度层**（本地多团队协同体系）。
 
-## 📦 两大组成
+## 📦 三大组成
 
 - **[SkillHub 公开榜单采集](skills/)** — 合并 recommended/hot/featured/newest/trending 共 **336** 个技能，按分类索引见下文。
-- **[TOP 专家团 · 团队/调度层](teams/README.md)** — agent-dispatcher 总调度中心 + 9 大专业团队配置 + 已装技能目录（共 29 个本地技能）。
+- **[本机已安装技能快照](installed-skills/README.md)** — 从 `~/.workbuddy/skills/` 收录 **29** 个已安装技能的 SKILL.md 定义（被 9 大团队引用），含来源路径与资源依赖说明。
+- **[TOP 专家团 · 团队/调度层](teams/README.md)** — agent-dispatcher 总调度中心 + 9 大专业团队配置 + 已装技能目录。
 
 ---
 
