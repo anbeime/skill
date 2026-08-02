@@ -16,6 +16,10 @@ const axios = require('axios');
 const path = require('path');
 const fs = require('fs');
 require('dotenv').config();
+const {
+    resolveMiniMaxConfig,
+    postMiniMaxChatCompletion,
+} = require('./lib/minimax-chat');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -30,9 +34,8 @@ app.use(express.static(publicPath));
 
 // ==================== 配置 ====================
 
-// 智谱 AI 配置
-const ZHIPU_API_KEY = process.env.ZHIPU_API_KEY;
-const ZHIPU_API_BASE = 'https://open.bigmodel.cn/api/paas/v4';
+// MiniMax configuration
+const MINIMAX_DEFAULT_CONFIG = resolveMiniMaxConfig();
 
 // 多模态微服务配置
 const TTS_SERVER = process.env.TTS_SERVER || 'http://127.0.0.1:5050';
@@ -113,12 +116,10 @@ async function handleFeishuMessage(messageId, text, chatId) {
     // 保留最近 20 条
     if (history.length > 20) history.splice(0, history.length - 20);
 
-    // 获取当前使用的 API Key（优先 .env，其次前端保存的）
-    const apiKey = ZHIPU_API_KEY && ZHIPU_API_KEY !== 'your-zhipu-api-key-here' 
-        ? ZHIPU_API_KEY : null;
+    const chatConfig = MINIMAX_DEFAULT_CONFIG;
     
-    if (!apiKey) {
-        await replyFeishuMessage(messageId, '智谱 API Key 未配置，请先在小易页面或 .env 中配置。');
+    if (!chatConfig.apiKey) {
+        await replyFeishuMessage(messageId, 'MiniMax API key is not configured. Please set it in the server environment.');
         return;
     }
 
@@ -151,13 +152,11 @@ async function handleFeishuMessage(messageId, text, chatId) {
             messages = [{ role: 'system', content: systemPrompt }, ...history];
         }
 
-        const res = await axios.post(`${ZHIPU_API_BASE}/chat/completions`, {
-            model: 'glm-4-flash',
+        const { response: res } = await postMiniMaxChatCompletion({
+            ...chatConfig,
             messages: messages,
             temperature: 0.8,
-            max_tokens: 500
-        }, {
-            headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+            max_tokens: 500,
             timeout: 15000
         });
 
@@ -464,15 +463,13 @@ function loadAgentSoul(agentId) {
  */
 app.post('/api/chat', async (req, res) => {
     try {
-        const { message, sessionId = 'default', apiKey } = req.body;
+        let { message, sessionId = 'default', apiKey, model, region } = req.body;
+        const chatConfig = resolveMiniMaxConfig({ apiKey, modelId: model, region });
         
-        // 优先使用请求中的 API Key，其次是环境变量
-        const useApiKey = apiKey || ZHIPU_API_KEY;
-        
-        if (!useApiKey) {
+        if (!chatConfig.apiKey) {
             return res.json({
                 success: false,
-                error: '请配置 ZHIPU_API_KEY 环境变量或在请求中提供 apiKey'
+                error: 'Please configure the MiniMax API key or provide apiKey in the request'
             });
         }
         
@@ -528,46 +525,36 @@ app.post('/api/chat', async (req, res) => {
         
         messages.push({ role: 'user', content: message });
         
-        // 调用智谱 AI
+        // Call MiniMax chat completions
         let reply;
         try {
-            const response = await axios.post(
-                `${ZHIPU_API_BASE}/chat/completions`,
-                {
-                    model: 'glm-4-flash',
-                    messages: messages,
-                    temperature: 0.9,
-                    max_tokens: 200
-                },
-                {
-                    headers: {
-                        'Authorization': `Bearer ${useApiKey}`,
-                        'Content-Type': 'application/json'
-                    },
-                    timeout: 30000
-                }
-            );
+            const { response } = await postMiniMaxChatCompletion({
+                ...chatConfig,
+                messages: messages,
+                temperature: 0.9,
+                max_tokens: 200,
+                timeout: 30000
+            });
             
-            console.log('[Zhipu] Response:', JSON.stringify(response.data, null, 2));
+            console.log('[MiniMax] Response:', JSON.stringify(response.data, null, 2));
             
             if (response.data.choices && response.data.choices[0] && response.data.choices[0].message) {
                 reply = response.data.choices[0].message.content;
             } else {
-                reply = '抱歉，AI 没有返回有效回复';
+                reply = 'Sorry, the AI did not return a valid reply';
             }
-        } catch (zhipuError) {
-            console.error('[Zhipu] API Error:', zhipuError.response?.data || zhipuError.message);
+        } catch (miniMaxError) {
+            console.error('[MiniMax] API Error:', miniMaxError.response?.data || miniMaxError.message);
             
-            // 检查是否是 API Key 错误
-            if (zhipuError.response?.data?.error?.code === '401') {
+            if (miniMaxError.code === 'MINIMAX_API_KEY_MISSING') {
                 return res.json({
                     success: false,
-                    error: 'API Key 无效或已过期',
-                    message: '请检查您的智谱 API Key 是否正确'
+                    error: 'MiniMax API key is not configured',
+                    message: 'Please check the MiniMax API key in your server environment'
                 });
             }
             
-            reply = '抱歉，AI 服务暂时不可用，请稍后再试';
+            reply = 'Sorry, the AI service is temporarily unavailable. Please try again later';
         }
         
         // 更新对话历史
@@ -640,11 +627,11 @@ app.get('/api/openclaw/status', async (req, res) => {
  */
 app.post('/api/starclaw/chat', async (req, res) => {
     try {
-        const { message, agentId, agentName, sessionId = 'default', apiKey } = req.body;
-        const useApiKey = apiKey || ZHIPU_API_KEY;
+        const { message, agentId, agentName, sessionId = 'default', apiKey, model, region } = req.body;
+        const chatConfig = resolveMiniMaxConfig({ apiKey, modelId: model, region });
         
-        if (!useApiKey) {
-            return res.json({ success: false, error: 'API Key 未配置' });
+        if (!chatConfig.apiKey) {
+            return res.json({ success: false, error: 'MiniMax API key is not configured' });
         }
 
         // 加载 Agent 的 SOUL.md
@@ -666,11 +653,13 @@ app.post('/api/starclaw/chat', async (req, res) => {
             ...history
         ];
 
-        const response = await axios.post(
-            `${ZHIPU_API_BASE}/chat/completions`,
-            { model: 'glm-4-flash', messages, temperature: 0.85, max_tokens: 500 },
-            { headers: { 'Authorization': `Bearer ${useApiKey}`, 'Content-Type': 'application/json' }, timeout: 30000 }
-        );
+        const { response } = await postMiniMaxChatCompletion({
+            ...chatConfig,
+            messages,
+            temperature: 0.85,
+            max_tokens: 500,
+            timeout: 30000
+        });
 
         const reply = response.data.choices[0].message.content;
         history.push({ role: 'assistant', content: reply });
@@ -799,11 +788,15 @@ app.post('/api/voice/clone', async (req, res) => {
  */
 app.get('/api/health', async (req, res) => {
     const openclawRunning = await checkOpenClawHealth();
+    const healthConfig = MINIMAX_DEFAULT_CONFIG;
     res.json({
         status: 'ok',
         timestamp: new Date().toISOString(),
-        hasApiKey: !!ZHIPU_API_KEY,
-        apiKeyConfigured: !!ZHIPU_API_KEY,
+        provider: healthConfig.providerName,
+        model: healthConfig.modelId,
+        region: healthConfig.region,
+        hasApiKey: !!healthConfig.apiKey,
+        apiKeyConfigured: !!healthConfig.apiKey,
         openclaw: {
             enabled: OPENCLAW_ENABLED,
             envEnabled: OPENCLAW_ENABLED,
