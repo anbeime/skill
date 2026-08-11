@@ -5,6 +5,10 @@ const path = require('path');
 const fs = require('fs');
 const { spawn } = require('child_process');
 require('dotenv').config();
+const {
+    resolveMiniMaxConfig,
+    postMiniMaxChatCompletion,
+} = require('./lib/minimax-chat');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,9 +20,8 @@ app.use(express.json());
 const publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
 
-// 智谱 AI 配置
-const ZHIPU_API_KEY = process.env.ZHIPU_API_KEY || process.env.OPENCLAW_TOKEN;
-const ZHIPU_API_BASE = 'https://open.bigmodel.cn/api/paas/v4';
+// MiniMax configuration
+const MINIMAX_DEFAULT_CONFIG = resolveMiniMaxConfig();
 
 // OpenClaw 配置 - 硬编码配置
 const OPENCLAW_ENABLED = true;  // 强制启用
@@ -147,15 +150,13 @@ const XIAOYI_PERSONA = `你是小易（知易），一个融合中国传统文�
 // API 路由
 app.post('/api/chat', async (req, res) => {
     try {
-        const { message, sessionId = 'default', apiKey } = req.body;
+        const { message, sessionId = 'default', apiKey, model, region } = req.body;
+        const chatConfig = resolveMiniMaxConfig({ apiKey, modelId: model, region });
         
-        // 优先使用请求中的 API Key，其次是环境变量
-        const useApiKey = apiKey || ZHIPU_API_KEY;
-        
-        if (!useApiKey) {
+        if (!chatConfig.apiKey) {
             return res.json({
                 success: false,
-                error: '请配置 ZHIPU_API_KEY 环境变量或在请求中提供 apiKey'
+                error: 'Please configure the MiniMax API key or provide apiKey in the request'
             });
         }
         
@@ -192,22 +193,13 @@ app.post('/api/chat', async (req, res) => {
         
         messages.push({ role: 'user', content: message });
         
-        // 调用智谱 AI
-        const response = await axios.post(
-            `${ZHIPU_API_BASE}/chat/completions`,
-            {
-                model: 'glm-4.7-flash',
-                messages: messages,
-                temperature: 0.9,
-                max_tokens: 200
-            },
-            {
-                headers: {
-                    'Authorization': `Bearer ${useApiKey}`,
-                    'Content-Type': 'application/json'
-                }
-            }
-        );
+        // Call MiniMax chat completions
+        const { response } = await postMiniMaxChatCompletion({
+            ...chatConfig,
+            messages: messages,
+            temperature: 0.9,
+            max_tokens: 200
+        });
         
         const reply = response.data.choices?.[0]?.message?.content || '抱歉，我没有收到有效的回复';
         
@@ -259,7 +251,10 @@ app.get('/health', (req, res) => {
     res.json({
         status: 'ok',
         timestamp: new Date().toISOString(),
-        apiKeyConfigured: !!ZHIPU_API_KEY,
+        provider: MINIMAX_DEFAULT_CONFIG.providerName,
+        model: MINIMAX_DEFAULT_CONFIG.modelId,
+        region: MINIMAX_DEFAULT_CONFIG.region,
+        apiKeyConfigured: !!MINIMAX_DEFAULT_CONFIG.apiKey,
         openclawEnabled: OPENCLAW_ENABLED,
         openclawApi: OPENCLAW_API
     });
