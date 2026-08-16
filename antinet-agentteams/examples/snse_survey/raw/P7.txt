@@ -1,0 +1,3 @@
+Revisiting Vacancy-Ordered Phases in SnSe: Theory vs Experiment
+
+Earlier computational works reported robust vacancy-ordered superstructures. Early DFT studies overestimated the stability of vacancy-ordered phases; later experiments revealed decomposition below the predicted temperatures. We reconcile the discrepancy by including anharmonic effects and finite-temperature free energy.

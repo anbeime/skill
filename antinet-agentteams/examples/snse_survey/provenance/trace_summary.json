@@ -1,0 +1,177 @@
+[
+  {
+    "ts": "2026-08-16T14:00:02",
+    "agent": "指挥使",
+    "action": "意图识别",
+    "detail": "任务「SnSe 空位工程 热输运」-> 路由至 antinet 团队",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:02",
+    "agent": "太史阁",
+    "action": "真实检索命中",
+    "detail": "平台知识库召回 5 条（非本地模拟）",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:02",
+    "agent": "指挥使",
+    "action": "读库",
+    "detail": "任务「SnSe 空位工程 热输运」召回历史知识 5 条，注入下游官署上下文",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:02",
+    "agent": "军机处",
+    "action": "任务拆解",
+    "detail": "security-scan -> doc-parse -> extract -> review -> propose -> verify -> provenance（每个子任务 @ 对应官署 Worker）",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:02",
+    "agent": "军机处",
+    "action": "派发",
+    "detail": "@锦衣卫(jinyiwei) <- security-scan / skill:security-scan",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:02",
+    "agent": "锦衣卫",
+    "action": "合规扫描",
+    "detail": "拦截0 命中缓存0 密钥0",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:02",
+    "agent": "军机处",
+    "action": "派发",
+    "detail": "@密卷房(mijuanfang) <- doc-parse / skill:doc-parse",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:03",
+    "agent": "密卷房",
+    "action": "解析完成(知易平台)",
+    "detail": "7/10 篇解析+灌库，真实向量检索可用",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:03",
+    "agent": "军机处",
+    "action": "派发",
+    "detail": "@通政司(tongzhengsi) <- extract / skill:four-color-cards",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:03",
+    "agent": "通政司",
+    "action": "生成事实蓝卡",
+    "detail": "7 张，均带 paper_id+loc 溯源",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:05",
+    "agent": "通政司",
+    "action": "LLM 抽取事实蓝卡",
+    "detail": "P1（真实本地模型生成）",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:05",
+    "agent": "军机处",
+    "action": "派发",
+    "detail": "@监察院(jianchayuan) <- review / skill:four-color-cards",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:05",
+    "agent": "监察院",
+    "action": "生成解释绿卡(Gap)",
+    "detail": "6 张，均 cite 蓝卡（规则基线）",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:08",
+    "agent": "监察院",
+    "action": "LLM 科学意义评级",
+    "detail": "Sn空位热电优化研究空白 -> 高（真实本地模型）",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:08",
+    "agent": "军机处",
+    "action": "派发",
+    "detail": "@丞相府(chengxiangfu) <- propose / skill:four-color-cards",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:08",
+    "agent": "丞相府",
+    "action": "生成行动红卡(构效假说)",
+    "detail": "3 张，均 cite 绿卡（规则基线）",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:11",
+    "agent": "丞相府",
+    "action": "LLM 生成构效假说",
+    "detail": "由真实本地模型推理（qwen2.5vl3b）",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:11",
+    "agent": "军机处",
+    "action": "派发",
+    "detail": "@军机处(junjichu) <- verify",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:11",
+    "agent": "军机处",
+    "action": "构效核验",
+    "detail": "MP_API=off(未配key，使用本地规则库并如实标注)",
+    "status": "warn"
+  },
+  {
+    "ts": "2026-08-16T14:00:11",
+    "agent": "军机处",
+    "action": "构效核验",
+    "detail": "MP_API=off(未配key，使用本地规则库并如实标注)",
+    "status": "warn"
+  },
+  {
+    "ts": "2026-08-16T14:00:11",
+    "agent": "军机处",
+    "action": "构效核验",
+    "detail": "MP_API=off(未配key，使用本地规则库并如实标注)",
+    "status": "warn"
+  },
+  {
+    "ts": "2026-08-16T14:00:11",
+    "agent": "军机处",
+    "action": "构效核验",
+    "detail": "MP_API=off(未配key，使用本地规则库并如实标注)",
+    "status": "warn"
+  },
+  {
+    "ts": "2026-08-16T14:00:11",
+    "agent": "军机处",
+    "action": "派发",
+    "detail": "@太史阁(taishige) <- provenance / skill:provenance",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:11",
+    "agent": "太史阁",
+    "action": "知识回流",
+    "detail": "沉淀 19 张卡片 + provenance 页",
+    "status": "ok"
+  },
+  {
+    "ts": "2026-08-16T14:00:12",
+    "agent": "太史阁",
+    "action": "知识回流(知易库)",
+    "detail": "真实灌库 19/19 张卡片",
+    "status": "ok"
+  }
+]

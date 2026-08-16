@@ -1,0 +1,8 @@
+[
+  {"blue_index": 2, "gap_type": "contradiction", "title": "Se空位形成能理论-实验矛盾", "content": "P3 的第一性原理预测 Se 空位形成能 -0.2eV（热力学有利），但 P4 实验显示 >5% Se 空位即相分离，二者对'Se 空位是否稳定'给出相反结论。"},
+  {"blue_index": 5, "gap_type": "underexplored", "title": "Sn空位热电优化研究空白", "content": "P6 指出 Sn 空位相比 Se 空位在热电优化中研究极少，构成明确的研究空白（underexplored），值得系统探索。"},
+  {"blue_index": 6, "gap_type": "temporal_tension", "title": "空位有序相稳定性早期高估", "content": "P7 表明早期 DFT 高估了空位有序相稳定性，后期实验显示更低温度下即分解，存在时间维度上的认知张力（temporal_tension）。"},
+  {"blue_index": 3, "gap_type": "contradiction", "title": "Se空位浓度阈值矛盾", "content": "P3 理论支持 Se 空位稳定，P4 实验给出 5% 相分离阈值，稳定窗口（浓度上限）尚未被精确界定。"},
+  {"blue_index": 4, "gap_type": "underexplored", "title": "空位对热导率的定量影响缺失", "content": "P5 给出本征晶格热导率 0.8 W/mK，但空位浓度如何定量调控热导率缺乏系统性数据。"},
+  {"blue_index": 6, "gap_type": "temporal_tension", "title": "SnSe热电潜力认知演进", "content": "早期文献低估 SnSe 热电潜力，后期 ZT 突破改写认知，提示应综合时序证据而非依赖单一时期结论。"}
+]

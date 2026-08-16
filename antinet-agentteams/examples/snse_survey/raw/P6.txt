@@ -1,0 +1,3 @@
+Systematic Survey of Sn vs Se Vacancy Effects in SnSe
+
+While Se vacancies have been extensively studied, Sn vacancies are far less studied than Se vacancies for thermoelectric optimization, leaving a largely unexplored design space. We argue that Sn-vacancy engineering may offer an independent knob to balance carrier concentration and thermal conductivity.

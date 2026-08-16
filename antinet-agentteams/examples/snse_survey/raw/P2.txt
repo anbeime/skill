@@ -1,0 +1,3 @@
+Carrier Modulation via Native Vacancies in SnSe
+
+Native vacancies are abundant in as-grown SnSe and strongly affect transport. Sn vacancies can significantly modulate the carrier concentration in SnSe, shifting the Fermi level toward the valence band. This provides a vacancy-engineering route to optimize the power factor without external doping.

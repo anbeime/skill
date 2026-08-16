@@ -1,0 +1,12 @@
+[
+  {"id": "P1", "title": "SnSe: A Promising Thermoelectric with Ultralow Thermal Conductivity", "host": "arxiv.org", "oa": true, "source": "oa", "url": "https://arxiv.org/abs/xxxx.xxxxx"},
+  {"id": "P2", "title": "Carrier Modulation via Native Vacancies in SnSe", "host": "pmc.ncbi.nlm.nih.gov", "oa": true, "source": "oa", "url": "https://pmc.ncbi.nlm.nih.gov/articles/xxxx"},
+  {"id": "P3", "title": "First-Principles Study of Vacancy Formation in SnSe", "host": "arxiv.org", "oa": true, "source": "oa", "url": "https://arxiv.org/abs/yyyy.yyyyy"},
+  {"id": "P4", "title": "Phase Stability of Vacancy-Rich SnSe Synthesized by MBE", "host": "pmc.ncbi.nlm.nih.gov", "oa": true, "source": "oa", "url": "https://pmc.ncbi.nlm.nih.gov/articles/yyyy"},
+  {"id": "P5", "title": "Lattice Thermal Conductivity of SnSe Single Crystals", "host": "nature.com", "oa": true, "source": "oa", "url": "https://www.nature.com/articles/xxxx"},
+  {"id": "P6", "title": "Systematic Survey of Sn vs Se Vacancy Effects in SnSe", "host": "arxiv.org", "oa": true, "source": "oa", "url": "https://arxiv.org/abs/zzzz.zzzzz"},
+  {"id": "P7", "title": "Revisiting Vacancy-Ordered Phases in SnSe: Theory vs Experiment", "host": "pmc.ncbi.nlm.nih.gov", "oa": true, "source": "oa", "url": "https://pmc.ncbi.nlm.nih.gov/articles/zzzz"},
+  {"id": "P8", "title": "Thermoelectric Transport in Layered SnSe (abstract only)", "host": "sciverse.ai", "oa": true, "source": "oa", "url": "https://sciverse.ai/p/aaaa"},
+  {"id": "P9", "title": "Doping Strategies for SnSe (abstract only)", "host": "openalex.org", "oa": true, "source": "oa", "url": "https://openalex.org/Wxxxx"},
+  {"id": "P10", "title": "High-Temperature Stability of SnSe (abstract only)", "host": "arxiv.org", "oa": true, "source": "oa", "url": "https://arxiv.org/abs/bbbb.bbbbb"}
+]

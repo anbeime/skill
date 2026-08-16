@@ -1,0 +1,3 @@
+First-Principles Study of Vacancy Formation in SnSe
+
+Using density functional theory with dispersion correction, we compute native defect formation energies. First-principles calculations predict a formation energy of -0.2 eV for Se vacancies, suggesting they are thermodynamically favored under Sn-rich conditions. Se vacancies are predicted to act as shallow donors.

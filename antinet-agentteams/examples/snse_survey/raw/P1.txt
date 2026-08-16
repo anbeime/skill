@@ -1,0 +1,3 @@
+SnSe: A Promising Thermoelectric with Ultralow Thermal Conductivity
+
+SnSe is a promising thermoelectric material with a ultralow lattice thermal conductivity below 1 W/mK at room temperature. Its layered crystal structure strongly suppresses phonon transport, making it a leading candidate for waste-heat recovery. Recent single-crystal measurements confirm ZT values exceeding 2 along the b-axis.
