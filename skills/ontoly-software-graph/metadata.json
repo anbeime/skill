@@ -1,0 +1,29 @@
+{
+  "name": "ontoly-software-graph",
+  "version": "1.0.0",
+  "description": "Use Ontoly's deterministic Software Graph and MCP capabilities for architecture review, request tracing, dependency analysis, configuration lookup, and impact analysis.",
+  "author": "0xsarwagya",
+  "dependencies": {
+    "node": ">=20"
+  },
+  "platforms": ["macOS", "Linux", "Windows"],
+  "tags": [
+    "ontoly",
+    "software-graph",
+    "mcp",
+    "typescript",
+    "architecture",
+    "dependency-analysis",
+    "impact-analysis",
+    "codebase-understanding"
+  ],
+  "triggers": [
+    "Ontoly",
+    "Software Graph",
+    "trace request",
+    "impact analysis",
+    "dependency graph",
+    "architecture review",
+    "configuration audit"
+  ]
+}

@@ -116,6 +116,9 @@
 - **law-to-markdown** ⭐⭐ - 法律文档转换
 - **stock-analysis** ⭐⭐⭐ - 股票个股分析
 
+### 💻 软件开发与代码理解（1个）
+- **ontoly-software-graph** ⭐⭐⭐⭐ - 基于 Ontoly Software Graph 的架构审查、请求追踪、依赖分析与影响分析
+
 ### 🤝 智能体协作（3个）
 - **agent-team** ⭐⭐⭐ - 智能体团队协作
 - **multi-agent-meeting** ⭐⭐ - 多智能体会议
