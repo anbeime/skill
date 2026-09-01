@@ -3387,8 +3387,20 @@ Common CLI flows:
 - 🧠 **知易AI体验**：[ai123.miyucaicai.cn](https://ai123.miyucaicai.cn)
 - 🐙 **GitHub Issues**：[提交Issue](https://github.com/anbeime/skill/issues)
 - 💬 **微信交流群**：扫码加入（备注「技能」）
+- 📮 **公众号**：关注「TOPGO智能AI123」，每日AI工具与Agent实战干货
 
-<img src="images/wechat-qr.jpg" alt="微信二维码" width="200" height="200" style="border-radius:12px;border:1px solid #e0e0e0;">
+<table>
+<tr>
+<td align="center" width="240">
+<img src="images/wechat-qr.jpg" alt="微信交流群二维码" width="180" height="180" style="border-radius:12px;border:1px solid #e0e0e0;">
+<br><sub>💬 微信交流群（备注「技能」）</sub>
+</td>
+<td align="center" width="240">
+<img src="images/gzh-qr-topgo.jpg" alt="TOPGO智能AI123公众号二维码" width="180" height="180" style="border-radius:12px;border:1px solid #e0e0e0;">
+<br><sub>📮 公众号「TOPGO智能AI123」</sub>
+</td>
+</tr>
+</table>
 
-> 扫码添加微信，拉你进AI技能交流群，第一时间获取新技能更新和知易产品动态。
+> 扫码添加微信，拉你进AI技能交流群；或关注公众号，第一时间获取新技能更新和知易产品动态。
 
