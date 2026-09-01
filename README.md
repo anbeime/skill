@@ -10,7 +10,7 @@
 收录最全、更新最快的AI Agent技能库，涵盖**文档处理、内容创作、编程开发、机器学习、自动化工作流**等多个领域的精选技能包。
 
 [![官方技能](https://img.shields.io/badge/官方技能-182-blue?style=flat-square)](https://github.com/anbeime/skill)
-[![本地技能](https://img.shields.io/badge/本地技能-61-green?style=flat-square)](https://github.com/anbeime/skill)
+[![本地技能](https://img.shields.io/badge/本地技能-63-green?style=flat-square)](https://github.com/anbeime/skill)
 [![备份覆盖](https://img.shields.io/badge/备份覆盖-100%25-success?style=flat-square)](https://github.com/anbeime/skill)
 [![自动更新](https://img.shields.io/badge/更新-每24小时-orange?style=flat-square)](https://github.com/anbeime/skill)
 
@@ -20,8 +20,8 @@
 ## 📊 统计数据
 
 - **官方技能**: 182 个（来自 awesome-agent-skills，自动爬取）
-- **本地技能**: 62 个（26核心 + 30子技能 + 6系统内置）
-- **技能总数**: 244 个（官方 + 本地）
+- **本地技能**: 63 个（27核心 + 30子技能 + 6系统内置）
+- **技能总数**: 245 个（官方 + 本地）
 - **备份覆盖率**: 100%（71个压缩包，完整备份）
 - **自动更新**: 每24小时自动爬取最新技能
 
@@ -32,7 +32,7 @@
 
 ### 📦 双重技能库
 - **官方技能**：182个来自Anthropic、Vercel、Cloudflare、Google Labs、Hugging Face等顶级团队
-- **本地技能**：62个精选中文技能，涵盖内容创作、视频制作、电商营销等垂直领域
+- **本地技能**：63个精选中文技能，涵盖内容创作、视频制作、电商营销等垂直领域
 
 ### 🏷️ 智能分类
 按照功能、来源、Star数量等多维度标签进行分类整理。
@@ -57,7 +57,7 @@
 - **Better Auth** (3个) - best-practices, commands, create-auth
 - **其他团队** - Tinybird, Remotion, Inngest 等
 
-## 💾 本地技能库（62个）
+## 💾 本地技能库（63个）
 
 ### 📝 内容创作与发布（10个）
 - **content-creation-publisher** ⭐⭐⭐⭐⭐ - 内容创作与发布全流程
@@ -116,8 +116,9 @@
 - **law-to-markdown** ⭐⭐ - 法律文档转换
 - **stock-analysis** ⭐⭐⭐ - 股票个股分析
 
-### 💻 软件开发与代码理解（1个）
+### 💻 软件开发与代码理解（2个）
 - **ontoly-software-graph** ⭐⭐⭐⭐ - 基于 Ontoly Software Graph 的架构审查、请求追踪、依赖分析与影响分析
+- **archify** ⭐⭐⭐⭐⭐ - 将代码库/系统描述转为可交互的架构/工作流/时序/数据流/生命周期图，单文件 HTML + PNG/SVG/WebM 导出（含架构 Delta 评审）
 
 ### 🤝 智能体协作（3个）
 - **agent-team** ⭐⭐⭐ - 智能体团队协作
