@@ -1,0 +1,12 @@
+name: PR Issue Close Policy
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  reject-closing-keywords:
+    uses: img2threejs/ci-workflows/.github/workflows/pr-close-policy.yml@dd3a7730cacb6ab00cc853be606ce72de389a54c

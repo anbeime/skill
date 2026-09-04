@@ -1,0 +1,60 @@
+{
+  "targetName": "Implicit Character Torso Limb",
+  "schemaVersion": "2.1",
+  "suitability": "pass",
+  "coordinateFrame": {},
+  "silhouette": {},
+  "proceduralStrategy": [],
+  "materials": [
+    {
+      "id": "skin"
+    }
+  ],
+  "componentTree": [
+    {
+      "id": "torso-limb",
+      "name": "Welded torso and raised arm",
+      "level": "macro",
+      "role": "body",
+      "primitive": "capsule",
+      "topologyClass": "implicit",
+      "topologyRationale": "The raised arm blends continuously into the torso with no visible seam.",
+      "geometryDescriptor": {
+        "sdf": {
+          "primitives": [
+            {
+              "id": "torso",
+              "type": "capsule",
+              "center": [0.0, 0.0, 0.0],
+              "radius": 0.38,
+              "height": 1.1
+            },
+            {
+              "id": "arm",
+              "type": "capsule",
+              "center": [0.42, 0.22, 0.0],
+              "radius": 0.17,
+              "height": 0.85
+            }
+          ],
+          "operations": [
+            {
+              "type": "smooth-union",
+              "left": "torso",
+              "right": "arm",
+              "radius": 0.16
+            }
+          ],
+          "resolution": 32
+        }
+      },
+      "parent": null,
+      "material": "skin",
+      "transform": {
+        "position": [0.0, 0.0, 0.0],
+        "rotation": [0.0, 0.0, 0.0],
+        "scale": [1.0, 1.0, 1.0]
+      }
+    }
+  ]
+}

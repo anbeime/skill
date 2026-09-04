@@ -1,0 +1,16 @@
+[project]
+name = "img2threejs-vision"
+version = "0.1.0"
+description = "Optional local vision evidence adapters for the img2threejs procedural pipeline"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "mediapipe>=0.10.21,<0.11",
+  "numpy>=1.26,<3",
+  "pillow>=11,<13",
+  "torch>=2.5,<3",
+  "torchvision>=0.20,<1",
+  "transformers>=4.56,<5",
+]
+
+[tool.uv]
+package = false

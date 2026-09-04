@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://img2threejs.local/specs/render-profile.v2.schema.json",
+  "title": "img2threejs shared Three.js render profile v2",
+  "type": "object",
+  "required": ["schemaVersion", "kind", "authority", "renderer", "environment", "camera", "background", "passes", "regions", "feedbackGroups", "extensions"],
+  "properties": {
+    "schemaVersion": { "const": "render-profile.v2" },
+    "kind": { "const": "threejs-render-profile" },
+    "authority": { "const": "browser-threejs" },
+    "renderer": {
+      "type": "object",
+      "required": ["backend", "colorManagementEnabled", "workingColorSpace", "outputColorSpace", "toneMapping", "toneMappingExposure", "viewport", "devicePixelRatio", "antialias"],
+      "properties": {
+        "backend": { "const": "WebGLRenderer" },
+        "colorManagementEnabled": { "const": true },
+        "workingColorSpace": { "const": "Linear-sRGB" },
+        "outputColorSpace": { "const": "SRGBColorSpace" },
+        "toneMapping": { "type": "string", "enum": ["NoToneMapping", "ACESFilmicToneMapping", "AgXToneMapping", "NeutralToneMapping"] },
+        "toneMappingExposure": { "type": "number", "exclusiveMinimum": 0 },
+        "viewport": { "type": "array", "prefixItems": [{ "type": "integer", "minimum": 1 }, { "type": "integer", "minimum": 1 }], "minItems": 2, "maxItems": 2 },
+        "devicePixelRatio": { "type": "number", "exclusiveMinimum": 0 },
+        "antialias": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "environment": {
+      "type": "object",
+      "required": ["kind", "source", "intensity"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["none", "pmrem-hdr", "pmrem-equirectangular", "pmrem-cubemap"] },
+        "source": { "type": "string" },
+        "intensity": { "type": "number", "minimum": 0 }
+      },
+      "additionalProperties": true
+    },
+    "camera": {
+      "type": "object",
+      "required": ["projection", "position", "target", "near", "far"],
+      "properties": {
+        "projection": { "enum": ["perspective", "orthographic"] },
+        "position": { "type": "array", "minItems": 3, "maxItems": 3 },
+        "target": { "type": "array", "minItems": 3, "maxItems": 3 },
+        "near": { "type": "number", "exclusiveMinimum": 0 },
+        "far": { "type": "number", "exclusiveMinimum": 0 }
+      },
+      "additionalProperties": true
+    },
+    "background": { "type": "object", "required": ["kind"], "properties": { "kind": { "enum": ["solid", "transparent", "scene"] } }, "additionalProperties": true },
+    "passes": { "type": "array", "minItems": 6, "items": { "type": "object", "required": ["id", "required"], "properties": { "id": { "type": "string" }, "required": { "type": "boolean" } }, "additionalProperties": true } },
+    "regions": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["id", "criticality"], "properties": { "id": { "type": "string", "minLength": 1 }, "criticality": { "enum": ["critical", "high", "important", "detail"] }, "idColor": { "type": "array", "prefixItems": [{ "type": "integer", "minimum": 0, "maximum": 255 }, { "type": "integer", "minimum": 0, "maximum": 255 }, { "type": "integer", "minimum": 0, "maximum": 255 }], "minItems": 3, "maxItems": 3 } }, "additionalProperties": true } },
+    "extensions": { "type": "object", "properties": { "requiredSemanticRegions": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } } }, "additionalProperties": true },
+    "feedbackGroups": { "type": "array", "minItems": 7, "items": { "type": "object", "required": ["id", "order"], "properties": { "id": { "type": "string" }, "order": { "type": "integer", "minimum": 1 } }, "additionalProperties": true } }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,36 @@
+{
+  "targetName": "Subdivision Cage",
+  "schemaVersion": "2.1",
+  "suitability": "pass",
+  "coordinateFrame": {},
+  "silhouette": {},
+  "proceduralStrategy": [],
+  "materials": [
+    {
+      "id": "cage"
+    }
+  ],
+  "componentTree": [
+    {
+      "id": "rounded-cage",
+      "name": "Rounded quad cage",
+      "level": "macro",
+      "role": "body",
+      "primitive": "box",
+      "topologyClass": "assembled-solid",
+      "topologyRationale": "A closed six-quad box cage is smoothed into the rounded body volume.",
+      "geometryDescriptor": {
+        "subdivide": {
+          "iterations": 2
+        }
+      },
+      "parent": null,
+      "material": "cage",
+      "transform": {
+        "position": [0.0, 0.0, 0.0],
+        "rotation": [0.0, 0.0, 0.0],
+        "scale": [1.0, 1.0, 1.0]
+      }
+    }
+  ]
+}

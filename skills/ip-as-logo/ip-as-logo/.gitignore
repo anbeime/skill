@@ -1,0 +1,9 @@
+.DS_Store
+results/
+generated_images/
+/output/
+*.png
+!assets/
+!assets/ip-as-logo-wall.webp
+.vercel
+/website/

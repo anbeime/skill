@@ -1,0 +1,20 @@
+name: Governed Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    # ci-workflows v1.1.0. Update this SHA through a reviewed PR.
+    uses: img2threejs/ci-workflows/.github/workflows/governed-tag-release.yml@dd3a7730cacb6ab00cc853be606ce72de389a54c
+    with:
+      tag: ${{ github.ref_name }}
+      version-file: SKILL.md
+      # v1.4.3 bootstrapped the governed line and is already published; nothing bootstraps again.
+      bootstrap-release: false
+      # Last published governed tag. `git ls-remote --tags origin` shows v1.4.3 as the only one.
+      previous-governed-tag: "v1.4.3"

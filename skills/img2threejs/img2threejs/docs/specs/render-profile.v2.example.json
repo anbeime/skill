@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "render-profile.v2",
+  "kind": "threejs-render-profile",
+  "authority": "browser-threejs",
+  "renderer": {
+    "backend": "WebGLRenderer",
+    "colorManagementEnabled": true,
+    "workingColorSpace": "Linear-sRGB",
+    "outputColorSpace": "SRGBColorSpace",
+    "toneMapping": "ACESFilmicToneMapping",
+    "toneMappingExposure": 1.0,
+    "viewport": [620, 1000],
+    "devicePixelRatio": 1.0,
+    "antialias": true,
+    "alpha": false,
+    "shadowMap": { "enabled": true, "type": "PCFSoftShadowMap" }
+  },
+  "environment": {
+    "kind": "pmrem-hdr",
+    "source": "assets/studio-neutral.hdr",
+    "intensity": 1.0,
+    "prefilter": "PMREMGenerator"
+  },
+  "camera": {
+    "projection": "perspective",
+    "position": [0.0, 0.85, 4.0],
+    "target": [0.0, 0.8, 0.0],
+    "near": 0.01,
+    "far": 100.0,
+    "fovDegrees": 25.0
+  },
+  "background": { "kind": "solid", "color": "#3b2c2a", "alpha": 1.0 },
+  "passes": [
+    { "id": "beauty", "required": true, "colorSpace": "SRGBColorSpace", "toneMapped": true },
+    { "id": "alpha-silhouette", "required": true, "colorSpace": "NoColorSpace", "toneMapped": false },
+    { "id": "semantic-id", "required": true, "colorSpace": "NoColorSpace", "toneMapped": false, "encoding": "region-id-rgb" },
+    { "id": "depth", "required": true, "colorSpace": "NoColorSpace", "toneMapped": false, "encoding": "linear-depth" },
+    { "id": "normal", "required": true, "colorSpace": "NoColorSpace", "toneMapped": false, "encoding": "view-space-xyz-remapped" },
+    { "id": "roughness-material-id", "required": true, "colorSpace": "NoColorSpace", "toneMapped": false, "encoding": "roughness-plus-region-id" }
+  ],
+  "regions": [
+    { "id": "face", "criticality": "critical", "idColor": [255, 0, 0] },
+    { "id": "kasa", "criticality": "high", "idColor": [255, 128, 0] },
+    { "id": "scarf", "criticality": "high", "idColor": [255, 255, 0] },
+    { "id": "tunic", "criticality": "high", "idColor": [0, 255, 0] },
+    { "id": "staff", "criticality": "high", "idColor": [0, 255, 255] },
+    { "id": "tail", "criticality": "high", "idColor": [0, 0, 255] },
+    { "id": "feet", "criticality": "important", "idColor": [128, 0, 255] },
+    { "id": "materials", "criticality": "high", "idColor": [255, 0, 255] }
+  ],
+  "feedbackGroups": [
+    { "id": "camera", "order": 1 },
+    { "id": "silhouette", "order": 2 },
+    { "id": "face", "order": 3 },
+    { "id": "clothing", "order": 4 },
+    { "id": "accessory", "order": 5 },
+    { "id": "materials", "order": 6 },
+    { "id": "lighting", "order": 7 }
+  ],
+  "extensions": {
+    "requiredSemanticRegions": ["face", "kasa", "scarf", "tunic", "staff", "tail", "feet", "materials"]
+  }
+}

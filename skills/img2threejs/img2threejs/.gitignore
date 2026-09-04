@@ -1,0 +1,72 @@
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Scratch / generated review artifacts (keep committed demos in assets/)
+*.tmp
+
+# Local-only planning docs — never committed (feature work is committed, plans are not)
+docs/PLAN_*.md
+
+# OMC planning/team state — local orchestration artifacts, never part of a release
+.omc/
+.omo/
+.opencode/
+.img2threejs/
+
+# Extracted Valve CS2 textures -- IP belongs to Valve, never committed.
+cs2_textures/
+
+# Runtime dependencies and generated browser bundles
+runtime/**/node_modules/
+runtime/**/dist/
+runtime/**/.vite/
+integrations/vision/.venv/
+
+.cache/spec-search/
+# Demo GIFs/renders in assets/ stay local, but the README's logo must ship with the repo.
+# Note the trailing `*`: git cannot re-include a file whose parent directory is excluded,
+# so `assets/` + `!assets/logo.svg` would silently not work.
+assets/*
+!assets/logo.svg
+# Sponsor brand marks are referenced by the README, so they ship too.
+!assets/sponsors/
+openspec/
+runtime/
+
+# Run-time capture output: review renders, focus shots, comparison sheets.
+# These are produced by every capture and gate run, are large, and are never inputs to a build.
+.screenshot/
+
+# Research distillations. Kept locally as the provenance behind a routing or contract decision, but
+# no script reads them and every operational rule they back already lives in grimoire/ or docs/specs/.
+# Shipping them in the skill package costs size and maintenance for reference nobody executes.
+docs/research/
+
+# Per-subject tuning artifacts: sculpt specs, assessments, feedback plans and comparison renders
+# for one character or object. Same reasoning as .screenshot/ above -- they are outputs of a tuning
+# session, never inputs to a build, and they carry multi-megabyte PNGs. Tuning ships with the
+# stable release, not with a beta of the scripts.
+work/
+
+# Per-subject authoring prompts. Same class as work/ -- one subject's brief, never an input to a
+# build, and no script reads them.
+docs/prompts/
+
+# Session postmortems. Provenance for a decision, kept locally like docs/research/; the operational
+# rule each one produced already lives in grimoire/ or docs/.
+.sisyphus/
+
+# Handover and distillation notes. Same rule as docs/PLAN_*.md above: feature work is committed,
+# planning and review-of-other-branches notes are not. These also carry absolute local paths and
+# session ids, which must never reach the public skill.
+docs/WS_*_HANDOVER_*.md
+docs/PR_DISTILLED.md
+_img2_local.py

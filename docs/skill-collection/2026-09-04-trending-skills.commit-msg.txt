@@ -1,0 +1,29 @@
+feat: add 4 trending skills (ip-as-logo, img2threejs, photo-abstract-editorial, convert-documents-to-markdown)
+
+D-25 skillhub-collection 收编批次 #2（2026-09-04）。
+本批 4 个：s1dashu/ip-as-logo-skill, img2threejs/img2threejs,
+ZzzLc0405/photo-abstract-editorial, firecrawl/anydoc。
+video-shortcraft 因 stars 太少剔除（用户决定）。
+
+仓内布局（强制）：
+- skills/ip-as-logo/ip-as-logo/SKILL.md          (MIT)
+- skills/img2threejs/img2threejs/SKILL.md        (Apache-2.0)
+- skills/photo-abstract-editorial/photo-abstract-editorial/SKILL.md  (CC BY-NC-SA 4.0 非商业)
+- skills/convert-documents-to-markdown/convert-documents-to-markdown/SKILL.md  (MIT)
+- docs/skill-collection/2026-09-04-trending-skills.md  (本索引 + 简介页面)
+
+validator：4/4 通过，0 失败，2 非阻塞警告
+- ip-as-logo: Empty sections "Prompt skeleton"
+- convert-documents-to-markdown: Non-standard field "metadata"
+
+锦衣卫扫描：
+- 3 个 skill: PASS（critical 0 / warning 0）
+- img2threejs: 2 处告警，均为规则误报，已人工过审：
+  * critical: forge/materials/* 路径命中 S2 user_doc 黑名单
+    → 上游 Python 子模块，非用户文档，过
+  * warning:  127.0.0.1:5200 命中 S4 内网 IP
+    → 本地 showcase 回环端口，非云端，过
+详见 docs/skill-collection/2026-09-04-trending-skills.md 的"扫描诚实标注"段。
+
+D-25 --increment-only 流水线已应用：单批 add + commit，未 git add . 污染。
+push 由用户在自家 shell 执行（沙箱无 GitHub 出域 + AGENTS §3）。

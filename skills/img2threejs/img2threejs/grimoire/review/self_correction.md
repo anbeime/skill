@@ -1,0 +1,121 @@
+# Self-Correction Loop Reference
+
+Use this reference when a model construction pass has just finished.
+
+## Transparency and Process Debugging (Critical — from Bowie Knife reconstruction)
+
+**The problem:** When the user cannot tell what was done or where something went wrong, they cannot debug the process. Over-claiming (reporting success when features still don't match) destroys trust and makes iterative improvement impossible.
+
+**Rule:** Be transparent + don't over-claim. State exactly what changed each pass, with evidence, and name what still doesn't match:
+- After each pass, explicitly list what changed: "Updated guard shape to extend left edge from -0.56 to -0.48 for handle overlap"
+- Provide evidence: reference the specific values, coordinates, or parameters that changed
+- Name what still doesn't match: "Handle silhouette traced but still flat plane (no Z palm-swell), procedural crosshatch not reference's exact dot-grid knurl"
+- Explain why a change was made: "Extended guard left edge because handle ends at X=-0.42 and guard ended at X=-0.20, causing visual gap"
+- Never claim a feature is "done" when it's only "improved" — use precise language
+- When a gate passes but visual inspection shows issues, explain the limitation: "2D gate passed (fidelity 0.83) but three-quarter render shows blade reads as toy (no grind wedge) — 2D gates are blind to 3D realism"
+
+**The user needs to be able to debug the process, not just the output.** If something is wrong, they should be able to trace which decision led to the error and correct it. Opaque processes force restarts; transparent processes enable refinement.
+
+## Review Order
+
+1. Capture or collect a rendered screenshot for the current browser view.
+2. Select at most five critical semantic systems for the current pass and only the suspicious important systems.
+3. Create one full reference/render comparison sheet with `stage4_review/make_comparison_sheet.py`.
+4. Inspect the sheet once with your agent's vision and score the global image, relevant visual layers, and each selected semantic feature visible in that pair.
+5. Compare the rendered result to current `ObjectSculptSpec`.
+6. Decide whether the mismatch is caused by the spec, the implementation, lighting/camera, missing evidence, or performance tradeoff.
+7. Choose exactly one action:
+   - `continue`
+   - `refine-spec`
+   - `refine-code`
+   - `request-input`
+   - `stop`
+8. Record the screenshot paths, comparison image, overall score, layer scores, feature scores, and AI critique in `reviewHistory`.
+
+For visual passes, `continue` requires a rendered screenshot, a comparison image, a global AI vision score at or above threshold, and every critical feature at or above its own threshold. Without them, the review is not evidence-backed enough. Pixel comparison code is never the acceptance authority.
+
+## Root Cause Guide
+
+Use `refine-spec` when:
+
+- a component is missing or invented incorrectly
+- the primitive family is wrong
+- proportions or coordinate frame are wrong
+- material layer is under-specified
+- local features are missing from the spec
+- evidence refs are absent or contradict the image
+- user expectation cannot be represented by current build passes
+
+Use `refine-code` when:
+
+- the spec is clear but generated geometry is wrong
+- material parameters were not implemented
+- local masks/noise/wear are missing in code
+- hierarchy/pivots do not match the spec
+- browser render has obvious artifacts
+- performance can be improved without changing the spec
+
+Use `request-input` when:
+
+- the image hides essential geometry
+- material cannot be inferred from the provided view
+- exact branding/text/ornament is required
+- the requested fidelity is incompatible with a single image
+
+Use `stop` when:
+
+- target fidelity is reached
+- user accepted current approximation
+- remaining issues require new references, manual modeling, or non-procedural assets
+
+## Fidelity Estimate
+
+Use a practical 0-1 scale:
+
+- `0.2`: only rough primitive placeholder
+- `0.4`: silhouette recognizable, structure incomplete
+- `0.6`: macro and meso forms mostly correct, material/detail weak
+- `0.75`: object reads correctly, local details approximate
+- `0.85`: strong procedural match for real-time use
+- `0.95`: near-reference, usually requires multiple views or manual art
+
+Do not claim `0.9+` from a single ambiguous image unless the object is simple and symmetrical.
+
+---
+
+## Divine Eye caveat — photo-vs-procedural reconstruction (must read)
+
+When the reference is a **photograph** and the render is a **procedural reconstruction**, the pixel-aligned signals (`ssim`, `edgeOverlap`) and the silhouette-IoU hard gate are dominated by **framing + background + scale + lighting** differences, NOT fidelity. Confirmed on two objects: a faithful BMX scored `reject/0.53`, a clear M9 bayonet scored `reject/IoU 0.165` (white-bg photo vs dark render). 
+
+**Do not chase the Eye's global score in this mode** — optimising toward it distorts the model trying to pixel-match a photo (impossible) and makes it worse. Instead:
+- Judge each pass against its **own goal** with agent vision (silhouette reads? part present? palette on-tone?).
+- Trust the **palette ΔE / phash / part-presence**, and IoU only **after** scale+translation alignment.
+- Treat `ssim`/`edgeOverlap` vs a photo as advisory, never a hard fail.
+
+The proper fix is a Divine-Eye **reconstruction mode** (reference==photo ⇒ drop pixel-aligned signals, align-then-IoU, palette+objectness) — this is exactly what the deferred **OSIM** objectness signal targets (feature-map similarity is invariant to lighting/background). See `docs/PLAN_1.3_FINAL.md` review log + ws-memories atom `divine-eye-photo-vs-procedural-miscalibration`.
+
+**Update (2026-07-22): the reconstruction-mode rescue now exists.** `divine_eye.py` computes a stdlib
+`objectness` signal (`objectness.py`, OSIM-lite — bg/pose/scale/brightness-invariant HOG cosine) and,
+when a photo-vs-procedural render fails *only* the IoU hard gate but objectness says "same object"
+(≥0.48), it downgrades the confident reject to `probe` and sets `reconstructionModeSuspected:true`. So the
+Eye no longer hard-rejects a faithful reconstruction on framing alone — but still never auto-passes it.
+
+---
+
+## 2D Gates Are Blind to 3D Realism (Critical — from Bowie Knife reconstruction)
+
+**The problem:** 2D visual gates (Divine Eye, diagnose_render) only measure silhouette + colour + tone. They cannot see:
+- Edge sharpness (a constant-thickness slab reads as a toy cutout even with perfect silhouette)
+- Cross-section thickness (blade grind, taper, bevel quality)
+- Material realism (metal vs plastic reflection, surface texture response)
+- True 3D form beyond the silhouette plane
+
+**Consequence:** A strict-PASS at fidelity 0.83 can still read as a flat toy in a three-quarter render.
+
+**Rule:** NEVER report a 2D-gate PASS as "done". Always judge 3D realism on a three-quarter render, and explicitly state what the gate does/doesn't measure in your review notes. When a gate passes but the 3D render looks wrong, the gate measurement was insufficient — not the reconstruction.
+
+**Verification cues:** A procedural object is failing 3D realism when:
+- The silhouette matches but edges are perfectly sharp/flat (no grind, taper, or bevel)
+- Material has correct color but wrong surface response (plastic when should be metal, etc.)
+- Reference depth cues (grind transitions, material thickness, edge bevels) are missing or flat
+- The gate score is high but the object reads as "toy-like" or "cardboard" in angled views

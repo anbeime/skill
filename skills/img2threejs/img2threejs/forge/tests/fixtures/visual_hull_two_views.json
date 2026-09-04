@@ -1,0 +1,92 @@
+{
+  "targetName": "Two View Visual Hull",
+  "schemaVersion": "2.1",
+  "suitability": "pass",
+  "coordinateFrame": {},
+  "silhouette": {},
+  "proceduralStrategy": [],
+  "materials": [
+    {
+      "id": "clay"
+    }
+  ],
+  "componentTree": [
+    {
+      "id": "carved-body",
+      "name": "Front and side silhouette carved body",
+      "level": "macro",
+      "role": "body",
+      "primitive": "box",
+      "topologyClass": "continuous-sculpt",
+      "topologyRationale": "Front and side orthographic silhouettes constrain one continuous body volume.",
+      "geometryDescriptor": {
+        "visualHull": {
+          "projection": "orthographic",
+          "boundsSpace": "component-local",
+          "bounds": {
+            "min": [-1.0, -1.0, -1.0],
+            "max": [1.0, 1.0, 1.0]
+          },
+          "resolution": 16,
+          "triangleBudget": 50000,
+          "hiddenRegions": [
+            "Back-facing surface detail is not constrained by the two supplied silhouettes."
+          ],
+          "views": [
+            {
+              "axis": "front",
+              "confidence": 0.94,
+              "mask": [
+                "0000000000000000",
+                "0000011111100000",
+                "0001111111111000",
+                "0011111111111100",
+                "0111111111111110",
+                "0111111111111110",
+                "0111111111111110",
+                "0111111111111110",
+                "0111111111111110",
+                "0111111111111110",
+                "0111111111111110",
+                "0111111111111110",
+                "0011111111111100",
+                "0001111111111000",
+                "0000011111100000",
+                "0000000000000000"
+              ]
+            },
+            {
+              "axis": "side",
+              "confidence": 0.91,
+              "mask": [
+                "0000000000000000",
+                "0000001111000000",
+                "0000011111100000",
+                "0000111111110000",
+                "0001111111111000",
+                "0001111111111000",
+                "0001111111111000",
+                "0001111111111000",
+                "0001111111111000",
+                "0001111111111000",
+                "0001111111111000",
+                "0001111111111000",
+                "0000111111110000",
+                "0000011111100000",
+                "0000001111000000",
+                "0000000000000000"
+              ]
+            }
+          ]
+        }
+      },
+      "parent": null,
+      "material": "clay",
+      "transform": {
+        "position": [0.0, 0.0, 0.0],
+        "rotation": [0.0, 0.0, 0.0],
+        "scale": [1.0, 1.0, 1.0]
+      }
+    }
+  ]
+}

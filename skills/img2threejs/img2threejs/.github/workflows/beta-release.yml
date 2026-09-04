@@ -1,0 +1,58 @@
+name: Beta Tag
+
+on:
+  push:
+    branches: [beta]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: beta-release
+  cancel-in-progress: false
+
+jobs:
+  tag:
+    if: "!startsWith(github.event.head_commit.message, 'chore(beta): v')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Update beta skill version and tag
+        run: |
+          set -euo pipefail
+
+          current_version="$(sed -nE 's/^version: ([0-9]+\.[0-9]+\.[0-9]+(-beta\.[0-9]+)?)$/\1/p' SKILL.md)"
+          if [ -z "$current_version" ]; then
+            echo "SKILL.md must contain one supported version field."
+            exit 1
+          fi
+
+          if [[ "$current_version" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)-beta\.([0-9]+)$ ]]; then
+            major="${BASH_REMATCH[1]}"
+            minor="${BASH_REMATCH[2]}"
+            patch="${BASH_REMATCH[3]}"
+            beta_sequence="${BASH_REMATCH[4]}"
+            next_version="$major.$minor.$patch-beta.$((beta_sequence + 1))"
+          elif [[ "$current_version" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+            major="${BASH_REMATCH[1]}"
+            minor="${BASH_REMATCH[2]}"
+            next_version="$major.$((minor + 1)).0-beta.1"
+          else
+            echo "SKILL.md must contain a stable or beta semantic version."
+            exit 1
+          fi
+
+          if git rev-parse "v$next_version" >/dev/null 2>&1; then
+            echo "Tag v$next_version already exists."
+            exit 1
+          fi
+
+          sed -i -E "s/^version: [0-9]+\.[0-9]+\.[0-9]+(-beta\.[0-9]+)?$/version: $next_version/" SKILL.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add SKILL.md
+          git commit -m "chore(beta): v$next_version"
+          git tag -a "v$next_version" -m "v$next_version"
+          git push origin HEAD:beta --follow-tags

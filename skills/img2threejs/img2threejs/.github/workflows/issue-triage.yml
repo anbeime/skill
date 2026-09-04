@@ -1,0 +1,30 @@
+name: Issue Triage
+
+on:
+  schedule:
+    - cron: "17 9 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Dry-run lists all candidates; backfill writes notices for historical candidates."
+        required: true
+        default: dry-run
+        type: choice
+        options:
+          - dry-run
+          - backfill
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: issue-triage-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  triage:
+    uses: img2threejs/ci-workflows/.github/workflows/issue-triage.yml@dd3a7730cacb6ab00cc853be606ce72de389a54c
+    with:
+      mode: ${{ github.event_name == 'schedule' && 'backfill' || inputs.mode }}
+      rollout-after: ${{ github.event_name == 'schedule' && '2026-07-28T00:00:00Z' || '' }}
