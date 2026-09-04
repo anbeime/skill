@@ -74,3 +74,4 @@ jobs:
           echo "- OpenAI Skills" >> $GITHUB_STEP_SUMMARY
           echo "- VoltAgent Awesome Agent Skills" >> $GITHUB_STEP_SUMMARY
           echo "- VoltAgent Awesome DESIGN.md" >> $GITHUB_STEP_SUMMARY
+          echo "- Narcooo/inkos (Story Creation AI Agent, 16 SKILL.md)" >> $GITHUB_STEP_SUMMARY

@@ -42,6 +42,16 @@ UPSTREAM_SOURCES = {
         "url": "https://raw.githubusercontent.com/VoltAgent/awesome-design-md/main/README.md",
         "type": "design_md_catalog",
         "self_repo": ("VoltAgent", "awesome-design-md")
+    },
+    "inkos_story_ai": {
+        "name": "Narcooo/inkos - Story Creation AI Agent",
+        # v2.9.0 · 16 个内置 SKILL.md（顶层 inkos + 15 个 inkos-* 子 skill）·
+        # 长篇写作 / 商业短篇 / 剧本 / 分镜 / 互动影游 / Play 开放世界 / 翻译 / 拆稿 / 市场研究 / 导入 / 封面 / 去 AI 味
+        # AGPL-3.0 · 安装：npm i -g @actalk/inkos
+        # 收编策略（D-25 方案 D）：只贴 README 到 docs/skill-collection/inkos-master.md，不双层嵌套 13.5 MB
+        "url": "https://raw.githubusercontent.com/Narcooo/inkos/main/README.md",
+        "type": "awesome_list",
+        "self_repo": ("Narcooo", "inkos")
     }
 }
 
@@ -186,6 +196,7 @@ SELF_REPOS = {
     "voltagent_awesome": ("VoltAgent", "awesome-agent-skills"),
     "awesome_dsh_plugin": ("awesome-dsh-plugin", "awesome-dsh-plugin"),
     "mattpocock_skills": ("mattpocock", "skills"),
+    "inkos_story_ai": ("Narcooo", "inkos"),
 }
 
 def main():
