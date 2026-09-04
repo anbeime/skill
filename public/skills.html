@@ -3,43 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Agent Skills - 63 原创技能 + 182 官方索引</title>
+    <title>AI Agent Skills - 技能商店（动态搜索 · 186 个）</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #f5f7fa;
             color: #333;
         }
-        
+
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 30px 20px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
+
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .header h1 {
             font-size: 36px;
             margin-bottom: 10px;
         }
-        
+
         .header-nav {
             display: flex;
             gap: 20px;
             margin-top: 20px;
         }
-        
+
         .header-nav a {
             color: white;
             text-decoration: none;
@@ -48,24 +48,24 @@
             border-radius: 20px;
             transition: all 0.3s;
         }
-        
+
         .header-nav a:hover {
             background: rgba(255,255,255,0.3);
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
-        
+
         .stats-bar {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin-bottom: 40px;
         }
-        
+
         .stat-card {
             background: white;
             padding: 25px;
@@ -73,18 +73,23 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             text-align: center;
         }
-        
+
         .stat-number {
             font-size: 36px;
             font-weight: bold;
             color: #667eea;
         }
-        
+
+        .stat-number.trending { color: #ec4899; }
+        .stat-number.local { color: #f59e0b; }
+        .stat-number.official { color: #667eea; }
+
         .stat-label {
             color: #666;
             margin-top: 8px;
+            font-size: 14px;
         }
-        
+
         .filter-bar {
             background: white;
             padding: 25px;
@@ -92,7 +97,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             margin-bottom: 30px;
         }
-        
+
         .search-box {
             width: 100%;
             padding: 12px 20px;
@@ -101,18 +106,26 @@
             font-size: 16px;
             margin-bottom: 20px;
         }
-        
+
         .search-box:focus {
             outline: none;
             border-color: #667eea;
         }
-        
+
+        .search-info {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+
+        .search-info b { color: #667eea; }
+
         .filter-tabs {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
-        
+
         .filter-tab {
             padding: 8px 20px;
             border: 2px solid #e0e0e0;
@@ -120,34 +133,68 @@
             background: white;
             cursor: pointer;
             transition: all 0.3s;
+            font-size: 14px;
         }
-        
+
         .filter-tab:hover {
             border-color: #667eea;
             color: #667eea;
         }
-        
+
         .filter-tab.active {
             background: #667eea;
             color: white;
             border-color: #667eea;
         }
-        
+
+        .filter-tab.active[data-filter="trending"] {
+            background: #ec4899;
+            border-color: #ec4899;
+        }
+        .filter-tab.active[data-filter="local"] {
+            background: #f59e0b;
+            border-color: #f59e0b;
+        }
+        .filter-tab[data-filter="trending"]:hover {
+            border-color: #ec4899;
+            color: #ec4899;
+        }
+        .filter-tab[data-filter="local"]:hover {
+            border-color: #f59e0b;
+            color: #f59e0b;
+        }
+
         .section-title {
             font-size: 28px;
             margin: 40px 0 20px 0;
             color: #333;
             border-left: 4px solid #667eea;
             padding-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
-        
+
+        .section-title.trending {
+            border-left-color: #ec4899;
+        }
+        .section-title.local {
+            border-left-color: #f59e0b;
+        }
+
+        .section-count {
+            font-size: 14px;
+            color: #888;
+            font-weight: normal;
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 20px;
             margin-bottom: 40px;
         }
-        
+
         .skill-card {
             background: white;
             padding: 25px;
@@ -156,538 +203,371 @@
             transition: all 0.3s;
             border-left: 4px solid #667eea;
         }
-        
+
         .skill-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 16px rgba(0,0,0,0.12);
         }
-        
+
         .skill-card.local {
             border-left-color: #f59e0b;
         }
-        
+
+        .skill-card.trending {
+            border-left-color: #ec4899;
+        }
+
         .skill-header {
             display: flex;
             justify-content: space-between;
             align-items: start;
             margin-bottom: 12px;
         }
-        
+
         .skill-name {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             color: #333;
             flex: 1;
+            word-break: break-word;
         }
-        
+
         .skill-badge {
             padding: 4px 12px;
             border-radius: 12px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
             margin-left: 10px;
+            flex-shrink: 0;
         }
-        
+
         .badge-official {
             background: #e0e7ff;
             color: #667eea;
         }
-        
+
         .badge-local {
             background: #fef3c7;
             color: #f59e0b;
         }
-        
+
+        .badge-trending {
+            background: #fce7f3;
+            color: #ec4899;
+        }
+
         .skill-description {
             color: #666;
             font-size: 14px;
             line-height: 1.6;
             margin-bottom: 15px;
+            word-break: break-word;
         }
-        
+
         .skill-meta {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
             font-size: 13px;
             color: #888;
+            align-items: center;
         }
-        
+
         .skill-tag {
             background: #f3f4f6;
             padding: 4px 10px;
             border-radius: 8px;
             font-size: 12px;
         }
-        
+
         .skill-link {
             color: #667eea;
             text-decoration: none;
             font-weight: 500;
         }
-        
+
         .skill-link:hover {
             text-decoration: underline;
         }
-        
-        .rating {
-            color: #fbbf24;
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #888;
         }
-        
+        .empty-state h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .source-line {
+            font-size: 11px;
+            color: #aaa;
+            margin-top: 8px;
+            word-break: break-all;
+        }
+
         @media (max-width: 768px) {
             .skills-grid {
-                grid-template-columns: 1fr;
+                grid-column: 1fr;
             }
-            
+
             .filter-tabs {
                 justify-content: center;
             }
+
+            .header h1 { font-size: 24px; }
         }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="header-content">
-            <h1>🎯 AI Agent Skills</h1>
-            <p>63 原创技能包 · 182 官方索引 · 2326 自动爬取（每24h更新）</p>
+            <h1>🎯 AI Agent Skills 技能商店</h1>
+            <p>186 个技能 · 本地优先 · 动态搜索 · 同步自 anbeime/skill</p>
             <div class="header-nav">
                 <a href="index.html">← 返回首页</a>
                 <a href="skills-en.html">English</a>
+                <a href="local-skills.html">本地技能库</a>
                 <a href="https://github.com/anbeime/skill" target="_blank">GitHub</a>
             </div>
         </div>
     </div>
-    
+
     <div class="container">
-        <div class="stats-bar">
+        <div class="stats-bar" id="statsBar">
             <div class="stat-card">
-                <div class="stat-number">63</div>
-                <div class="stat-label">原创技能包</div>
+                <div class="stat-number trending" id="statTrending">4</div>
+                <div class="stat-label">🔥 本周热门</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">182</div>
-                <div class="stat-label">官方索引</div>
+                <div class="stat-number official" id="statOfficial">182</div>
+                <div class="stat-label">🌍 官方索引</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">2326</div>
-                <div class="stat-label">自动爬取索引</div>
+                <div class="stat-number local" id="statLocal">66</div>
+                <div class="stat-label">💾 本地技能</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">14</div>
-                <div class="stat-label">分类</div>
+                <div class="stat-number" id="statTotal">186</div>
+                <div class="stat-label">📚 总计</div>
             </div>
         </div>
-        
+
         <div class="filter-bar">
-            <input type="text" class="search-box" id="searchBox" placeholder="🔍 搜索技能名称或描述...">
-            <div class="filter-tabs">
-                <div class="filter-tab active" data-filter="all">全部 (245)</div>
-                <div class="filter-tab" data-filter="official">官方索引 (182)</div>
-                <div class="filter-tab" data-filter="local">本地技能 (63)</div>
-                <div class="filter-tab" data-filter="5star">五星推荐 (10)</div>
+            <input type="text" class="search-box" id="searchBox" placeholder="🔍 搜索技能名称、描述、分类..." autocomplete="off">
+            <div class="search-info" id="searchInfo">
+                加载中...
+            </div>
+            <div class="filter-tabs" id="filterTabs">
+                <div class="filter-tab active" data-filter="all">全部</div>
+                <div class="filter-tab" data-filter="trending">🔥 本周热门</div>
+                <div class="filter-tab" data-filter="official">🌍 官方索引</div>
+                <div class="filter-tab" data-filter="local">💾 本地技能</div>
+                <div class="filter-tab" data-filter="category:Document Parsing">📄 文档解析</div>
+                <div class="filter-tab" data-filter="category:Image Generation">🎨 图像生成</div>
+                <div class="filter-tab" data-filter="category:3D / Three.js">🧊 3D 模型</div>
+                <div class="filter-tab" data-filter="category:Web Design">🎨 Web 设计</div>
             </div>
         </div>
-        
-        <!-- 本地技能部分 -->
-        <h2 class="section-title">🇨🇳 本地技能 (63个)</h2>
-        
-        <h3 style="margin: 20px 0; color: #666;">⭐⭐⭐⭐⭐ 五星推荐 (10个)</h3>
-        <div class="skills-grid" id="localSkills5Star">
-            <div class="skill-card local" data-type="local" data-rating="5">
-                <div class="skill-header">
-                    <div class="skill-name">content-creation-publisher</div>
-                    <span class="skill-badge badge-local">本地</span>
-                </div>
-                <div class="skill-description">内容创作与发布全流程 - 整合网页采集、Markdown格式化、智能配图、多平台发布（微信公众号、X/Twitter）</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐⭐</span>
-                    <span class="skill-tag">内容创作</span>
-                    <span class="skill-tag">全流程</span>
-                </div>
-            </div>
-            
-            <div class="skill-card local" data-type="local" data-rating="5">
-                <div class="skill-header">
-                    <div class="skill-name">intelligent-content-system</div>
-                    <span class="skill-badge badge-local">本地</span>
-                </div>
-                <div class="skill-description">智能内容系统 - 自动识别场景，编排调用技能链，支持14个场景</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐⭐</span>
-                    <span class="skill-tag">智能系统</span>
-                    <span class="skill-tag">自动化</span>
-                </div>
-            </div>
-            
-            <div class="skill-card local" data-type="local" data-rating="5">
-                <div class="skill-header">
-                    <div class="skill-name">video-creation-suite</div>
-                    <span class="skill-badge badge-local">本地</span>
-                </div>
-                <div class="skill-description">完整视频创作套件 - 原创、二创、分析三种模式</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐⭐</span>
-                    <span class="skill-tag">视频创作</span>
-                    <span class="skill-tag">多模式</span>
-                </div>
-            </div>
-            
-            <div class="skill-card local" data-type="local" data-rating="5">
-                <div class="skill-header">
-                    <div class="skill-name">NanoBanana-PPT-Skills</div>
-                    <span class="skill-badge badge-local">本地</span>
-                </div>
-                <div class="skill-description">AI生成PPT - 高质量图片和视频，智能转场</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐⭐</span>
-                    <span class="skill-tag">PPT演示</span>
-                    <span class="skill-tag">AI生成</span>
-                </div>
-            </div>
-            
-            <div class="skill-card local" data-type="local" data-rating="5">
-                <div class="skill-header">
-                    <div class="skill-name">tts-voice-synthesis</div>
-                    <span class="skill-badge badge-local">本地</span>
-                </div>
-                <div class="skill-description">智能语音合成 - 音色克隆、拟人化配音、流式生成</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐⭐</span>
-                    <span class="skill-tag">语音音频</span>
-                    <span class="skill-tag">音色克隆</span>
-                </div>
-            </div>
-            
-            <div class="skill-card local" data-type="local" data-rating="5">
-                <div class="skill-header">
-                    <div class="skill-name">infinitetalk</div>
-                    <span class="skill-badge badge-local">本地</span>
-                </div>
-                <div class="skill-description">音频驱动视频配音 - 精准唇形、头部、身体姿态同步</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐⭐</span>
-                    <span class="skill-tag">数字人</span>
-                    <span class="skill-tag">视频配音</span>
-                </div>
-            </div>
-            
-            <div class="skill-card local" data-type="local" data-rating="5">
-                <div class="skill-header">
-                    <div class="skill-name">pptx</div>
-                    <span class="skill-badge badge-local">系统内置</span>
-                </div>
-                <div class="skill-description">PPT文件处理 - 系统内置，创建、编辑、分析</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐⭐</span>
-                    <span class="skill-tag">文档处理</span>
-                    <span class="skill-tag">系统内置</span>
-                </div>
-            </div>
-            
-            <div class="skill-card local" data-type="local" data-rating="5">
-                <div class="skill-header">
-                    <div class="skill-name">xlsx</div>
-                    <span class="skill-badge badge-local">系统内置</span>
-                </div>
-                <div class="skill-description">Excel文件处理 - 系统内置，公式、格式化、数据分析</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐⭐</span>
-                    <span class="skill-tag">数据分析</span>
-                    <span class="skill-tag">系统内置</span>
-                </div>
-            </div>
-            
-            <div class="skill-card local" data-type="local" data-rating="5">
-                <div class="skill-header">
-                    <div class="skill-name">pdf</div>
-                    <span class="skill-badge badge-local">系统内置</span>
-                </div>
-                <div class="skill-description">PDF文件处理 - 系统内置，提取、创建、合并、拆分</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐⭐</span>
-                    <span class="skill-tag">文档处理</span>
-                    <span class="skill-tag">系统内置</span>
-                </div>
-            </div>
-            
-            <div class="skill-card local" data-type="local" data-rating="5">
-                <div class="skill-header">
-                    <div class="skill-name">docx</div>
-                    <span class="skill-badge badge-local">系统内置</span>
-                </div>
-                <div class="skill-description">Word文件处理 - 系统内置，修订跟踪、评论、格式保留</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐⭐</span>
-                    <span class="skill-tag">文档处理</span>
-                    <span class="skill-tag">系统内置</span>
-                </div>
-            </div>
-        </div>
-        
-        <h3 style="margin: 30px 0 20px 0; color: #666;">其他本地技能 (53个)</h3>
-        <div class="skills-grid" id="localSkillsOther">
-            <div class="skill-card local" data-type="local">
-                <div class="skill-header">
-                    <div class="skill-name">article-illustrator</div>
-                    <span class="skill-badge badge-local">本地</span>
-                </div>
-                <div class="skill-description">文章智能配图 - 分析文章内容，在需要视觉辅助的位置生成插画</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐</span>
-                    <span class="skill-tag">内容创作</span>
-                </div>
-            </div>
-            
-            <div class="skill-card local" data-type="local">
-                <div class="skill-header">
-                    <div class="skill-name">video-creation-collaborator</div>
-                    <span class="skill-badge badge-local">本地</span>
-                </div>
-                <div class="skill-description">多智能体协同视频创作 - 11个智能体结构化分工，5阶段协同流程</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐</span>
-                    <span class="skill-tag">视频创作</span>
-                </div>
-            </div>
-            
-            <div class="skill-card local" data-type="local">
-                <div class="skill-header">
-                    <div class="skill-name">pet-commerce-creator</div>
-                    <span class="skill-badge badge-local">本地</span>
-                </div>
-                <div class="skill-description">萌宠带货短视频 - 基于GLM-4V-Flash免费API，支持萌宠剧情/好物测评/品种科普</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐</span>
-                    <span class="skill-tag">电商营销</span>
-                </div>
-            </div>
-            
-            <div class="skill-card local" data-type="local">
-                <div class="skill-header">
-                    <div class="skill-name">ppt-generator</div>
-                    <span class="skill-badge badge-local">本地</span>
-                </div>
-                <div class="skill-description">智能PPT生成 - 基于七角色协作，支持主题生成、模板推荐、内容填充、AI智能配图</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐</span>
-                    <span class="skill-tag">PPT演示</span>
-                </div>
-            </div>
-            
-            <div class="skill-card local" data-type="local">
-                <div class="skill-header">
-                    <div class="skill-name">qwen3-tts-local</div>
-                    <span class="skill-badge badge-local">本地</span>
-                </div>
-                <div class="skill-description">本地语音合成 - 使用Edge-TTS引擎，零依赖、零配置、完全离线可用</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐</span>
-                    <span class="skill-tag">语音音频</span>
-                </div>
-            </div>
-            
-            <div class="skill-card local" data-type="local">
-                <div class="skill-header">
-                    <div class="skill-name">paper-analysis-assistant</div>
-                    <span class="skill-badge badge-local">本地</span>
-                </div>
-                <div class="skill-description">arXiv论文分析 - 自动下载PDF并进行多维度分析，包括文本提取、词频分析、语音播报</div>
-                <div class="skill-meta">
-                    <span class="rating">⭐⭐⭐⭐</span>
-                    <span class="skill-tag">文档分析</span>
-                </div>
-            </div>
-            
-            <!-- 更多本地技能... -->
-            <div class="skill-card local" data-type="local">
-                <div class="skill-header">
-                    <div class="skill-name">更多53个本地技能</div>
-                    <span class="skill-badge badge-local">本地</span>
-                </div>
-                <div class="skill-description">包含视频创作、电商营销、PPT演示、智能体协作、产品管理等14个分类的技能</div>
-                <div class="skill-meta">
-                    <a href="local-skills.html" class="skill-link">查看完整列表 →</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 官方技能部分 -->
-        <h2 class="section-title">🌍 官方索引 (182个)</h2>
-        
-        <h3 style="margin: 20px 0; color: #666;">Anthropic官方 (17个)</h3>
-        <div class="skills-grid" id="officialSkillsAnthropic">
-            <div class="skill-card" data-type="official">
-                <div class="skill-header">
-                    <div class="skill-name">docx</div>
-                    <span class="skill-badge badge-official">官方</span>
-                </div>
-                <div class="skill-description">Create, edit, and analyze Word documents</div>
-                <div class="skill-meta">
-                    <span class="skill-tag">Anthropic</span>
-                    <span class="skill-tag">文档处理</span>
-                    <a href="https://github.com/anthropics/skills/tree/main/skills/docx" target="_blank" class="skill-link">GitHub →</a>
-                </div>
-            </div>
-            
-            <div class="skill-card" data-type="official">
-                <div class="skill-header">
-                    <div class="skill-name">pptx</div>
-                    <span class="skill-badge badge-official">官方</span>
-                </div>
-                <div class="skill-description">Create, edit, and analyze PowerPoint presentations</div>
-                <div class="skill-meta">
-                    <span class="skill-tag">Anthropic</span>
-                    <span class="skill-tag">文档处理</span>
-                    <a href="https://github.com/anthropics/skills/tree/main/skills/pptx" target="_blank" class="skill-link">GitHub →</a>
-                </div>
-            </div>
-            
-            <div class="skill-card" data-type="official">
-                <div class="skill-header">
-                    <div class="skill-name">xlsx</div>
-                    <span class="skill-badge badge-official">官方</span>
-                </div>
-                <div class="skill-description">Create, edit, and analyze Excel spreadsheets</div>
-                <div class="skill-meta">
-                    <span class="skill-tag">Anthropic</span>
-                    <span class="skill-tag">文档处理</span>
-                    <a href="https://github.com/anthropics/skills/tree/main/skills/xlsx" target="_blank" class="skill-link">GitHub →</a>
-                </div>
-            </div>
-            
-            <div class="skill-card" data-type="official">
-                <div class="skill-header">
-                    <div class="skill-name">pdf</div>
-                    <span class="skill-badge badge-official">官方</span>
-                </div>
-                <div class="skill-description">Extract text, create PDFs, and handle forms</div>
-                <div class="skill-meta">
-                    <span class="skill-tag">Anthropic</span>
-                    <span class="skill-tag">文档处理</span>
-                    <a href="https://github.com/anthropics/skills/tree/main/skills/pdf" target="_blank" class="skill-link">GitHub →</a>
-                </div>
-            </div>
-            
-            <div class="skill-card" data-type="official">
-                <div class="skill-header">
-                    <div class="skill-name">更多13个Anthropic技能</div>
-                    <span class="skill-badge badge-official">官方</span>
-                </div>
-                <div class="skill-description">包含mcp-builder、webapp-testing、algorithmic-art等开发和创意工具</div>
-                <div class="skill-meta">
-                    <a href="https://github.com/anthropics/skills" target="_blank" class="skill-link">查看完整列表 →</a>
-                </div>
-            </div>
-        </div>
-        
-        <h3 style="margin: 30px 0 20px 0; color: #666;">其他顶级团队 (165个)</h3>
-        <div class="skills-grid" id="officialSkillsOther">
-            <div class="skill-card" data-type="official">
-                <div class="skill-header">
-                    <div class="skill-name">Trail of Bits (26个)</div>
-                    <span class="skill-badge badge-official">官方</span>
-                </div>
-                <div class="skill-description">安全审计工具 - building-secure-contracts、static-analysis、property-based-testing等</div>
-                <div class="skill-meta">
-                    <span class="skill-tag">安全审计</span>
-                </div>
-            </div>
-            
-            <div class="skill-card" data-type="official">
-                <div class="skill-header">
-                    <div class="skill-name">Hugging Face (8个)</div>
-                    <span class="skill-badge badge-official">官方</span>
-                </div>
-                <div class="skill-description">机器学习工具 - model-trainer、datasets、evaluation、jobs等</div>
-                <div class="skill-meta">
-                    <span class="skill-tag">机器学习</span>
-                </div>
-            </div>
-            
-            <div class="skill-card" data-type="official">
-                <div class="skill-header">
-                    <div class="skill-name">Vercel (7个)</div>
-                    <span class="skill-badge badge-official">官方</span>
-                </div>
-                <div class="skill-description">React/Next.js最佳实践 - react-best-practices、next-best-practices等</div>
-                <div class="skill-meta">
-                    <span class="skill-tag">开发工具</span>
-                </div>
-            </div>
-            
-            <div class="skill-card" data-type="official">
-                <div class="skill-header">
-                    <div class="skill-name">Cloudflare (7个)</div>
-                    <span class="skill-badge badge-official">官方</span>
-                </div>
-                <div class="skill-description">云服务工具 - agents-sdk、durable-objects、wrangler等</div>
-                <div class="skill-meta">
-                    <span class="skill-tag">云服务</span>
-                </div>
-            </div>
-            
-            <div class="skill-card" data-type="official">
-                <div class="skill-header">
-                    <div class="skill-name">Sentry (7个)</div>
-                    <span class="skill-badge badge-official">官方</span>
-                </div>
-                <div class="skill-description">代码审查工具 - code-review、commit、create-pr、find-bugs等</div>
-                <div class="skill-meta">
-                    <span class="skill-tag">开发工具</span>
-                </div>
-            </div>
-            
-            <div class="skill-card" data-type="official">
-                <div class="skill-header">
-                    <div class="skill-name">其他团队 (~110个)</div>
-                    <span class="skill-badge badge-official">官方</span>
-                </div>
-                <div class="skill-description">包含Expo、Better Auth、Google Labs、Stripe、Supabase等团队的技能</div>
-                <div class="skill-meta">
-                    <a href="https://github.com/VoltAgent/awesome-agent-skills" target="_blank" class="skill-link">查看完整列表 →</a>
-                </div>
-            </div>
+
+        <!-- 动态渲染：本周热门 -->
+        <h2 class="section-title trending" id="sectionTrending" style="display:none;">
+            🔥 本周热门 (Trending)
+            <span class="section-count" id="trendingCount"></span>
+        </h2>
+        <div class="skills-grid" id="gridTrending"></div>
+
+        <!-- 动态渲染：本地技能 -->
+        <h2 class="section-title local" id="sectionLocal" style="display:none;">
+            💾 本地技能库
+            <span class="section-count" id="localCount"></span>
+        </h2>
+        <div class="skills-grid" id="gridLocal"></div>
+
+        <!-- 动态渲染：官方索引 -->
+        <h2 class="section-title" id="sectionOfficial" style="display:none;">
+            🌍 官方索引
+            <span class="section-count" id="officialCount"></span>
+        </h2>
+        <div class="skills-grid" id="gridOfficial"></div>
+
+        <div class="empty-state" id="emptyState" style="display:none;">
+            <h3>没有匹配的技能</h3>
+            <p>换个关键词试试，或者切到"全部"看完整列表</p>
         </div>
     </div>
-    
+
     <script>
-        // 搜索功能
-        const searchBox = document.getElementById('searchBox');
-        const filterTabs = document.querySelectorAll('.filter-tab');
-        const skillCards = document.querySelectorAll('.skill-card');
-        
-        let currentFilter = 'all';
-        
-        searchBox.addEventListener('input', filterSkills);
-        
-        filterTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                filterTabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                currentFilter = tab.dataset.filter;
-                filterSkills();
-            });
-        });
-        
-        function filterSkills() {
-            const searchTerm = searchBox.value.toLowerCase();
-            
-            skillCards.forEach(card => {
-                const name = card.querySelector('.skill-name').textContent.toLowerCase();
-                const description = card.querySelector('.skill-description').textContent.toLowerCase();
-                const type = card.dataset.type;
-                const rating = card.dataset.rating;
-                
-                const matchesSearch = name.includes(searchTerm) || description.includes(searchTerm);
-                const matchesFilter = 
-                    currentFilter === 'all' ||
-                    (currentFilter === 'official' && type === 'official') ||
-                    (currentFilter === 'local' && type === 'local') ||
-                    (currentFilter === '5star' && rating === '5');
-                
-                card.style.display = matchesSearch && matchesFilter ? 'block' : 'none';
-            });
+    // ====== 数据源 ======
+    const SOURCE_TRENDING = 'anbeime/skill (D-25 trending 2026-09-04)';
+    const TRENDING_REPOS = new Set([
+        's1dashu/ip-as-logo-skill',
+        'img2threejs/img2threejs',
+        'ZzzLc0405/photo-abstract-editorial',
+        'firecrawl/anydoc',
+        'VoltAgent/awesome-design-md'
+    ]);
+
+    // ====== 状态 ======
+    let allOfficialSkills = [];
+    let allLocalSkills = [];
+    let currentFilter = 'all';
+
+    // ====== 加载数据 ======
+    async function loadAll() {
+        try {
+            const [officialData,localData] = await Promise.all([
+                fetch('data/skills.json').then(r => r.json()),
+                fetch('data/local_skills.json').then(r => r.json())
+            ]);
+            allOfficialSkills = officialData.skills || [];
+            allLocalSkills = buildLocalSkillsList(localData);
+            updateStats();
+            render();
+        } catch (e) {
+            console.error('加载失败:', e);
+            document.getElementById('searchInfo').innerHTML =
+                '<span style="color:#ef4444;">加载失败，请刷新页面（错误：'+e.message+'）</span>';
         }
+    }
+
+    function buildLocalSkillsList(localData) {
+        if (!localData || !localData.categories) return [];
+        const items = [];
+        for (const [category, info] of Object.entries(localData.categories)) {
+            for (const skillName of (info.skills || [])) {
+                items.push({
+                    name: skillName,
+                    description: category + ' 分类下的本地技能 · 位置 ' + (localData.metadata?.location || 'D:\\\\tool\\\\skills'),
+                    link: 'https://github.com/anbeime/skill/tree/main/skills/' + skillName,
+                    category: category,
+                    source: 'anbeime 本地技能库',
+                    crawled_at: localData.metadata?.last_updated || ''
+                });
+            }
+        }
+        return items;
+    }
+
+    function updateStats() {
+        const trending = allOfficialSkills.filter(s => TRENDING_REPOS.has(s.name));
+        document.getElementById('statTrending').textContent = trending.length;
+        document.getElementById('statOfficial').textContent = allOfficialSkills.length;
+        document.getElementById('statLocal').textContent = allLocalSkills.length;
+        document.getElementById('statTotal').textContent =
+            (allOfficialSkills.length + allLocalSkills.length);
+    }
+
+    // ====== 渲染 ======
+    function render() {
+        const term = (document.getElementById('searchBox').value || '').toLowerCase().trim();
+
+        const filterCategory = currentFilter.startsWith('category:')
+            ? currentFilter.replace('category:', '')
+            : null;
+
+        // 1. Trending
+        const trending = allOfficialSkills.filter(s => TRENDING_REPOS.has(s.name));
+        const trendingFiltered = trending.filter(s => matchSearch(s, term, filterCategory));
+        renderGrid('gridTrending', 'sectionTrending', 'trendingCount',
+            trendingFiltered, 'trending', '本周新收编 (来自 anbeime/skill)');
+
+        // 2. Local
+        const localFiltered = allLocalSkills.filter(s => matchSearch(s, term, filterCategory));
+        renderGrid('gridLocal', 'sectionLocal', 'localCount',
+            localFiltered, 'local', '本地技能库（66 个 · D:\\\\tool\\\\skills）');
+
+        // 3. Official（非 trending）
+        const nonTrendingOfficial = allOfficialSkills.filter(s => !TRENDING_REPOS.has(s.name));
+        const officialFiltered = nonTrendingOfficial.filter(s => matchSearch(s, term, filterCategory));
+        renderGrid('gridOfficial', 'sectionOfficial', 'officialCount',
+            officialFiltered, 'official', '官方索引（VoltAgent/awesome-agent-skills 自动同步）');
+
+        const totalVisible = trendingFiltered.length + localFiltered.length + officialFiltered.length;
+        document.getElementById('emptyState').style.display = totalVisible === 0 ? 'block' : 'none';
+
+        const info = document.getElementById('searchInfo');
+        if (term === '' && currentFilter === 'all') {
+            info.innerHTML = '共 <b>' + totalVisible + '</b> 个技能可见 · 默认按"全部"显示';
+        } else {
+            info.innerHTML = '搜索 "<b>' + escapeHtml(term || '*') + '</b>" · 筛选 "<b>' + currentFilter + '</b>" · 匹配 <b>' + totalVisible + '</b> 条';
+        }
+    }
+
+    function matchSearch(s, term, categoryFilter) {
+        if (categoryFilter && s.category !== categoryFilter) return false;
+        if (!term) return true;
+        const haystack = [s.name, s.description, s.category || '', s.source || '']
+            .join(' ').toLowerCase();
+        return haystack.includes(term);
+    }
+
+    function renderGrid(gridId, sectionId, countId, items, type, hintText) {
+        const grid = document.getElementById(gridId);
+        const section = document.getElementById(sectionId);
+        const countEl = document.getElementById(countId);
+
+        if (items.length === 0) {
+            grid.innerHTML = '';
+            section.style.display = 'none';
+            return;
+        }
+        section.style.display = '';
+        countEl.textContent = '(' + items.length + ' 个 · ' + hintText + ')';
+
+        let html = '';
+        for (const s of items) {
+            html += '<div class="skill-card ' + type + '" data-type="' + type + '" data-name="' + escapeAttr(s.name) + '">';
+            html += '<div class="skill-header">';
+            html += '<div class="skill-name">' + escapeHtml(s.name) + '</div>';
+            html += '<span class="skill-badge badge-' + type + '">' + labelOf(type) + '</span>';
+            html += '</div>';
+            html += '<div class="skill-description">' + escapeHtml(s.description || '(无描述)') + '</div>';
+            html += '<div class="skill-meta">';
+            if (s.category) html += '<span class="skill-tag">' + escapeHtml(s.category) + '</span>';
+            if (s.link) html += '<a href="' + escapeAttr(s.link) + '" target="_blank" rel="noopener" class="skill-link">查看 →</a>';
+            html += '</div>';
+            if (s.source) html += '<div class="source-line">来源：' + escapeHtml(s.source) + '</div>';
+            html += '</div>';
+        }
+        grid.innerHTML = html;
+    }
+
+    function labelOf(t) {
+        return ({ trending: 'Trending', local: '本地', official: '官方' })[t] || t;
+    }
+
+    function escapeHtml(s) {
+        return String(s == null ? '' : s)
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+    function escapeAttr(s) { return escapeHtml(s); }
+
+    // ====== 事件 ======
+    document.getElementById('searchBox').addEventListener('input',
+        debounce(render, 120));
+
+    document.getElementById('filterTabs').addEventListener('click', e => {
+        const tab = e.target.closest('.filter-tab');
+        if (!tab) return;
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentFilter = tab.dataset.filter;
+        render();
+    });
+
+    function debounce(fn, ms) {
+        let t = null;
+        return (...args) => {
+            clearTimeout(t);
+            t = setTimeout(() => fn(...args), ms);
+        };
+    }
+
+    document.addEventListener('DOMContentLoaded', loadAll);
     </script>
 </body>
 </html>

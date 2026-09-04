@@ -32,6 +32,16 @@ UPSTREAM_SOURCES = {
         "name": "Matt Pocock Skills",
         "url": "https://raw.githubusercontent.com/mattpocock/skills/main/README.md",
         "type": "awesome_list"
+    },
+    "voltagent_design_md": {
+        "name": "VoltAgent Awesome DESIGN.md",
+        # 73 个真实网站 DESIGN.md 提取（Claude / Cursor / Vercel / Stripe / Apple ...）
+        # 格式特殊：列表项是 getdesign.md/<slug>/design-md 而不是 github.com/owner/repo
+        # 所以 sync 脚本只记录元数据（仓库总数 + 上游元链接），
+        # 实际 DESIGN.md 文件请用户从 https://github.com/VoltAgent/awesome-design-md 手动浏览
+        "url": "https://raw.githubusercontent.com/VoltAgent/awesome-design-md/main/README.md",
+        "type": "design_md_catalog",
+        "self_repo": ("VoltAgent", "awesome-design-md")
     }
 }
 

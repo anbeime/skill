@@ -31,8 +31,13 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run sync script
+      - name: Run sync script (upstream -> SKILL_SOURCES.json)
         run: python scripts/sync_skills.py
+        env:
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+
+      - name: Sync SKILL_SOURCES -> public/data/skills.json (trending-only)
+        run: python scripts/sync_skills_to_search.py
         env:
           DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
 
@@ -50,8 +55,10 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add SKILL_SOURCES.json README.md
-          git commit -m "🔄 Auto-sync: Update skill sources from upstream [$(date +%Y-%m-%d)]"
+          git add SKILL_SOURCES.json README.md public/data/skills.json
+          git commit -m "🔄 Auto-sync: Update skill sources from upstream [$(date +%Y-%m-%d)]" \
+            -m "- sync_skills.py: refresh SKILL_SOURCES.json + README.md" \
+            -m "- sync_skills_to_search.py: refresh public/data/skills.json (trending-only, no curated pollution)"
           git push
 
       - name: Summary
@@ -66,3 +73,4 @@ jobs:
           echo "**Upstream Sources:**" >> $GITHUB_STEP_SUMMARY
           echo "- OpenAI Skills" >> $GITHUB_STEP_SUMMARY
           echo "- VoltAgent Awesome Agent Skills" >> $GITHUB_STEP_SUMMARY
+          echo "- VoltAgent Awesome DESIGN.md" >> $GITHUB_STEP_SUMMARY
