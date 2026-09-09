@@ -3973,7 +3973,7 @@ Common CLI flows:
 ## 💬 联系我们 & 社群
 
 有任何问题、建议或合作需求，欢迎通过以下方式联系：
-🧠 **知易智能基座 ：20+模型自由切换，知识永远留在你手里** —一个对话框调度所有模型，240+技能即插即用，四色卡片让AI真正记住你。
+> 🧠 **知易智能基座 ：20+模型自由切换，知识永远留在你手里** —一个对话框调度所有模型，240+技能即插即用，四色卡片让AI真正记住你。
 > [👉 申请体验](https://vcn9bv28ym2o.feishu.cn/share/base/shrcn9wdoM01PzUqdVKY0q73rnc ) 
 - 🐙 **GitHub Issues**：[提交Issue](https://github.com/anbeime/skill/issues)
 - 💬 **微信交流群**：扫码加入（备注「技能」）
