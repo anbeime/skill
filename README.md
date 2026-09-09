@@ -15,7 +15,7 @@
 [![自动更新](https://img.shields.io/badge/更新-每24小时-orange?style=flat-square)](https://github.com/anbeime/skill)
 
 > 🧠 **知易（ZhiYi）多模型智能知识管家** — 一个对话框调度所有模型，240+技能即插即用，四色卡片让AI真正记住你。
-> [👉 立即体验](https://ai123.miyucaicai.cn) · [⭐ 知易开源版](https://gitee.com/anbeime/zhiyi)
+> [👉 立即体验](https://www.modelscope.cn/studios/magicsumi/ming-doc-intel) · [⭐ 知易开源版](https://gitee.com/anbeime/zhiyi)
 
 ## 📊 统计数据
 
