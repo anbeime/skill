@@ -124,9 +124,10 @@
 - **multi-agent-meeting** ⭐⭐ - 多智能体会议
 - **peers-advisory-group** ⭐⭐ - 同行顾问团
 
-### 💼 产品与项目管理（2个）
+### 💼 产品与项目管理（3个）
 - **product-manager-toolkit** ⭐⭐⭐ - 产品经理工具包
 - **sales-ai-assistant** ⭐⭐ - 销售AI助手
+- **ledger-tasks-yylo** ⭐⭐⭐⭐ - 基于 YYLO Ledger 的 git 原生看板/任务账本：依赖排序、状态回执、多 worktree 串行交付，驱动 AI 编程代理的多步骤任务
 
 ### 🎨 设计与可视化（4个）
 - **frontend-design** ⭐⭐⭐ - 前端界面设计
