@@ -1,0 +1,30 @@
+{
+  "name": "ledger-tasks-yylo",
+  "version": "1.0.0",
+  "description": "Git-native Kanban/task ledger that drives coding agents through task lifecycles with dependency ordering, status receipts, and serialized merge delivery.",
+  "author": "yylo-dev",
+  "source": "https://github.com/yylo-dev/yylo-skills",
+  "license": "MIT",
+  "dependencies": {
+    "node": ">=20",
+    "npm": "@yylo/cli"
+  },
+  "platforms": ["macOS", "Linux", "Windows"],
+  "tags": [
+    "yylo",
+    "kanban",
+    "task-management",
+    "coding-agent",
+    "dependencies",
+    "workflow",
+    "ledger"
+  ],
+  "triggers": [
+    "yy ledger",
+    "kanban",
+    "task board",
+    "task dependencies",
+    "mark in_progress",
+    "what task next"
+  ]
+}
