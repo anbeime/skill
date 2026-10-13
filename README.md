@@ -5026,7 +5026,7 @@ MIT License
 <!-- clawhub-sync-start -->
 ## ClawHub (Skill Registry)
 
-Latest commit: `3635eb2`
+Latest commit: `5e8aec5`
 
 ### Packages
 
