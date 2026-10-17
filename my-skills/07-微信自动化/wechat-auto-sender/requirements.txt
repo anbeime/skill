@@ -1,0 +1,10 @@
+# 微信定时自动发送图片 —— 运行依赖
+# Python 3.10+
+#
+#   pip install -r requirements.txt
+
+# Windows 剪贴板 / Win32 API 调用（粘贴图片、全局热键、窗口操作）
+pywin32>=306
+
+# 窗口截图与图像比对（标题校验、输入框空校验）
+Pillow>=10.0.0
