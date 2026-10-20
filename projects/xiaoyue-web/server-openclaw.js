@@ -198,7 +198,7 @@ app.post('/api/chat', async (req, res) => {
             ...chatConfig,
             messages: messages,
             temperature: 0.9,
-            max_tokens: 200
+            max_tokens: chatConfig.modelId === 'MiniMax-M3.1-Flash' ? 16384 : 200
         });
         
         const reply = response.data.choices?.[0]?.message?.content || '抱歉，我没有收到有效的回复';

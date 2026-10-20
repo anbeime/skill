@@ -9,44 +9,56 @@ const MINIMAX_TEXT_MODEL_CONFIG = {
     parameter_refresh: 'parameter-refresh',
     input_capability: 'input-capability',
   },
-  model_id: 'MiniMax-M3',
-  model_ids: ['MiniMax-M3', 'MiniMax-M2.7'],
+  model_id: 'MiniMax-M3.1-Flash',
+  model_ids: ['MiniMax-M3.1-Flash', 'MiniMax-M3'],
   models: [
+    {
+      model_id: 'MiniMax-M3.1-Flash',
+      context_window: 1000000,
+      max_output_tokens: 524288,
+      pricing_usd_per_million_tokens: {
+        input: 0.15,
+        output: 0.60,
+        cache_read: 0.015,
+        cache_write: null,
+      },
+      input_modalities: ['text', 'image', 'video'],
+      thinking: ['adaptive'],
+      reasoning_effort: ['low', 'medium', 'high', 'xhigh', 'max'],
+      default_reasoning_effort: 'max',
+    },
     {
       model_id: 'MiniMax-M3',
       context_window: 1000000,
+      // Standard rates for up to 512k input tokens.
       pricing_usd_per_million_tokens: {
+        input: 0.3,
+        output: 1.2,
+        cache_read: 0.06,
+        cache_write: null,
+      },
+      pricing_above_512k_usd_per_million_tokens: {
         input: 0.6,
         output: 2.4,
         cache_read: 0.12,
         cache_write: null,
       },
+      priority_price_multiplier: 1.5,
       input_modalities: ['text', 'image', 'video'],
       thinking: ['adaptive', 'disabled'],
-    },
-    {
-      model_id: 'MiniMax-M2.7',
-      context_window: 204800,
-      pricing_usd_per_million_tokens: {
-        input: 0.3,
-        output: 1.2,
-        cache_read: 0.06,
-        cache_write: 0.375,
-      },
-      input_modalities: ['text'],
-      thinking: ['always_on'],
     },
   ],
   anthropic_base_url: 'https://api.minimax.io/anthropic',
   openai_base_url: 'https://api.minimax.io/v1',
   context_window: 1000000,
+  max_output_tokens: 524288,
   pricing_usd_per_million_tokens: {
-    input: 0.6,
-    output: 2.4,
-    cache_read: 0.12,
+    input: 0.15,
+    output: 0.60,
+    cache_read: 0.015,
     cache_write: null,
   },
-  thinking: ['adaptive', 'disabled'],
+  thinking: ['adaptive'],
 };
 
 const MINIMAX_REGIONAL_ENDPOINTS = [
@@ -82,9 +94,11 @@ function resolveMiniMaxConfig(overrides = {}) {
   );
   const regionConfig = MINIMAX_REGION_MAP[region] || MINIMAX_REGIONAL_ENDPOINTS[0];
   const requestedModelId = overrides.modelId || overrides.model || process.env.MINIMAX_MODEL || MINIMAX_TEXT_MODEL_CONFIG.model_id;
-  const modelId = MINIMAX_MODEL_MAP[requestedModelId] ? requestedModelId : MINIMAX_TEXT_MODEL_CONFIG.model_id;
-  const modelSpec = MINIMAX_MODEL_MAP[modelId];
-  const apiKey = overrides.apiKey || process.env.MINIMAX_API_KEY || process.env.ZHIPU_API_KEY || '';
+  // The ordinary catalog must not reset explicit legacy or custom model IDs.
+  const modelId = requestedModelId;
+  const modelSpec = Object.prototype.hasOwnProperty.call(MINIMAX_MODEL_MAP, modelId)
+    ? MINIMAX_MODEL_MAP[modelId] : undefined;
+  const apiKey = overrides.apiKey || process.env.MINIMAX_API_KEY || '';
   const apiBaseUrl = overrides.apiBaseUrl || process.env.MINIMAX_API_BASE || regionConfig.openai_base_url;
   const anthropicBaseUrl = overrides.anthropicBaseUrl || process.env.MINIMAX_ANTHROPIC_BASE_URL || regionConfig.anthropic_base_url;
 

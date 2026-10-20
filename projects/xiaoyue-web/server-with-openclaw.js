@@ -156,7 +156,7 @@ async function handleFeishuMessage(messageId, text, chatId) {
             ...chatConfig,
             messages: messages,
             temperature: 0.8,
-            max_tokens: 500,
+            max_tokens: chatConfig.modelId === 'MiniMax-M3.1-Flash' ? 16384 : 500,
             timeout: 15000
         });
 
@@ -532,7 +532,7 @@ app.post('/api/chat', async (req, res) => {
                 ...chatConfig,
                 messages: messages,
                 temperature: 0.9,
-                max_tokens: 200,
+                max_tokens: chatConfig.modelId === 'MiniMax-M3.1-Flash' ? 16384 : 200,
                 timeout: 30000
             });
             
@@ -657,7 +657,7 @@ app.post('/api/starclaw/chat', async (req, res) => {
             ...chatConfig,
             messages,
             temperature: 0.85,
-            max_tokens: 500,
+            max_tokens: chatConfig.modelId === 'MiniMax-M3.1-Flash' ? 16384 : 500,
             timeout: 30000
         });
 
