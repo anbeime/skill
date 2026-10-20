@@ -1,0 +1,27 @@
+{
+  "profile": "production",
+  "oa_papers_available": {
+    "papers": 10
+  },
+  "parsed_oa_ratio": {
+    "parsed": "7/10",
+    "threshold": 0.5
+  },
+  "no_local_cache_as_production": true,
+  "fulltext_gap_spans": {
+    "count": 7
+  },
+  "traceability_ok": true,
+  "llm_in_loop": {
+    "used": true,
+    "endpoint": "genie:8910",
+    "llm_card_count": 3
+  },
+  "card_counts": {
+    "blue": 8,
+    "green": 7,
+    "yellow": 0,
+    "red": 4
+  },
+  "consistency": "PASS"
+}

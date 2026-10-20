@@ -1,0 +1,3 @@
+Lattice Thermal Conductivity of SnSe Single Crystals
+
+We measured the thermal conductivity of SnSe single crystals along the three principal axes. The lattice thermal conductivity of SnSe single crystals is around 0.8 W/mK at 300 K, among the lowest reported for crystalline solids. The ultra-low value originates from strong anharmonic phonon scattering.

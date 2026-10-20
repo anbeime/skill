@@ -1,0 +1,56 @@
+{
+  "skill": "four-color-cards",
+  "stage": "propose",
+  "worker": "chengxiangfu(丞相府)",
+  "card_count": 3,
+  "cards": [
+    {
+      "card_type": "red",
+      "title": "假说与行动：Sn空位提升ZT假说",
+      "content": "提出假说：引入适量 Sn 空位可将 SnSe 的 ZT 提升至 >1.5。下一步验证：制备 Sn 空位浓度梯度样品测 Seebeck+电导。证伪实验设计：若 ZT 在 3% Sn 空位内不升反降，则假说被证伪。",
+      "source_id": "ff6f8c0b",
+      "paper_id": null,
+      "location": null,
+      "parser": null,
+      "gap_type": null,
+      "risk_level": null,
+      "owner": "材料计算组",
+      "due": "复赛前",
+      "accept_criteria": "梯度样品ZT实测>1.5或给出证伪结论",
+      "llm_involved": false,
+      "id": "8109766d"
+    },
+    {
+      "card_type": "red",
+      "title": "假说与行动：Se空位稳定窗口假说",
+      "content": "提出假说：Se 空位浓度的稳定性窗口在 2%-4%，超过即相分离。下一步验证：用 Materials Project 核验 SnSe + Se-vacancy 相图。证伪实验设计：若 MP 计算显示 >5% 仍单相稳定，则假说需修正。",
+      "source_id": "ba69a22e",
+      "paper_id": null,
+      "location": null,
+      "parser": null,
+      "gap_type": null,
+      "risk_level": null,
+      "owner": "相图计算组",
+      "due": "复赛前",
+      "accept_criteria": "MP相图给出稳定窗口或证伪",
+      "llm_involved": false,
+      "id": "ada636ba"
+    },
+    {
+      "card_type": "red",
+      "title": "假说与行动：空位有序相低温稳定假说",
+      "content": "提出假说：空位有序相仅在低温稳定、高温分解。下一步验证：分子动力学模拟相变温度。证伪实验设计：若模拟显示高温仍稳定，则早期实验结论需复核。",
+      "source_id": "5d444d1c",
+      "paper_id": null,
+      "location": null,
+      "parser": null,
+      "gap_type": null,
+      "risk_level": null,
+      "owner": "第一性原理组",
+      "due": "复赛前",
+      "accept_criteria": "给出相变温度或证伪",
+      "llm_involved": false,
+      "id": "d9f79cca"
+    }
+  ]
+}

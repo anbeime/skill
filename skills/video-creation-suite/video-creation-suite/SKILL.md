@@ -1,6 +1,6 @@
 ---
 name: video-creation-suite
-description: 完整的视频创作套件，支持原创创作、视频二创、视频分析三种模式，集成Coze Bot API、Edge-TTS、Suno API，涵盖多智能体协同、素材生成、视频合成全流程
+description: 自媒体创作者与影片与视频编辑当需要从零原创、二次创作或深度分析视频时，请使用此套件。通过11个智能体协同，一键生成配音、音效与BGM并合成高质量视频，或自动抽帧提取分镜提示词，全流程大幅提升视频产出效率。
 dependency:
   python:
     - opencv-python>=4.8.0

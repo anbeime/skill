@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOAI 赛道一 · 一页纸提交清单</title>
+<style>
+  :root{
+    --bg:#0f1115; --card:#181b22; --card2:#1f232c; --line:#2a2f3a;
+    --txt:#e6e9ef; --dim:#9aa3b2; --gold:#d9b25a; --green:#5fd38b;
+    --blue:#5aa9ff; --red:#ff7a7a; --purple:#b69cff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--txt);
+    font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    padding:18px; line-height:1.5; font-size:12.5px;
+  }
+  .sheet{max-width:820px;margin:0 auto;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:20px 24px;}
+  header{display:flex;justify-content:space-between;align-items:flex-end;
+    border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:14px;}
+  h1{font-size:19px;letter-spacing:.5px;}
+  h1 .accent{color:var(--gold);}
+  .meta{text-align:right;color:var(--dim);font-size:11px;line-height:1.7;}
+  .meta b{color:var(--txt);}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+  .box{background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:11px 13px;}
+  .box h2{font-size:13px;color:var(--gold);margin-bottom:7px;display:flex;align-items:center;gap:6px;}
+  .box h2 .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);}
+  table{width:100%;border-collapse:collapse;font-size:11.5px;}
+  td{padding:3px 4px;border-bottom:1px solid var(--line);vertical-align:top;}
+  td:first-child{width:62%;color:var(--dim);}
+  td:last-child{width:38%;text-align:right;color:var(--green);font-weight:600;}
+  .full{grid-column:1 / -1;}
+  .req{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid var(--line);}
+  .req span:last-child{color:var(--green);font-weight:600;}
+  .warn{background:rgba(255,122,122,.08);border:1px solid rgba(255,122,122,.35);
+    border-radius:10px;padding:10px 13px;color:#ffc9c9;font-size:11px;line-height:1.6;}
+  .warn b{color:var(--red);}
+  .steps{counter-reset:s;list-style:none;}
+  .steps li{counter-increment:s;padding:3px 0 3px 22px;position:relative;color:var(--dim);}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:3px;width:15px;height:15px;
+    background:var(--blue);color:#0f1115;border-radius:50%;font-size:9px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;}
+  .steps li b{color:var(--txt);}
+  .foot{margin-top:13px;padding-top:10px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;color:var(--dim);font-size:10.5px;flex-wrap:wrap;gap:6px;}
+  .tag{display:inline-block;background:#222730;border:1px solid var(--line);border-radius:6px;
+    padding:1px 7px;color:var(--blue);font-family:ui-monospace,Consolas,monospace;font-size:10px;}
+  .ok{color:var(--green);}
+  .pill{display:inline-block;padding:1px 8px;border-radius:20px;font-size:10px;font-weight:600;}
+  .pill.g{background:rgba(95,211,139,.15);color:var(--green);}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header>
+    <div>
+      <h1>Antinet 八官署 · <span class="accent">GOAI 赛道一提交清单</span></h1>
+      <div style="color:var(--dim);font-size:11px;margin-top:4px;">多智能体基础设施 · Agent Infra（新智基座）</div>
+    </div>
+    <div class="meta">
+      参赛账号 <b>13632833907@qq.com</b><br>
+      初赛截止 <b>2026-08-16 23:59</b><br>
+      复赛 8/25–9/3 · 决赛 9/22 杭州
+    </div>
+  </header>
+
+  <div class="grid">
+    <!-- 硬性要求 -->
+    <div class="box">
+      <h2><span class="dot"></span>9 项硬性要求 <span class="pill g">全 ✅</span></h2>
+      <div class="req"><span>AgentTeams(Hiclaw) 设计基点</span><span>✅</span></div>
+      <div class="req"><span>≥3 职能 Agent</span><span>✅ 8署</span></div>
+      <div class="req"><span>完整闭环（含审批/回滚）</span><span>✅</span></div>
+      <div class="req"><span>Skill 必选 9 字段</span><span>✅ 15个</span></div>
+      <div class="req"><span>Agent Identity 清单</span><span>✅</span></div>
+      <div class="req"><span>可观测 / RAG ≥2 项</span><span>✅ 2项</span></div>
+      <div class="req"><span>等价集成契约 MCP-free</span><span>✅</span></div>
+      <div class="req"><span>可替换性论证</span><span>✅</span></div>
+      <div class="req"><span>企业场景定位</span><span>✅</span></div>
+    </div>
+
+    <!-- 必需交付物 -->
+    <div class="box">
+      <h2><span class="dot"></span>必需交付物 <span class="pill g">齐备</span></h2>
+      <table>
+        <tr><td>作品简介（≤500字）</td><td class="ok">499字 ✅</td></tr>
+        <tr><td>方案 PPT</td><td class="ok">24 页 ✅</td></tr>
+        <tr><td>Agent Identity 清单</td><td class="ok">附录A ✅</td></tr>
+        <tr><td>Skill 体系（9字段）</td><td class="ok">15个 ✅</td></tr>
+        <tr><td>AgentTeams 映射</td><td class="ok">八署✅</td></tr>
+        <tr><td>实操演示视频</td><td class="ok">2份 ✅</td></tr>
+        <tr><td>一致性自检脚本</td><td class="ok">PASS ✅</td></tr>
+      </table>
+    </div>
+
+    <!-- 功能验证 -->
+    <div class="box">
+      <h2><span class="dot"></span>功能验证（真实链路）</h2>
+      <table>
+        <tr><td>一致性自检 verify_production</td><td class="ok">PASS</td></tr>
+        <tr><td>LLM 在环（Genie :8910）</td><td class="ok">used=true</td></tr>
+        <tr><td>四色卡片产出</td><td class="ok">蓝8绿7红4</td></tr>
+        <tr><td>文档解析（三级 fallback）</td><td>7/10</td></tr>
+        <tr><td>溯源 / 可审计</td><td class="ok">traceable</td></tr>
+        <tr><td>数据不出域</td><td class="ok">本地NPU</td></tr>
+      </table>
+    </div>
+
+    <!-- 提交步骤 -->
+    <div class="box">
+      <h2><span class="dot"></span>8/16 前提交步骤</h2>
+      <ol class="steps">
+        <li>登录官网 <b>goaihz.com</b>（报名账号 13632833907@qq.com）</li>
+        <li>进入赛道一初赛提交页，上传本分支材料 ZIP</li>
+        <li>填作品简介（已备 ≤500字版本）</li>
+        <li>附 24 页 PPT + Agent Identity + Skill 体系 + 映射</li>
+        <li>上传两份实操演示视频（真实链路证据）</li>
+        <li>确认诚实披露页已勾选，提交</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- 诚实披露 -->
+  <div class="warn">
+    <b>⚠ 诚实披露（评审必读）</b><br>
+    • LLM 已接入<b>真实本地模型</b> Genie(:8910)，llm_used=true，非模拟；<br>
+    • MP 核验 / 文档解析为<b>本地规则库降级</b>（P5 已 PASS、解析 7/10 模拟预存全文），复赛将补真实 API；<br>
+    • 主仓为私有（anbeime/zhiyi），本赛道一材料以分支 <span class="tag">goai-track1-materials-agent</span> 提交，未公开至 GitHub。
+  </div>
+
+  <div class="foot">
+    <span>分支：<span class="tag">goai-track1-materials-agent</span> · 提交 <span class="tag">50b85737</span></span>
+    <span>PR：gitee.com/anbeime/zhiyi/pull/new/...goai-track1-materials-agent</span>
+    <span class="ok">状态：满足初赛可提交条件 ✅</span>
+  </div>
+</div>
+</body>
+</html>

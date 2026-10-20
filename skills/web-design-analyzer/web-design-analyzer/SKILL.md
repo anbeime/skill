@@ -1,6 +1,6 @@
 ---
 name: web-design-analyzer
-description: 分析网页截图，提取设计系统（Design System）并生成结构化数据和可用的 AI Coding Prompt。适用于 UI/UX 设计师和前端工程师需要从现有网页设计中提取设计规范、配色方案、排版系统和组件风格的场景。
+description: 网页与数字界面设计师和网页开发工程师在需要逆向分析网页截图时，使用本技能一键提取配色、排版及组件特征，自动生成结构化 Design System 数据与 AI Coding Prompt，让设计还原与前端开发更高效。
 dependency:
   python:
     - Pillow>=10.0.0

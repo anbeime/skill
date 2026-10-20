@@ -1,6 +1,6 @@
 ---
 name: x-article-publisher
-description: Publish Markdown articles to X (Twitter) Articles editor with proper formatting. Use when user wants to publish a Markdown file/URL to X Articles, or mentions "publish to X", "post article to Twitter", "X article", or wants help with X Premium article publishing. Handles cover image upload and converts Markdown to rich text automatically.
+description: 内容创作者在需要将 Markdown 长文发布到 X (Twitter) 时，使用此技能一键将 Markdown 自动转换为富文本并发布至 X Articles，完美保留排版，免去手动调整与重复登录烦恼，让长文分发更高效。
 ---
 
 # X Article Publisher

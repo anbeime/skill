@@ -1,0 +1,16 @@
+{
+  "profile": "production",
+  "forbid_local_cache_as_production": true,
+  "local_cache_hits": 0,
+  "oa_only": true,
+  "blocked_hosts": [
+    "sci-hub.st",
+    "sci-hub.ru",
+    "sci-hub.wf",
+    "sci-hub.se",
+    "sci-hub.ren"
+  ],
+  "intercepted_papers": [],
+  "secret_hits": 0,
+  "no_local_cache_as_production": true
+}

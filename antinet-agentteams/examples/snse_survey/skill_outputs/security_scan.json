@@ -1,0 +1,26 @@
+{
+  "skill": "security-scan",
+  "stage": "security-scan",
+  "worker": "jinyiwei(锦衣卫)",
+  "passed": true,
+  "intercepted_count": 0,
+  "intercepted": [],
+  "no_local_cache_as_production": true,
+  "yellow_cards": [],
+  "scan_report": {
+    "profile": "production",
+    "forbid_local_cache_as_production": true,
+    "local_cache_hits": 0,
+    "oa_only": true,
+    "blocked_hosts": [
+      "sci-hub.ru",
+      "sci-hub.ren",
+      "sci-hub.se",
+      "sci-hub.st",
+      "sci-hub.wf"
+    ],
+    "intercepted_papers": [],
+    "secret_hits": 0,
+    "no_local_cache_as_production": true
+  }
+}

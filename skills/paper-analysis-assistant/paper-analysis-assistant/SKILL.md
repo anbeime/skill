@@ -1,6 +1,6 @@
 ---
 name: paper-analysis-assistant
-description: 根据arXiv论文网址自动下载PDF并进行多维度分析，包括文本提取、词频分析、语音播报、播客对话生成、交互式网页、PPT、总结图和引用分析
+description: 其他高等院校教师与数据科学家在追踪前沿学术时，当需要深度解析arXiv论文，用此技能可一键下载PDF并自动生成词频分析、双人播客、交互式网页、PPT演示与总结图，将数小时的文献阅读转化为多媒体内容，效率提升十倍！
 dependency:
   python:
     - requests==2.31.0

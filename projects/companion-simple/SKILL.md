@@ -1,6 +1,6 @@
 ---
 name: xiaoyue-companion
-description: 小跃虚拟伴侣 - 使用智谱 AI 提供温暖的对话陪伴和静态图片分享
+description: 专为软件开发工程师与综合办公文员打造。当你在等待任务执行、工作疲惫或需要鼓励时，使用此技能通过智谱AI自动生成温暖对话回应与场景配图，一键获取专属情绪价值与虚拟陪伴，让AI助手更懂你。
 allowed-tools: Bash(node:*) Bash(npm:*) Bash(openclaw:*) Bash(curl:*) Read Write
 ---
 

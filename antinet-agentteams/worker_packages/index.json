@@ -1,0 +1,68 @@
+{
+  "apiVersion": "agentteams.io/v1beta1",
+  "packages": [
+    {
+      "name": "junsicha",
+      "office": "军机处",
+      "role": "team_leader",
+      "skill": null,
+      "stage": "verify",
+      "zip": "worker_packages\\junsicha.zip",
+      "size_bytes": 76861
+    },
+    {
+      "name": "chengxiangfu",
+      "office": "丞相府",
+      "role": "worker",
+      "skill": "four-color-cards",
+      "stage": "propose",
+      "zip": "worker_packages\\chengxiangfu.zip",
+      "size_bytes": 80002
+    },
+    {
+      "name": "jinyiwei",
+      "office": "锦衣卫",
+      "role": "worker",
+      "skill": "security-scan",
+      "stage": "security-scan",
+      "zip": "worker_packages\\jinyiwei.zip",
+      "size_bytes": 79796
+    },
+    {
+      "name": "mijuanfang",
+      "office": "密卷房",
+      "role": "worker",
+      "skill": "doc-parse",
+      "stage": "doc-parse",
+      "zip": "worker_packages\\mijuanfang.zip",
+      "size_bytes": 79583
+    },
+    {
+      "name": "tongzhengsi",
+      "office": "通政司",
+      "role": "worker",
+      "skill": "four-color-cards",
+      "stage": "extract",
+      "zip": "worker_packages\\tongzhengsi.zip",
+      "size_bytes": 79993
+    },
+    {
+      "name": "jianchayuan",
+      "office": "监察院",
+      "role": "worker",
+      "skill": "four-color-cards",
+      "stage": "review",
+      "zip": "worker_packages\\jianchayuan.zip",
+      "size_bytes": 80031
+    },
+    {
+      "name": "taishige",
+      "office": "太史阁",
+      "role": "worker",
+      "skill": "provenance",
+      "stage": "provenance",
+      "zip": "worker_packages\\taishige.zip",
+      "size_bytes": 79818
+    }
+  ]
+}

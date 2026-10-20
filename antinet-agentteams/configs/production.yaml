@@ -1,0 +1,57 @@
+# materials-agent 生产配置（八官署）
+# 该文件与 src/common/config_loader.py 中的 DEFAULT_CONFIG 保持一致。
+# 若运行环境未安装 PyYAML，config_loader 将回退到内置 DEFAULT_CONFIG。
+
+project:
+  name: materials-agent
+  track: "GOAI 赛道一 · Agent Infra (新智基座)"
+  topic_example: "SnSe 空位工程导热"
+
+# 指挥使：编排与降级
+command:
+  max_subtasks: 8
+  llm_fallback: "heuristic"   # LLM 不可用时回退到启发式打分
+  circuit_breaker: true
+
+# 锦衣卫：合规与安全扫描
+security:
+  # 侵权源硬黑名单（命中即拦截，绝不下载/使用）
+  blocked_hosts:
+    - "sci-hub.se"
+    - "sci-hub.st"
+    - "sci-hub.ru"
+    - "sci-hub.wf"
+    - "sci-hub.ren"
+  # 禁止把本地缓存当作生产证据
+  forbid_local_cache_as_production: true
+  scan_secrets: true
+
+# 密卷房：PDF 解析三级 fallback
+archive:
+  parsers: ["pymupdf", "pdfplumber", "mineru"]   # 按此优先级降级
+  target_parsed_ratio: 0.5   # 初赛 PASS 阈值：>=5/10
+
+# 通政司：文献检索 OA 四级降级
+comm:
+  oa_sources: ["sciverse", "openalex", "arxiv", "pmc"]
+  oa_only: true
+
+# 监察院：Gap 类型枚举
+audit:
+  gap_types: ["contradiction", "underexplored", "temporal_tension"]
+
+# 军机处：构效核验
+exec:
+  mp_api_enabled: false      # 默认 false：未配置 API key 时回退本地稳定性规则库
+  mp_api_key_env: "MP_API_KEY"
+
+# 太史阁：provenance 与向量
+memory:
+  provenance_dir: "examples/snse_survey/provenance"
+  vector_enabled: false      # jieba 缺失时退化为 CJK 二元切分
+
+# 知易平台（本机 Genie 生态知识中枢）：真实 PDF 解析 + 向量检索
+# 等价于「本地 MinerU（解析）+ Qdrant（向量）」的真身，零外部云依赖。
+zhijia:
+  base_url: "http://127.0.0.1:8000"
+  enabled: true

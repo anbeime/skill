@@ -1,6 +1,6 @@
 ---
 name: infinitetalk
-description: 音频驱动的稀疏帧视频配音工具，支持音频驱动的 Video-to-Video 和 Image-to-Video 生成，实现精准的唇形、头部、身体姿态同步，支持无限时长视频生成
+description: 自媒体创作者与内容创作者在制作数字人播报或视频重配音时，只需单张人像图片与音频，即可一键生成唇形、头部运动及身体姿态精准同步的无限时长说话视频。轻松搞定虚拟主播内容，大幅节省真人拍摄与后期剪辑时间！
 dependency:
   python: |
     opencv-python>=4.9.0.80

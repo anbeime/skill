@@ -1,6 +1,6 @@
 ---
 name: baoyu-post-to-x
-description: Posts content and articles to X (Twitter). Supports regular posts with images/videos and X Articles (long-form Markdown). Uses real Chrome with CDP to bypass anti-automation. Use when user asks to "post to X", "tweet", "publish to Twitter", or "share on X".
+description: 自媒体创作者需要在X(Twitter)发布内容时，支持图文、视频、引用推文及Markdown长文发布，通过真实Chrome浏览器绕过反自动化检测，一键完成多格式内容分发，有效规避封号风险。
 ---
 
 # Post to X (Twitter)

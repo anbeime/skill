@@ -1,0 +1,44 @@
+{
+  "skill": "doc-parse",
+  "stage": "doc-parse",
+  "worker": "mijuanfang(密卷房)",
+  "parsed_count": 7,
+  "doc_count": null,
+  "result": {
+    "P1": {
+      "text": "SnSe: A Promising Thermoelectric with Ultralow Thermal Conductivity\n\nSnSe is a promising thermoelectric material with a ultralow lattice thermal conductivity below 1 W/mK at room temperature. Its layered crystal structure strongly suppresses phonon transport, making it a leading candidate for waste-heat recovery. Recent single-crystal measurements confirm ZT values exceeding 2 along the b-axis.\n",
+      "parser": "pymupdf",
+      "title": "SnSe: A Promising Thermoelectric with Ultralow Thermal Conductivity"
+    },
+    "P2": {
+      "text": "Carrier Modulation via Native Vacancies in SnSe\n\nNative vacancies are abundant in as-grown SnSe and strongly affect transport. Sn vacancies can significantly modulate the carrier concentration in SnSe, shifting the Fermi level toward the valence band. This provides a vacancy-engineering route to optimize the power factor without external doping.\n",
+      "parser": "pymupdf",
+      "title": "Carrier Modulation via Native Vacancies in SnSe"
+    },
+    "P3": {
+      "text": "First-Principles Study of Vacancy Formation in SnSe\n\nUsing density functional theory with dispersion correction, we compute native defect formation energies. First-principles calculations predict a formation energy of -0.2 eV for Se vacancies, suggesting they are thermodynamically favored under Sn-rich conditions. Se vacancies are predicted to act as shallow donors.\n",
+      "parser": "pymupdf",
+      "title": "First-Principles Study of Vacancy Formation in SnSe"
+    },
+    "P4": {
+      "text": "Phase Stability of Vacancy-Rich SnSe Synthesized by MBE\n\nWe synthesized SnSe films with controlled Se vacancy concentrations by molecular beam epitaxy. Experimental synthesis shows severe phase separation above 5% Se vacancy concentration, inconsistent with single-phase assumptions. Below this threshold, single-phase SnSe is maintained with tunable carrier density.\n",
+      "parser": "pymupdf",
+      "title": "Phase Stability of Vacancy-Rich SnSe Synthesized by MBE"
+    },
+    "P5": {
+      "text": "Lattice Thermal Conductivity of SnSe Single Crystals\n\nWe measured the thermal conductivity of SnSe single crystals along the three principal axes. The lattice thermal conductivity of SnSe single crystals is around 0.8 W/mK at 300 K, among the lowest reported for crystalline solids. The ultra-low value originates from strong anharmonic phonon scattering.\n",
+      "parser": "pymupdf",
+      "title": "Lattice Thermal Conductivity of SnSe Single Crystals"
+    },
+    "P6": {
+      "text": "Systematic Survey of Sn vs Se Vacancy Effects in SnSe\n\nWhile Se vacancies have been extensively studied, Sn vacancies are far less studied than Se vacancies for thermoelectric optimization, leaving a largely unexplored design space. We argue that Sn-vacancy engineering may offer an independent knob to balance carrier concentration and thermal conductivity.\n",
+      "parser": "pymupdf",
+      "title": "Systematic Survey of Sn vs Se Vacancy Effects in SnSe"
+    },
+    "P7": {
+      "text": "Revisiting Vacancy-Ordered Phases in SnSe: Theory vs Experiment\n\nEarlier computational works reported robust vacancy-ordered superstructures. Early DFT studies overestimated the stability of vacancy-ordered phases; later experiments revealed decomposition below the predicted temperatures. We reconcile the discrepancy by including anharmonic effects and finite-temperature free energy.\n",
+      "parser": "pymupdf",
+      "title": "Revisiting Vacancy-Ordered Phases in SnSe: Theory vs Experiment"
+    }
+  }
+}

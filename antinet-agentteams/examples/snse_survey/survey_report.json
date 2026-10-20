@@ -1,0 +1,52 @@
+{
+  "topic": "SnSe 空位工程 热输运",
+  "agentteams_topology": {
+    "manager": "zhihuiling",
+    "team": "antinet",
+    "workers": [
+      "junsicha",
+      "chengxiangfu",
+      "jinyiwei",
+      "mijuanfang",
+      "tongzhengsi",
+      "jianchayuan",
+      "taishige"
+    ],
+    "pipeline": [
+      "security-scan",
+      "doc-parse",
+      "extract",
+      "review",
+      "propose",
+      "verify",
+      "provenance"
+    ]
+  },
+  "counts": {
+    "blue": 8,
+    "green": 7,
+    "red": 4,
+    "yellow": 0
+  },
+  "llm_used": true,
+  "llm_endpoint": "http://127.0.0.1:8910/v1/chat/completions",
+  "llm_card_count": 3,
+  "parsed": 7,
+  "oa_papers": 0,
+  "scan_report": {
+    "profile": "production",
+    "forbid_local_cache_as_production": true,
+    "local_cache_hits": 0,
+    "oa_only": true,
+    "blocked_hosts": [
+      "sci-hub.st",
+      "sci-hub.ru",
+      "sci-hub.wf",
+      "sci-hub.se",
+      "sci-hub.ren"
+    ],
+    "intercepted_papers": [],
+    "secret_hits": 0,
+    "no_local_cache_as_production": true
+  }
+}

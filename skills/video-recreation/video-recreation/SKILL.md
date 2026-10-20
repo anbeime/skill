@@ -1,6 +1,6 @@
 ---
 name: video-recreation
-description: 完整的视频二创工具，支持视频反推、素材生成(图片/音效/背景音乐/配音/字幕)、视频合成、文件下载的全流程，集成Coze Bot API进行视觉分析，使用Edge-TTS进行语音合成
+description: 自媒体创作者与影片与视频编辑在需要视频二创或反推参考视频时，一键完成从AI视觉分析、图文音素材生成到最终合成的全流程，自动产出包含配音与字幕的高质量二创视频，让创作效率翻倍！
 dependency:
   python:
     - opencv-python>=4.8.0

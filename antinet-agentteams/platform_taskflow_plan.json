@@ -1,0 +1,104 @@
+{
+  "apiVersion": "agentteams.io/v1beta1",
+  "kind": "TaskFlow",
+  "metadata": {
+    "name": "antinet-survey",
+    "team": "antinet"
+  },
+  "spec": {
+    "topic": "SnSe 空位工程导热",
+    "entry_manager": "zhihuiling",
+    "team_leader": "junsicha",
+    "tasks": [
+      {
+        "task_id": "task-01-security-scan",
+        "stage": "security-scan",
+        "owner_worker": "jinyiwei",
+        "office": "锦衣卫",
+        "skill": "security-scan",
+        "depends_on": [],
+        "input_artifact": "raw_papers（用户上传/目录）",
+        "output_artifact": "yellow_cards + scan_report",
+        "matrix_dispatch": "@jinyiwei 请安全扫描：SnSe 空位工程导热"
+      },
+      {
+        "task_id": "task-02-doc-parse",
+        "stage": "doc-parse",
+        "owner_worker": "mijuanfang",
+        "office": "密卷房",
+        "skill": "doc-parse",
+        "depends_on": [
+          "task-01-security-scan"
+        ],
+        "input_artifact": "security-scan 通过的 papers",
+        "output_artifact": "parsed_texts",
+        "matrix_dispatch": "@mijuanfang 请解析文档：SnSe 空位工程导热"
+      },
+      {
+        "task_id": "task-03-extract",
+        "stage": "extract",
+        "owner_worker": "tongzhengsi",
+        "office": "通政司",
+        "skill": "four-color-cards",
+        "depends_on": [
+          "task-02-doc-parse"
+        ],
+        "input_artifact": "doc-parse 的结构化文本",
+        "output_artifact": "blue_cards",
+        "matrix_dispatch": "@tongzhengsi 请抽取事实蓝卡：SnSe 空位工程导热"
+      },
+      {
+        "task_id": "task-04-review",
+        "stage": "review",
+        "owner_worker": "jianchayuan",
+        "office": "监察院",
+        "skill": "four-color-cards",
+        "depends_on": [
+          "task-03-extract"
+        ],
+        "input_artifact": "extract 的蓝卡",
+        "output_artifact": "green_cards",
+        "matrix_dispatch": "@jianchayuan 请生成解释绿卡：SnSe 空位工程导热"
+      },
+      {
+        "task_id": "task-05-propose",
+        "stage": "propose",
+        "owner_worker": "chengxiangfu",
+        "office": "丞相府",
+        "skill": "four-color-cards",
+        "depends_on": [
+          "task-04-review"
+        ],
+        "input_artifact": "review 的绿卡",
+        "output_artifact": "red_cards",
+        "matrix_dispatch": "@chengxiangfu 请提出构效假说红卡：SnSe 空位工程导热"
+      },
+      {
+        "task_id": "task-06-verify",
+        "stage": "verify",
+        "owner_worker": "junjichu",
+        "office": "军机处",
+        "skill": null,
+        "depends_on": [
+          "task-05-propose"
+        ],
+        "input_artifact": "propose 的红卡",
+        "output_artifact": "red_cards(带 MP provenance)",
+        "matrix_dispatch": "@junjichu 请MP 构效核验：SnSe 空位工程导热"
+      },
+      {
+        "task_id": "task-07-provenance",
+        "stage": "provenance",
+        "owner_worker": "taishige",
+        "office": "太史阁",
+        "skill": "provenance",
+        "depends_on": [
+          "task-06-verify"
+        ],
+        "input_artifact": "全链路卡片 + scan_report",
+        "output_artifact": "provenance_evidence_chain",
+        "matrix_dispatch": "@taishige 请留痕回流：SnSe 空位工程导热"
+      }
+    ]
+  }
+}

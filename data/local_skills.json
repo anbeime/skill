@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "total_skills": 62,
+    "total_skills": 66,
     "core_skills": 26,
     "sub_skills": 30,
     "system_builtin": 6,
-    "last_updated": "2026-07-29T00:00:00",
+    "last_updated": "2026-08-11T00:00:00",
     "location": "D:\\tool\\skills",
     "backup_location": "D:\\tool\\skills\\skill压缩文件",
     "backup_coverage": "100%",
@@ -90,11 +90,15 @@
       ]
     },
     "智能体协作": {
-      "count": 3,
+      "count": 7,
       "skills": [
         "agent-team",
         "multi-agent-meeting",
-        "peers-advisory-group"
+        "peers-advisory-group",
+        "antinet-security-scan",
+        "antinet-doc-parse",
+        "antinet-four-color-cards",
+        "antinet-provenance"
       ]
     },
     "产品与项目管理": {
@@ -149,11 +153,11 @@
     "by_api_requirement": {
       "必需API": 15,
       "可选API": 20,
-      "完全免费": 26
+      "完全免费": 30
     },
     "by_usage_frequency": {
       "⭐⭐⭐⭐⭐": 10,
-      "⭐⭐⭐⭐": 18,
+      "⭐⭐⭐⭐": 22,
       "⭐⭐⭐": 21,
       "⭐⭐": 12
     }
@@ -189,10 +193,26 @@
         "category": "数字人与视频配音",
         "rating": 5,
         "description": "音频驱动的稀疏帧视频配音工具，支持音频驱动的Video-to-Video和Image-to-Video"
+      },
+      {
+        "name": "antinet-four-color-cards",
+        "category": "智能体协作",
+        "rating": 5,
+        "description": "八官署方法论核心分析输出：把解析后的文档与用户意图生成事实蓝卡/解释绿卡/风险黄卡/行动红卡，每张可溯源，面向企业研发知识管理"
       }
     ]
   },
   "update_log": [
+    {
+      "date": "2026-08-11",
+      "version": "2.2",
+      "changes": [
+        "新增4个 Antinet 本地技能（Agent Infra / 企业研发知识管理方向）：antinet-security-scan、antinet-doc-parse、antinet-four-color-cards、antinet-provenance",
+        "技能总数从62个增加到66个",
+        "智能体协作分类从3个增加到7个",
+        "四个技能均附 Apache-2.0 许可证"
+      ]
+    },
     {
       "date": "2026-07-29",
       "version": "2.1",

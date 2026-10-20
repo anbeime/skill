@@ -1,6 +1,6 @@
 ---
 name: tailored-resume-generator
-description: Analyzes job descriptions and generates tailored resumes that highlight relevant experience, skills, and achievements to maximize interview chances
+description: 软件开发工程师、产品经理等求职者，在针对特定职位描述投递或跨行转岗时，可一键深度分析岗位需求，自动提取ATS关键词并重组个人经验，快速生成高命中率的定制简历，大幅提升面试邀约率。
 ---
 
 # Tailored Resume Generator

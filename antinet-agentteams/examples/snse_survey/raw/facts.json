@@ -1,0 +1,9 @@
+[
+  {"paper_id": "P1", "location": "p3", "quote": "SnSe is a promising thermoelectric material with a ultralow lattice thermal conductivity below 1 W/mK at room temperature."},
+  {"paper_id": "P2", "location": "p5", "quote": "Sn vacancies can significantly modulate the carrier concentration in SnSe, shifting the Fermi level toward the valence band."},
+  {"paper_id": "P3", "location": "p2", "quote": "First-principles calculations predict a formation energy of -0.2 eV for Se vacancies, suggesting they are thermodynamically favored."},
+  {"paper_id": "P4", "location": "p7", "quote": "Experimental synthesis shows severe phase separation above 5% Se vacancy concentration, inconsistent with single-phase assumptions."},
+  {"paper_id": "P5", "location": "p4", "quote": "The lattice thermal conductivity of SnSe single crystals is around 0.8 W/mK at 300 K, among the lowest reported for crystalline solids."},
+  {"paper_id": "P6", "location": "p6", "quote": "Sn vacancies are far less studied than Se vacancies for thermoelectric optimization, leaving a largely unexplored design space."},
+  {"paper_id": "P7", "location": "p8", "quote": "Early DFT studies overestimated the stability of vacancy-ordered phases; later experiments revealed decomposition below the predicted temperatures."}
+]

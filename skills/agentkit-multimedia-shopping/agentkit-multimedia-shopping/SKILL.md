@@ -1,6 +1,6 @@
 ---
 name: agentkit-multimedia-shopping
-description: 基于ByteDance agentkit-samples多媒体用例的小省导购员数字人带货视频生成技能，整合多模态内容生成能力（图像、视频、音频），支持AI绘画、语音合成、视频生成，与小省导购员人设融合，9:16竖屏适配，直接对接带货视频生成流程
+description: 电商运营与内容创作者在需要制作带货短视频时，用此技能一键生成9:16竖屏数字人成片。自动编排AI绘画、语音合成与视频生成，快速产出“小省导购员”专属形象与专业配音，让多模态视频制作省时省力。
 dependency:
   python:
     - Pillow>=10.0.0

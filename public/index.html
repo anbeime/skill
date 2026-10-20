@@ -1,30 +1,583 @@
-<!DOCTYPE html><html lang="zh-CN"><head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>AI 技能 & 工作流商店</title> <style> * { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; } .container { max-width: 1400px; margin: 0 auto; } header { text-align: center; color: white; margin-bottom: 40px; } h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); } .subtitle { font-size: 1.2rem; opacity: 0.9; } .resource-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 30px; margin-bottom: 40px; } .resource-card { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); transition: transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; } .resource-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, #667eea, #764ba2); } .resource-card:hover { transform: translateY(-10px); box-shadow: 0 30px 80px rgba(0,0,0,0.4); } .resource-icon { font-size: 4rem; margin-bottom: 20px; } .resource-title { font-size: 2rem; font-weight: bold; color: #333; margin-bottom: 15px; } .resource-description { color: #666; line-height: 1.8; margin-bottom: 20px; font-size: 1.1rem; } .resource-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 25px 0; padding: 20px; background: #f8f9fa; border-radius: 12px; } .stat { text-align: center; } .stat-number { font-size: 2rem; font-weight: bold; color: #667eea; display: block; } .stat-label { font-size: 0.9rem; color: #666; margin-top: 5px; } .resource-button { display: inline-block; padding: 15px 40px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; text-decoration: none; border-radius: 30px; font-size: 1.1rem; font-weight: 600; transition: all 0.3s; box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4); } .resource-button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6); } .features { margin: 20px 0; } .feature-item { display: flex; align-items: center; gap: 10px; margin: 10px 0; color: #555; } .feature-item::before { content: '✓'; display: inline-block; width: 24px; height: 24px; background: #10b981; color: white; border-radius: 50%; text-align: center; line-height: 24px; font-weight: bold; } @media (max-width: 768px) { h1 { font-size: 2rem; } .resource-cards { grid-template-columns: 1fr; } } </style></head><body> <div class="container"> <header> <h1>🎯 AI 技能 & 工作流商店</h1> <p class="subtitle">一站式 AI Agent Skills 和 N8N 工作流资源中心</p> </header> <div class="resource-cards">
-        <!-- 小易伴侣卡片 -->
-        <div class="resource-card">
-            <div class="resource-icon">💬</div>
-            <div class="resource-title">小易伴侣</div>
-            <div class="resource-description">
-                真正可运行的 AI 对话和图片生成系统！基于智谱 GLM-4-Flash 模型，支持真实对话、图片生成、多场景切换。任嘉伦AI伴侣人设，GPT-SoVITS 音色克隆，让AI伴侣更真实。
-            </div>
-            <div class="resource-stats">
-                <div class="stat">
-                    <span class="stat-number">🎭</span>
-                    <div class="stat-label">任嘉伦人设</div>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">🎨</span>
-                    <div class="stat-label">AI生图</div>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">🗣️</span>
-                    <div class="stat-label">语音克隆</div>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">💕</span>
-                    <div class="stat-label">AI伴侣</div>
-                </div>
-            </div>
-            <a href="http://localhost:3000" class="resource-button" target="_blank">启动小易伴侣</a>
-            <a href="http://localhost:3001/voice.html" class="resource-button secondary" target="_blank" style="margin-left: 10px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">语音版</a>
-        </div>
- <div class="resource-card"> <div class="resource-icon">🎨</div> <h2 class="resource-title">AI Agent Skills</h2> <p class="resource-description"> 精选的 AI Agent 技能包集合，涵盖文档处理、内容创作、编程开发、机器学习等多个领域 </p> <div class="resource-stats"> <div class="stat"> <span class="stat-number">243</span> <span class="stat-label">技能总数</span> </div> <div class="stat"> <span class="stat-number">14+</span> <span class="stat-label">分类</span> </div> </div> <div class="features"> <div class="feature-item">182个官方技能 + 61个本地技能</div> <div class="feature-item">自动从 GitHub 同步最新数据</div> <div class="feature-item">详细的技能说明和使用指南</div> </div> <a href="skills.html" class="resource-button"> 浏览 AI Skills → </a> </div> <div class="resource-card"> <div class="resource-icon">⚡</div> <h2 class="resource-title">N8N Workflows</h2> <p class="resource-description"> 4800+ 精心整理的 N8N 工作流模板，支持 371 种服务集成，覆盖自动化的各个场景 </p> <div class="resource-stats"> <div class="stat"> <span class="stat-number">4,834</span> <span class="stat-label">工作流</span> </div> <div class="stat"> <span class="stat-number">371</span> <span class="stat-label">集成服务</span> </div> </div> <div class="features"> <div class="feature-item">按触发类型和复杂度筛选</div> <div class="feature-item">可视化流程图展示</div> <div class="feature-item">一键下载 JSON 导入 N8N</div> </div> <a href="https://e3eb070d.n8n-workflows-bxc.pages.dev/" target="_blank" class="resource-button"> 浏览 N8N Workflows → </a> </div> </div> </div></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOPGO Skill Store — AI 技能 & 工作流商店</title>
+<meta name="description" content="收录最全、更新最快的 AI Agent 技能商店：63 原创技能包 + 182 官方技能 + 2326 自动索引 + 4834 N8N 工作流。知易智能知识管家主推。">
+<meta name="keywords" content="AI技能,Agent Skills,技能商店,知易,ZhiYi,N8N,自动化工作流,TOPGO">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08080e;
+  --bg-2: #0e0e1a;
+  --surface: rgba(255,255,255,0.04);
+  --surface-hover: rgba(255,255,255,0.07);
+  --border: rgba(255,255,255,0.08);
+  --border-bright: rgba(255,255,255,0.15);
+  --text: #f0f0f5;
+  --text-2: #a0a0b8;
+  --text-3: #6a6a85;
+  --accent: #7c6ef0;
+  --accent-2: #a78bfa;
+  --pink: #f472b6;
+  --cyan: #22d3ee;
+  --emerald: #34d399;
+  --amber: #fbbf24;
+  --orange: #fb923c;
+  --radius: 20px;
+  --radius-lg: 28px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== Background effects ===== */
+.bg-grid {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124,110,240,0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(244,114,182,0.08), transparent),
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+}
+.bg-glow {
+  position: fixed; z-index: 0; pointer-events: none;
+  width: 600px; height: 600px; border-radius: 50%;
+  filter: blur(120px); opacity: 0.3;
+}
+.bg-glow-1 { top: -200px; left: -100px; background: #7c6ef0; }
+.bg-glow-2 { bottom: -200px; right: -100px; background: #f472b6; }
+
+.container { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== Nav ===== */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(20px);
+  background: rgba(8,8,14,0.7);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1280px; margin: 0 auto; padding: 14px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em;
+  display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text);
+}
+.nav-logo .dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--pink));
+  box-shadow: 0 0 12px rgba(124,110,240,0.6);
+}
+.nav-links { display: flex; gap: 6px; align-items: center; }
+.nav-links a {
+  color: var(--text-2); text-decoration: none; font-size: 0.88rem; font-weight: 500;
+  padding: 7px 14px; border-radius: 10px; transition: all 0.2s;
+}
+.nav-links a:hover { color: var(--text); background: var(--surface); }
+.nav-cta {
+  background: linear-gradient(135deg, var(--accent), #9333ea) !important;
+  color: white !important; font-weight: 600 !important;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(124,110,240,0.4); }
+
+/* ===== Hero ===== */
+.hero {
+  padding: 80px 0 60px; text-align: center; position: relative;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 16px; border-radius: 100px; font-size: 0.82rem; font-weight: 500;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text-2); margin-bottom: 28px;
+}
+.hero-badge .pulse {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--emerald);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(52,211,153,0.4); }
+  50% { opacity:0.8; box-shadow:0 0 0 6px rgba(52,211,153,0); }
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 900;
+  letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 20px;
+}
+.gradient-text {
+  background: linear-gradient(135deg, #fff 0%, #c4b5fd 40%, #f472b6 70%, #fbbf24 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: 1.15rem; color: var(--text-2); max-width: 600px;
+  margin: 0 auto 36px; line-height: 1.7;
+}
+.hero-stats {
+  display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+  font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--accent-2), var(--pink));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-stat .label { font-size: 0.82rem; color: var(--text-3); margin-top: 2px; }
+.hero-stat .divider {
+  width: 1px; height: 36px; background: var(--border);
+  position: absolute; right: -16px; top: 50%; transform: translateY(-50%);
+}
+.hero-stat-wrap { position: relative; }
+
+/* ===== Bento Grid ===== */
+.bento {
+  display: grid; grid-template-columns: repeat(12, 1fr);
+  gap: 16px; margin-bottom: 60px;
+}
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 32px;
+  position: relative; overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.card:hover {
+  border-color: var(--border-bright);
+  background: var(--surface-hover);
+  transform: translateY(-3px);
+}
+.card::before {
+  content: ''; position: absolute; inset: 0; border-radius: var(--radius-lg);
+  padding: 1px; background: linear-gradient(135deg, transparent, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events: none; transition: background 0.35s;
+}
+.card:hover::before {
+  background: linear-gradient(135deg, rgba(124,110,240,0.3), transparent 50%, rgba(244,114,182,0.2));
+}
+.card-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+.card h3 {
+  font-size: 1.35rem; font-weight: 700; margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.card p { color: var(--text-2); font-size: 0.92rem; line-height: 1.7; margin-bottom: 18px; }
+
+/* Featured card - 知易 */
+.card-featured {
+  grid-column: span 7;
+  background: linear-gradient(135deg, rgba(124,110,240,0.12) 0%, rgba(244,114,182,0.06) 100%);
+  border-color: rgba(124,110,240,0.2);
+}
+.card-featured:hover { border-color: rgba(124,110,240,0.4); }
+.card-featured .card-badge {
+  position: absolute; top: 24px; right: 24px;
+  background: linear-gradient(135deg, var(--accent), var(--pink));
+  color: white; font-size: 0.72rem; font-weight: 700;
+  padding: 4px 12px; border-radius: 100px; letter-spacing: 0.02em;
+}
+.featured-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0;
+}
+.featured-stat {
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px 12px; text-align: center;
+}
+.featured-stat .v {
+  font-size: 1.4rem; font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-2), var(--pink));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.featured-stat .l { font-size: 0.75rem; color: var(--text-3); margin-top: 4px; }
+.featured-features { list-style: none; margin: 16px 0 24px; }
+.featured-features li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 0.9rem; color: var(--text-2); padding: 5px 0;
+}
+.featured-features li::before {
+  content: '→'; color: var(--accent-2); font-weight: 700; flex-shrink: 0;
+}
+
+/* StarClaw card */
+.card-starclaw { grid-column: span 5; }
+.team-mini {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 14px 0;
+}
+.team-mini-item {
+  background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+  border-radius: 12px; padding: 10px 12px; font-size: 0.78rem;
+}
+.team-mini-item b { display: block; color: var(--accent-2); font-size: 0.72rem; margin-bottom: 2px; }
+
+/* 四色卡片 */
+.card-cards { grid-column: span 4; }
+.color-row { display: flex; gap: 8px; margin: 16px 0; }
+.color-dot {
+  flex: 1; aspect-ratio: 1; border-radius: 14px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 600; color: white;
+}
+.color-dot.red { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.color-dot.yellow { background: linear-gradient(135deg, #f59e0b, #d97706); }
+.color-dot.blue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.color-dot.green { background: linear-gradient(135deg, #22c55e, #16a34a); }
+
+/* Skills + N8N */
+.card-skills { grid-column: span 7; }
+.card-n8n { grid-column: span 5; }
+
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; }
+.skill-tag {
+  font-size: 0.76rem; padding: 4px 11px; border-radius: 8px;
+  background: rgba(124,110,240,0.1); color: var(--accent-2);
+  border: 1px solid rgba(124,110,240,0.15);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 22px; border-radius: 12px; font-size: 0.9rem; font-weight: 600;
+  text-decoration: none; transition: all 0.25s; cursor: pointer; border: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #9333ea);
+  color: white; box-shadow: 0 4px 20px rgba(124,110,240,0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(124,110,240,0.5); }
+.btn-ghost {
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover { background: var(--surface-hover); border-color: var(--border-bright); }
+.btn-pink {
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+  color: white; box-shadow: 0 4px 20px rgba(244,63,94,0.25);
+}
+.btn-pink:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(244,63,94,0.4); }
+.btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+
+/* ===== Section title ===== */
+.section-head {
+  display: flex; align-items: center; gap: 14px;
+  margin: 60px 0 24px;
+}
+.section-head h2 {
+  font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em;
+}
+.section-head .line { flex: 1; height: 1px; background: var(--border); }
+.section-head .count {
+  font-size: 0.82rem; color: var(--text-3); font-weight: 500;
+  padding: 4px 12px; background: var(--surface); border-radius: 100px;
+  border: 1px solid var(--border);
+}
+
+/* ===== Ecosystem ===== */
+.eco-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 60px;
+}
+.eco-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px; transition: all 0.3s;
+}
+.eco-card:hover { border-color: var(--border-bright); transform: translateY(-2px); }
+.eco-card h4 {
+  font-size: 0.95rem; font-weight: 700; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.eco-links { display: flex; flex-direction: column; gap: 6px; }
+.eco-link {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px; border-radius: 10px; text-decoration: none;
+  color: var(--text-2); font-size: 0.86rem; transition: all 0.2s;
+}
+.eco-link:hover { background: rgba(124,110,240,0.08); color: var(--text); }
+.eco-link .status {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--emerald);
+  box-shadow: 0 0 8px rgba(52,211,153,0.4); flex-shrink: 0;
+}
+.eco-link .arrow { margin-left: auto; opacity: 0; transition: all 0.2s; font-size: 0.8rem; }
+.eco-link:hover .arrow { opacity: 1; transform: translateX(2px); color: var(--accent-2); }
+
+/* ===== Contact ===== */
+.contact-section {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 48px; text-align: center; margin-bottom: 60px;
+  position: relative; overflow: hidden;
+}
+.contact-section::before {
+  content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
+  width: 400px; height: 200px;
+  background: radial-gradient(ellipse, rgba(124,110,240,0.15), transparent);
+  pointer-events: none;
+}
+.contact-section h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
+.contact-section p { color: var(--text-2); margin-bottom: 28px; }
+.contact-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+.contact-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 18px; border-radius: 12px; font-weight: 600;
+  text-decoration: none; font-size: 0.88rem; transition: all 0.25s;
+}
+.contact-badge:hover { transform: translateY(-2px); }
+.cb-blue { background: rgba(124,110,240,0.15); color: var(--accent-2); border: 1px solid rgba(124,110,240,0.2); }
+.cb-green { background: rgba(52,211,153,0.12); color: var(--emerald); border: 1px solid rgba(52,211,153,0.2); }
+.cb-orange { background: rgba(251,146,60,0.12); color: var(--orange); border: 1px solid rgba(251,146,60,0.2); }
+.cb-pink { background: rgba(244,114,182,0.12); color: var(--pink); border: 1px solid rgba(244,114,182,0.2); }
+.qr-box {
+  display: inline-block; padding: 14px; background: white;
+  border-radius: 16px; margin-top: 4px;
+}
+.qr-box img { width: 160px; height: 160px; border-radius: 8px; display: block; }
+.qr-box p { color: #666; margin: 8px 0 0; font-size: 0.82rem; font-weight: 500; }
+
+/* ===== Footer ===== */
+footer {
+  border-top: 1px solid var(--border); padding: 32px 0; text-align: center;
+}
+footer p { color: var(--text-3); font-size: 0.84rem; }
+footer a { color: var(--text-2); text-decoration: none; }
+footer a:hover { color: var(--accent-2); }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .card-featured, .card-starclaw, .card-cards, .card-skills, .card-n8n { grid-column: span 12; }
+  .eco-grid { grid-template-columns: 1fr; }
+  .featured-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-stats { gap: 20px; }
+  .hero-stat .divider { display: none; }
+  .nav-links a:not(.nav-cta) { display: none; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 48px 0 40px; }
+  .card { padding: 24px; }
+  .team-mini { grid-template-columns: 1fr; }
+  .contact-section { padding: 32px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="dot"></span> TOPGO Skill</a>
+    <div class="nav-links">
+      <a href="skills.html">技能浏览</a>
+      <a href="projects.html">项目案例</a>
+      <a href="#ecosystem">站群矩阵</a>
+      <a href="https://github.com/anbeime/skill" target="_blank">GitHub</a>
+      <a href="https://ai123.miyucaicai.cn" target="_blank" class="nav-cta">知易体验 →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge"><span class="pulse"></span> 每 24 小时自动同步 · 数据实时更新</div>
+    <h1>
+      <span class="gradient-text">AI 技能生态</span><br>
+      一站式 Agent 能力中心
+    </h1>
+    <p>63 个原创技能包 + 182 官方索引 + 2326 自动爬取 + 4834 N8N 工作流，从内容创作到电商视频，从编程开发到自动化运维，即插即用。</p>
+    <div class="hero-stats">
+      <div class="hero-stat-wrap">
+        <div class="hero-stat"><div class="num">63</div><div class="label">原创技能包</div></div>
+      </div>
+      <div class="hero-stat-wrap">
+        <div class="hero-stat"><div class="num">182</div><div class="label">官方技能索引</div></div>
+      </div>
+      <div class="hero-stat-wrap">
+        <div class="hero-stat"><div class="num">2,326</div><div class="label">GitHub 自动爬取</div></div>
+      </div>
+      <div class="hero-stat-wrap">
+        <div class="hero-stat"><div class="num">4,834</div><div class="label">N8N 工作流</div></div>
+      </div>
+      <div class="hero-stat-wrap">
+        <div class="hero-stat"><div class="num">5,700+</div><div class="label">GitHub Stars</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bento: Products -->
+<div class="container">
+  <div class="section-head">
+    <h2>🚀 核心产品</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="bento">
+    <!-- 知易 - Featured -->
+    <div class="card card-featured">
+      <span class="card-badge">⭐ 主推</span>
+      <span class="card-icon">🧠</span>
+      <h3>知易 ZhiYi</h3>
+      <p>多模型智能知识管家——一个对话框调度所有模型，四色卡片让 AI 真正记住你。免费 LLM 网关 + 八署 Agent + 240+ 技能即插即用，端侧 NPU 保底。</p>
+      <div class="featured-grid">
+        <div class="featured-stat"><div class="v">8</div><div class="l">八署 Agent</div></div>
+        <div class="featured-stat"><div class="v">240+</div><div class="l">即插即用技能</div></div>
+        <div class="featured-stat"><div class="v">4</div><div class="l">四色卡片</div></div>
+        <div class="featured-stat"><div class="v">🔒</div><div class="l">端侧 NPU 保底</div></div>
+      </div>
+      <ul class="featured-features">
+        <li>一个对话框同时调度 GPT / Claude / Gemini / 国产模型，自动 fallback</li>
+        <li>四色卡片知识系统：🔴紧急 / 🟡进行中 / 🔵资料 / 🟢完成，让 AI 记住你</li>
+        <li>240+ 技能即插即用，覆盖文档 / 内容 / 编程 / 电商 / 视频全场景</li>
+      </ul>
+      <div class="btn-group">
+        <a href="https://ai123.miyucaicai.cn" target="_blank" class="btn btn-primary">👉 立即体验</a>
+        <a href="https://gitee.com/anbeime/zhiyi" target="_blank" class="btn btn-ghost">⭐ 开源版</a>
+      </div>
+    </div>
+
+    <!-- StarClaw -->
+    <div class="card card-starclaw">
+      <span class="card-icon">🌟</span>
+      <h3>StarClaw 虚拟娱乐公司 OS</h3>
+      <p>19 位 AI 明星组成虚拟团队，四大团队协同运营，覆盖战略决策到执行落地全链路。旗下小易（任伦伦 AI 伴侣）可调用全部技能。</p>
+      <div class="team-mini">
+        <div class="team-mini-item"><b>🏛️ 战略决策</b>马斯伦·伦巴·索斯乔·唐特特</div>
+        <div class="team-mini-item"><b>📣 营销运营</b>雷君君·贾亭亭·泰乐乐·杨米米</div>
+        <div class="team-mini-item"><b>🎨 创意制作</b>周星星·胡哥哥·任伦伦·张谋谋</div>
+        <div class="team-mini-item"><b>🛡️ 执行保障</b>刘华华·古天天·OpenClaw</div>
+      </div>
+      <p style="font-size:0.82rem;color:var(--text-3);margin-bottom:14px;">🔒 私有部署 · 13 项核心技能 · 可调用全技能仓库</p>
+      <div class="btn-group">
+        <a href="https://www.bilibili.com/video/BV1fF93B8E97/" target="_blank" class="btn btn-ghost">▶ 演示视频</a>
+        <a href="https://www.bilibili.com/video/BV1fF93B8E97/" target="_blank" class="btn btn-pink">📩 联系部署</a>
+      </div>
+    </div>
+
+    <!-- 四色卡片 -->
+    <div class="card card-cards">
+      <span class="card-icon">🎴</span>
+      <h3>四色卡片<br>知识管理系统</h3>
+      <p>四色分类法把碎片信息整理为可检索、可复用的知识网络，部署后可调用全部技能。</p>
+      <div class="color-row">
+        <div class="color-dot red">🔴<span>紧急</span></div>
+        <div class="color-dot yellow">🟡<span>进行中</span></div>
+        <div class="color-dot blue">🔵<span>资料</span></div>
+        <div class="color-dot green">🟢<span>完成</span></div>
+      </div>
+      <div class="btn-group">
+        <a href="https://www.bilibili.com/video/BV1hqPhzAEwn/" target="_blank" class="btn btn-ghost" style="font-size:0.82rem;padding:8px 16px;">▶ 演示</a>
+        <a href="https://www.bilibili.com/video/BV1hqPhzAEwn/" target="_blank" class="btn btn-pink" style="font-size:0.82rem;padding:8px 16px;">📩 部署</a>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="card card-skills">
+      <span class="card-icon">🎨</span>
+      <h3>AI Agent Skills 技能库</h3>
+      <p>精选 AI Agent 技能包集合，涵盖文档处理、内容创作、编程开发、视频电商、机器学习等领域。每 24 小时自动从 GitHub 同步。</p>
+      <div class="skill-tags">
+        <span class="skill-tag">📝 内容创作</span>
+        <span class="skill-tag">🎬 视频制作</span>
+        <span class="skill-tag">🛒 电商营销</span>
+        <span class="skill-tag">📊 PPT/演示</span>
+        <span class="skill-tag">💻 编程开发</span>
+        <span class="skill-tag">📄 PDF/文档</span>
+        <span class="skill-tag">🎨 视觉设计</span>
+        <span class="skill-tag">🤖 Agent/自动化</span>
+        <span class="skill-tag">📊 数据/金融</span>
+        <span class="skill-tag">📚 教育/科研</span>
+      </div>
+      <div class="btn-group">
+        <a href="skills.html" class="btn btn-primary">浏览全部技能 →</a>
+        <a href="skills-en.html" class="btn btn-ghost">English</a>
+      </div>
+    </div>
+
+    <!-- N8N -->
+    <div class="card card-n8n">
+      <span class="card-icon">⚡</span>
+      <h3>N8N Workflows</h3>
+      <p>4,834 个精心整理的工作流模板，支持 371 种服务集成。</p>
+      <div class="featured-grid" style="grid-template-columns:1fr 1fr;margin:16px 0 20px;">
+        <div class="featured-stat"><div class="v">4,834</div><div class="l">工作流模板</div></div>
+        <div class="featured-stat"><div class="v">371</div><div class="l">集成服务</div></div>
+      </div>
+      <a href="https://e3eb070d.n8n-workflows-bxc.pages.dev/" target="_blank" class="btn btn-primary">浏览工作流 →</a>
+    </div>
+  </div>
+
+  <!-- Ecosystem -->
+  <div class="section-head" id="ecosystem">
+    <h2>🌐 TOPGO 站群矩阵</h2>
+    <div class="line"></div>
+    <span class="count">14 站点在线</span>
+  </div>
+
+  <div class="eco-grid">
+    <div class="eco-card">
+      <h4>🚀 核心产品</h4>
+      <div class="eco-links">
+        <a href="https://ai123.miyucaicai.cn" target="_blank" class="eco-link"><span class="status"></span>AI123 · 640+AI工具导航<span class="arrow">→</span></a>
+        <a href="https://skill.miyucaicai.cn" target="_blank" class="eco-link"><span class="status"></span>Skill · 技能商店<span class="arrow">→</span></a>
+        <a href="https://solar.miyucaicai.cn" target="_blank" class="eco-link"><span class="status"></span>Solar · 光伏储能地图<span class="arrow">→</span></a>
+        <a href="https://top.miyucaicai.cn" target="_blank" class="eco-link"><span class="status"></span>Top · 热榜聚合<span class="arrow">→</span></a>
+        <a href="https://mp.miyucaicai.cn" target="_blank" class="eco-link"><span class="status"></span>MP · 智能文章分发<span class="arrow">→</span></a>
+        <a href="https://stock.miyucaicai.cn" target="_blank" class="eco-link"><span class="status"></span>Stock · 股票辅助决策<span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="eco-card">
+      <h4>⚡ 效率 & 知识工具</h4>
+      <div class="eco-links">
+        <a href="https://pdf.miyucaicai.cn" target="_blank" class="eco-link"><span class="status"></span>PDF · 在线标注工具<span class="arrow">→</span></a>
+        <a href="https://excalidraw.miyucaicai.cn" target="_blank" class="eco-link"><span class="status"></span>Excalidraw · 手绘白板<span class="arrow">→</span></a>
+        <a href="https://stockbot.miyucaicai.cn" target="_blank" class="eco-link"><span class="status"></span>StockBot · Groq 驱动<span class="arrow">→</span></a>
+        <a href="https://lingxi.miyucaicai.cn" target="_blank" class="eco-link"><span class="status"></span>AlphaQubit · 量子纠错<span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="eco-card">
+      <h4>🏠 生活 & 数据服务</h4>
+      <div class="eco-links">
+        <a href="https://game.miyucaicai.cn" target="_blank" class="eco-link"><span class="status"></span>Game · 像素方块世界<span class="arrow">→</span></a>
+        <a href="https://zf.miyucaicai.cn" target="_blank" class="eco-link"><span class="status"></span>租房 · 智能租户管理<span class="arrow">→</span></a>
+        <a href="https://zc.miyucaicai.cn" target="_blank" class="eco-link"><span class="status"></span>维权 · 劳动维权知识库<span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-section">
+    <h2>📬 加入社群</h2>
+    <p>扫码加入微信交流群，一起聊 AI / Agent / 站群 / GEO</p>
+    <div class="contact-badges">
+      <a href="https://skill.miyucaicai.cn" class="contact-badge cb-blue" target="_blank">🧩 技能商店</a>
+      <a href="https://ai123.miyucaicai.cn" class="contact-badge cb-green" target="_blank">🔍 AI 导航</a>
+      <a href="https://solar.miyucaicai.cn" class="contact-badge cb-orange" target="_blank">☀️ 光伏储能</a>
+      <a href="https://github.com/anbeime/skill" class="contact-badge cb-pink" target="_blank">⭐ GitHub</a>
+    </div>
+    <div class="qr-box">
+      <img src="https://raw.githubusercontent.com/anbeime/skill/main/images/wechat-qr.jpg" alt="微信交流群二维码">
+      <p>📱 微信扫码入群</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2026 TOPGO 站群矩阵 · <a href="https://skill.miyucaicai.cn">skill.miyucaicai.cn</a> · Powered by <a href="https://github.com/anbeime" target="_blank">anbeime</a></p>
+    <p style="margin-top:6px;">GEO 优化 · 26 AI 爬虫白名单 · 数据每 24h 自动更新</p>
+  </div>
+</footer>
+
+</body>
+</html>

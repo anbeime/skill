@@ -1,6 +1,6 @@
 ---
 name: three-body-video-creator
-description: 《三体》赛道AI视频创作工具,提供结构化的多智能体协作流程、素材生成与视频合成,涵盖选题深化、视觉设计、音频生成、视频制作全流程
+description: 影片与视频编辑和内容创作者必备！当需要制作《三体》主题视频时，自动化完成选题策划、视觉设计、音频生成到成片合成，多智能体协作流程，3小时搞定72小时工作量。
 dependency:
   python:
     - opencv-python>=4.8.0

@@ -1,6 +1,6 @@
 ---
 name: web-to-app
-description: 将任意网页转换为桌面应用，支持 macOS/Windows/Linux 三大平台。使用 Rust + Tauri 技术栈，生成的应用体积小（约 5MB）、性能高。支持自定义图标、窗口大小、快捷键等丰富配置。
+description: 网页开发工程师当需要将任意网页URL封装为独立桌面客户端时，使用此技能可一键生成体积仅约5MB的跨平台（Win/Mac/Linux）原生应用安装包。支持自定义图标与高级配置，助你快速交付轻量级桌面端产品。
 dependency:
   python:
     - requests>=2.28.0

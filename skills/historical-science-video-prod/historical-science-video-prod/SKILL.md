@@ -1,6 +1,6 @@
 ---
 name: historical-science-video-prod
-description: 自动化生成历史科学类3分钟科普短视频的全流程素材包，包含口播文案、分镜脚本、Veo2提示词、人物形象规范等，适配即梦平台视频生成。
+description: 自媒体创作者与内容创作者在制作历史科学类3分钟科普短视频时，使用此技能可一键生成包含口播文案、分镜脚本、Veo2提示词及人物规范的全流程素材包，完美适配即梦平台，让视频创作更高效。
 dependency:
   python:
     - langchain-core>=0.1.0

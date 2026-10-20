@@ -1,6 +1,6 @@
 ---
 name: law-to-markdown
-description: 将法条/规范文件（.txt/.docx/.pdf）转为 Markdown。适用于用户要求“法条转 markdown”“pdf/docx 转 markdown”。处理 .pdf/.docx 时先检查是否已安装 mineru-ocr skill；未安装先引导安装，安装后优先用 mineru-ocr；仅在用户明确同意时再用本地回退方案。
+description: 律师助理与法律助手在处理繁杂法条时，当需要将 PDF/Word/TXT 格式的法律规范文件转为结构化 Markdown 时适用。自动完成 OCR 解析、法律层级识别与三阶段保真校验，一键生成排版完美的法条 Markdown 文档及审核报告，让法律文本数字化工作事半功倍。
 ---
 
 # Law To Markdown

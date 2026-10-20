@@ -1,6 +1,6 @@
 ---
 name: baoyu-url-to-markdown
-description: Fetch any URL and convert to markdown using Chrome CDP. Supports two modes - auto-capture on page load, or wait for user signal (for pages requiring login). Use when user wants to save a webpage as markdown.
+description: 技术写作员与内容创作者在沉淀网页资料时，当需要抓取包含JS动态渲染或需登录的复杂页面，使用此技能一键将其转换为干净的Markdown格式，自动提取正文与元数据，轻松构建本地知识库，让网页内容归档效率翻倍！
 ---
 
 # URL to Markdown

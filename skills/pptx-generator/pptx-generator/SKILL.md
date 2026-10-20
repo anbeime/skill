@@ -1,6 +1,6 @@
 ---
 name: pptx-generator
-description: 将 JSON 格式的 PPT 内容转换为标准的 .pptx 文件。使用 python-pptx 库，支持多种布局、图表、表格和样式。与 ppt-generator Skill 完全协同，可作为独立使用或与其他 PPT Skill 配合。
+description: 产品经理与运营专员在准备汇报展示时，将 JSON 数据一键转换为标准 .pptx 文件。自动应用多种布局、图表与表格样式，快速生成专业 PPT，彻底告别繁琐手工排版，让内容产出与展示更高效！
 dependency:
   python:
     - python-pptx>=1.0.2

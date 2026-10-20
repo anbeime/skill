@@ -1,6 +1,6 @@
 ---
 name: remotion-video-enhancer
-description: 视频转场与动画增强工具，提取 Remotion 的动画理念，提供高级视频转场效果和 Framer Motion 交互式动画。可与 ppt-generator、nanobanana-ppt-visualizer、ppt-roadshow-generator Skill 协同工作。
+description: 影片与视频编辑及自媒体创作者在制作PPT或视频需要提升视觉表现力时，使用此技能可一键生成Remotion风格的高级转场与Framer Motion交互动画，自动规划动画序列，让内容呈现专业级动态效果。
 dependency:
   python:
     - moviepy>=1.0.3

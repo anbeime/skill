@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "total_skills": 61,
-    "core_skills": 25,
+    "total_skills": 66,
+    "core_skills": 26,
     "sub_skills": 30,
     "system_builtin": 6,
-    "last_updated": "2026-02-11T15:30:00",
+    "last_updated": "2026-08-11T00:00:00",
     "location": "D:\\tool\\skills",
     "backup_location": "D:\\tool\\skills\\skill压缩文件",
     "backup_coverage": "100%",
@@ -40,8 +40,9 @@
       ]
     },
     "电商与营销": {
-      "count": 6,
+      "count": 7,
       "skills": [
+        "ecommerce-full-pipeline",
         "pet-commerce-creator",
         "ecommerce-copywriter",
         "ecommerce-video-marketing",
@@ -89,11 +90,15 @@
       ]
     },
     "智能体协作": {
-      "count": 3,
+      "count": 7,
       "skills": [
         "agent-team",
         "multi-agent-meeting",
-        "peers-advisory-group"
+        "peers-advisory-group",
+        "antinet-security-scan",
+        "antinet-doc-parse",
+        "antinet-four-color-cards",
+        "antinet-provenance"
       ]
     },
     "产品与项目管理": {
@@ -148,11 +153,11 @@
     "by_api_requirement": {
       "必需API": 15,
       "可选API": 20,
-      "完全免费": 26
+      "完全免费": 30
     },
     "by_usage_frequency": {
       "⭐⭐⭐⭐⭐": 10,
-      "⭐⭐⭐⭐": 18,
+      "⭐⭐⭐⭐": 22,
       "⭐⭐⭐": 21,
       "⭐⭐": 12
     }
@@ -188,10 +193,36 @@
         "category": "数字人与视频配音",
         "rating": 5,
         "description": "音频驱动的稀疏帧视频配音工具，支持音频驱动的Video-to-Video和Image-to-Video"
+      },
+      {
+        "name": "antinet-four-color-cards",
+        "category": "智能体协作",
+        "rating": 5,
+        "description": "八官署方法论核心分析输出：把解析后的文档与用户意图生成事实蓝卡/解释绿卡/风险黄卡/行动红卡，每张可溯源，面向企业研发知识管理"
       }
     ]
   },
   "update_log": [
+    {
+      "date": "2026-08-11",
+      "version": "2.2",
+      "changes": [
+        "新增4个 Antinet 本地技能（Agent Infra / 企业研发知识管理方向）：antinet-security-scan、antinet-doc-parse、antinet-four-color-cards、antinet-provenance",
+        "技能总数从62个增加到66个",
+        "智能体协作分类从3个增加到7个",
+        "四个技能均附 Apache-2.0 许可证"
+      ]
+    },
+    {
+      "date": "2026-07-29",
+      "version": "2.1",
+      "changes": [
+        "新增技能：ecommerce-full-pipeline（跨境电商全链路自动化工具）",
+        "集成1688采集、数据清洗、多平台上架、推广方案、短视频创作、一键代发、爆品挖掘、闲鱼选品捡漏、全自动流水线",
+        "技能总数从61个增加到62个",
+        "电商与营销分类从6个增加到7个"
+      ]
+    },
     {
       "date": "2026-02-11",
       "version": "2.0",

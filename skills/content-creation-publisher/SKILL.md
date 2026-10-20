@@ -1,6 +1,6 @@
 ---
 name: content-creation-publisher
-description: 内容创作与发布全流程技能，整合网页采集、Markdown格式化、智能配图、多平台发布（微信公众号、X/Twitter）功能，实现从内容获取到发布的一站式解决方案
+description: 内容创作者与自媒体创作者在需要将网页素材转化为多平台图文时，使用本技能可自动完成网页提取、Markdown排版美化、智能配图，并一键发布至微信公众号与X/Twitter，轻松实现从采集到发布的一站式自动化工作流。
 dependency:
   python:
     - requests>=2.28.0
