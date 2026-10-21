@@ -3492,7 +3492,7 @@ Common CLI flows:
 
 有任何问题、建议或合作需求，欢迎通过以下方式联系：
 
-- 🧠 **知易AI体验**：[ai123.miyucaicai.cn](https://ai123.miyucaicai.cn)
+- 🧠 **知易多模型知识管家**：[👉 免费试用预约](https://vcn9bv28ym2o.feishu.cn/share/base/shrcn9wdoM01PzUqdVKY0q73rnc)
 - 🐙 **GitHub Issues**：[提交Issue](https://github.com/anbeime/skill/issues)
 - 💬 **微信交流群**：扫码加入（备注「技能」）
 - 📮 **公众号**：关注「TOPGO智能AI123」，每日AI工具与Agent实战干货
