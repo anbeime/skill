@@ -10,7 +10,7 @@
 收录最全、更新最快的AI Agent技能库，涵盖**文档处理、内容创作、编程开发、机器学习、自动化工作流**等多个领域的精选技能包。
 
 [![官方技能](https://img.shields.io/badge/官方技能-182-blue?style=flat-square)](https://github.com/anbeime/skill)
-[![本地技能](https://img.shields.io/badge/本地技能-63-green?style=flat-square)](https://github.com/anbeime/skill)
+[![本地技能](https://img.shields.io/badge/本地技能-69-green?style=flat-square)](https://github.com/anbeime/skill)
 [![备份覆盖](https://img.shields.io/badge/备份覆盖-100%25-success?style=flat-square)](https://github.com/anbeime/skill)
 [![自动更新](https://img.shields.io/badge/更新-每24小时-orange?style=flat-square)](https://github.com/anbeime/skill)
 
@@ -20,9 +20,9 @@
 ## 📊 统计数据
 
 - **官方技能**: 182 个（来自 OpenAI、VoltAgent、Matt Pocock 等 6 个上游，自动爬取）
-- **本地技能**: 63 个（27核心 + 30子技能 + 6系统内置）
-- **技能总数**: 245 个（官方 + 本地）
-- **备份覆盖率**: 100%（71个压缩包，完整备份）
+- **本地技能**: 69 个（16 个分类，含 6 个系统内置；另单列 4 个收录开源技能）
+- **技能总数**: 251 个（官方 + 本地）
+- **备份覆盖率**: 100%（75个压缩包，完整备份）
 - **自动更新**: 每日自动抓取 6 个上游仓库 + 热门技能榜单
 
 ## 🌟 核心特性
@@ -32,7 +32,7 @@
 
 ### 📦 双重技能库
 - **官方技能**：182个来自Anthropic、Vercel、Cloudflare、Google Labs、Hugging Face等顶级团队
-- **本地技能**：63个精选中文技能，涵盖内容创作、视频制作、电商营销等垂直领域
+- **本地技能**：69个精选中文技能，涵盖内容创作、视频制作、电商营销等垂直领域
 
 ### 🏷️ 智能分类
 按照功能、来源、Star数量等多维度标签进行分类整理。
@@ -57,7 +57,7 @@
 - **Better Auth** (3个) - best-practices, commands, create-auth
 - **其他团队** - Tinybird, Remotion, Inngest 等
 
-## 💾 本地技能库（63个）
+## 💾 本地技能库（69个）
 
 ### 📝 内容创作与发布（10个）
 - **content-creation-publisher** ⭐⭐⭐⭐⭐ - 内容创作与发布全流程
@@ -117,25 +117,24 @@
 - **law-to-markdown** ⭐⭐ - 法律文档转换
 - **stock-analysis** ⭐⭐⭐ - 股票个股分析
 
-### 💻 软件开发与代码理解（2个）
-- **ontoly-software-graph** ⭐⭐⭐⭐ - 基于 Ontoly Software Graph 的架构审查、请求追踪、依赖分析与影响分析
-- **archify** ⭐⭐⭐⭐⭐ - 将代码库/系统描述转为可交互的架构/工作流/时序/数据流/生命周期图，单文件 HTML + PNG/SVG/WebM 导出（含架构 Delta 评审）
-
-### 🤝 智能体协作（3个）
+### 🤝 智能体协作（7个）
 - **agent-team** ⭐⭐⭐ - 智能体团队协作
 - **multi-agent-meeting** ⭐⭐ - 多智能体会议
 - **peers-advisory-group** ⭐⭐ - 同行顾问团
+- **antinet-security-scan** ⭐⭐⭐⭐ - 企业研发安全扫描（Apache-2.0）
+- **antinet-doc-parse** ⭐⭐⭐⭐ - 文档智能解析（Apache-2.0）
+- **antinet-four-color-cards** ⭐⭐⭐⭐ - 八官署四色卡片知识管理（Apache-2.0）
+- **antinet-provenance** ⭐⭐⭐⭐ - 来源溯源与可溯分析（Apache-2.0）
 
 ### 💼 产品与项目管理（2个）
 - **product-manager-toolkit** ⭐⭐⭐ - 产品经理工具包
 - **sales-ai-assistant** ⭐⭐ - 销售AI助手
 
-### 🎨 设计与可视化（5个）
+### 🎨 设计与可视化（4个）
 - **frontend-design** ⭐⭐⭐ - 前端界面设计
 - **ai-drawio** ⭐⭐⭐⭐ - 流程图绘制
 - **pop-up-book-illustration** ⭐⭐ - 3D纸艺插画
 - **web-to-app** ⭐⭐ - 网页转桌面应用
-- **diagram-design** ⭐⭐⭐⭐ - 45 种图表类型的"图表即代码"技能，支持 Mermaid/Draw.io/Excalidraw/PlantUML 等多种格式，输出编辑级成品图
 
 ### 📑 文档处理（4个 - 系统内置）
 - **pptx** ⭐⭐⭐⭐⭐ - PPT文件处理
@@ -153,6 +152,19 @@
 
 ### 🎭 文化创作（1个）
 - **poetry-music-visual** ⭐⭐ - 古诗词配图配乐
+
+### 📧 邮件与办公自动化（1个）
+- **email-concierge** ⭐⭐⭐ - 本地 AI 邮件助理（OpenVINO GenAI 端侧推理，数据不出域，支持未读分类摘要、日程冲突检查、语音备忘转写、草稿审批队列）
+
+### 🏥 医疗与行业 Agent（1个）
+- **hospital_agent_upgrade** ⭐⭐⭐ - 虚拟诊疗竞赛医生 Agent 升级版（漏斗式多轮问诊、鉴别诊断驱动、检查维度评估、临床安全网）
+
+## 🌟 收录开源技能（4个 · 额外收录，不计入上方 69 个）
+
+- **archify** ⭐⭐⭐⭐⭐ - 将代码库/系统描述转为可交互的架构/工作流/时序/数据流/生命周期图，单文件 HTML + PNG/SVG/WebM 导出（含架构 Delta 评审）
+- **diagram-design** ⭐⭐⭐⭐ - 45 种图表类型的"图表即代码"技能，支持 Mermaid/Draw.io/Excalidraw/PlantUML 等多种格式，输出编辑级成品图
+- **mattpocock-skills** ⭐⭐⭐⭐ - Matt Pocock 的 TypeScript/前端高质量工程实践技能集
+- **srt-whiteboard-animation** ⭐⭐⭐⭐ - 输入 .srt 字幕，输出笔迹跟随旁白的白板手绘动画 MP4（分镜→线稿→标注→分区→逐幕渲染→合成，预览台免代码拖拽调整）
 
 ## 🚀 快速开始
 
@@ -207,7 +219,7 @@ ls docs/
 
 ### 备份位置
 - **主目录**: `D:\tool\skills\`
-- **压缩备份**: `D:\tool\skills\skill压缩文件\`（71个压缩包）
+- **压缩备份**: `D:\tool\skills\skill压缩文件\`（75个压缩包）
 - **备份覆盖率**: 100%
 
 ### 备份说明

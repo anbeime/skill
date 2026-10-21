@@ -12,16 +12,16 @@ The most comprehensive and frequently updated AI Agent skill library, featuring 
 [简体中文](README.md) | **English**
 
 [![Official Skills](https://img.shields.io/badge/Official%20Skills-182-blue?style=flat-square)](https://github.com/anbeime/skill)
-[![Local Skills](https://img.shields.io/badge/Local%20Skills-63-green?style=flat-square)](https://github.com/anbeime/skill)
+[![Local Skills](https://img.shields.io/badge/Local%20Skills-69-green?style=flat-square)](https://github.com/anbeime/skill)
 [![Backup Coverage](https://img.shields.io/badge/Backup%20Coverage-100%25-success?style=flat-square)](https://github.com/anbeime/skill)
 [![Auto Update](https://img.shields.io/badge/Update-Every%2024h-orange?style=flat-square)](https://github.com/anbeime/skill)
 
 ## 📊 Statistics
 
 - **Official Skills**: 182 (auto-crawled from awesome-agent-skills)
-- **Local Skills**: 63 (27 core + 30 sub-skills + 6 system-builtin)
-- **Total Skills**: 245 (official + local)
-- **Backup Coverage**: 100% (71 archive packages, fully backed up)
+- **Local Skills**: 69 (across 16 categories, including 6 system-builtin; plus 4 collected open-source skills listed separately)
+- **Total Skills**: 251 (official + local)
+- **Backup Coverage**: 100% (75 archive packages, fully backed up)
 - **Auto Update**: Crawls 6 upstream repos + trending skill rankings daily
 
 ## 🌟 Key Features
@@ -31,7 +31,7 @@ Every day, the repository auto-crawls **6 upstream repositories** (OpenAI Skills
 
 ### 📦 Dual Skill Library
 - **Official Skills**: 182 curated skills from top-tier teams such as Anthropic, Vercel, Cloudflare, Google Labs, and Hugging Face.
-- **Local Skills**: 63 carefully selected Chinese-language skills spanning content creation, video production, e-commerce, and other vertical domains.
+- **Local Skills**: 69 carefully selected Chinese-language skills spanning content creation, video production, e-commerce, and other vertical domains.
 
 ### 🏷️ Smart Categorization
 Organized by function, source, star count, and other multi-dimensional tags.
@@ -56,7 +56,7 @@ The Skill Store aggregates official skills from the following top-tier teams:
 - **Better Auth** (3) — best-practices, commands, create-auth
 - **Other teams** — Tinybird, Remotion, Inngest, etc.
 
-## 💾 Local Skill Library (63)
+## 💾 Local Skill Library (69)
 
 ### 📝 Content Creation & Publishing (10)
 - **content-creation-publisher** ⭐⭐⭐⭐⭐ — End-to-end content creation and publishing workflow
@@ -116,25 +116,24 @@ The Skill Store aggregates official skills from the following top-tier teams:
 - **law-to-markdown** ⭐⭐ — Legal document conversion
 - **stock-analysis** ⭐⭐⭐ — Individual stock analysis
 
-### 💻 Software Development & Code Understanding (2)
-- **ontoly-software-graph** ⭐⭐⭐⭐ — Architecture review, request tracing, dependency analysis, and impact analysis based on Ontoly Software Graph
-- **archify** ⭐⭐⭐⭐⭐ — Turn a codebase or system description into interactive architecture / workflow / sequence / dataflow / lifecycle diagrams; single-file HTML + PNG/SVG/WebM export (with architecture-delta review)
-
-### 🤝 Multi-Agent Collaboration (3)
+### 🤝 Multi-Agent Collaboration (7)
 - **agent-team** ⭐⭐⭐ — Multi-agent team collaboration
 - **multi-agent-meeting** ⭐⭐ — Multi-agent meetings
 - **peers-advisory-group** ⭐⭐ — Peer advisory group
+- **antinet-security-scan** ⭐⭐⭐⭐ — Enterprise R&D security scanning (Apache-2.0)
+- **antinet-doc-parse** ⭐⭐⭐⭐ — Intelligent document parsing (Apache-2.0)
+- **antinet-four-color-cards** ⭐⭐⭐⭐ — Eight-bureau four-color-card knowledge management (Apache-2.0)
+- **antinet-provenance** ⭐⭐⭐⭐ — Provenance tracing and traceability analysis (Apache-2.0)
 
 ### 💼 Product & Project Management (2)
 - **product-manager-toolkit** ⭐⭐⭐ — Product manager toolkit
 - **sales-ai-assistant** ⭐⭐ — Sales AI assistant
 
-### 🎨 Design & Visualization (5)
+### 🎨 Design & Visualization (4)
 - **frontend-design** ⭐⭐⭐ — Front-end interface design
 - **ai-drawio** ⭐⭐⭐⭐ — Flowchart and diagram drawing
 - **pop-up-book-illustration** ⭐⭐ — 3D pop-up illustration
 - **web-to-app** ⭐⭐ — Web to desktop application
-- **diagram-design** ⭐⭐⭐⭐ — "Diagram-as-code" skill covering 45 diagram types (Mermaid / Draw.io / Excalidraw / PlantUML) with editorial-quality output
 
 ### 📑 Document Processing (4 — system builtin)
 - **pptx** ⭐⭐⭐⭐⭐ — PPT file processing
@@ -152,6 +151,19 @@ The Skill Store aggregates official skills from the following top-tier teams:
 
 ### 🎭 Cultural Creation (1)
 - **poetry-music-visual** ⭐⭐ — Classical poetry illustration & music
+
+### 📧 Email & Office Automation (1)
+- **email-concierge** ⭐⭐⭐ — Local AI email assistant (OpenVINO GenAI on-device inference, data stays on-device; unread sorting & summary, schedule conflict checks, voice memo transcription, draft approval queue)
+
+### 🏥 Medical & Industry Agents (1)
+- **hospital_agent_upgrade** ⭐⭐⭐ — Upgraded virtual-diagnosis competition doctor agent (funnel-style multi-round triage, differential-diagnosis driven, clinical safety net)
+
+## 🌟 Collected Open-Source Skills (4 · listed separately, not counted in the 69 above)
+
+- **archify** ⭐⭐⭐⭐⭐ — Turn a codebase or system description into interactive architecture / workflow / sequence / dataflow / lifecycle diagrams; single-file HTML + PNG/SVG/WebM export (with architecture-delta review)
+- **diagram-design** ⭐⭐⭐⭐ — "Diagram-as-code" skill covering 45 diagram types (Mermaid / Draw.io / Excalidraw / PlantUML) with editorial-quality output
+- **mattpocock-skills** ⭐⭐⭐⭐ — Matt Pocock's TypeScript / front-end engineering best-practice skill set
+- **srt-whiteboard-animation** ⭐⭐⭐⭐ — Turn a .srt subtitle file into a whiteboard hand-drawn animation MP4 with strokes synced to the narration (storyboard → line art → annotations → zones → render → merge; browser preview for code-free drag adjustments)
 
 ## 🚀 Quick Start
 
@@ -206,7 +218,7 @@ ls docs/
 
 ### Backup locations
 - **Main directory**: `D:\tool\skills\`
-- **Archive backups**: `D:\tool\skills\skill压缩文件\` (71 archive packages)
+- **Archive backups**: `D:\tool\skills\skill压缩文件\` (75 archive packages)
 - **Backup coverage**: 100%
 
 ### Notes
