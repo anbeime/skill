@@ -1,0 +1,77 @@
+<mxfile host="app.diagrams.net" modified="2026-08-11T00:00:00.000Z" agent="fixture" version="24.0.0" type="device">
+  <diagram name="Platform" id="platform-page">
+    <mxGraphModel dx="1100" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zone-edge" value="Edge" style="swimlane;whiteSpace=wrap;html=1;startSize=24;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="240" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="web" value="&lt;b&gt;Web App&lt;/b&gt;&lt;br&gt;next.js" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="zone-edge">
+          <mxGeometry x="20" y="40" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile" value="Mobile App" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="zone-edge">
+          <mxGeometry x="20" y="120" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="zone-core" value="Core Services" style="swimlane;whiteSpace=wrap;html=1;startSize=24;" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="280" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="gw" value="API Gateway" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="zone-core">
+          <mxGeometry x="20" y="40" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="auth" value="Auth Service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="zone-core">
+          <mxGeometry x="20" y="120" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="orders" value="Orders Service" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="zone-core">
+          <mxGeometry x="20" y="200" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="check" value="Token valid?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pg" value="Postgres" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="740" y="200" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="redis" value="Redis" style="shape=cylinder3;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="320" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="Object Store" style="sketch=0;outlineConnect=0;shape=mxgraph.aws4.bucket;" vertex="1" parent="1">
+          <mxGeometry x="740" y="440" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" value="Legacy path, to be retired" style="shape=note;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="440" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="web" target="gw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1lab" value="HTTPS" style="edgeLabel;html=1;align=center;" vertex="1" connectable="0" parent="e1">
+          <mxGeometry x="-0.1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="mobile" target="gw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="verify" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="gw" target="auth">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="auth" target="check">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="route" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="gw" target="orders">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="SQL" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="orders" target="pg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="cache" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;" edge="1" parent="1" source="auth" target="redis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="archive" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;" edge="1" parent="1" source="orders" target="s3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

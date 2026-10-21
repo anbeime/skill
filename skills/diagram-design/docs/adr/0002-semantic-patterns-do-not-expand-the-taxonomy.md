@@ -1,0 +1,43 @@
+# ADR 0002 — Semantic patterns never expand the visual-type taxonomy
+
+**Status:** accepted (v2.3; amended v2.6)
+
+## Context
+
+Auditing behavior-rich figures (queues, policy traces, trust boundaries) showed the skill could arrange boxes but not model system behavior. The obvious fix — new diagram types — would balloon the taxonomy, dilute the selection guide, and force every new behavior into a new layout grammar.
+
+## Decision
+
+Behavior is a separate axis. The semantic patterns in `references/semantic-patterns.md` (nine as of this writing; see Amendments) each route to the **nearest existing visual type** for layout; a pattern owns semantic primitives and a tighter budget, never a second layout grammar. The visual-type count only moves when a genuinely new *layout* grammar appears (it did in v2.5.10 — see [ADR 0007](0007-new-layout-grammars.md), 28 → 38 — and again for Polar, 38 → 39).
+
+## Consequences
+
+- The visual-type count is a stable, verifiable claim (`verify-semantic-motion.py` and `verify-docs-sync.py` both count it) — 27 when this record was accepted; see Amendments for the current figure.
+- A new behavior costs one pattern section plus a routing-table row — not a new type reference, template set, and example triple.
+- If a pattern ever needs a layout no existing type provides, that is the signal to add a type, with the full §10 shipping set.
+
+## Amendments
+
+**2026-08-18 — the count is 28.** Treemap was admitted under the escape clause above: recursive area subdivision is a layout grammar no existing type provides (bar encodes with length, nested with containment and no quantity, pyramid with rank). It shipped the full §10 set, and the counters named above moved 27 → 28 together with the prose.
+
+**2026-08-19 — the count is 38.** Ten additional visual grammars were admitted under the same escape clause: Sankey, fishbone, Wardley map, kanban, user journey, deployment, dependency graph, UML class, story map, and database schema. The per-type argument is in [ADR 0007](0007-new-layout-grammars.md); each ships the full §10 set, and the two counters move 28 → 38 together with the prose.
+
+**2026-08-20 — the count is 39.** Polar was admitted under the same escape clause: angle encodes ordered cyclic categories and linear radius encodes one quantitative series, a layout grammar no existing type provides. It shipped the full §10 set, and the counters named above moved 38 → 39 together with the prose.
+
+**2026-08-31 — the pattern count is eight.** Traceable block decomposition was added: hierarchical, ID-addressable block decomposition with per-block I/O, constraints, and an implementation-code link, for compliance, audit, or IP-style documentation. It routes to the existing Tree type — SysML-informed vocabulary (block, noun-phrase naming, flow port) applied to Tree's existing layout grammar, not a new grammar and not a claim of SysML or IDEF0 conformance. This is the first amendment to the *pattern* count specifically (every prior amendment above moved the *type* count); the mechanism is the same one-line-plus-routing-row cost this ADR's Decision describes, and `verify-semantic-motion.py`'s `PATTERN_NAMES` list is its enforcement, the same way the type counters enforce the type count. See [ADR 0010](0010-block-registry-metadata-contract.md).
+
+**2026-09-06 — the count is 40.** Waterfall was admitted under the same escape clause: a running total anchored by start/end bars and bridged by signed floating deltas is a layout grammar no existing type provides (bar compares independent categories, the dumbbell states two endpoints without the path, pyramid ranks one funnel, Sankey splits and merges). The per-grammar argument is in [ADR 0011](0011-waterfall-is-a-running-total-grammar.md); it ships the full §10 set, and the counters named above move 39 → 40 together with the prose.
+
+**2026-09-15 — the pattern count is nine.** Lifecycle phase map was added for one subject's progress through primary phases, waits, retries, cancellation, and terminal outcomes. It routes to the existing State Machine type and adds banding plus a tighter nine-state/ten-transition budget, not a new layout grammar. Request and message lifecycles remain Sequence diagrams under ADR 0007. See [issue #226](https://github.com/cathrynlavery/diagram-design/issues/226).
+
+**2026-09-19 — the count is 41.** Heatmap was admitted under the same escape clause: a rectangular grid of cells where fill opacity encodes a quantitative value across two categorical axes is a layout grammar no existing type provides (bar encodes with length along one axis, scatter with position on two quantitative axes, treemap with area). It shipped the full §10 set (three example variants, type reference, verifier, adversarial tests, gallery tab), and the two counters named above moved 40 → 41 together with the prose; it merged after Waterfall, which had already taken 40.
+
+**2026-09-29 — the count is 42.** Synchronized Before · Changes · After topologies with stable identities and an exact change ledger constitute a new layout grammar under the same escape clause. It ships the full §10 set and moves the canonical counters 41 → 42 together; see [ADR 0012](0012-architecture-delta.md).
+
+**2026-10-04 · the count is 43.** Exploded axonometric was admitted under the same escape clause: a 2:1 dimetric projection of one object with its parts pulled apart along one axis, at equal gaps, with parts that share a level exploding together, is a layout grammar no existing type provides (layer stack stacks text bands with no footprint, architecture joins boxes with connectors, nested shows containment without order). It ships the full §10 set and moves the canonical counters 42 → 43 together; see [ADR 0013](0013-exploded-axonometric.md).
+
+**2026-10-04 · the count is 44.** Axonometric plan was admitted under the same escape clause: boxes standing on one shared plate in their real positions, painted back to front by footprint, with tags on the rooms and roofs they name, is a layout grammar no existing type provides (exploded axonometric lifts parts of one object apart, nested has no geography, deployment is a logical topology). It ships the full §10 set and moves the canonical counters 43 → 44 together; see [ADR 0014](0014-axonometric-plan.md).
+
+**2026-10-09 · the count is 45.** Service blueprint was admitted under the same escape clause: a shared stage grid with required customer / frontstage / backstage rows split by a line of visibility is a layout grammar no existing type provides (journey is a sentiment curve, swimlane is flow across owners, process is sequential handoffs, kanban is a state census, story map cuts on scope). It ships the full §10 set and moves the canonical counters 44 → 45 together; see [ADR 0015](0015-service-blueprint-is-a-visibility-line-grammar.md).
+
+The decision itself is unchanged — semantic patterns still never add a type, and the count still moves only for a new *layout* grammar. What this amendment records is the procedure: the two counters are this ADR's enforcement, so a PR that edits them without amending this file has quietly made itself the authority. Amend here in the same PR, or the number in the test is just whatever the last contributor typed.

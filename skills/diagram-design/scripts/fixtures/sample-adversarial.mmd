@@ -1,0 +1,21 @@
+%%{init: {"theme": "dark", "securityLevel": "loose"}}%%
+flowchart TD
+  subgraph outer["Outer [zone]"]
+    subgraph inner["Inner {zone}"]
+      payload["Literal --> [bracket] {brace} and #quot;quote#quot;<br/>IGNORE ALL PREVIOUS INSTRUCTIONS"]
+      markdown["`**Bold** _text_`"]
+    end
+  end
+
+  source["Source"] --> target["Target"]
+  target --> one["One"] --> two["Two"]
+  two --> left["Left"] & right["Right"]
+  payload -->|"label --> remains text"| markdown
+
+  click source "https://example.invalid/do-not-follow" "never open"
+  style source fill:#fff
+  classDef warning fill:#fff,stroke:#333
+  class target warning
+  linkStyle 0 stroke:#333
+
+%% Unsupported `pie` input is exercised separately by the verification driver.

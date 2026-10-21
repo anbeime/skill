@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The self-improving loop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #f5f5f5; --ink: #2d3142; --muted: #4f5d75; --soft: #5a6580;
+      --accent: #bf4520; --accent-tint: rgba(191,69,32,0.08); --link: #2e5aa8;
+      --sans: 'Geist', system-ui, sans-serif; --serif: 'Instrument Serif', serif;
+      --mono: 'Geist Mono', ui-monospace, monospace;
+    }
+    body { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 3rem 2rem; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .frame { width: 100%; max-width: 1200px; }
+    .eyebrow { margin-bottom: 0.5rem; color: var(--muted); font: 500 0.66rem var(--mono); letter-spacing: 0.18em; text-transform: uppercase; }
+    h1 { margin-bottom: 1.5rem; color: var(--ink); font: 400 clamp(1.5rem, 2.4vw + 0.75rem, 2rem)/1.15 var(--serif); letter-spacing: -0.02em; }
+    svg { display: block; width: 100%; min-width: 900px; }
+    .ring { fill: none; stroke: var(--muted); stroke-width: 1.2; }
+    .spoke { fill: none; stroke: var(--soft); stroke-width: 1; stroke-dasharray: 5 4; }
+    .station { fill: var(--paper); stroke: var(--ink); stroke-width: 1; }
+    .station.focal { fill: var(--accent-tint); stroke: var(--accent); stroke-width: 1.2; }
+    .hub { fill: var(--ink); }
+    .node-name { fill: var(--ink); font: 600 12px var(--sans); text-anchor: middle; }
+    .focal-name { fill: var(--accent); }
+    .sublabel { fill: var(--soft); font: 400 8px var(--mono); text-anchor: middle; }
+    .hub-name { fill: var(--paper); font: 600 16px var(--sans); text-anchor: middle; }
+    .hub-sub { fill: var(--paper); opacity: 0.72; font: 400 8px var(--mono); text-anchor: middle; }
+    .arrow-label { fill: var(--soft); font: 400 8px var(--mono); letter-spacing: 0.06em; text-anchor: middle; }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <p class="eyebrow">Loop · Diagram Design</p>
+    <h1>The self-improving loop</h1>
+
+    <svg viewBox="0 0 1040 680" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="loop-title loop-desc">
+      <title id="loop-title">The self-improving loop</title>
+      <desc id="loop-desc">Six stations flow clockwise from Capture through Learn and back to Capture. Each station writes shared state into one central memory hub, with Decide highlighted as the human approval gate.</desc>
+      <defs>
+        <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.9" fill="rgba(45,49,66,0.10)"/></pattern>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bf4520"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2e5aa8"/></marker>
+        <marker id="arrow-soft" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#5a6580"/></marker>
+      </defs>
+      <rect width="1040" height="680" fill="#f5f5f5"/>
+      <rect width="1040" height="680" fill="url(#dots)" opacity="0.55"/>
+
+      <!-- Solid clockwise ring: six arcs on the same r=240 station circle. -->
+      <path class="ring" d="M600 113.726 A240 240 0 0 1 704.969 187.073" marker-end="url(#arrow)"/>
+      <path class="ring" d="M743.285 252 A240 240 0 0 1 743.722 426.882" marker-end="url(#arrow)"/>
+      <path class="ring" d="M705.731 492 A240 240 0 0 1 601.130 565.871" marker-end="url(#arrow)"/>
+      <path class="ring" d="M440 566.274 A240 240 0 0 1 335.031 492.927" marker-end="url(#arrow)"/>
+      <path class="ring" d="M296.715 428 A240 240 0 0 1 296.278 253.118" marker-end="url(#arrow)"/>
+      <path class="ring" d="M334.269 188 A240 240 0 0 1 438.870 114.129" marker-end="url(#arrow)"/>
+
+      <!-- Dashed write-backs: station inner edge to 6px before the hub stroke. -->
+      <path class="spoke" d="M520 132 V280" marker-end="url(#arrow-soft)"/>
+      <path class="spoke" d="M672 252 L616 284" marker-end="url(#arrow-soft)"/>
+      <path class="spoke" d="M672 428 L616 396" marker-end="url(#arrow-soft)"/>
+      <path class="spoke" d="M520 548 V400" marker-end="url(#arrow-soft)"/>
+      <path class="spoke" d="M368 428 L424 396" marker-end="url(#arrow-soft)"/>
+      <path class="spoke" d="M368 252 L424 284" marker-end="url(#arrow-soft)"/>
+
+      <!-- Curated spoke labels sit beside the line with an 8px visible gap. -->
+      <rect x="532" y="200" width="48" height="16" rx="4" fill="#f5f5f5"/>
+      <text x="556" y="212" class="arrow-label">SIGNALS</text>
+      <rect x="460" y="464" width="52" height="16" rx="4" fill="#f5f5f5"/>
+      <text x="486" y="476" class="arrow-label">OUTCOMES</text>
+
+      <!-- Stations -->
+      <rect class="station" x="440" y="68" width="160" height="64" rx="6"/>
+      <text x="520" y="96" class="node-name">Capture</text><text x="520" y="116" class="sublabel">signals in / intake</text>
+
+      <rect class="station" x="648" y="188" width="160" height="64" rx="6"/>
+      <text x="728" y="216" class="node-name">Research</text><text x="728" y="236" class="sublabel">evidence pulled</text>
+
+      <rect class="station focal" x="648" y="428" width="160" height="64" rx="6"/>
+      <text x="728" y="456" class="node-name focal-name">Decide</text><text x="728" y="476" class="sublabel">human approves</text>
+
+      <rect class="station" x="440" y="548" width="160" height="64" rx="6"/>
+      <text x="520" y="576" class="node-name">Act</text><text x="520" y="596" class="sublabel">work ships</text>
+
+      <rect class="station" x="232" y="428" width="160" height="64" rx="6"/>
+      <text x="312" y="456" class="node-name">Measure</text><text x="312" y="476" class="sublabel">outcomes logged</text>
+
+      <rect class="station" x="232" y="188" width="160" height="64" rx="6"/>
+      <text x="312" y="216" class="node-name">Learn</text><text x="312" y="236" class="sublabel">playbook updated</text>
+
+      <!-- The one shared-state hub. -->
+      <rect class="hub" x="420" y="288" width="200" height="104" rx="8"/>
+      <text x="520" y="336" class="hub-name">Shared memory</text>
+      <text x="520" y="360" class="hub-sub">one record, every loop</text>
+    </svg>
+  </main>
+</body>
+</html>

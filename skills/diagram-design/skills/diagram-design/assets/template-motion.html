@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion diagram template</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@400&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --color-paper: #f5f5f5;
+      --color-ink: #2d3142;
+      --color-muted: #4f5d75;
+      --color-soft: #5a6580;
+      --color-accent: #bf4520;
+      --color-rule: rgba(45,49,66,0.12);
+      --font-sans: 'Geist', system-ui, sans-serif;
+      --font-serif: 'Instrument Serif', 'Noto Serif', 'Noto Serif KR', serif;
+      --font-mono: 'Geist Mono', ui-monospace, monospace;
+      --motion-fast: 160ms;
+      --motion-step: 480ms;
+      --motion-hold: 720ms;
+      --motion-total: 3600ms;
+      --motion-ease: cubic-bezier(.2,.8,.2,1);
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 48px 32px;
+      color: var(--color-ink);
+      background: var(--color-paper);
+      font-family: var(--font-sans);
+    }
+    [data-motion-root] { width: min(100%, 1000px); }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--color-muted);
+      font: 500 12px/1.4 var(--font-mono);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h1 { margin: 0 0 24px; font: 400 32px/1.15 var(--font-serif); }
+    svg { display: block; width: 100%; min-width: 960px; }
+    /* The SVG holds its readable width (min-width == the viewBox width, so the
+       type ramp is never silently scaled down). This wrapper lets a narrow
+       screen scroll the diagram instead of the whole page. body is a centred
+       grid, so the root needs max-width/min-width to stop the grid item from
+       sizing itself to the SVG's max-content width. */
+    [data-motion-root] { max-width: 100%; min-width: 0; }
+    .diagram-container { width: 100%; overflow-x: auto; }
+
+    /* Static source is complete. Only an initialized enhancement hides items. */
+    .motion-ready [data-motion-item] {
+      opacity: .12;
+      transform: translateY(8px);
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: opacity var(--motion-step) var(--motion-ease),
+                  transform var(--motion-step) var(--motion-ease);
+    }
+    .motion-ready [data-motion-item].is-visible,
+    .motion-ready[data-frame="end"] [data-motion-item],
+    .motion-ready[data-frame="static"] [data-motion-item] {
+      opacity: 1;
+      transform: none;
+    }
+    .draw-path {
+      fill: none;
+      stroke: var(--color-accent);
+      stroke-width: 3;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      pointer-events: none;
+    }
+    .motion-ready .draw-path.is-visible {
+      animation: draw-path var(--motion-step) linear forwards;
+    }
+    .flow-token { opacity: 0; pointer-events: none; }
+    .motion-ready.is-playing .flow-token.is-visible {
+      opacity: 1;
+      animation: token-flow 3.2s linear 1 forwards;
+    }
+    .motion-ready[data-motion-mode="loop"].is-playing .flow-token.is-visible {
+      animation-iteration-count: infinite;
+    }
+    @keyframes draw-path { to { stroke-dashoffset: 0; } }
+    @keyframes token-flow {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(240px); }
+    }
+
+    [data-motion-controls] {
+      display: none;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-rule);
+    }
+    .motion-ready [data-motion-controls] { display: flex; }
+    [data-motion-controls][hidden] { display: none !important; }
+    [data-motion-controls] button {
+      min-width: 44px;
+      min-height: 44px;
+      padding: 8px 12px;
+      border: 1px solid var(--color-muted);
+      border-radius: 4px;
+      color: var(--color-ink);
+      background: var(--color-paper);
+      font: 600 12px/1 var(--font-sans);
+      cursor: pointer;
+    }
+    [data-motion-controls] button:hover { border-color: var(--color-accent); }
+    [data-motion-controls] button:focus-visible {
+      outline: 3px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+    [data-motion-controls] button:disabled { cursor: not-allowed; opacity: .45; }
+    [data-motion-status-visible] {
+      margin-left: auto;
+      color: var(--color-muted);
+      font: 500 12px/1.4 var(--font-mono);
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+    noscript p {
+      margin: 12px 0 0;
+      color: var(--color-muted);
+      font: 500 12px/1.4 var(--font-mono);
+    }
+
+    html[data-motion="static"] [data-motion-controls],
+    html[data-motion="static"] [data-motion-decorative] { display: none !important; }
+    html[data-motion="static"] [data-motion-item] {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      transition: none !important;
+    }
+    html[data-motion="step"] [data-motion-controls],
+    html[data-motion="step"] [data-motion-decorative] { display: none !important; }
+    html[data-motion="step"] [data-motion-item] {
+      animation: none !important;
+      transition: none !important;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+      }
+      [data-motion-item] { opacity: 1 !important; transform: none !important; }
+      [data-motion-decorative] { display: none !important; }
+      [data-motion-controls] { display: none !important; }
+    }
+    @media print {
+      /* Paper has no scrollbar, so the local scroller would clip instead of
+         scroll. Let the diagram scale down to the sheet: smaller but whole
+         beats sharp but cut off. */
+      .diagram-container { overflow-x: visible; }
+      svg { min-width: 0; }
+      [data-motion-controls], [data-motion-decorative] { display: none !important; }
+      [data-motion-item] {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Replace template-motion in IDs and prose when copying this file. -->
+  <main data-motion-root data-motion-mode="step" data-step-count="5" data-step-current="5" data-frame="static" data-static-frame="complete">
+    <p class="eyebrow">Process · Optional motion</p>
+    <h1>Request evaluation</h1>
+
+    <div class="diagram-container">
+      <svg viewBox="0 0 960 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="template-motion-title template-motion-desc">
+        <title id="template-motion-title">Request evaluation</title>
+        <desc id="template-motion-desc">A request is validated, evaluated against a policy, queued, and appended to an audit log.</desc>
+        <defs>
+          <marker id="template-motion-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/>
+          </marker>
+        </defs>
+        <rect width="960" height="480" fill="#f5f5f5"/>
+
+        <!-- Persistent connectors carry the static meaning. -->
+        <path d="M248 180 H356" fill="none" stroke="#4f5d75" marker-end="url(#template-motion-arrow)"/>
+        <path d="M556 180 H664" fill="none" stroke="#4f5d75" marker-end="url(#template-motion-arrow)"/>
+        <path d="M764 232 V328" fill="none" stroke="#4f5d75" marker-end="url(#template-motion-arrow)"/>
+
+        <g data-motion-item data-step="1" aria-label="Step 1: Request received">
+          <rect x="48" y="128" width="200" height="104" rx="8" fill="#f5f5f5" stroke="#2d3142"/>
+          <text x="148" y="172" text-anchor="middle" fill="#2d3142" font-family="Geist, sans-serif" font-size="16" font-weight="600">Request</text>
+          <text x="148" y="196" text-anchor="middle" fill="#4f5d75" font-family="Geist Mono, monospace" font-size="12">fields complete</text>
+        </g>
+        <g data-motion-item data-step="2" aria-label="Step 2: Policy passed">
+          <rect x="356" y="128" width="200" height="104" rx="8" fill="rgba(191,69,32,0.08)" stroke="#bf4520"/>
+          <text x="456" y="168" text-anchor="middle" fill="#2d3142" font-family="Geist, sans-serif" font-size="16" font-weight="600">Policy</text>
+          <text x="456" y="196" text-anchor="middle" fill="#4f5d75" font-family="Geist Mono, monospace" font-size="12">✓ PASS · rule 2</text>
+        </g>
+        <g data-motion-item data-step="3" aria-label="Step 3: Three items queued">
+          <rect x="664" y="128" width="200" height="104" rx="8" fill="#f5f5f5" stroke="#2d3142"/>
+          <text x="764" y="164" text-anchor="middle" fill="#2d3142" font-family="Geist, sans-serif" font-size="16" font-weight="600">Queue</text>
+          <rect x="700" y="184" width="16" height="16" fill="#4f5d75"/><rect x="724" y="184" width="16" height="16" fill="#4f5d75"/><rect x="748" y="184" width="16" height="16" fill="#4f5d75"/>
+          <text x="796" y="196" fill="#4f5d75" font-family="Geist Mono, monospace" font-size="12">3 queued</text>
+        </g>
+        <g data-motion-item data-step="4" aria-label="Step 4: Audit entry appended">
+          <rect x="664" y="328" width="200" height="88" rx="8" fill="#f5f5f5" stroke="#2d3142"/>
+          <text x="764" y="364" text-anchor="middle" fill="#2d3142" font-family="Geist, sans-serif" font-size="16" font-weight="600">Audit log</text>
+          <text x="764" y="388" text-anchor="middle" fill="#4f5d75" font-family="Geist Mono, monospace" font-size="12">0042 · appended</text>
+        </g>
+        <g data-motion-item data-step="5" aria-label="Step 5: Evaluation complete">
+          <text x="48" y="376" fill="#2d3142" font-family="Geist, sans-serif" font-size="16" font-weight="600">Outcome: accepted and recorded</text>
+        </g>
+
+        <!-- Decorative duplicate path and token never carry unique meaning. -->
+        <path data-motion-item data-step="2" data-motion-decorative aria-hidden="true" focusable="false" pathLength="1" class="draw-path" d="M248 180 H356"/>
+        <circle data-motion-item data-step="3" data-motion-decorative aria-hidden="true" focusable="false" class="flow-token" cx="556" cy="180" r="6" fill="#bf4520"/>
+      </svg>
+    </div>
+
+    <div data-motion-controls role="group" aria-label="Diagram playback controls">
+      <button type="button" data-motion-action="prev">Previous</button>
+      <button type="button" data-motion-action="play" aria-pressed="false">Play</button>
+      <button type="button" data-motion-action="pause" aria-pressed="true">Pause</button>
+      <button type="button" data-motion-action="next">Next</button>
+      <button type="button" data-motion-action="replay">Replay</button>
+      <span class="keyboard-help">←/→ step · Space play/pause · R replay · Home/End jump</span>
+      <span data-motion-status-visible aria-hidden="true">Step <span data-motion-step-label>5</span> of 5</span>
+    </div>
+    <p class="sr-only" data-motion-status role="status" aria-live="polite" aria-atomic="true"></p>
+    <noscript><p>Animation controls require JavaScript. The complete final diagram is shown above.</p></noscript>
+  </main>
+
+  <script data-diagram-controls>
+    (() => {
+      const params = new URLSearchParams(location.search);
+      const staticOverride = params.get('motion') === 'static' || document.documentElement.dataset.motion === 'static';
+      const requestedStep = params.get('step');
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+      document.fonts.ready.then(() => { document.documentElement.dataset.fontsReady = 'true'; });
+
+      document.querySelectorAll('[data-motion-root]').forEach((root) => {
+        const count = Number(root.dataset.stepCount);
+        const hold = parseFloat(getComputedStyle(root).getPropertyValue('--motion-hold')) || 720;
+        const parsedStep = requestedStep !== null && /^\d+$/.test(requestedStep) ? Number(requestedStep) : null;
+        const exactStep = params.get('motion') === 'step' && Number.isSafeInteger(parsedStep) && parsedStep >= 0 && parsedStep <= count ? parsedStep : null;
+        const items = [...root.querySelectorAll('[data-motion-item]')];
+        const labels = Array.from({ length: count + 1 }, (_, index) => index === 0
+          ? 'Ready'
+          : items.filter((item) => !item.hasAttribute('data-motion-decorative') && Number(item.dataset.step) === index)
+              .map((item) => item.getAttribute('aria-label')).join('; '));
+        const controls = root.querySelector('[data-motion-controls]');
+        const status = root.querySelector('[data-motion-status]');
+        const visibleStep = root.querySelector('[data-motion-step-label]');
+        let step = count;
+        let timer = 0;
+        let playing = false;
+        let stepBeforeReduce = 0;
+        let resumeAfterReduce = root.dataset.motionMode === 'reveal';
+
+        const buttons = (action) => controls.querySelector(`[data-motion-action="${action}"]`);
+        const clearClock = () => { window.clearTimeout(timer); timer = 0; };
+        const announce = () => { status.textContent = `Step ${step} of ${count}: ${labels[step] || 'Complete'}`; };
+        const setControlsAvailable = (available) => {
+          controls.hidden = !available;
+          controls.setAttribute('aria-hidden', String(!available));
+          controls.dataset.playbackDisabled = String(!available);
+          controls.querySelectorAll('button').forEach((control) => { control.disabled = !available; });
+        };
+
+        function render(next, userInitiated = false) {
+          step = Math.max(0, Math.min(count, next));
+          root.dataset.stepCurrent = String(step);
+          root.dataset.frame = step === count ? 'end' : step === 0 ? 'start' : 'step';
+          items.forEach((item) => {
+            const itemStep = Number(item.dataset.step);
+            item.classList.toggle('is-visible', itemStep <= step);
+            item.classList.toggle('is-current', itemStep === step);
+          });
+          if (visibleStep) visibleStep.textContent = String(step);
+          const unavailable = controls.dataset.playbackDisabled === 'true';
+          buttons('prev').disabled = unavailable || step === 0;
+          buttons('next').disabled = unavailable || step === count;
+          if (userInitiated) announce();
+        }
+
+        function pause(userInitiated = false) {
+          clearClock();
+          playing = false;
+          root.classList.remove('is-playing');
+          buttons('play').setAttribute('aria-pressed', 'false');
+          buttons('pause').setAttribute('aria-pressed', 'true');
+          if (userInitiated) status.textContent = `Paused at step ${step} of ${count}`;
+        }
+
+        function finish() {
+          pause(false);
+          root.dataset.frame = 'end';
+          status.textContent = `Complete · step ${count} of ${count}`;
+        }
+
+        function tick() {
+          if (!playing) return;
+          if (step >= count) { finish(); return; }
+          render(step + 1, false);
+          if (step >= count) { finish(); return; }
+          timer = window.setTimeout(tick, hold);
+        }
+
+        function play(fromStart = false, userInitiated = false) {
+          clearClock();
+          if (fromStart || step >= count) render(0, userInitiated);
+          playing = true;
+          root.classList.add('is-playing');
+          buttons('play').setAttribute('aria-pressed', 'true');
+          buttons('pause').setAttribute('aria-pressed', 'false');
+          timer = window.setTimeout(tick, hold);
+        }
+
+        controls.addEventListener('click', (event) => {
+          const button = event.target.closest('[data-motion-action]');
+          if (!button) return;
+          const action = button.dataset.motionAction;
+          if (action === 'play') play(false, true);
+          if (action === 'pause') pause(true);
+          if (action === 'replay') play(true, true);
+          if (action === 'prev') { pause(false); render(step - 1, true); }
+          if (action === 'next') { pause(false); render(step + 1, true); }
+        });
+
+        root.addEventListener('keydown', (event) => {
+          if (event.target.matches('input, textarea, select, a[href]')) return;
+          const keys = { ArrowLeft: step - 1, ArrowRight: step + 1, Home: 0, End: count };
+          if (event.code === 'Space' && !event.target.closest('button')) {
+            event.preventDefault();
+            playing ? pause(true) : play(false, true);
+            return;
+          }
+          if (!event.ctrlKey && !event.metaKey && !event.altKey && event.key.toLowerCase() === 'r') {
+            event.preventDefault();
+            play(true, true);
+            return;
+          }
+          if (!(event.key in keys)) return;
+          event.preventDefault();
+          pause(false);
+          render(keys[event.key], true);
+        });
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'hidden' && playing) pause(false);
+        });
+        reduce.addEventListener('change', (event) => {
+          if (event.matches && root.dataset.motionState !== 'reduced') {
+            stepBeforeReduce = step;
+            resumeAfterReduce = playing;
+          }
+          pause(false);
+          if (event.matches) {
+            setControlsAvailable(false);
+            render(count, false);
+            root.dataset.frame = 'static';
+            root.dataset.motionState = 'reduced';
+            status.textContent = 'Reduced motion · complete static frame · playback controls unavailable';
+          } else if (staticOverride || root.dataset.motionMode === 'none') {
+            setControlsAvailable(false);
+            render(count, false);
+            root.dataset.frame = 'static';
+            root.dataset.motionState = 'static';
+            status.textContent = 'Static frame · complete diagram · playback controls unavailable';
+          } else {
+            delete root.dataset.motionState;
+            if (exactStep !== null) {
+              setControlsAvailable(false);
+              render(exactStep, false);
+              root.dataset.frame = 'step';
+              root.dataset.motionState = 'test';
+              status.textContent = `Test frame · step ${step} of ${count} · playback controls unavailable`;
+            } else {
+              setControlsAvailable(true);
+              render(stepBeforeReduce, false);
+              status.textContent = `Ready · step ${step} of ${count}`;
+              if (resumeAfterReduce && root.dataset.motionMode === 'reveal') {
+                play(false, false);
+              }
+            }
+            resumeAfterReduce = false;
+          }
+        });
+
+        if (staticOverride) {
+          document.documentElement.dataset.motion = 'static';
+          pause(false);
+          setControlsAvailable(false);
+          render(count, false);
+          root.dataset.frame = 'static';
+          root.dataset.motionState = 'static';
+          status.textContent = 'Static frame · complete diagram · playback controls unavailable';
+        } else if (reduce.matches || root.dataset.motionMode === 'none') {
+          pause(false);
+          setControlsAvailable(false);
+          render(count, false);
+          root.dataset.frame = 'static';
+          root.dataset.motionState = reduce.matches ? 'reduced' : 'static';
+          status.textContent = reduce.matches
+            ? 'Reduced motion · complete static frame · playback controls unavailable'
+            : 'Static frame · complete diagram · playback controls unavailable';
+        } else if (exactStep !== null) {
+          document.documentElement.dataset.motion = 'step';
+          pause(false);
+          setControlsAvailable(false);
+          render(exactStep, false);
+          root.dataset.frame = 'step';
+          root.dataset.motionState = 'test';
+          status.textContent = `Test frame · step ${step} of ${count} · playback controls unavailable`;
+        } else if (root.dataset.motionMode === 'reveal') {
+          setControlsAvailable(true);
+          render(0, false);
+          play(false, false);
+        } else {
+          pause(false);
+          setControlsAvailable(true);
+          render(0, false);
+          status.textContent = `Ready · step 0 of ${count}`;
+        }
+        root.classList.add('motion-ready');
+      });
+    })();
+  </script>
+</body>
+</html>

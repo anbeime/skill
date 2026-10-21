@@ -1,0 +1,45 @@
+name: Feature request
+description: Suggest a new diagram type, primitive, or improvement.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas are welcome. Before submitting, check the README's "When *not* to use this skill" section — sometimes the right answer is a table, not a diagram.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to show?
+      description: Describe the situation and what the reader needs to understand. A sketch or ASCII mock helps a lot.
+      placeholder: "I want to show how... and the reader should see..."
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How could the skill serve this? A new type, a primitive, a change to an existing one, docs?
+      placeholder: "A new `type-*.md` for …, or an extension of …"
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      description: Roughly how much surface does this touch?
+      options:
+        - New diagram type (reference + 3 examples + gallery)
+        - New or changed primitive
+        - Import grammar support
+        - Tooling / scripts / CI
+        - Documentation only
+        - Not sure yet — help me scope it
+    validations:
+      required: true
+  - type: checkboxes
+    id: philosophy
+    attributes:
+      label: Design-system fit
+      description: Features in this project must fit the editorial philosophy in SKILL.md §1–§2.
+      options:
+        - label: "I've checked the anti-patterns and 'When not to use' — this still seems worth drawing"
+        - label: "I'm willing to contribute the implementation or pair with a maintainer"

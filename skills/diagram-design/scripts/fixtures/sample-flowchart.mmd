@@ -1,0 +1,22 @@
+flowchart LR
+  subgraph edge["Edge"]
+    web["Web App"]
+    mobile(["Mobile App"])
+  end
+
+  subgraph core["Core Services"]
+    gateway("API Gateway")
+    decision{"Token valid?"}
+    orders["Orders Service"]
+    store[("Postgres")]
+  end
+
+  web -->|HTTPS| gateway
+  mobile -- HTTPS --> gateway
+  gateway --> decision
+  decision -->|yes| orders
+  decision -->|no| gateway
+  gateway -.-> gateway
+  orders ==> store
+
+  note["Legacy note — unconnected"]

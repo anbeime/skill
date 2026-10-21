@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "diagram-design",
+  "repository": "https://github.com/cathrynlavery/diagram-design",
+  "manifestUrl": "https://raw.githubusercontent.com/cathrynlavery/diagram-design/main/.claude-plugin/plugin.json",
+  "version": "2.6.115",
+  "skillSubdir": "skills/diagram-design",
+  "fallbackRef": "main",
+  "license": "MIT",
+  "installedAt": "2026-10-21T10:10:00+08:00",
+  "updatedAt": "2026-10-21T10:10:00+08:00",
+  "notes": "Upstream tracking metadata. Managed by scripts/update-skills.py. No .git required. Version resolved via GitHub tags API (no official manifest yet)."
+}

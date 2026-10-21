@@ -1,0 +1,66 @@
+name: Bug report
+description: A diagram, script, or import path misbehaves — report it so we can fix it.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Before submitting, check that this isn't an already-open issue.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: What part of the project is affected?
+      options:
+        - A diagram example
+        - Style guide / skin / linter
+        - draw.io import
+        - Mermaid import
+        - Export (SVG / PNG)
+        - Documentation
+        - CI / tooling
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the unexpected behavior. Include what you expected instead.
+      placeholder: "The linter accepts a diagram that breaks the accessible SVG contract…"
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Concrete steps — commands, file names, and inputs matter here.
+      placeholder: |
+        1. Run `python3 scripts/lint-skin.py <file>`
+        2. …
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, agent (Claude Code / Codex / Pi) if relevant
+      placeholder: "macOS 14, Python 3.11, Claude Code"
+  - type: checkboxes
+    id: gates
+    attributes:
+      label: Validation gates
+      description: If relevant, which gates have you already run?
+      options:
+        - label: "`python3 scripts/test-lint-a11y.py`"
+        - label: "`python3 scripts/lint-skin.py --all --baseline`"
+        - label: "`python3 scripts/verify-drawio-import.py`"
+        - label: "`python3 scripts/verify-mermaid-import.py`"
+        - label: "I haven't run any gates"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output
+      description: Paste error messages or linter findings, trimmed to what matters.
+      render: text

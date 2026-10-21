@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where policy traces diverge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --paper: #f5f5f5;
+      --paper-2: #ececec;
+      --ink: #2d3142;
+      --muted: #4f5d75;
+      --soft: #5a6580;
+      --rule: rgba(45,49,66,0.12);
+      --rule-strong: rgba(45,49,66,0.30);
+      --accent: #bf4520;
+      --accent-tint: rgba(191,69,32,0.08);
+      --sans: 'Geist', system-ui, sans-serif;
+      --serif: 'Instrument Serif', serif;
+      --mono: 'Geist Mono', ui-monospace, monospace;
+      --motion-fast: 160ms;
+      --motion-step: 480ms;
+      --motion-hold: 720ms;
+      --motion-total: 3600ms;
+      --motion-ease: cubic-bezier(.2,.8,.2,1);
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 32px;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+    }
+    [data-motion-root] {
+      width: min(100%, 1280px);
+      margin: 0 auto;
+    }
+    .page-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 16px;
+    }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font: 500 8px/1.4 var(--mono);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font: 400 clamp(28px, 3vw, 40px)/1.08 var(--serif);
+      letter-spacing: -.02em;
+    }
+    .lede {
+      max-width: 480px;
+      margin: 0 0 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .diagram-wrap {
+      overflow-x: auto;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    svg { display: block; width: 100%; min-width: 880px; }
+
+    [data-motion-controls] {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      min-height: 60px;
+      padding: 8px 0;
+    }
+    .motion-ready [data-motion-controls] { display: flex; }
+    [data-motion-controls][hidden] { display: none !important; }
+    [data-motion-controls] button {
+      min-width: 44px;
+      min-height: 44px;
+      padding: 8px 12px;
+      border: 1px solid var(--muted);
+      border-radius: 4px;
+      color: var(--ink);
+      background: var(--paper);
+      font: 600 12px/1 var(--sans);
+      cursor: pointer;
+    }
+    [data-motion-controls] button:hover { border-color: var(--accent); }
+    [data-motion-controls] button:focus-visible,
+    [data-motion-root]:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+    [data-motion-controls] button:disabled { cursor: not-allowed; opacity: .45; }
+    .keyboard-help {
+      margin-left: 8px;
+      color: var(--soft);
+      font: 500 9px/1.4 var(--mono);
+    }
+    [data-motion-status] {
+      display: block;
+      min-width: 272px;
+      min-height: 16px;
+      margin: 8px 0 0;
+      color: var(--muted);
+      font: 500 10px/1.4 var(--mono);
+      text-align: right;
+    }
+    noscript p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font: 500 10px/1.4 var(--mono);
+    }
+
+    /* The source frame is complete. Hiding begins only after user activation. */
+    .motion-ready [data-motion-item] {
+      opacity: .12;
+      transform: translateY(8px);
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: opacity var(--motion-step) var(--motion-ease),
+                  transform var(--motion-step) var(--motion-ease);
+    }
+    .motion-ready [data-motion-item].is-visible,
+    .motion-ready[data-frame="end"] [data-motion-item],
+    .motion-ready[data-frame="static"] [data-motion-item] {
+      opacity: 1;
+      transform: none;
+    }
+    .row-focus { fill: transparent; stroke: transparent; stroke-width: 1.2; }
+    .motion-ready [data-motion-item].is-current .row-focus {
+      stroke: var(--muted);
+      stroke-dasharray: 4 4;
+    }
+    html[data-motion="static"] [data-motion-controls] { display: none !important; }
+    html[data-motion="static"] [data-motion-item] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    html[data-motion="step"] [data-motion-controls],
+    html[data-motion="step"] [data-motion-decorative] { display: none !important; }
+    html[data-motion="step"] [data-motion-item] {
+      animation: none !important;
+      transition: none !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+      }
+      [data-motion-item] { opacity: 1 !important; transform: none !important; }
+      [data-motion-decorative] { display: none !important; }
+      [data-motion-controls] { display: none !important; }
+    }
+    @media print {
+      body { padding: 0; }
+      [data-motion-controls], [data-motion-decorative] { display: none !important; }
+      [data-motion-item] { opacity: 1 !important; transform: none !important; }
+    }
+    @media (max-width: 800px) {
+      body { padding: 20px; }
+      .page-header { display: block; }
+      .lede { margin-top: 12px; }
+      [data-motion-status] { min-width: 200px; }
+      .keyboard-help { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Use ?motion=static for deterministic screenshots and export. -->
+  <main data-motion-root data-motion-mode="step" data-step-count="5" data-step-current="5"
+        data-frame="static" data-static-frame="complete" tabindex="-1">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Semantic pattern · Paired policy-evaluation traces</p>
+        <h1>Where policy traces diverge</h1>
+      </div>
+      <p class="lede">Two requests traverse the same ordered rules. Explicit states distinguish a rule that does not apply from one the evaluator never reaches.</p>
+    </header>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg" role="img"
+           aria-labelledby="policy-trace-animated-title policy-trace-animated-desc"
+           data-motion-primitive="policy-evaluation">
+        <title id="policy-trace-animated-title">Where two policy evaluations first diverge</title>
+        <desc id="policy-trace-animated-desc">Two requests pass identity and audience checks. At the data-class rule, the read-only request passes while the sensitive-write request fails; later rules are skipped or not reached, producing permitted and denied outcomes.</desc>
+        <rect width="1200" height="660" fill="#f5f5f5"/>
+
+        <!-- Persistent trace paths are meaningful in every frame. -->
+        <line x1="620" y1="104" x2="620" y2="576" stroke="rgba(45,49,66,0.30)" stroke-width="1"/>
+        <line data-trace-connector="trace-b" x1="936" y1="104" x2="936" y2="336" stroke="rgba(45,49,66,0.30)" stroke-width="1"/>
+
+        <!-- Shared rule column and trace headers. -->
+        <text x="72" y="76" fill="#4f5d75" font-family="'Geist Mono', monospace" font-size="12" letter-spacing="1.6">ORDERED POLICY</text>
+        <rect x="500" y="44" width="240" height="60" rx="6" fill="#ffffff" stroke="#2d3142"/>
+        <text x="620" y="72" text-anchor="middle" fill="#2d3142" font-family="'Geist', sans-serif" font-size="12" font-weight="600">Trace A · read-only</text>
+        <text x="620" y="92" text-anchor="middle" fill="#4f5d75" font-family="'Geist Mono', monospace" font-size="12">internal metrics request</text>
+        <rect x="816" y="44" width="240" height="60" rx="6" fill="#ffffff" stroke="#2d3142"/>
+        <text x="936" y="72" text-anchor="middle" fill="#2d3142" font-family="'Geist', sans-serif" font-size="12" font-weight="600">Trace B · sensitive write</text>
+        <text x="936" y="92" text-anchor="middle" fill="#4f5d75" font-family="'Geist Mono', monospace" font-size="12">restricted records request</text>
+
+        <g data-motion-item data-step="1" aria-label="Rule 1: Identity bound passes for both traces">
+          <rect class="row-focus" x="48" y="124" width="1080" height="68" rx="4"/>
+          <text x="72" y="152" fill="#2d3142" font-family="'Geist', sans-serif" font-size="12" font-weight="600">1 · Identity bound</text>
+          <text x="72" y="172" fill="#4f5d75" font-family="'Geist Mono', monospace" font-size="12">named principal required</text>
+          <rect x="532" y="132" width="176" height="52" rx="4" fill="rgba(45,49,66,0.05)" stroke="#4f5d75"/>
+          <text x="620" y="164" text-anchor="middle" fill="#2d3142" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">✓ PASS</text>
+          <rect x="848" y="132" width="176" height="52" rx="4" fill="rgba(45,49,66,0.05)" stroke="#4f5d75"/>
+          <text x="936" y="164" text-anchor="middle" fill="#2d3142" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">✓ PASS</text>
+        </g>
+
+        <g data-motion-item data-step="2" aria-label="Rule 2: Internal audience passes for both traces">
+          <rect class="row-focus" x="48" y="200" width="1080" height="68" rx="4"/>
+          <text x="72" y="228" fill="#2d3142" font-family="'Geist', sans-serif" font-size="12" font-weight="600">2 · Internal audience</text>
+          <text x="72" y="248" fill="#4f5d75" font-family="'Geist Mono', monospace" font-size="12">employees only</text>
+          <rect x="532" y="208" width="176" height="52" rx="4" fill="rgba(45,49,66,0.05)" stroke="#4f5d75"/>
+          <text x="620" y="240" text-anchor="middle" fill="#2d3142" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">✓ PASS</text>
+          <rect x="848" y="208" width="176" height="52" rx="4" fill="rgba(45,49,66,0.05)" stroke="#4f5d75"/>
+          <text x="936" y="240" text-anchor="middle" fill="#2d3142" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">✓ PASS</text>
+        </g>
+
+        <g data-motion-item data-step="3" aria-label="Rule 3 is the first divergence: Trace A passes and Trace B fails">
+          <rect class="row-focus" x="48" y="276" width="1080" height="80" rx="4"/>
+          <text x="72" y="304" fill="#2d3142" font-family="'Geist', sans-serif" font-size="12" font-weight="600">3 · Data class</text>
+          <text x="72" y="324" fill="#4f5d75" font-family="'Geist Mono', monospace" font-size="12">restricted writes denied</text>
+          <rect x="532" y="284" width="176" height="52" rx="4" fill="rgba(45,49,66,0.05)" stroke="#4f5d75"/>
+          <text x="620" y="316" text-anchor="middle" fill="#2d3142" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">✓ PASS</text>
+          <rect data-trace-b-terminal="fail" x="848" y="284" width="176" height="52" rx="4" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="1.2"/>
+          <text x="936" y="316" text-anchor="middle" fill="#bf4520" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">× FAIL</text>
+          <path d="M716 344 V352 H840 V344" fill="none" stroke="#bf4520" stroke-width="1.2"/>
+          <rect x="712" y="336" width="132" height="20" rx="2" fill="#f5f5f5"/>
+          <text x="778" y="351" text-anchor="middle" fill="#bf4520" font-family="'Geist Mono', monospace" font-size="12" font-weight="600" letter-spacing=".8">FIRST DIVERGENCE</text>
+        </g>
+
+        <g data-motion-item data-step="4" aria-label="Rule 4 is skipped for Trace A and not reached for Trace B">
+          <rect class="row-focus" x="48" y="364" width="1080" height="68" rx="4"/>
+          <text x="72" y="392" fill="#2d3142" font-family="'Geist', sans-serif" font-size="12" font-weight="600">4 · Human approval</text>
+          <text x="72" y="412" fill="#4f5d75" font-family="'Geist Mono', monospace" font-size="12">required only for writes</text>
+          <rect x="532" y="372" width="176" height="52" rx="4" fill="#f5f5f5" stroke="#5a6580" stroke-dasharray="4 4"/>
+          <text x="620" y="404" text-anchor="middle" fill="#4f5d75" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">— SKIPPED</text>
+          <rect data-trace-b-state="not-reached" x="848" y="372" width="176" height="52" rx="4" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.30)" stroke-dasharray="4 4"/>
+          <text x="936" y="404" text-anchor="middle" fill="#5a6580" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">○ NOT REACHED</text>
+        </g>
+
+        <g data-motion-item data-step="5" aria-label="Rule 5 passes for Trace A and is not reached for Trace B; outcomes are permitted and denied">
+          <rect class="row-focus" x="48" y="440" width="1080" height="152" rx="4"/>
+          <text x="72" y="468" fill="#2d3142" font-family="'Geist', sans-serif" font-size="12" font-weight="600">5 · Deploy gate</text>
+          <text x="72" y="488" fill="#4f5d75" font-family="'Geist Mono', monospace" font-size="12">all reached rules must pass</text>
+          <rect x="532" y="448" width="176" height="52" rx="4" fill="rgba(45,49,66,0.05)" stroke="#4f5d75"/>
+          <text x="620" y="480" text-anchor="middle" fill="#2d3142" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">✓ PASS</text>
+          <rect data-trace-b-state="not-reached" x="848" y="448" width="176" height="52" rx="4" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.30)" stroke-dasharray="4 4"/>
+          <text x="936" y="480" text-anchor="middle" fill="#5a6580" font-family="'Geist Mono', monospace" font-size="10" font-weight="600">○ NOT REACHED</text>
+
+          <rect x="500" y="528" width="240" height="56" rx="6" fill="#2d3142" stroke="#2d3142"/>
+          <text x="620" y="552" text-anchor="middle" fill="#f5f5f5" font-family="'Geist Mono', monospace" font-size="12" letter-spacing="1.2">OUTCOME</text>
+          <text x="620" y="572" text-anchor="middle" fill="#f5f5f5" font-family="'Geist', sans-serif" font-size="12" font-weight="600">Permitted</text>
+          <rect data-trace-b-outcome="denied" x="816" y="528" width="240" height="56" rx="6" fill="#f5f5f5"/>
+          <rect x="816" y="528" width="240" height="56" rx="6" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="1.2"/>
+          <text x="936" y="552" text-anchor="middle" fill="#bf4520" font-family="'Geist Mono', monospace" font-size="12" letter-spacing="1.2">OUTCOME</text>
+          <text x="936" y="572" text-anchor="middle" fill="#2d3142" font-family="'Geist', sans-serif" font-size="12" font-weight="600">Denied · review</text>
+        </g>
+
+        <line x1="72" y1="620" x2="1128" y2="620" stroke="rgba(45,49,66,0.12)"/>
+        <text x="72" y="640" fill="#4f5d75" font-family="'Geist Mono', monospace" font-size="12">✓ PASS</text>
+        <text x="176" y="640" fill="#bf4520" font-family="'Geist Mono', monospace" font-size="12">× FAIL</text>
+        <text x="272" y="640" fill="#4f5d75" font-family="'Geist Mono', monospace" font-size="12">— SKIPPED · rule intentionally bypassed</text>
+        <text x="564" y="640" fill="#5a6580" font-family="'Geist Mono', monospace" font-size="12">○ NOT REACHED · earlier terminal result</text>
+      </svg>
+    </div>
+
+    <div data-motion-controls role="group" aria-label="Policy trace playback controls">
+      <button type="button" data-motion-action="prev">Previous</button>
+      <button type="button" data-motion-action="play" aria-pressed="false">Play</button>
+      <button type="button" data-motion-action="pause" aria-pressed="true">Pause</button>
+      <button type="button" data-motion-action="next">Next</button>
+      <button type="button" data-motion-action="replay">Replay</button>
+      <span class="keyboard-help">←/→ step · Space play/pause · R replay · Home/End jump</span>
+    </div>
+    <span data-motion-status role="status" aria-live="polite" aria-atomic="true">Static frame · all 5 rules visible</span>
+    <noscript><p>Animation controls require JavaScript. The complete final policy trace is shown above.</p></noscript>
+  </main>
+
+  <script data-diagram-controls>
+    (() => {
+      const params = new URLSearchParams(location.search);
+      const staticOverride = params.get('motion') === 'static' || document.documentElement.dataset.motion === 'static';
+      const requestedStep = params.get('step');
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+      document.fonts.ready.then(() => { document.documentElement.dataset.fontsReady = 'true'; });
+
+      document.querySelectorAll('[data-motion-root]').forEach((root) => {
+        const count = Number(root.dataset.stepCount);
+        const hold = parseFloat(getComputedStyle(root).getPropertyValue('--motion-hold')) || 720;
+        const parsedStep = requestedStep !== null && /^\d+$/.test(requestedStep) ? Number(requestedStep) : null;
+        const exactStep = params.get('motion') === 'step' && Number.isSafeInteger(parsedStep) && parsedStep >= 0 && parsedStep <= count ? parsedStep : null;
+        const items = [...root.querySelectorAll('[data-motion-item]')];
+        const labels = Array.from({ length: count + 1 }, (_, index) => index === 0
+          ? 'Ready'
+          : items.filter((item) => !item.hasAttribute('data-motion-decorative') && Number(item.dataset.step) === index)
+              .map((item) => item.getAttribute('aria-label')).join('; '));
+        const controls = root.querySelector('[data-motion-controls]');
+        const status = root.querySelector('[data-motion-status]');
+        const visibleStep = root.querySelector('[data-motion-step-label]');
+        let step = count;
+        let timer = 0;
+        let playing = false;
+        let stepBeforeReduce = 0;
+        let resumeAfterReduce = root.dataset.motionMode === 'reveal';
+
+        const buttons = (action) => controls.querySelector(`[data-motion-action="${action}"]`);
+        const clearClock = () => { window.clearTimeout(timer); timer = 0; };
+        const announce = () => { status.textContent = `Step ${step} of ${count}: ${labels[step] || 'Complete'}`; };
+        const setControlsAvailable = (available) => {
+          controls.hidden = !available;
+          controls.setAttribute('aria-hidden', String(!available));
+          controls.dataset.playbackDisabled = String(!available);
+          controls.querySelectorAll('button').forEach((control) => { control.disabled = !available; });
+        };
+
+        function render(next, userInitiated = false) {
+          step = Math.max(0, Math.min(count, next));
+          root.dataset.stepCurrent = String(step);
+          root.dataset.frame = step === count ? 'end' : step === 0 ? 'start' : 'step';
+          items.forEach((item) => {
+            const itemStep = Number(item.dataset.step);
+            item.classList.toggle('is-visible', itemStep <= step);
+            item.classList.toggle('is-current', itemStep === step);
+          });
+          if (visibleStep) visibleStep.textContent = String(step);
+          const unavailable = controls.dataset.playbackDisabled === 'true';
+          buttons('prev').disabled = unavailable || step === 0;
+          buttons('next').disabled = unavailable || step === count;
+          if (userInitiated) announce();
+        }
+
+        function pause(userInitiated = false) {
+          clearClock();
+          playing = false;
+          root.classList.remove('is-playing');
+          buttons('play').setAttribute('aria-pressed', 'false');
+          buttons('pause').setAttribute('aria-pressed', 'true');
+          if (userInitiated) status.textContent = `Paused at step ${step} of ${count}`;
+        }
+
+        function finish() {
+          pause(false);
+          root.dataset.frame = 'end';
+          status.textContent = `Complete · step ${count} of ${count}`;
+        }
+
+        function tick() {
+          if (!playing) return;
+          if (step >= count) { finish(); return; }
+          render(step + 1, false);
+          if (step >= count) { finish(); return; }
+          timer = window.setTimeout(tick, hold);
+        }
+
+        function play(fromStart = false, userInitiated = false) {
+          clearClock();
+          if (fromStart || step >= count) render(0, userInitiated);
+          playing = true;
+          root.classList.add('is-playing');
+          buttons('play').setAttribute('aria-pressed', 'true');
+          buttons('pause').setAttribute('aria-pressed', 'false');
+          timer = window.setTimeout(tick, hold);
+        }
+
+        controls.addEventListener('click', (event) => {
+          const button = event.target.closest('[data-motion-action]');
+          if (!button) return;
+          const action = button.dataset.motionAction;
+          if (action === 'play') play(false, true);
+          if (action === 'pause') pause(true);
+          if (action === 'replay') play(true, true);
+          if (action === 'prev') { pause(false); render(step - 1, true); }
+          if (action === 'next') { pause(false); render(step + 1, true); }
+        });
+
+        root.addEventListener('keydown', (event) => {
+          if (event.target.matches('input, textarea, select, a[href]')) return;
+          const keys = { ArrowLeft: step - 1, ArrowRight: step + 1, Home: 0, End: count };
+          if (event.code === 'Space' && !event.target.closest('button')) {
+            event.preventDefault();
+            playing ? pause(true) : play(false, true);
+            return;
+          }
+          if (!event.ctrlKey && !event.metaKey && !event.altKey && event.key.toLowerCase() === 'r') {
+            event.preventDefault();
+            play(true, true);
+            return;
+          }
+          if (!(event.key in keys)) return;
+          event.preventDefault();
+          pause(false);
+          render(keys[event.key], true);
+        });
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'hidden' && playing) pause(false);
+        });
+        reduce.addEventListener('change', (event) => {
+          if (event.matches && root.dataset.motionState !== 'reduced') {
+            stepBeforeReduce = step;
+            resumeAfterReduce = playing;
+          }
+          pause(false);
+          if (event.matches) {
+            setControlsAvailable(false);
+            render(count, false);
+            root.dataset.frame = 'static';
+            root.dataset.motionState = 'reduced';
+            status.textContent = 'Reduced motion · complete static frame · playback controls unavailable';
+          } else if (staticOverride || root.dataset.motionMode === 'none') {
+            setControlsAvailable(false);
+            render(count, false);
+            root.dataset.frame = 'static';
+            root.dataset.motionState = 'static';
+            status.textContent = 'Static frame · complete diagram · playback controls unavailable';
+          } else {
+            delete root.dataset.motionState;
+            if (exactStep !== null) {
+              setControlsAvailable(false);
+              render(exactStep, false);
+              root.dataset.frame = 'step';
+              root.dataset.motionState = 'test';
+              status.textContent = `Test frame · step ${step} of ${count} · playback controls unavailable`;
+            } else {
+              setControlsAvailable(true);
+              render(stepBeforeReduce, false);
+              status.textContent = `Ready · step ${step} of ${count}`;
+              if (resumeAfterReduce && root.dataset.motionMode === 'reveal') {
+                play(false, false);
+              }
+            }
+            resumeAfterReduce = false;
+          }
+        });
+
+        if (staticOverride) {
+          document.documentElement.dataset.motion = 'static';
+          pause(false);
+          setControlsAvailable(false);
+          render(count, false);
+          root.dataset.frame = 'static';
+          root.dataset.motionState = 'static';
+          status.textContent = 'Static frame · complete diagram · playback controls unavailable';
+        } else if (reduce.matches || root.dataset.motionMode === 'none') {
+          pause(false);
+          setControlsAvailable(false);
+          render(count, false);
+          root.dataset.frame = 'static';
+          root.dataset.motionState = reduce.matches ? 'reduced' : 'static';
+          status.textContent = reduce.matches
+            ? 'Reduced motion · complete static frame · playback controls unavailable'
+            : 'Static frame · complete diagram · playback controls unavailable';
+        } else if (exactStep !== null) {
+          document.documentElement.dataset.motion = 'step';
+          pause(false);
+          setControlsAvailable(false);
+          render(exactStep, false);
+          root.dataset.frame = 'step';
+          root.dataset.motionState = 'test';
+          status.textContent = `Test frame · step ${step} of ${count} · playback controls unavailable`;
+        } else if (root.dataset.motionMode === 'reveal') {
+          setControlsAvailable(true);
+          render(0, false);
+          play(false, false);
+        } else {
+          pause(false);
+          setControlsAvailable(true);
+          render(0, false);
+          status.textContent = `Ready · step 0 of ${count}`;
+        }
+        root.classList.add('motion-ready');
+      });
+    })();
+  </script>
+</body>
+</html>
