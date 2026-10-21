@@ -1,0 +1,41 @@
+{
+  "sceneId": "scene-01",
+  "canvas": { "width": 1672, "height": 941 },
+  "storyBasis": "猴子山上，小猴拿着香蕉，大猴冲来抢夺，孩子们在旁观看。",
+  "sceneDurationMs": 8600,
+  "elements": [
+    {
+      "id": "left",
+      "label": "左侧场景",
+      "sequence": 1,
+      "narrativeRole": "场景铺垫",
+      "subtitle": "猴子山上，一只小猴子坐在假山顶端，手里拿着一根香蕉。",
+      "type": "structure",
+      "region": { "x": 20, "y": 120, "width": 540, "height": 780 },
+      "reveal": { "direction": "top_to_bottom", "startMs": 300, "durationMs": 2600, "maskPaddingPx": 22, "protectedRegions": [] },
+      "handPath": { "start": [290, 130], "end": [290, 890], "easing": "easeInOut" }
+    },
+    {
+      "id": "center",
+      "label": "中间主体",
+      "sequence": 2,
+      "narrativeRole": "动作冲突",
+      "subtitle": "突然，一只大猴子从旁边冲了过来，一把抢走了香蕉。",
+      "type": "character",
+      "region": { "x": 560, "y": 100, "width": 560, "height": 800 },
+      "reveal": { "direction": "top_to_bottom", "startMs": 3000, "durationMs": 2600, "maskPaddingPx": 22, "protectedRegions": [] },
+      "handPath": { "start": [840, 110], "end": [840, 890], "easing": "easeInOut" }
+    },
+    {
+      "id": "right",
+      "label": "右侧反应",
+      "sequence": 3,
+      "narrativeRole": "反应结果",
+      "subtitle": "旁边围观的小朋友们都惊呆了，纷纷鼓掌大笑起来。",
+      "type": "character",
+      "region": { "x": 1120, "y": 140, "width": 532, "height": 760 },
+      "reveal": { "direction": "top_to_bottom", "startMs": 5700, "durationMs": 2400, "maskPaddingPx": 22, "protectedRegions": [] },
+      "handPath": { "start": [1380, 150], "end": [1380, 880], "easing": "easeInOut" }
+    }
+  ]
+}

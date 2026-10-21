@@ -31709,8 +31709,13 @@
       "upstream_source": "voltagent_design_md",
       "discovered_at": "2026-10-21T10:19:21.488421",
       "description": ""
+    },
+    "cathrynlavery/diagram-design": {
+      "upstream_source": "manual_design",
+      "discovered_at": "2026-10-21T00:00:00.000000",
+      "description": "45 种图表类型的图表即代码技能，支持 Mermaid/Draw.io/Excalidraw/PlantUML 等格式"
     }
   },
   "last_updated": "2026-10-21T10:19:22.027892",
-  "total_count": 6342
+  "total_count": 6343
 }

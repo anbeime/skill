@@ -103,12 +103,13 @@
 - **qwen3-tts-local** ⭐⭐⭐⭐ - 本地语音合成（Edge-TTS）
 - **qwen3-asr-assistant** ⭐⭐⭐⭐ - 语音转文字
 
-### 🤖 数字人与视频配音（5个）
+### 🤖 数字人与视频配音（6个）
 - **infinitetalk** ⭐⭐⭐⭐⭐ - 音频驱动视频配音
 - **infinitetalk-shopping-avatar** ⭐⭐ - 小省导购员提示词
 - **digital-avatar-shopping-video** ⭐⭐ - 数字人口播带货
 - **dream-video-prompt-generator** ⭐⭐ - 即梦视频提示词
 - **agentkit-multimedia-shopping** ⭐⭐ - 多媒体带货视频
+- **srt-whiteboard-animation** ⭐⭐⭐⭐ - 输入 .srt 字幕，输出笔迹跟随旁白的白板手绘动画 MP4（分镜→线稿→标注→分区→逐幕渲染→合成，预览台免代码拖拽调整）
 
 ### 📄 文档与分析（4个）
 - **paper-analysis-assistant** ⭐⭐⭐⭐ - arXiv论文分析
@@ -129,11 +130,12 @@
 - **product-manager-toolkit** ⭐⭐⭐ - 产品经理工具包
 - **sales-ai-assistant** ⭐⭐ - 销售AI助手
 
-### 🎨 设计与可视化（4个）
+### 🎨 设计与可视化（5个）
 - **frontend-design** ⭐⭐⭐ - 前端界面设计
 - **ai-drawio** ⭐⭐⭐⭐ - 流程图绘制
 - **pop-up-book-illustration** ⭐⭐ - 3D纸艺插画
 - **web-to-app** ⭐⭐ - 网页转桌面应用
+- **diagram-design** ⭐⭐⭐⭐ - 45 种图表类型的"图表即代码"技能，支持 Mermaid/Draw.io/Excalidraw/PlantUML 等多种格式，输出编辑级成品图
 
 ### 📑 文档处理（4个 - 系统内置）
 - **pptx** ⭐⭐⭐⭐⭐ - PPT文件处理
@@ -338,11 +340,6 @@ python tools/skill_validator.py to-prompt skills/agent-team
 ## 📄 许可证
 
 MIT License
-
-## 🙏 致谢
-
-- [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) - 官方技能源仓库
-- 所有贡献技能的开发团队和个人
 
 ## 📝 更新日志
 

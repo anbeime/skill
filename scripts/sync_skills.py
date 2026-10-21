@@ -307,9 +307,14 @@ def main():
         if repo_id in existing_sources:
             repo_data['discovered_at'] = existing_sources[repo_id].get('discovered_at', repo_data['discovered_at'])
 
-    sources_data['sources'] = all_repos
+    # 保留手动收录的技能（不在任何上游自动发现列表中的条目），避免被自动同步清空
+    merged = dict(all_repos)
+    for repo_id, repo_data in existing_sources.items():
+        if repo_id not in merged:
+            merged[repo_id] = repo_data
+    sources_data['sources'] = merged
     sources_data['last_updated'] = datetime.now().isoformat()
-    sources_data['total_count'] = len(all_repos)
+    sources_data['total_count'] = len(merged)
 
     save_sources(sources_data)
     update_readme(sources_data)

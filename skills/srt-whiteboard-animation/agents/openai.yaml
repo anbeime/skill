@@ -1,0 +1,4 @@
+interface:
+  display_name: "SRT 白板动画"
+  short_description: "把 SRT 字幕制作成可预览、可调整的流式笔迹白板动画"
+  default_prompt: "使用 $srt-whiteboard-animation 根据这份 SRT 字幕生成白板手绘动画。"

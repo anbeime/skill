@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 本地产物（成片体积大，不入库；banana 示例视频保留）
+*.mp4
+!examples/scene-01-monkey-mountain-banana-whiteboard.mp4
+
+# OS
+Thumbs.db
+.DS_Store

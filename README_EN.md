@@ -22,12 +22,12 @@ The most comprehensive and frequently updated AI Agent skill library, featuring 
 - **Local Skills**: 63 (27 core + 30 sub-skills + 6 system-builtin)
 - **Total Skills**: 245 (official + local)
 - **Backup Coverage**: 100% (71 archive packages, fully backed up)
-- **Auto Update**: Crawls the latest skills every 24 hours
+- **Auto Update**: Crawls 6 upstream repos + trending skill rankings daily
 
 ## 🌟 Key Features
 
 ### 🤖 Auto Update
-Every 24 hours, the repository auto-crawls [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) to ensure the skill library stays current.
+Every day, the repository auto-crawls **6 upstream repositories** (OpenAI Skills, VoltAgent Awesome Agent Skills, Awesome DSH Plugin, Matt Pocock Skills, VoltAgent Awesome DESIGN.md, Narcooo/inkos) plus trending skill rankings, ensuring the skill library stays up-to-date.
 
 ### 📦 Dual Skill Library
 - **Official Skills**: 182 curated skills from top-tier teams such as Anthropic, Vercel, Cloudflare, Google Labs, and Hugging Face.
@@ -102,12 +102,13 @@ The Skill Store aggregates official skills from the following top-tier teams:
 - **qwen3-tts-local** ⭐⭐⭐⭐ — Local voice synthesis (Edge-TTS)
 - **qwen3-asr-assistant** ⭐⭐⭐⭐ — Speech-to-text
 
-### 🤖 Digital Avatars & Video Voice-over (5)
+### 🤖 Digital Avatars & Video Voice-over (6)
 - **infinitetalk** ⭐⭐⭐⭐⭐ — Audio-driven video voice-over
 - **infinitetalk-shopping-avatar** ⭐⭐ — Shopping-avatar prompts
 - **digital-avatar-shopping-video** ⭐⭐ — Digital-human product videos
 - **dream-video-prompt-generator** ⭐⭐ — Dream-video prompts
 - **agentkit-multimedia-shopping** ⭐⭐ — Multimedia product videos
+- **srt-whiteboard-animation** ⭐⭐⭐⭐ — Turn a .srt subtitle file into a whiteboard hand-drawn animation MP4 with strokes synced to the narration (storyboard → line art → annotations → zones → render → merge; browser preview for code-free drag adjustments)
 
 ### 📄 Documents & Analysis (4)
 - **paper-analysis-assistant** ⭐⭐⭐⭐ — arXiv paper analysis
@@ -128,11 +129,12 @@ The Skill Store aggregates official skills from the following top-tier teams:
 - **product-manager-toolkit** ⭐⭐⭐ — Product manager toolkit
 - **sales-ai-assistant** ⭐⭐ — Sales AI assistant
 
-### 🎨 Design & Visualization (4)
+### 🎨 Design & Visualization (5)
 - **frontend-design** ⭐⭐⭐ — Front-end interface design
 - **ai-drawio** ⭐⭐⭐⭐ — Flowchart and diagram drawing
 - **pop-up-book-illustration** ⭐⭐ — 3D pop-up illustration
 - **web-to-app** ⭐⭐ — Web to desktop application
+- **diagram-design** ⭐⭐⭐⭐ — "Diagram-as-code" skill covering 45 diagram types (Mermaid / Draw.io / Excalidraw / PlantUML) with editorial-quality output
 
 ### 📑 Document Processing (4 — system builtin)
 - **pptx** ⭐⭐⭐⭐⭐ — PPT file processing
@@ -338,11 +340,6 @@ Thanks to everyone who has contributed to this project:
 ## 📄 License
 
 MIT License
-
-## 🙏 Acknowledgements
-
-- [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) — Official skill source repository
-- All contributing skill teams and individuals
 
 ## 📝 Changelog
 
