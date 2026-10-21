@@ -14,21 +14,21 @@
 [![备份覆盖](https://img.shields.io/badge/备份覆盖-100%25-success?style=flat-square)](https://github.com/anbeime/skill)
 [![自动更新](https://img.shields.io/badge/更新-每24小时-orange?style=flat-square)](https://github.com/anbeime/skill)
 
-> 🧠 **知易（ZhiYi）多模型智能知识管家** — 一个对话框调度所有模型，240+技能即插即用，四色卡片让AI真正记住你。
-> [👉 立即体验](https://ai123.miyucaicai.cn) · [⭐ 知易开源版](https://gitee.com/anbeime/zhiyi)
+> 🎁 **知易多模型知识管家 · 免费试用预约** — 20+ 模型自由切换、技能市场、四色卡片知识库，留邮箱锁定免费试用名额，每周再收一份知易AI周刊。
+> [👉 立即预约](https://vcn9bv28ym2o.feishu.cn/share/base/shrcn9wdoM01PzUqdVKY0q73rnc) · [⭐ 知易开源版](https://github.com/anbeime/antinet)
 
 ## 📊 统计数据
 
-- **官方技能**: 182 个（来自 awesome-agent-skills，自动爬取）
+- **官方技能**: 182 个（来自 OpenAI、VoltAgent、Matt Pocock 等 6 个上游，自动爬取）
 - **本地技能**: 63 个（27核心 + 30子技能 + 6系统内置）
 - **技能总数**: 245 个（官方 + 本地）
 - **备份覆盖率**: 100%（71个压缩包，完整备份）
-- **自动更新**: 每24小时自动爬取最新技能
+- **自动更新**: 每日自动抓取 6 个上游仓库 + 热门技能榜单
 
 ## 🌟 核心特性
 
 ### 🤖 自动更新
-每24小时自动爬取 [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) 仓库，确保技能库始终保持最新状态。
+每日自动爬取 **6 个上游仓库**（OpenAI Skills、VoltAgent Awesome Agent Skills、Awesome DSH Plugin、Matt Pocock Skills、VoltAgent Awesome DESIGN.md、Narcooo/inkos）以及热门技能榜单，确保技能库始终保持最新状态。
 
 ### 📦 双重技能库
 - **官方技能**：182个来自Anthropic、Vercel、Cloudflare、Google Labs、Hugging Face等顶级团队
