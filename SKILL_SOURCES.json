@@ -31714,8 +31714,13 @@
       "upstream_source": "manual_design",
       "discovered_at": "2026-10-21T00:00:00.000000",
       "description": "45 种图表类型的图表即代码技能，支持 Mermaid/Draw.io/Excalidraw/PlantUML 等格式"
+    },
+    "geeklee/srt-whiteboard-animation": {
+      "upstream_source": "manual_video",
+      "discovered_at": "2026-10-21T00:00:00.000000",
+      "description": "输入 .srt 字幕，输出笔迹跟随旁白的白板手绘动画 MP4（分镜→线稿→标注→分区→逐幕渲染→合成，预览台免代码拖拽调整）"
     }
   },
   "last_updated": "2026-10-21T10:19:22.027892",
-  "total_count": 6343
+  "total_count": 6344
 }

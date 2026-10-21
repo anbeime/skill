@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "total_skills": 68,
+    "total_skills": 69,
     "core_skills": 28,
     "sub_skills": 30,
     "system_builtin": 6,
@@ -71,13 +71,14 @@
       ]
     },
     "数字人与视频配音": {
-      "count": 5,
+      "count": 6,
       "skills": [
         "infinitetalk",
         "infinitetalk-shopping-avatar",
         "digital-avatar-shopping-video",
         "dream-video-prompt-generator",
-        "agentkit-multimedia-shopping"
+        "agentkit-multimedia-shopping",
+        "srt-whiteboard-animation"
       ]
     },
     "文档与分析": {
@@ -161,11 +162,12 @@
       ]
     },
     "收录开源技能": {
-      "count": 3,
+      "count": 4,
       "skills": [
         "archify",
         "diagram-design",
-        "mattpocock-skills"
+        "mattpocock-skills",
+        "srt-whiteboard-animation"
       ]
     }
   },
