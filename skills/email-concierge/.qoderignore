@@ -1,0 +1,9 @@
+# Files and directories that Qoder automated installation should not copy.
+venv/
+__pycache__/
+**/__pycache__/
+state/
+tests/
+*.wav
+.qoderignore
+.gitignore

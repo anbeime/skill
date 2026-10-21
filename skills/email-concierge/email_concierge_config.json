@@ -1,0 +1,20 @@
+{
+  "imap_host": "",
+  "imap_port": 993,
+  "imap_user": "",
+  "imap_password": "",
+  "imap_folder": "INBOX",
+  "llm_model_id": "OpenVINO/Qwen3-4B-int4-ov",
+  "llm_model_dir": "",
+  "ollama_model_transcribe": "",
+  "calendar_dir": "",
+  "whisper_model_dir": "",
+  "device": "AUTO",
+  "max_emails": 20,
+  "smtp_host": "",
+  "smtp_port": 465,
+  "smtp_user": "",
+  "smtp_password": "",
+  "smtp_use_tls": true,
+  "state_dir": ""
+}

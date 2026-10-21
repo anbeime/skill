@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "total_skills": 66,
-    "core_skills": 26,
+    "total_skills": 68,
+    "core_skills": 28,
     "sub_skills": 30,
     "system_builtin": 6,
-    "last_updated": "2026-08-11T00:00:00",
+    "last_updated": "2026-09-24T00:00:00",
     "location": "D:\\tool\\skills",
     "backup_location": "D:\\tool\\skills\\skill压缩文件",
     "backup_coverage": "100%",
@@ -147,17 +147,37 @@
       "skills": [
         "poetry-music-visual"
       ]
+    },
+    "邮件与办公自动化": {
+      "count": 1,
+      "skills": [
+        "email-concierge"
+      ]
+    },
+    "医疗与行业 Agent": {
+      "count": 1,
+      "skills": [
+        "hospital_agent_upgrade"
+      ]
+    },
+    "收录开源技能": {
+      "count": 3,
+      "skills": [
+        "archify",
+        "diagram-design",
+        "mattpocock-skills"
+      ]
     }
   },
   "statistics": {
     "by_api_requirement": {
       "必需API": 15,
       "可选API": 20,
-      "完全免费": 30
+      "完全免费": 32
     },
     "by_usage_frequency": {
       "⭐⭐⭐⭐⭐": 10,
-      "⭐⭐⭐⭐": 22,
+      "⭐⭐⭐⭐": 24,
       "⭐⭐⭐": 21,
       "⭐⭐": 12
     }
@@ -203,6 +223,26 @@
     ]
   },
   "update_log": [
+    {
+      "date": "2026-09-24",
+      "version": "2.4",
+      "changes": [
+        "新增项目/技能：hospital_agent_upgrade（虚拟诊疗竞赛医生 Agent 升级版，基于 hospital-agent-sdk）",
+        "漏斗式多轮问诊、鉴别诊断驱动、检查维度评估与分层补齐、单例预算控制、临床安全网、去单病种硬编码、可迁移 Markdown 记忆",
+        "技能总数从67个增加到68个",
+        "新增「医疗与行业 Agent」分类"
+      ]
+    },
+    {
+      "date": "2026-09-24",
+      "version": "2.3",
+      "changes": [
+        "新增技能：email-concierge（本地 AI 邮件助理，OpenVINO GenAI 端侧推理，设备优先级 NPU>GPU>CPU，数据不出域）",
+        "支持未读邮件分类与摘要、日程冲突检查、语音备忘转写、本地草稿编辑/审批队列、联网后确认发送",
+        "技能总数从66个增加到67个",
+        "新增「邮件与办公自动化」分类"
+      ]
+    },
     {
       "date": "2026-08-11",
       "version": "2.2",

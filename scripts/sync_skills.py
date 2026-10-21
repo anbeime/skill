@@ -30,8 +30,11 @@ UPSTREAM_SOURCES = {
     },
     "mattpocock_skills": {
         "name": "Matt Pocock Skills",
+        # mono-repo：README 列的是本地 skill 路径（./skills/<cat>/<name>/SKILL.md），
+        # 不是 GitHub 链接列表，所以不能用 awesome_list（会落空）。
+        # 用专属解析按 skill 颗粒度收录，repo_id 形如 mattpocock/skills/engineering/tdd
         "url": "https://raw.githubusercontent.com/mattpocock/skills/main/README.md",
-        "type": "awesome_list"
+        "type": "mattpocock_skills"
     },
     "voltagent_design_md": {
         "name": "VoltAgent Awesome DESIGN.md",
@@ -110,6 +113,17 @@ def parse_awesome_list(text, self_repo=None):
         repos.discard((owner, name))
     return repos
 
+def extract_mattpocock_skills(text):
+    """Matt Pocock 是 mono-repo，README 用相对路径列出各 skill：
+    ./skills/<category>/<name>/SKILL.md
+    按 skill 颗粒度收录，repo_id 形如 mattpocock/skills/engineering/tdd。
+    """
+    repos = set()
+    matches = re.findall(r'skills/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/SKILL\.md', text)
+    for category, name in matches:
+        repos.add(('mattpocock', f'skills/{category}/{name}'))
+    return repos
+
 def load_existing_sources():
     if os.path.exists('SKILL_SOURCES.json'):
         try:
@@ -123,6 +137,27 @@ def save_sources(sources_data):
     with open('SKILL_SOURCES.json', 'w', encoding='utf-8') as f:
         json.dump(sources_data, f, ensure_ascii=False, indent=2)
     print(f"✅ 已保存 SKILL_SOURCES.json，共 {sources_data['total_count']} 个技能源")
+
+def github_home(info: dict) -> str:
+    u = info.get("url", "")
+    m = re.search(r"github\.com/([^/]+)/([^/]+)", u)
+    if m:
+        return f"https://github.com/{m.group(1)}/{m.group(2)}"
+    return u
+
+
+def _apply_readme(path: str, content: str) -> None:
+    if not os.path.exists(path):
+        open(path, "w", encoding="utf-8").close()
+    existing = open(path, encoding="utf-8").read()
+    MARKER_START = "<!-- AUTO-SYNC-SKILLS-START -->"
+    MARKER_END = "<!-- AUTO-SYNC-SKILLS-END -->"
+    if MARKER_START in existing and MARKER_END in existing:
+        new = re.sub(f"{MARKER_START}.*?{MARKER_END}", content, existing, flags=re.DOTALL)
+    else:
+        new = existing.rstrip() + "\n\n" + content
+    open(path, "w", encoding="utf-8").write(new)
+
 
 def update_readme(sources_data):
     MARKER_START = "<!-- AUTO-SYNC-SKILLS-START -->"
@@ -187,15 +222,51 @@ def update_readme(sources_data):
     else:
         new_content = existing_content.rstrip() + "\n\n" + skills_content
 
-    with open('README.md', 'w', encoding='utf-8') as f:
-        f.write(new_content)
-    print("✅ 已在 README.md 底部追加技能列表")
+    _apply_readme("README.md", skills_content)
+    print("✅ 已在 README.md 写入技能列表（自动段）")
+
+def update_readme_en(sources_data):
+    """English AUTO-SYNC section for README_EN.md."""
+    MARKER_START = "<!-- AUTO-SYNC-SKILLS-START -->"
+    MARKER_END = "<!-- AUTO-SYNC-SKILLS-END -->"
+    content = f"""{MARKER_START}
+
+## 📦 Community Skill Repositories Aggregation
+
+> This section is auto-synced daily from upstream sources by the sync script.
+
+**Last updated**: {sources_data['last_updated']} | **Total skill sources**: {sources_data['total_count']}
+
+### Data Sources
+
+"""
+    for key, info in UPSTREAM_SOURCES.items():
+        if info.get("type") == "design_md_catalog":
+            continue
+        content += f"- [{info['name']}]({github_home(info)})\n"
+    content += "\n### Skill Repositories\n\n"
+    for key, info in UPSTREAM_SOURCES.items():
+        content += f"#### {info['name']}\n\n"
+        cnt = 0
+        for rid, rd in sources_data['sources'].items():
+            if rd.get('upstream_source') == key:
+                parts = rid.split('/')
+                owner = parts[0]
+                repo = '/'.join(parts[1:]) if len(parts) > 2 else parts[1]
+                content += f"- [{repo}](https://github.com/{owner}/{repo})\n"
+                cnt += 1
+        if cnt == 0:
+            content += "- No data yet\n"
+        content += "\n"
+    content += MARKER_END
+    _apply_readme("README_EN.md", content)
+    print("✅ 已在 README_EN.md 写入技能列表（自动段）")
+
 
 # 各上游对应的自身仓库（用于 awesome list 排除自身）
 SELF_REPOS = {
     "voltagent_awesome": ("VoltAgent", "awesome-agent-skills"),
     "awesome_dsh_plugin": ("awesome-dsh-plugin", "awesome-dsh-plugin"),
-    "mattpocock_skills": ("mattpocock", "skills"),
     "inkos_story_ai": ("Narcooo", "inkos"),
 }
 
@@ -215,6 +286,8 @@ def main():
 
         if source_info['type'] == 'directory_structure':
             repos = extract_openai_skills(content)
+        elif source_info['type'] == 'mattpocock_skills':
+            repos = extract_mattpocock_skills(content)
         else:
             self_repo = SELF_REPOS.get(source_key)
             repos = parse_awesome_list(content, self_repo=self_repo)
@@ -240,6 +313,7 @@ def main():
 
     save_sources(sources_data)
     update_readme(sources_data)
+    update_readme_en(sources_data)
 
     print(f"\n✨ 同步完成！共发现 {len(all_repos)} 个技能仓库")
 

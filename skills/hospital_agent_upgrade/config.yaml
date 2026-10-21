@@ -1,0 +1,64 @@
+# Baseline agent configuration.
+#
+# Runtime endpoint and credential values are read from environment variables:
+# SERVICE_BASE_URL, MODELSCOPE_SDK_TOKEN, SERVICE_TRAIN_TOKEN, MODEL_API_KEY,
+# TEAM_ID.
+# Do not put tokens or model keys in this file.
+
+output_dir: outputs
+
+train:
+  # selection supports random, forward, and reverse.
+  selection: random
+  patient_count: 3
+  random_seed: 13
+  patient_ids: []
+
+test:
+  # Used by local /test calls.
+  # 本地验证可先用较小数量；普通病例 2.5 分钟、复杂病例 3 分钟，5 例整批约 13-15 分钟。
+  selection: random
+  patient_count: 5
+  random_seed: 15
+  patient_ids: []
+
+memory:
+  md_path: data/memory_data/memory.md
+  # 每条病例的最大general_* 规则，适当放大以覆盖检查/治疗/个体化。
+  max_notes: 9
+  max_note_chars: 1200
+
+workflow:
+  # 普通病例 2.5 分钟收口；复杂病例最长 3 分钟。
+  max_patient_minutes: 2.5
+  special_case_max_patient_minutes: 3
+  # 问诊按需 1-2 轮：首轮按条目一次问齐；普通病例只为用药安全补第 2 轮。
+  min_doctor_turns: 1
+  max_doctor_turns: 2
+  max_doctor_turns_ceiling: 2
+  # 证据门禁：最终诊断前应完成的鉴别与客观证据最小数量。
+  min_differential_candidates: 3
+  min_objective_exam_results: 1
+  # 开检查按需 1-2 轮：首轮开具 3-4 项针对性组合，次轮只补仍会改变决策的缺口。
+  max_exam_rounds: 2
+  max_exam_rounds_ceiling: 2
+  # 控制精确率：单例最多登记 6 项高价值检查。
+  max_total_examinations: 6
+  # 主循环硬上限 = 问诊上限 + 检查上限 + 诊断收口，不超过 8。
+  max_main_loop_iterations: 8
+  max_llm_calls_per_patient: 16
+  # 最后3次仅供最终诊疗生成及可能的JSON修复，前序步骤不可占用。
+  final_llm_reserve_calls: 3
+  llm_call_timeout_seconds: 35
+  # 最终诊疗输出更长，使用独立超时；普通病例仍受 2.5 分钟约束。
+  final_llm_call_timeout_seconds: 40
+  use_llm_action_planner: false
+  service_call_timeout_seconds: 25
+  evaluation_call_timeout_seconds: 120
+  force_diagnosis_buffer_seconds: 35
+  # 阶段时间预算（秒，按 2.5 分钟普通病例软分配）
+  consult_time_budget_seconds: 30
+  examine_time_budget_seconds: 50
+  diagnose_time_budget_seconds: 30
+
+log_llm_prompts: true

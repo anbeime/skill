@@ -435,13 +435,25 @@
 
     function buildLocalSkillsList(localData) {
         if (!localData || !localData.categories) return [];
+        // Skills we vendor into the repo as <name>.skill/ dirs, or external
+        // collections, need a correct link (not the D:\tool\skills convention).
+        const COLLECTION_LINKS = {
+            'archify': 'https://github.com/tt-a1i/archify',
+            'diagram-design': 'https://github.com/cathrynlavery/diagram-design',
+            'mattpocock-skills': 'https://github.com/mattpocock/skills'
+        };
         const items = [];
         for (const [category, info] of Object.entries(localData.categories)) {
             for (const skillName of (info.skills || [])) {
+                const link = COLLECTION_LINKS[skillName]
+                    || ('https://github.com/anbeime/skill/tree/main/skills/' + skillName);
+                const desc = category === '收录开源技能'
+                    ? '已收录到仓库的开源技能 · 自动同步上游更新'
+                    : (category + ' 分类下的本地技能 · 位置 ' + (localData.metadata?.location || 'D:\\\\tool\\\\skills'));
                 items.push({
                     name: skillName,
-                    description: category + ' 分类下的本地技能 · 位置 ' + (localData.metadata?.location || 'D:\\\\tool\\\\skills'),
-                    link: 'https://github.com/anbeime/skill/tree/main/skills/' + skillName,
+                    description: desc,
+                    link: link,
                     category: category,
                     source: 'anbeime 本地技能库',
                     crawled_at: localData.metadata?.last_updated || ''

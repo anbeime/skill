@@ -1,0 +1,3 @@
+# Compatibility bundle. setup_auto.py selects the smaller core set and
+# conditionally installs OpenVINO for Intel NPU/GPU capable systems.
+-r requirements-core.txt

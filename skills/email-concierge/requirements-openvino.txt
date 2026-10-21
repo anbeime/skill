@@ -1,0 +1,7 @@
+openvino>=2025.3.0
+openvino-genai>=2026.3.0
+optimum[openvino]>=1.26.1
+transformers>=4.57.0
+tokenizers>=0.22.0
+huggingface_hub>=0.20.0
+torch

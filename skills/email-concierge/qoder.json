@@ -1,0 +1,27 @@
+{
+  "name": "email-concierge",
+  "version": "1.0.0",
+  "description": "Local AI email assistant that automates unread-mail processing, offline-safe classification and reply drafting, local draft editing/approval queues, calendar conflict checks, voice transcription, and confirmed SMTP sending.",
+  "entrypoint": "email_concierge.py",
+  "config": "email_concierge_config.json",
+  "install": {
+    "windows": [
+      "powershell.exe -NoProfile -ExecutionPolicy Bypass -File install_qoder.ps1"
+    ],
+    "darwin": [
+      "bash install_qoder.sh"
+    ],
+    "linux": [
+      "bash install_qoder.sh"
+    ]
+  },
+  "diagnose": {
+    "windows": "{project_dir}\\venv\\Scripts\\python.exe {project_dir}\\email_concierge.py --diagnose --json",
+    "darwin": "{project_dir}/venv/bin/python {project_dir}/email_concierge.py --diagnose --json",
+    "linux": "{project_dir}/venv/bin/python {project_dir}/email_concierge.py --diagnose --json"
+  },
+  "requirements": {
+    "python": ">=3.10",
+    "optional": ["OpenVINO GenAI"]
+  }
+}

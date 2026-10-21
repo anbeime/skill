@@ -1,0 +1,6 @@
+state/
+voice_memo_*.wav
+__pycache__/
+**/__pycache__/
+venv/
+.qoder/
