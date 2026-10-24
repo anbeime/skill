@@ -3,6 +3,7 @@
 import re
 import os
 from typing import Tuple, Optional
+from xml.sax.saxutils import escape, quoteattr
 
 from .models import SkillDocument, SkillMetadata, SkillContent
 from .errors import ParseError
@@ -190,23 +191,23 @@ def to_prompt(file_path: str) -> str:
 
     # Metadata
     lines.append('  <metadata>')
-    lines.append(f'    <name>{doc.metadata.name}</name>')
-    lines.append(f'    <description>{doc.metadata.description}</description>')
+    lines.append(f'    <name>{escape(doc.metadata.name)}</name>')
+    lines.append(f'    <description>{escape(doc.metadata.description)}</description>')
     if doc.metadata.version:
-        lines.append(f'    <version>{doc.metadata.version}</version>')
+        lines.append(f'    <version>{escape(doc.metadata.version)}</version>')
     if doc.metadata.author:
-        lines.append(f'    <author>{doc.metadata.author}</author>')
+        lines.append(f'    <author>{escape(doc.metadata.author)}</author>')
     if doc.metadata.tags:
-        lines.append(f'    <tags>{", ".join(doc.metadata.tags)}</tags>')
+        lines.append(f'    <tags>{escape(", ".join(doc.metadata.tags))}</tags>')
     if doc.metadata.dependencies:
-        lines.append(f'    <dependencies>{", ".join(doc.metadata.dependencies)}</dependencies>')
+        lines.append(f'    <dependencies>{escape(", ".join(doc.metadata.dependencies))}</dependencies>')
     lines.append('  </metadata>')
 
     # Content sections
     lines.append('  <content>')
     for heading, text in doc.content.sections.items():
-        lines.append(f'    <section name="{heading}">')
-        lines.append(f'      {text.strip()[:500]}')
+        lines.append(f'    <section name={quoteattr(heading)}>')
+        lines.append(f'      {escape(text.strip()[:500])}')
         lines.append(f'    </section>')
     lines.append('  </content>')
 
