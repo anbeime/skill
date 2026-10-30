@@ -1,12 +1,15 @@
 const express = require('express');
 const cors = require('cors');
-const axios = require('axios');
 const path = require('path');
 const fs = require('fs');
 const { exec } = require('child_process');
 const { promisify } = require('util');
 const execPromise = promisify(exec);
 require('dotenv').config();
+const {
+    resolveMiniMaxConfig,
+    postMiniMaxChatCompletion,
+} = require('./lib/minimax-chat');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,9 +22,8 @@ const publicPath = path.join(__dirname, 'public');
 console.log('Public directory:', publicPath);
 app.use(express.static(publicPath));
 
-// 智谱 AI 配置
-const ZHIPU_API_KEY = process.env.ZHIPU_API_KEY;
-const ZHIPU_API_BASE = 'https://open.bigmodel.cn/api/paas/v4';
+// MiniMax configuration
+const MINIMAX_DEFAULT_CONFIG = resolveMiniMaxConfig();
 
 // OpenClaw/OpenCode 配置
 const OPENCLAW_CLI = process.env.OPENCLAW_CLI || process.env.OPENCODE_CLI || 'C:\\D\\opencode\\opencode-cli.exe';
@@ -270,15 +272,13 @@ ${openclawHint}
 // 生成对话
 app.post('/api/chat', async (req, res) => {
     try {
-        const { message, sessionId = 'default', apiKey } = req.body;
+        const { message, sessionId = 'default', apiKey, model, region } = req.body;
+        const chatConfig = resolveMiniMaxConfig({ apiKey, modelId: model, region });
         
-        // 优先使用请求中的 API Key，其次是环境变量
-        const useApiKey = apiKey || ZHIPU_API_KEY;
-        
-        if (!useApiKey) {
+        if (!chatConfig.apiKey) {
             return res.json({
                 success: false,
-                error: '请配置 ZHIPU_API_KEY 环境变量或在请求中提供 apiKey'
+                error: 'Please configure the MiniMax API key or provide apiKey in the request'
             });
         }
 
@@ -309,28 +309,19 @@ app.post('/api/chat', async (req, res) => {
             content: message
         });
 
-        // 调用智谱 AI
-        const response = await axios.post(
-            `${ZHIPU_API_BASE}/chat/completions`,
-            {
-                model: 'glm-4.7-flash',
-                messages: [
-                    {
-                        role: 'system',
-                        content: generateSystemPrompt()
-                    },
-                    ...history.slice(-10) // 保留最近10轮对话
-                ],
-                temperature: 0.8,
-                top_p: 0.7
-            },
-            {
-                headers: {
-                    'Authorization': `Bearer ${useApiKey}`,
-                    'Content-Type': 'application/json'
-                }
-            }
-        );
+        // Call MiniMax chat completions
+        const { response } = await postMiniMaxChatCompletion({
+            ...chatConfig,
+            messages: [
+                {
+                    role: 'system',
+                    content: generateSystemPrompt()
+                },
+                ...history.slice(-10)
+            ],
+            temperature: 0.8,
+            top_p: 0.7
+        });
 
         const aiMessage = response.data.choices[0].message.content;
         
@@ -446,9 +437,13 @@ app.post('/api/tts', async (req, res) => {
 
 // 健康检查
 app.get('/api/health', (req, res) => {
+    const healthConfig = resolveMiniMaxConfig();
     res.json({
         status: 'ok',
-        hasApiKey: !!ZHIPU_API_KEY,
+        provider: healthConfig.providerName,
+        model: healthConfig.modelId,
+        region: healthConfig.region,
+        hasApiKey: !!healthConfig.apiKey,
         openclaw: OPENCLAW_STATUS
     });
 });
@@ -463,7 +458,7 @@ app.get('/api/openclaw-status', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`\n🚀 小易伴侣服务器运行在 http://localhost:${PORT}`);
-    console.log(`📝 API Key 状态: ${ZHIPU_API_KEY ? '✅ 已配置' : '❌ 未配置'}`);
+    console.log(`📝 MiniMax API key status: ${MINIMAX_DEFAULT_CONFIG.apiKey ? 'configured' : 'missing'}`);
     
     console.log(`\n🤖 OpenClaw 集成状态:`);
     console.log(`   启用状态: ${OPENCLAW_STATUS.enabled ? '✅ 已启用' : '❌ 未启用'}`);
