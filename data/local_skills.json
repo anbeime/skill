@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "total_skills": 66,
+    "total_skills": 67,
     "core_skills": 26,
     "sub_skills": 30,
     "system_builtin": 6,
-    "last_updated": "2026-08-11T00:00:00",
+    "last_updated": "2026-10-30T00:00:00",
     "location": "D:\\tool\\skills",
     "backup_location": "D:\\tool\\skills\\skill压缩文件",
     "backup_coverage": "100%",
@@ -90,7 +90,7 @@
       ]
     },
     "智能体协作": {
-      "count": 7,
+      "count": 8,
       "skills": [
         "agent-team",
         "multi-agent-meeting",
@@ -98,7 +98,8 @@
         "antinet-security-scan",
         "antinet-doc-parse",
         "antinet-four-color-cards",
-        "antinet-provenance"
+        "antinet-provenance",
+        "expert-prompt-migrator"
       ]
     },
     "产品与项目管理": {
