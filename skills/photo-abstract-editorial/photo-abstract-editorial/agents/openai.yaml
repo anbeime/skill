@@ -1,4 +1,0 @@
-interface:
-  display_name: "Photo Abstract Editorial"
-  short_description: "Create photo-derived editorial abstractions."
-  default_prompt: "Create a clean photo-and-abstract editorial artwork from this image."

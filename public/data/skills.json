@@ -25,14 +25,6 @@
       "crawled_at": "2026-09-04T00:00:00.000000"
     },
     {
-      "name": "ZzzLc0405/photo-abstract-editorial",
-      "description": "photo-abstract-editorial：把一张照片做成「原图 + 抽象记忆面板 + 诗意英文标题」的竖版杂志式编辑作品。CC BY-NC-SA 4.0（仅个人 / 教育 / 非商业）。",
-      "link": "https://github.com/anbeime/skill/tree/main/skills/photo-abstract-editorial",
-      "category": "Image Generation",
-      "source": "anbeime/skill (D-25 trending 2026-09-04)",
-      "crawled_at": "2026-09-04T00:00:00.000000"
-    },
-    {
       "name": "VoltAgent/awesome-design-md",
       "description": "awesome-design-md：73 个真实网站 DESIGN.md 提取（Claude / Cursor / Vercel / Stripe / Apple / Tesla / Ferrari ...），让 AI 编码 agent 读 DESIGN.md 后生成风格一致的高质量 UI。同步自 VoltAgent/awesome-design-md。",
       "link": "https://github.com/anbeime/skill/tree/main/skills/voltagent-awesome-design-md",
@@ -1497,6 +1489,6 @@
       "crawled_at": "2026-02-02T17:07:33.816746"
     }
   ],
-  "total": 187,
+  "total": 186,
   "updated_at": "2026-10-29T08:08:59.185889"
 }
