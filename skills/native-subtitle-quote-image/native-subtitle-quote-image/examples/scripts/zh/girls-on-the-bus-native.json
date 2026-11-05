@@ -1,0 +1,38 @@
+{
+  "subtitle_mode": "native",
+  "note": "原生字幕模式：图中文字直接来自视频画面像素，未识别、未重绘。下方 observed 仅为人工转录，便于检索和核对，不参与渲染。 / Native mode: the text in the image is the video's own burned-in pixels; the transcription below is for reference only and is not rendered.",
+  "times": [
+    162.7,
+    165.7,
+    172.0,
+    174.8,
+    177.7
+  ],
+  "observed": [
+    {
+      "t": 162.7,
+      "zh": "我的事业会是我讣闻的开头",
+      "en": "The work is the first line of my obituary."
+    },
+    {
+      "t": 165.7,
+      "zh": "亲爱的，你排在最后",
+      "en": "You, my dear, are the last."
+    },
+    {
+      "t": 172.0,
+      "zh": "但这是好事",
+      "en": "That is a gift."
+    },
+    {
+      "t": 174.8,
+      "zh": "你的生命属于你自己",
+      "en": "Your life belongs to you."
+    },
+    {
+      "t": 177.7,
+      "zh": "你不必满足我的期待",
+      "en": "You don't have to live up to my expectations."
+    }
+  ]
+}

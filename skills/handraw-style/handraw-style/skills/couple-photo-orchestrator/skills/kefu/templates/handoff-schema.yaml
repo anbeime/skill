@@ -1,0 +1,182 @@
+schema_version: 3
+project:
+  interaction_mode: user_directed  # user_directed | card_draw
+  story_card_name: null
+  creative_history: []
+  spacetime_passport: []
+  direction_type_history: []
+  remix_history: []
+  confirmation_authority: user  # user | ai_recommendation
+  draw_card:
+    spacetime_type: null  # real_contemporary | real_historical | future_landmark | source_work | original_fictional(explicit-user-request-only)
+    spacetime_card: null
+    internal_direction_candidates: []
+    selected_direction: null
+    selection_reason: null
+  photography_keywords: "高级摄影师风格，创意构图，强烈的戏剧张力"
+  shoot_type: null
+  purpose: null
+  participant_count: 1
+  gender_composition: null
+  relationship_preset: null
+  relationship_description: null
+  participant_structure_confirmed: false
+  styling_policy:
+    professional_nodes_required: true
+    generated_at_direction_stage: true
+    downstream_inherit_only: true
+  share_card_policy:
+    required_before_render: true
+    compile_before_image_tool: true
+  identity_reference_policy:
+    identity_lock_version: 2
+    per_panel_identity_reset_required: true
+    panel_to_panel_face_inheritance_forbidden: true
+    face_readability_gate: true
+    canonical_source: original_user_upload
+    hair_semantics: face_only_ignore_original_hair_unless_user_locks_it
+    derived_images_never_auto_promote: true
+    explicit_user_promotion_required: true
+    derived_reference_roles: [composition, pose, style, scene]
+  participants:
+  - id: P01
+    label: null
+    gender: null
+    role: null
+    relationship_role: null
+    original_identity_references: []  # immutable default source: first user-uploaded real-person references
+    identity_references: []  # compatibility mirror of active_identity_references
+  identity_map:
+  - participant_id: P01
+    canonical_original_references: []
+    active_identity_references: []
+    identity_references: []  # compatibility mirror of active_identity_references
+    active_reference_source: original_user_upload  # original_user_upload | explicit_user_promoted_derived
+    explicit_promotion: false
+    promoted_from: null
+  selected_direction_styling:
+    direction_id: null
+    participant_styling:
+    - participant_id: P01
+      hairstyle_design: null
+      makeup_design: null
+    styling_status: pending  # pending | locked | invalidated_by_remix
+  look_count: 1
+  theme: null
+  worldview: null
+  location_context: []
+  relationship_mood: []
+  visual_direction: []
+  media_references: []
+  hard_avoids: []
+  location_policy:
+    specific_location_required: true
+    progressive_specificity: true
+    discovery_anchor_only: true
+    look_uses_shootable_zones_not_micro_points: true
+    shot_micro_location_required: true
+    indoor_must_be_geographically_anchored: true
+    outdoor_must_name_specific_place: true
+    named_work_must_name_in_world_location: true
+    period_context_required_when_material: true
+    no_invented_real_addresses: true
+    generic_location_only_is_invalid: true
+    unspecified_modern_location_uses_random_world_famous_fallback: true
+    random_fallback_must_be_theme_compatible: true
+    random_fallback_reroll_changes_place: true
+looks:
+- id: LOOK-01
+  status: presented
+  concept: null
+  role_in_set: null
+  participant_looks:
+  - participant_id: P01
+    label: null
+    role_in_look: null
+    full_description: null
+    outfit:
+      category: null
+      subcategory: null
+      context: null
+      visual_role_in_group: null
+      silhouette: null
+      upper_inner_layers: []
+      outer_layer: null
+      lower_or_full_body_garment: null
+      length_proportion: null
+      neckline_collar_lapel: null
+      sleeve: null
+      waistline_fit: null
+      primary_material: null
+      secondary_materials: []
+      color: null
+      finish_texture: null
+      structural_details: []
+      decorative_details: []
+      movement_characteristics: null
+      shoes: null
+      jewelry_watch: []
+      headwear_hair_accessory: []
+      other_accessories: []
+      grooming_makeup_hair: null
+      hairstyle_design: null
+      makeup_design: null
+      prop_ownership: []
+      practicality_season_notes: []
+      scene_role_compatibility: null
+      hard_avoids: []
+  group_relationship:
+    visual_hierarchy: null
+    palette_relationship: null
+    material_relationship: null
+    silhouette_relationship: null
+    formality_relationship: null
+    contrast_harmony: null
+    shared_motifs: []
+    intentional_differences: []
+    subgroup_logic: []
+  visual_lock:
+    participant_outfits:
+    - participant_id: P01
+      label: null
+      outfit: null
+      hairstyle_design: null
+      makeup_design: null
+    group_relationship: null
+    work_era_setting: null
+    scene_mood: null
+    hard_avoids: []
+    location_lock: []
+    quality_floor: full_detail_no_compression
+  scenes:
+  - id: SCENE-01
+    name: null
+    location_mode: null
+    indoor_outdoor: null
+    country: null
+    city: null
+    district_or_area: null
+    street_or_route: null
+    named_place: null
+    exact_space_node: null  # optional before Shot List; do not pre-lock micro-location
+    verification_status: null
+    selection_origin: null  # user_supplied | random_world_famous_fallback | source_work | historical_setting | future_landmark | original_fictional(explicit-only)
+    source_work: null
+    in_world_location: null
+    era_or_period: null
+    world_state_or_chapter: null
+    recognizable_environmental_evidence: []
+    truthfulness_note: null
+    palette: null
+    usable_areas: []
+    activity_environment_compatibility: null
+    clothing_practicality: null
+    props: []
+look_group_confirmation:
+  status: confirmed
+  confirmation_source: direction_selected  # direction_selected | ai_auto_selected | user_override
+  rule: Selecting A/B/C is sufficient authorization for the selected direction. Do not ask for a second Group Look confirmation. In card_draw, the AI-selected legal direction auto-confirms the downstream Look.
+handoff_to_photography_skill:
+  ready: false
+  confirmation_rule: 'Ready becomes true when the selected direction is fixed, every participant has a complete outfit, hairstyle_design and makeup_design, and the selected direction styling is locked. No second user confirmation is required.'
+  next_task: Create an eight-shot photography plan while preserving all participant identities, identity mappings, locked outfits, locked hairstyles and locked makeup designs.

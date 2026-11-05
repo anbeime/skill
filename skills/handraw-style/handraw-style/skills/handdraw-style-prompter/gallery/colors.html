@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>经典单色主题色画廊</title>
+<script>
+(function() {
+  function fixImg(img) {
+    if (!img || img.__fixed) return;
+    var src = img.getAttribute('src') || '';
+    var idx = src.indexOf('images/');
+    if (idx === -1) return;
+    var sub = src.substring(idx);
+    var step = parseInt(img.dataset.retry || '0', 10);
+    var candidates = [
+      '../../../../' + sub,
+      '../../../' + sub,
+      '../../' + sub,
+      '../' + sub,
+      './' + sub,
+      '/' + sub,
+      'https://img.handraw-style.com/' + sub,
+      'https://raw.githubusercontent.com/yang0/handraw-style/master/' + sub
+    ];
+    while (step < candidates.length) {
+      var nextSrc = candidates[step];
+      step++;
+      if (nextSrc !== src) {
+        img.dataset.retry = step.toString();
+        img.src = nextSrc;
+        return;
+      }
+    }
+    img.__fixed = true;
+  }
+  window.addEventListener('error', function(e) {
+    if (e.target && e.target.tagName === 'IMG') {
+      fixImg(e.target);
+    }
+  }, true);
+  window.addEventListener('load', function(e) {
+    if (e.target && e.target.tagName === 'IMG') {
+      var card = e.target.closest('.style-card, .layout-card, .color-card, .asset-card');
+      if (card && e.target.src) {
+        card.dataset.image = e.target.src;
+      }
+    }
+  }, true);
+})();
+</script>
+<style>
+:root{color:#24211e;background:#f7f5f0;font:16px/1.5 system-ui,"Microsoft YaHei",sans-serif} body{margin:0} main{max-width:1440px;margin:auto;padding:18px 30px 30px} .sticky-header{position:sticky;top:0;z-index:100} .site-nav{display:flex;align-items:center;gap:10px;margin:0;padding:12px 30px;border-bottom:1px solid #ded8cf;background:#fffdf9} .site-nav a{border:1px solid #9e9185;border-radius:8px;background:#fff;color:#403a34;padding:7px 13px;text-decoration:none;font-weight:800;line-height:1.2;transition:background .15s,color .15s,border-color .15s} .site-nav a:hover{border-color:#b74227;background:#fff0eb;color:#9f351f} .site-nav a[aria-current="page"]{border-color:#b74227;background:#b74227;color:#fff;box-shadow:0 1px 3px #b7422744} .nav-right{margin-left:auto;display:flex;align-items:center;gap:8px} .nav-ext{display:inline-flex;align-items:center;font-weight:700} .nav-btn{border:1px solid #9e9185;border-radius:8px;background:#fff;color:#403a34;padding:7px 13px;font:inherit;font-weight:700;line-height:1.2;cursor:pointer;transition:background .15s,color .15s,border-color .15s} .nav-btn:hover{border-color:#b74227;background:#fff0eb;color:#9f351f} .nav-btn:focus-visible,.site-nav a:focus-visible{outline:3px solid #d67d4d;outline-offset:3px} .sub-nav{display:flex;gap:10px;align-items:center;padding:9px 30px;background:#faf7f2;border-bottom:1px solid #ded8cf;box-shadow:0 2px 6px rgba(0,0,0,0.03)} .filter{display:inline-flex;align-items:center;gap:6px;border:1px solid #c9c1b6;border-radius:6px;background:#fff;color:#514a43;padding:6px 14px;font:inherit;font-size:14px;font-weight:600;line-height:1.4;cursor:pointer;transition:background .15s,color .15s,border-color .15s,box-shadow .15s} .filter:hover{border-color:#b74227;color:#b74227;background:#fff8f5} .filter span{display:inline-block;padding:1px 6px;border-radius:999px;background:#eee8df;color:#6b6257;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2;transition:all .15s} .filter.is-active{border-color:#b74227;background:#b74227;color:#fff;box-shadow:0 1px 3px rgba(183,66,39,0.3)} .filter.is-active span{background:rgba(255,255,255,0.25);color:#fff} h1{margin:0} .lead{margin:8px 0 16px;color:#665f57} .prompt-examples{display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;margin:0 0 22px;padding:12px 16px;border:1px solid #ded8cf;border-radius:10px;background:#fffdf9} .prompt-examples h2{margin:0;color:#665f57;font-size:14px;font-weight:600} .prompt-example{display:flex;align-items:center;gap:8px;min-width:0} .prompt-label{color:#71685e;font-size:13px;white-space:nowrap} .prompt-value{padding:4px 8px;border:1px solid #d9d2c8;border-radius:6px;background:#f7f5f0;color:#24211e;font:13px/1.4 ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;white-space:nowrap}
+.gallery-title-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:0 0 2px}
+.gallery-title-bar h1{margin:0;font-size:26px;font-weight:800;color:#24211e;line-height:1.2}
+.size-switcher{display:inline-flex;align-items:center;gap:6px;background:#eee8df;padding:3px 6px;border-radius:8px;border:1px solid #dcd5ca;margin-left:auto}
+.size-label{font-size:12px;color:#786f65;font-weight:700;line-height:1;margin-left:2px}
+.size-btn-group{display:inline-flex;align-items:center;gap:3px}
+.size-btn{border:1px solid transparent;background:transparent;color:#514a43;font:inherit;font-size:12px;font-weight:750;padding:2px 8px;border-radius:5px;cursor:pointer;line-height:1.3;transition:background .15s,color .15s,border-color .15s,box-shadow .15s}
+.size-btn:hover{color:#b74227;background:#ffffffa0}
+.size-btn.is-active{background:#b74227;color:#fff;border-color:#b74227;box-shadow:0 1px 3px rgba(183,66,39,0.3)}
+.size-btn:focus-visible{outline:2px solid #d67d4d;outline-offset:1px}
+
+/* 2x Default: standard size (minmax 220px, gap 20px) */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;align-items:stretch}
+.color-card{display:flex;flex-direction:column;box-sizing:border-box;border-radius:12px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.06);overflow:hidden;transition:transform .15s,box-shadow .15s}
+.color-card:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,0.1)}
+.card-thumb-btn{display:block;width:100%;margin:0;padding:0;border:0;background:#ede8e1;cursor:zoom-in;overflow:hidden}
+.card-thumb-btn img{display:block;width:100%;height:auto;object-fit:cover;transition:transform .2s}
+.card-thumb-btn:hover img{transform:scale(1.02)}
+.color-info{display:flex;flex-direction:column;flex-grow:1;padding:12px 14px;background:#fffdf9}
+.color-header{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
+.color-id{color:#b74227;font-weight:850;font-size:14px;font-variant-numeric:tabular-nums}
+.color-name{margin:0;font-size:15px;font-weight:750;color:#24211e}
+.color-quote{margin:0 0 12px;font-size:12.5px;color:#7a7268;line-height:1.4;flex-grow:1}
+.copy-btn{width:100%;padding:7px 0;border:1px solid #d0c8be;border-radius:7px;background:#fcfaf7;color:#453e37;font:inherit;font-size:13px;font-weight:650;cursor:pointer;transition:all .15s;text-align:center}
+.copy-btn:hover{border-color:#b74227;background:#b74227;color:#fff}
+.copy-btn.copied{border-color:#2a854a;background:#2a854a;color:#fff}
+
+/* 1x: compact half size (minmax 110px instead of 220px, gap 10px) */
+[data-size="1x"] .gallery{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px}
+[data-size="1x"] .color-card{border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+[data-size="1x"] .color-card:hover{box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+[data-size="1x"] .color-info{padding:6px 8px}
+[data-size="1x"] .color-header{gap:4px;margin-bottom:2px}
+[data-size="1x"] .color-id{font-size:11px}
+[data-size="1x"] .color-name{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+[data-size="1x"] .color-quote{margin:0 0 6px;font-size:11px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+[data-size="1x"] .copy-btn{padding:4px 0;border-radius:5px;font-size:11px}
+
+dialog{width:min(94vw,900px);padding:16px;border:0;border-radius:14px;background:#171513;color:#fff;box-shadow:0 20px 70px #0008} dialog::backdrop{background:#000b} dialog img{display:block;max-width:100%;max-height:75vh;margin:0 auto 12px;object-fit:contain;border-radius:8px} .dialog-actions{display:flex;align-items:center;gap:12px} .dialog-title{margin:0;font-size:17px;font-weight:700} .dialog-quote{margin:4px 0 0;font-size:13px;color:#bbb} .dialog-copy{border:0;border-radius:7px;padding:8px 14px;background:#b74227;color:#fff;font:inherit;font-weight:700;cursor:pointer;margin-left:auto} .dialog-copy:hover{background:#d64a27} .dialog-close{border:0;border-radius:7px;padding:8px 12px;background:#444;color:#fff;font:inherit;cursor:pointer} [hidden]{display:none!important}
+@media(max-width:760px){main{padding:14px 16px} .site-nav{padding:10px 16px;flex-wrap:wrap;gap:8px} .nav-right{width:100%;justify-content:flex-start;gap:6px;margin-left:0} .site-nav a,.nav-btn{padding:6px 10px;font-size:13px} .sub-nav{padding:8px 16px;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch} .filter{padding:5px 10px;font-size:13px;white-space:nowrap} .prompt-examples{flex-direction:column;align-items:flex-start;gap:8px} .prompt-example{flex-wrap:wrap} .prompt-value{white-space:normal} .gallery{grid-template-columns:repeat(2,1fr);gap:12px}}
+@media(max-width:420px){.gallery{grid-template-columns:1fr} [data-size="1x"] .gallery{grid-template-columns:repeat(2,1fr);gap:8px}}
+</style></head><body>
+<header class="sticky-header">
+<nav class="site-nav" aria-label="画廊导航"><a href="index.html" data-i18n="stylesNav">风格画廊</a><a href="layouts.html" data-i18n="layoutsNav">图型画廊</a><a href="colors.html" aria-current="page" data-i18n="colorsNav">色彩画廊</a><a href="assets.html" data-i18n="assetsNav">自建图库</a><a href="tutorials.html" data-i18n="tutorialsNav">提示词</a><div class="nav-right"><a class="nav-ext" href="https://github.com/yang0/handraw-style" target="_blank" rel="noopener noreferrer" title="GitHub 仓库"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" style="vertical-align:-2px;margin-right:4px" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a><a class="nav-ext" href="https://x.com/yang02010" target="_blank" rel="noopener noreferrer" title="X (Twitter) @yang02010"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px;margin-right:4px" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X (@yang02010)</a><button class="nav-btn" id="wechat-btn" type="button" data-i18n="wechatBtn">💬 创作变现交流群</button><button class="nav-btn" id="lang-btn" type="button" aria-label="Switch Language">🌐 EN / 中</button></div></nav>
+<nav class="sub-nav filters" aria-label="色彩分类"><button class="filter is-active" type="button" data-category="all" data-label-zh="全部" data-label-en="All">全部 <span>36</span></button><button class="filter" type="button" data-category="blue" data-label-zh="经典蓝系" data-label-en="Classic Blue">经典蓝系 <span>6</span></button><button class="filter" type="button" data-category="green" data-label-zh="清新绿系" data-label-en="Fresh Green">清新绿系 <span>6</span></button><button class="filter" type="button" data-category="red" data-label-zh="古典红绿" data-label-en="Classic Red & Vintage">古典红绿 <span>6</span></button><button class="filter" type="button" data-category="purple" data-label-zh="浪漫粉紫" data-label-en="Romantic Pink & Purple">浪漫粉紫 <span>6</span></button><button class="filter" type="button" data-category="warm" data-label-zh="暖阳大地" data-label-en="Warm Sun & Earth">暖阳大地 <span>6</span></button><button class="filter" type="button" data-category="neutral" data-label-zh="中性色系" data-label-en="Classic Neutral Tones">中性色系 <span>6</span></button></nav>
+</header>
+<main>
+<div class="gallery-title-bar">
+<h1 data-i18n="title">经典单色主题色画廊</h1>
+<div class="size-switcher" role="group" aria-label="图片尺寸">
+<span class="size-label" data-i18n="sizeLabel">尺寸</span>
+<div class="size-btn-group">
+<button type="button" class="size-btn" data-size="1x">1x</button>
+<button type="button" class="size-btn is-active" data-size="2x">2x</button>
+</div>
+</div>
+</div>
+<p class="lead" data-i18n="lead">精选 36 款经典单色主题色。点击卡片放大查看，或点击卡片下方的【复制提示词】直接用于 AI 生图。</p>
+<section class="prompt-examples" aria-labelledby="prompt-examples-title">
+<h2 id="prompt-examples-title" data-i18n="promptTitle">提示词案例</h2>
+<div class="prompt-example"><span class="prompt-label" data-i18n="ex1Label">1 · 组合出图</span><code class="prompt-value" data-i18n="ex1Code">风格：276，图型：SC-001，主题色：C-01 克莱因蓝，辅助色：C-30 象牙白、C-25 爱马仕橙，主题：海边漫步。其他你帮我设计。</code></div>
+<div class="prompt-example"><span class="prompt-label" data-i18n="ex2Label">2 · 单色调用</span><code class="prompt-value" data-i18n="ex2Code">主题色：C-10 鼠尾草绿，主题：室内盆栽与书桌。其他你帮我设计。</code></div>
+</section>
+<section id="gallery" class="gallery"><article class="color-card" data-id="C-01" data-category="blue" data-name-zh="克莱因蓝" data-name-en="Klein Blue" data-quote-zh="纯粹之蓝 通向无限" data-quote-en="A DEEPER TOMORROW" data-prompt-zh="主题色：克莱因蓝（Klein Blue）。" data-prompt-en="Theme color: Klein Blue." data-image="../../../images/colors/C-01.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-01 克莱因蓝"><img src="../../../images/colors/C-01.webp" alt="C-01 克莱因蓝"></button><div class="color-info"><div class="color-header"><span class="color-id">C-01</span><h3 class="color-name" data-zh="克莱因蓝" data-en="Klein Blue">克莱因蓝</h3></div><p class="color-quote" data-zh="纯粹之蓝 通向无限" data-en="A DEEPER TOMORROW">纯粹之蓝 通向无限</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-02" data-category="blue" data-name-zh="马若雷勒蓝" data-name-en="Majorelle Blue" data-quote-zh="热带的阳光 也偏爱这抹蓝" data-quote-en="A BRIGHTER PLACE" data-prompt-zh="主题色：马若雷勒蓝（Majorelle Blue）。" data-prompt-en="Theme color: Majorelle Blue." data-image="../../../images/colors/C-02.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-02 马若雷勒蓝"><img src="../../../images/colors/C-02.webp" alt="C-02 马若雷勒蓝"></button><div class="color-info"><div class="color-header"><span class="color-id">C-02</span><h3 class="color-name" data-zh="马若雷勒蓝" data-en="Majorelle Blue">马若雷勒蓝</h3></div><p class="color-quote" data-zh="热带的阳光 也偏爱这抹蓝" data-en="A BRIGHTER PLACE">热带的阳光 也偏爱这抹蓝</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-03" data-category="blue" data-name-zh="普鲁士蓝" data-name-en="Prussian Blue" data-quote-zh="理性的深邃 沉淀思想" data-quote-en="A CALMER MIND" data-prompt-zh="主题色：普鲁士蓝（Prussian Blue）。" data-prompt-en="Theme color: Prussian Blue." data-image="../../../images/colors/C-03.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-03 普鲁士蓝"><img src="../../../images/colors/C-03.webp" alt="C-03 普鲁士蓝"></button><div class="color-info"><div class="color-header"><span class="color-id">C-03</span><h3 class="color-name" data-zh="普鲁士蓝" data-en="Prussian Blue">普鲁士蓝</h3></div><p class="color-quote" data-zh="理性的深邃 沉淀思想" data-en="A CALMER MIND">理性的深邃 沉淀思想</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-04" data-category="blue" data-name-zh="钴蓝" data-name-en="Cobalt Blue" data-quote-zh="清晰而充满生命力 日常亦可动人" data-quote-en="A BRIGHTER DAY" data-prompt-zh="主题色：钴蓝（Cobalt Blue）。" data-prompt-en="Theme color: Cobalt Blue." data-image="../../../images/colors/C-04.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-04 钴蓝"><img src="../../../images/colors/C-04.webp" alt="C-04 钴蓝"></button><div class="color-info"><div class="color-header"><span class="color-id">C-04</span><h3 class="color-name" data-zh="钴蓝" data-en="Cobalt Blue">钴蓝</h3></div><p class="color-quote" data-zh="清晰而充满生命力 日常亦可动人" data-en="A BRIGHTER DAY">清晰而充满生命力 日常亦可动人</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-05" data-category="blue" data-name-zh="群青" data-name-en="Ultramarine" data-quote-zh="跨越时光的蓝 诗意而永恒" data-quote-en="A MORE POETIC LIFE" data-prompt-zh="主题色：群青（Ultramarine）。" data-prompt-en="Theme color: Ultramarine." data-image="../../../images/colors/C-05.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-05 群青"><img src="../../../images/colors/C-05.webp" alt="C-05 群青"></button><div class="color-info"><div class="color-header"><span class="color-id">C-05</span><h3 class="color-name" data-zh="群青" data-en="Ultramarine">群青</h3></div><p class="color-quote" data-zh="跨越时光的蓝 诗意而永恒" data-en="A MORE POETIC LIFE">跨越时光的蓝 诗意而永恒</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-06" data-category="blue" data-name-zh="孔雀蓝" data-name-en="Peacock Blue" data-quote-zh="优雅而神秘 生而独特" data-quote-en="A RARER BEAUTY" data-prompt-zh="主题色：孔雀蓝（Peacock Blue）。" data-prompt-en="Theme color: Peacock Blue." data-image="../../../images/colors/C-06.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-06 孔雀蓝"><img src="../../../images/colors/C-06.webp" alt="C-06 孔雀蓝"></button><div class="color-info"><div class="color-header"><span class="color-id">C-06</span><h3 class="color-name" data-zh="孔雀蓝" data-en="Peacock Blue">孔雀蓝</h3></div><p class="color-quote" data-zh="优雅而神秘 生而独特" data-en="A RARER BEAUTY">优雅而神秘 生而独特</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-07" data-category="green" data-name-zh="蒂芙尼蓝" data-name-en="Tiffany Blue" data-quote-zh="把美好封存 让日常闪闪发光" data-quote-en="A SWEETER LIFE" data-prompt-zh="主题色：蒂芙尼蓝（Tiffany Blue）。" data-prompt-en="Theme color: Tiffany Blue." data-image="../../../images/colors/C-07.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-07 蒂芙尼蓝"><img src="../../../images/colors/C-07.webp" alt="C-07 蒂芙尼蓝"></button><div class="color-info"><div class="color-header"><span class="color-id">C-07</span><h3 class="color-name" data-zh="蒂芙尼蓝" data-en="Tiffany Blue">蒂芙尼蓝</h3></div><p class="color-quote" data-zh="把美好封存 让日常闪闪发光" data-en="A SWEETER LIFE">把美好封存 让日常闪闪发光</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-08" data-category="green" data-name-zh="湖蓝" data-name-en="Cerulean Blue" data-quote-zh="盛夏的光影 让心也变得轻盈" data-quote-en="A LIGHTER SUMMER" data-prompt-zh="主题色：湖蓝（Cerulean Blue）。" data-prompt-en="Theme color: Cerulean Blue." data-image="../../../images/colors/C-08.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-08 湖蓝"><img src="../../../images/colors/C-08.webp" alt="C-08 湖蓝"></button><div class="color-info"><div class="color-header"><span class="color-id">C-08</span><h3 class="color-name" data-zh="湖蓝" data-en="Cerulean Blue">湖蓝</h3></div><p class="color-quote" data-zh="盛夏的光影 让心也变得轻盈" data-en="A LIGHTER SUMMER">盛夏的光影 让心也变得轻盈</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-09" data-category="green" data-name-zh="薄荷绿" data-name-en="Mint Green" data-quote-zh="清新的气息 让生活更干净" data-quote-en="A FRESHER YOU" data-prompt-zh="主题色：薄荷绿（Mint Green）。" data-prompt-en="Theme color: Mint Green." data-image="../../../images/colors/C-09.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-09 薄荷绿"><img src="../../../images/colors/C-09.webp" alt="C-09 薄荷绿"></button><div class="color-info"><div class="color-header"><span class="color-id">C-09</span><h3 class="color-name" data-zh="薄荷绿" data-en="Mint Green">薄荷绿</h3></div><p class="color-quote" data-zh="清新的气息 让生活更干净" data-en="A FRESHER YOU">清新的气息 让生活更干净</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-10" data-category="green" data-name-zh="鼠尾草绿" data-name-en="Sage Green" data-quote-zh="柔和的力量 让生活回归本真" data-quote-en="A KINDER HOME" data-prompt-zh="主题色：鼠尾草绿（Sage Green）。" data-prompt-en="Theme color: Sage Green." data-image="../../../images/colors/C-10.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-10 鼠尾草绿"><img src="../../../images/colors/C-10.webp" alt="C-10 鼠尾草绿"></button><div class="color-info"><div class="color-header"><span class="color-id">C-10</span><h3 class="color-name" data-zh="鼠尾草绿" data-en="Sage Green">鼠尾草绿</h3></div><p class="color-quote" data-zh="柔和的力量 让生活回归本真" data-en="A KINDER HOME">柔和的力量 让生活回归本真</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-11" data-category="green" data-name-zh="祖母绿" data-name-en="Emerald Green" data-quote-zh="深邃而珍贵 映照出更好的自己" data-quote-en="A MORE RADIANT YOU" data-prompt-zh="主题色：祖母绿（Emerald Green）。" data-prompt-en="Theme color: Emerald Green." data-image="../../../images/colors/C-11.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-11 祖母绿"><img src="../../../images/colors/C-11.webp" alt="C-11 祖母绿"></button><div class="color-info"><div class="color-header"><span class="color-id">C-11</span><h3 class="color-name" data-zh="祖母绿" data-en="Emerald Green">祖母绿</h3></div><p class="color-quote" data-zh="深邃而珍贵 映照出更好的自己" data-en="A MORE RADIANT YOU">深邃而珍贵 映照出更好的自己</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-12" data-category="green" data-name-zh="橄榄绿" data-name-en="Olive Green" data-quote-zh="来自地中海的风 让生活更从容" data-quote-en="A RICHER LIFE" data-prompt-zh="主题色：橄榄绿（Olive Green）。" data-prompt-en="Theme color: Olive Green." data-image="../../../images/colors/C-12.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-12 橄榄绿"><img src="../../../images/colors/C-12.webp" alt="C-12 橄榄绿"></button><div class="color-info"><div class="color-header"><span class="color-id">C-12</span><h3 class="color-name" data-zh="橄榄绿" data-en="Olive Green">橄榄绿</h3></div><p class="color-quote" data-zh="来自地中海的风 让生活更从容" data-en="A RICHER LIFE">来自地中海的风 让生活更从容</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-13" data-category="red" data-name-zh="维罗纳绿" data-name-en="Veronese Green" data-quote-zh="古典的优雅 穿越时光而来" data-quote-en="A MORE TIMELESS YOU" data-prompt-zh="主题色：维罗纳绿（Veronese Green）。" data-prompt-en="Theme color: Veronese Green." data-image="../../../images/colors/C-13.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-13 维罗纳绿"><img src="../../../images/colors/C-13.webp" alt="C-13 维罗纳绿"></button><div class="color-info"><div class="color-header"><span class="color-id">C-13</span><h3 class="color-name" data-zh="维罗纳绿" data-en="Veronese Green">维罗纳绿</h3></div><p class="color-quote" data-zh="古典的优雅 穿越时光而来" data-en="A MORE TIMELESS YOU">古典的优雅 穿越时光而来</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-14" data-category="red" data-name-zh="森林绿" data-name-en="Forest Green" data-quote-zh="林间的宁静 让心灵回归自然" data-quote-en="A QUIETER WORLD" data-prompt-zh="主题色：森林绿（Forest Green）。" data-prompt-en="Theme color: Forest Green." data-image="../../../images/colors/C-14.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-14 森林绿"><img src="../../../images/colors/C-14.webp" alt="C-14 森林绿"></button><div class="color-info"><div class="color-header"><span class="color-id">C-14</span><h3 class="color-name" data-zh="森林绿" data-en="Forest Green">森林绿</h3></div><p class="color-quote" data-zh="林间的宁静 让心灵回归自然" data-en="A QUIETER WORLD">林间的宁静 让心灵回归自然</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-15" data-category="red" data-name-zh="朱砂红" data-name-en="Cinnabar Red" data-quote-zh="东方的温度 点亮生活的诗意" data-quote-en="A WARMER TOMORROW" data-prompt-zh="主题色：朱砂红（Cinnabar Red）。" data-prompt-en="Theme color: Cinnabar Red." data-image="../../../images/colors/C-15.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-15 朱砂红"><img src="../../../images/colors/C-15.webp" alt="C-15 朱砂红"></button><div class="color-info"><div class="color-header"><span class="color-id">C-15</span><h3 class="color-name" data-zh="朱砂红" data-en="Cinnabar Red">朱砂红</h3></div><p class="color-quote" data-zh="东方的温度 点亮生活的诗意" data-en="A WARMER TOMORROW">东方的温度 点亮生活的诗意</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-16" data-category="red" data-name-zh="中国红" data-name-en="Chinese Red" data-quote-zh="喜悦的色彩 连接每一个团圆" data-quote-en="A BRIGHTER TOGETHER" data-prompt-zh="主题色：中国红（Chinese Red）。" data-prompt-en="Theme color: Chinese Red." data-image="../../../images/colors/C-16.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-16 中国红"><img src="../../../images/colors/C-16.webp" alt="C-16 中国红"></button><div class="color-info"><div class="color-header"><span class="color-id">C-16</span><h3 class="color-name" data-zh="中国红" data-en="Chinese Red">中国红</h3></div><p class="color-quote" data-zh="喜悦的色彩 连接每一个团圆" data-en="A BRIGHTER TOGETHER">喜悦的色彩 连接每一个团圆</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-17" data-category="red" data-name-zh="勃艮第红" data-name-en="Burgundy" data-quote-zh="醇厚的时光 沉淀生活的品味" data-quote-en="A RICHER LIFE" data-prompt-zh="主题色：勃艮第红（Burgundy）。" data-prompt-en="Theme color: Burgundy." data-image="../../../images/colors/C-17.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-17 勃艮第红"><img src="../../../images/colors/C-17.webp" alt="C-17 勃艮第红"></button><div class="color-info"><div class="color-header"><span class="color-id">C-17</span><h3 class="color-name" data-zh="勃艮第红" data-en="Burgundy">勃艮第红</h3></div><p class="color-quote" data-zh="醇厚的时光 沉淀生活的品味" data-en="A RICHER LIFE">醇厚的时光 沉淀生活的品味</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-18" data-category="red" data-name-zh="庞贝红" data-name-en="Pompeian Red" data-quote-zh="历史的回响 赋予当下新的力量" data-quote-en="A STRONGER TOMORROW" data-prompt-zh="主题色：庞贝红（Pompeian Red）。" data-prompt-en="Theme color: Pompeian Red." data-image="../../../images/colors/C-18.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-18 庞贝红"><img src="../../../images/colors/C-18.webp" alt="C-18 庞贝红"></button><div class="color-info"><div class="color-header"><span class="color-id">C-18</span><h3 class="color-name" data-zh="庞贝红" data-en="Pompeian Red">庞贝红</h3></div><p class="color-quote" data-zh="历史的回响 赋予当下新的力量" data-en="A STRONGER TOMORROW">历史的回响 赋予当下新的力量</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-19" data-category="purple" data-name-zh="玫瑰红" data-name-en="Rose Red" data-quote-zh="热烈的浪漫 永不凋零" data-quote-en="A BRIGHTER HEART" data-prompt-zh="主题色：玫瑰红（Rose Red）。" data-prompt-en="Theme color: Rose Red." data-image="../../../images/colors/C-19.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-19 玫瑰红"><img src="../../../images/colors/C-19.webp" alt="C-19 玫瑰红"></button><div class="color-info"><div class="color-header"><span class="color-id">C-19</span><h3 class="color-name" data-zh="玫瑰红" data-en="Rose Red">玫瑰红</h3></div><p class="color-quote" data-zh="热烈的浪漫 永不凋零" data-en="A BRIGHTER HEART">热烈的浪漫 永不凋零</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-20" data-category="purple" data-name-zh="洋红" data-name-en="Magenta" data-quote-zh="自信的姿态 走向更大的世界" data-quote-en="A BOLDER YOU" data-prompt-zh="主题色：洋红（Magenta）。" data-prompt-en="Theme color: Magenta." data-image="../../../images/colors/C-20.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-20 洋红"><img src="../../../images/colors/C-20.webp" alt="C-20 洋红"></button><div class="color-info"><div class="color-header"><span class="color-id">C-20</span><h3 class="color-name" data-zh="洋红" data-en="Magenta">洋红</h3></div><p class="color-quote" data-zh="自信的姿态 走向更大的世界" data-en="A BOLDER YOU">自信的姿态 走向更大的世界</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-21" data-category="purple" data-name-zh="珊瑚粉" data-name-en="Coral Pink" data-quote-zh="海风的温柔 治愈所有疲惫" data-quote-en="A WARMER LIFE" data-prompt-zh="主题色：珊瑚粉（Coral Pink）。" data-prompt-en="Theme color: Coral Pink." data-image="../../../images/colors/C-21.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-21 珊瑚粉"><img src="../../../images/colors/C-21.webp" alt="C-21 珊瑚粉"></button><div class="color-info"><div class="color-header"><span class="color-id">C-21</span><h3 class="color-name" data-zh="珊瑚粉" data-en="Coral Pink">珊瑚粉</h3></div><p class="color-quote" data-zh="海风的温柔 治愈所有疲惫" data-en="A WARMER LIFE">海风的温柔 治愈所有疲惫</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-22" data-category="purple" data-name-zh="灰粉" data-name-en="Dusty Rose" data-quote-zh="温柔的力量 让日常更美好" data-quote-en="A SOFTER TOMORROW" data-prompt-zh="主题色：灰粉（Dusty Rose）。" data-prompt-en="Theme color: Dusty Rose." data-image="../../../images/colors/C-22.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-22 灰粉"><img src="../../../images/colors/C-22.webp" alt="C-22 灰粉"></button><div class="color-info"><div class="color-header"><span class="color-id">C-22</span><h3 class="color-name" data-zh="灰粉" data-en="Dusty Rose">灰粉</h3></div><p class="color-quote" data-zh="温柔的力量 让日常更美好" data-en="A SOFTER TOMORROW">温柔的力量 让日常更美好</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-23" data-category="purple" data-name-zh="薰衣草紫" data-name-en="Lavender" data-quote-zh="浪漫的宁静 让心灵自由呼吸" data-quote-en="A CALMER TOMORROW" data-prompt-zh="主题色：薰衣草紫（Lavender）。" data-prompt-en="Theme color: Lavender." data-image="../../../images/colors/C-23.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-23 薰衣草紫"><img src="../../../images/colors/C-23.webp" alt="C-23 薰衣草紫"></button><div class="color-info"><div class="color-header"><span class="color-id">C-23</span><h3 class="color-name" data-zh="薰衣草紫" data-en="Lavender">薰衣草紫</h3></div><p class="color-quote" data-zh="浪漫的宁静 让心灵自由呼吸" data-en="A CALMER TOMORROW">浪漫的宁静 让心灵自由呼吸</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-24" data-category="purple" data-name-zh="帝王紫" data-name-en="Imperial Purple" data-quote-zh="高贵的气度 成就非凡的自己" data-quote-en="A GREATER SELF" data-prompt-zh="主题色：帝王紫（Imperial Purple）。" data-prompt-en="Theme color: Imperial Purple." data-image="../../../images/colors/C-24.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-24 帝王紫"><img src="../../../images/colors/C-24.webp" alt="C-24 帝王紫"></button><div class="color-info"><div class="color-header"><span class="color-id">C-24</span><h3 class="color-name" data-zh="帝王紫" data-en="Imperial Purple">帝王紫</h3></div><p class="color-quote" data-zh="高贵的气度 成就非凡的自己" data-en="A GREATER SELF">高贵的气度 成就非凡的自己</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-25" data-category="warm" data-name-zh="爱马仕橙" data-name-en="Hermès Orange" data-quote-zh="优雅的热爱 成就更好的自己" data-quote-en="A RICHER LIFE" data-prompt-zh="主题色：爱马仕橙（Hermès Orange）。" data-prompt-en="Theme color: Hermès Orange." data-image="../../../images/colors/C-25.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-25 爱马仕橙"><img src="../../../images/colors/C-25.webp" alt="C-25 爱马仕橙"></button><div class="color-info"><div class="color-header"><span class="color-id">C-25</span><h3 class="color-name" data-zh="爱马仕橙" data-en="Hermès Orange">爱马仕橙</h3></div><p class="color-quote" data-zh="优雅的热爱 成就更好的自己" data-en="A RICHER LIFE">优雅的热爱 成就更好的自己</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-26" data-category="warm" data-name-zh="柿子橙" data-name-en="Persimmon Orange" data-quote-zh="温暖的时光 总是带来好心情" data-quote-en="A WARMER SEASON" data-prompt-zh="主题色：柿子橙（Persimmon Orange）。" data-prompt-en="Theme color: Persimmon Orange." data-image="../../../images/colors/C-26.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-26 柿子橙"><img src="../../../images/colors/C-26.webp" alt="C-26 柿子橙"></button><div class="color-info"><div class="color-header"><span class="color-id">C-26</span><h3 class="color-name" data-zh="柿子橙" data-en="Persimmon Orange">柿子橙</h3></div><p class="color-quote" data-zh="温暖的时光 总是带来好心情" data-en="A WARMER SEASON">温暖的时光 总是带来好心情</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-27" data-category="warm" data-name-zh="那不勒斯黄" data-name-en="Naples Yellow" data-quote-zh="柔和的光线 让平凡的日子也变得美好" data-quote-en="A KINDER MORNING" data-prompt-zh="主题色：那不勒斯黄（Naples Yellow）。" data-prompt-en="Theme color: Naples Yellow." data-image="../../../images/colors/C-27.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-27 那不勒斯黄"><img src="../../../images/colors/C-27.webp" alt="C-27 那不勒斯黄"></button><div class="color-info"><div class="color-header"><span class="color-id">C-27</span><h3 class="color-name" data-zh="那不勒斯黄" data-en="Naples Yellow">那不勒斯黄</h3></div><p class="color-quote" data-zh="柔和的光线 让平凡的日子也变得美好" data-en="A KINDER MORNING">柔和的光线 让平凡的日子也变得美好</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-28" data-category="warm" data-name-zh="芥末黄" data-name-en="Mustard Yellow" data-quote-zh="复古的格调 让生活更有质感" data-quote-en="A BRIGHTER YOU" data-prompt-zh="主题色：芥末黄（Mustard Yellow）。" data-prompt-en="Theme color: Mustard Yellow." data-image="../../../images/colors/C-28.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-28 芥末黄"><img src="../../../images/colors/C-28.webp" alt="C-28 芥末黄"></button><div class="color-info"><div class="color-header"><span class="color-id">C-28</span><h3 class="color-name" data-zh="芥末黄" data-en="Mustard Yellow">芥末黄</h3></div><p class="color-quote" data-zh="复古的格调 让生活更有质感" data-en="A BRIGHTER YOU">复古的格调 让生活更有质感</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-29" data-category="warm" data-name-zh="赭石" data-name-en="Ochre" data-quote-zh="大地的沉静 孕育永恒的美" data-quote-en="A DEEPER SELF" data-prompt-zh="主题色：赭石（Ochre）。" data-prompt-en="Theme color: Ochre." data-image="../../../images/colors/C-29.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-29 赭石"><img src="../../../images/colors/C-29.webp" alt="C-29 赭石"></button><div class="color-info"><div class="color-header"><span class="color-id">C-29</span><h3 class="color-name" data-zh="赭石" data-en="Ochre">赭石</h3></div><p class="color-quote" data-zh="大地的沉静 孕育永恒的美" data-en="A DEEPER SELF">大地的沉静 孕育永恒的美</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-30" data-category="warm" data-name-zh="象牙白" data-name-en="Ivory" data-quote-zh="纯粹而柔软 让心回归宁静" data-quote-en="A PURER BEAUTY" data-prompt-zh="主题色：象牙白（Ivory）。" data-prompt-en="Theme color: Ivory." data-image="../../../images/colors/C-30.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-30 象牙白"><img src="../../../images/colors/C-30.webp" alt="C-30 象牙白"></button><div class="color-info"><div class="color-header"><span class="color-id">C-30</span><h3 class="color-name" data-zh="象牙白" data-en="Ivory">象牙白</h3></div><p class="color-quote" data-zh="纯粹而柔软 让心回归宁静" data-en="A PURER BEAUTY">纯粹而柔软 让心回归宁静</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-31" data-category="neutral" data-name-zh="佩恩灰" data-name-en="Payne&#x27;s Grey" data-quote-zh="冷静而深邃 沉淀思绪" data-quote-en="A CALMER MIND" data-prompt-zh="主题色：佩恩灰（Payne&#x27;s Grey）。" data-prompt-en="Theme color: Payne&#x27;s Grey." data-image="../../../images/colors/C-31.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-31 佩恩灰"><img src="../../../images/colors/C-31.webp" alt="C-31 佩恩灰"></button><div class="color-info"><div class="color-header"><span class="color-id">C-31</span><h3 class="color-name" data-zh="佩恩灰" data-en="Payne&#x27;s Grey">佩恩灰</h3></div><p class="color-quote" data-zh="冷静而深邃 沉淀思绪" data-en="A CALMER MIND">冷静而深邃 沉淀思绪</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-32" data-category="neutral" data-name-zh="炭黑" data-name-en="Charcoal Black" data-quote-zh="克制而有力 现代而坚定" data-quote-en="A STRONGER SELF" data-prompt-zh="主题色：炭黑（Charcoal Black）。" data-prompt-en="Theme color: Charcoal Black." data-image="../../../images/colors/C-32.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-32 炭黑"><img src="../../../images/colors/C-32.webp" alt="C-32 炭黑"></button><div class="color-info"><div class="color-header"><span class="color-id">C-32</span><h3 class="color-name" data-zh="炭黑" data-en="Charcoal Black">炭黑</h3></div><p class="color-quote" data-zh="克制而有力 现代而坚定" data-en="A STRONGER SELF">克制而有力 现代而坚定</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-33" data-category="neutral" data-name-zh="暖灰" data-name-en="Warm Grey" data-quote-zh="温和而耐看 让生活松弛下来" data-quote-en="A KINDER HOME" data-prompt-zh="主题色：暖灰（Warm Grey）。" data-prompt-en="Theme color: Warm Grey." data-image="../../../images/colors/C-33.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-33 暖灰"><img src="../../../images/colors/C-33.webp" alt="C-33 暖灰"></button><div class="color-info"><div class="color-header"><span class="color-id">C-33</span><h3 class="color-name" data-zh="暖灰" data-en="Warm Grey">暖灰</h3></div><p class="color-quote" data-zh="温和而耐看 让生活松弛下来" data-en="A KINDER HOME">温和而耐看 让生活松弛下来</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-34" data-category="neutral" data-name-zh="奶油白" data-name-en="Cream White" data-quote-zh="轻柔而纯净 留下呼吸感" data-quote-en="A PURER BEAUTY" data-prompt-zh="主题色：奶油白（Cream White）。" data-prompt-en="Theme color: Cream White." data-image="../../../images/colors/C-34.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-34 奶油白"><img src="../../../images/colors/C-34.webp" alt="C-34 奶油白"></button><div class="color-info"><div class="color-header"><span class="color-id">C-34</span><h3 class="color-name" data-zh="奶油白" data-en="Cream White">奶油白</h3></div><p class="color-quote" data-zh="轻柔而纯净 留下呼吸感" data-en="A PURER BEAUTY">轻柔而纯净 留下呼吸感</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-35" data-category="neutral" data-name-zh="石板灰" data-name-en="Slate Gray" data-quote-zh="理性而利落 充满建筑感" data-quote-en="A CLEARER VISION" data-prompt-zh="主题色：石板灰（Slate Gray）。" data-prompt-en="Theme color: Slate Gray." data-image="../../../images/colors/C-35.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-35 石板灰"><img src="../../../images/colors/C-35.webp" alt="C-35 石板灰"></button><div class="color-info"><div class="color-header"><span class="color-id">C-35</span><h3 class="color-name" data-zh="石板灰" data-en="Slate Gray">石板灰</h3></div><p class="color-quote" data-zh="理性而利落 充满建筑感" data-en="A CLEARER VISION">理性而利落 充满建筑感</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article>
+<article class="color-card" data-id="C-36" data-category="neutral" data-name-zh="米驼色" data-name-en="Taupe" data-quote-zh="自然而高级 温柔又克制" data-quote-en="A SOFTER LIFE" data-prompt-zh="主题色：米驼色（Taupe）。" data-prompt-en="Theme color: Taupe." data-image="../../../images/colors/C-36.webp"><button class="card-thumb-btn" type="button" aria-label="放大查看 C-36 米驼色"><img src="../../../images/colors/C-36.webp" alt="C-36 米驼色"></button><div class="color-info"><div class="color-header"><span class="color-id">C-36</span><h3 class="color-name" data-zh="米驼色" data-en="Taupe">米驼色</h3></div><p class="color-quote" data-zh="自然而高级 温柔又克制" data-en="A SOFTER LIFE">自然而高级 温柔又克制</p><button class="copy-btn" type="button" data-i18n="copyBtn">复制提示词</button></div></article></section>
+</main>
+<dialog id="preview" aria-labelledby="dialog-title">
+<img id="preview-image" alt="">
+<div class="dialog-actions">
+<div><h3 class="dialog-title" id="dialog-title"></h3><p class="dialog-quote" id="dialog-quote"></p></div>
+<button class="dialog-copy" id="dialog-copy-btn" type="button" data-i18n="copyBtn">复制提示词</button>
+<button class="dialog-close" type="button" data-i18n="closeBtn">关闭 ×</button>
+</div>
+</dialog>
+<dialog id="wechat-modal" aria-labelledby="wechat-title" style="width:min(94vw,560px);padding:22px;border:0;border-radius:14px;background:#1e1b18;color:#fff;box-shadow:0 20px 70px #000a;text-align:center"><button class="close" type="button" aria-label="关闭" style="position:absolute;top:12px;right:12px;border:0;border-radius:7px;padding:5px 9px;background:#fff;color:#24211e;cursor:pointer;font:inherit">关闭 ×</button><h3 id="wechat-title" style="margin:4px 0 10px;font-size:17px;color:#fff" data-i18n="wechatTitle">💬 创作变现交流群</h3><p style="margin:0 0 4px;font-size:14px;color:#eee" data-i18n="wechatSub">请优先加群，满了的话也可以尝试加我个人微信</p><p style="margin:0 0 16px;font-size:13px;color:#d67d4d;font-weight:600" data-i18n="wechatNote">请备注：手绘</p><div style="display:flex;justify-content:center;align-items:flex-start;gap:24px;flex-wrap:wrap"><div style="flex:1 1 200px;max-width:240px;background:#fff;padding:10px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.3)"><div style="color:#24211e;font-size:13px;font-weight:700;margin-bottom:6px" data-i18n="wechatGroupLabel">① 优先加入群聊</div><img src="../../../images/wechat_group.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/yang0/handraw-style/master/images/wechat_group.png';" alt="手绘交流群二维码" style="display:block;width:100%;height:auto;border-radius:6px"></div><div style="flex:1 1 200px;max-width:240px;background:#fff;padding:10px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.3)"><div style="color:#24211e;font-size:13px;font-weight:700;margin-bottom:6px" data-i18n="wechatPersonalLabel">② 个人微信备用</div><img src="../../../images/wechat_personal.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/yang0/handraw-style/master/images/wechat_personal.png';" alt="旺德福个人微信二维码" style="display:block;width:100%;height:auto;border-radius:6px"></div></div><div style="margin-top:16px;padding-top:12px;border-top:1px solid #332f2b;display:flex;justify-content:center;gap:16px;font-size:13px"><a href="https://github.com/yang0/handraw-style" target="_blank" rel="noopener noreferrer" style="color:#d67d4d;text-decoration:none;font-weight:600">GitHub 仓库 ↗</a><a href="https://x.com/yang02010" target="_blank" rel="noopener noreferrer" style="color:#d67d4d;text-decoration:none;font-weight:600">X @yang02010 ↗</a></div></dialog>
+<script>
+const cards=[...document.querySelectorAll('.color-card')],filters=[...document.querySelectorAll('.filter')],sizeBtns=[...document.querySelectorAll('.size-btn')],dialog=document.querySelector('#preview'),preview=document.querySelector('#preview-image'),dialogTitle=document.querySelector('#dialog-title'),dialogQuote=document.querySelector('#dialog-quote'),dialogCopyBtn=document.querySelector('#dialog-copy-btn'),dialogCloseBtn=dialog.querySelector('.dialog-close'),wechatBtn=document.querySelector('#wechat-btn'),wechatModal=document.querySelector('#wechat-modal'),langBtn=document.querySelector('#lang-btn');
+let activeCard=null;
+const I18N = {
+  zh: {
+    pageTitle: "经典单色主题色画廊",
+    stylesNav: "风格画廊",
+    layoutsNav: "图型画廊",
+    colorsNav: "色彩画廊",
+    assetsNav: "自建图库",
+    tutorialsNav: "提示词",
+    wechatBtn: "💬 创作变现交流群",
+    wechatTitle: "💬 创作变现交流群",
+    wechatSub: "请优先加群，满了的话也可以尝试加我个人微信",
+    wechatNote: "请备注：手绘",
+    wechatGroupLabel: "① 优先加入群聊",
+    wechatPersonalLabel: "② 个人微信备用",
+    title: "经典单色主题色画廊",
+    sizeLabel: "尺寸",
+    lead: "精选 36 款经典单色主题色。点击卡片放大查看，或点击卡片下方的【复制提示词】直接用于 AI 生图。",
+    promptTitle: "提示词案例",
+    ex1Label: "1 · 组合出图",
+    ex1Code: "风格：276，图型：SC-001，主题色：C-01 克莱因蓝，辅助色：C-30 象牙白、C-25 爱马仕橙，主题：海边漫步。其他你帮我设计。",
+    ex2Label: "2 · 单色调用",
+    ex2Code: "主题色：C-10 鼠尾草绿，主题：室内盆栽与书桌。其他你帮我设计。",
+    copyBtn: "复制提示词",
+    copiedBtn: "已复制 ✓",
+    closeBtn: "关闭 ×"
+  },
+  en: {
+    pageTitle: "Classic Monochrome Colors Gallery",
+    stylesNav: "Styles",
+    layoutsNav: "Layouts",
+    colorsNav: "Colors",
+    assetsNav: "Custom Library",
+    tutorialsNav: "Prompts",
+    wechatBtn: "💬 Creator Community",
+    wechatTitle: "💬 Creator Monetization Community",
+    wechatSub: "Please prioritize joining the group; if full, try adding personal WeChat",
+    wechatNote: "Note: handdraw",
+    wechatGroupLabel: "① Join Group (Priority)",
+    wechatPersonalLabel: "② Personal WeChat (Fallback)",
+    title: "Classic Monochrome Colors Gallery",
+    sizeLabel: "Size",
+    lead: "36 curated classic monochrome theme colors. Click cards to enlarge, or click 'Copy Prompt' to use directly.",
+    promptTitle: "Prompt Examples",
+    ex1Label: "1 · Combined Prompt",
+    ex1Code: "Style: 276, Layout: SC-001, Theme color: C-01 Klein Blue, Supporting colors: C-30 Ivory, C-25 Hermès Orange, Theme: Seaside stroll. Design the rest for me.",
+    ex2Label: "2 · Color-Only",
+    ex2Code: "Theme color: C-10 Sage Green, Theme: Indoor potted plant on desk. Design the rest for me.",
+    copyBtn: "Copy Prompt",
+    copiedBtn: "Copied! ✓",
+    closeBtn: "Close ×"
+  }
+};
+
+let currentLang = localStorage.getItem('handdraw_lang') || 'zh';
+
+function setCategory(cat) {
+  filters.forEach(btn => btn.classList.toggle('is-active', btn.dataset.category === cat));
+  cards.forEach(card => {
+    const match = cat === 'all' || card.dataset.category === cat;
+    card.hidden = !match;
+  });
+}
+
+filters.forEach(btn => btn.addEventListener('click', () => setCategory(btn.dataset.category)));
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = I18N[currentLang].copiedBtn;
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.classList.remove('copied');
+    }, 1500);
+  }).catch(() => prompt('请复制提示词：', text));
+}
+
+cards.forEach(card => {
+  const thumbBtn = card.querySelector('.card-thumb-btn');
+  const copyBtn = card.querySelector('.copy-btn');
+  thumbBtn.addEventListener('click', () => {
+    activeCard = card;
+    const cardImg = card.querySelector('img');
+    preview.src = (cardImg && cardImg.src) ? cardImg.src : card.dataset.image;
+    updateDialogContent();
+    dialog.showModal();
+  });
+  copyBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const prompt = currentLang === 'zh' ? card.dataset.promptZh : card.dataset.promptEn;
+    copyText(prompt, copyBtn);
+  });
+});
+
+function updateDialogContent() {
+  if (!activeCard) return;
+  const name = currentLang === 'zh' ? activeCard.dataset.nameZh : activeCard.dataset.nameEn;
+  const quote = currentLang === 'zh' ? activeCard.dataset.quoteZh : activeCard.dataset.quoteEn;
+  dialogTitle.textContent = `${activeCard.dataset.id} · ${name}`;
+  dialogQuote.textContent = quote;
+}
+
+dialogCopyBtn.addEventListener('click', () => {
+  if (!activeCard) return;
+  const prompt = currentLang === 'zh' ? activeCard.dataset.promptZh : activeCard.dataset.promptEn;
+  copyText(prompt, dialogCopyBtn);
+});
+
+dialogCloseBtn.addEventListener('click', () => dialog.close());
+dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+
+if (wechatBtn && wechatModal) {
+  wechatBtn.addEventListener('click', () => wechatModal.showModal());
+  wechatModal.querySelector('.close')?.addEventListener('click', () => wechatModal.close());
+  wechatModal.addEventListener('click', (e) => { if (e.target === wechatModal) wechatModal.close(); });
+}
+
+function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('handdraw_lang', lang);
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  document.title = I18N[lang].pageTitle;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (I18N[lang][key]) el.textContent = I18N[lang][key];
+  });
+  filters.forEach(btn => {
+    const label = lang === 'zh' ? btn.dataset.labelZh : btn.dataset.labelEn;
+    const count = btn.querySelector('span')?.textContent || '';
+    btn.innerHTML = `${label} <span>${count}</span>`;
+  });
+  cards.forEach(card => {
+    const nameEl = card.querySelector('.color-name');
+    const quoteEl = card.querySelector('.color-quote');
+    if (nameEl) nameEl.textContent = lang === 'zh' ? nameEl.dataset.zh : nameEl.dataset.en;
+    if (quoteEl) quoteEl.textContent = lang === 'zh' ? quoteEl.dataset.zh : quoteEl.dataset.en;
+  });
+  updateDialogContent();
+  if (langBtn) langBtn.textContent = lang === 'zh' ? '🌐 EN / 中' : '🌐 中 / EN';
+}
+
+if (langBtn) {
+  langBtn.addEventListener('click', () => {
+    applyLanguage(currentLang === 'zh' ? 'en' : 'zh');
+  });
+}
+
+applyLanguage(currentLang);
+function setSize(size){
+  const targetSize=['1x','2x'].includes(size)?size:'2x';
+  document.body.dataset.size=targetSize;
+  localStorage.setItem('handdraw_color_size',targetSize);
+  sizeBtns.forEach(btn=>btn.classList.toggle('is-active',btn.dataset.size===targetSize));
+}
+sizeBtns.forEach(btn=>btn.addEventListener('click',()=>setSize(btn.dataset.size)));
+const savedSize=localStorage.getItem('handdraw_color_size');
+if(savedSize)setSize(savedSize);else setSize('2x');
+</script>
+<script src="local-navigation.js" defer></script></body></html>

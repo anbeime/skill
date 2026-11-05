@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  examples:
+    name: Rebuild the examples
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Regression tests
+        run: |
+          test_deps="$(mktemp -d)"
+          trap 'rm -rf "$test_deps"' EXIT
+          npm install --prefix "$test_deps" --no-audit --no-fund --ignore-scripts react@19.3.0 react-dom@19.3.0 typescript@5.9.3 esbuild@0.28.2
+          NODE_PATH="$test_deps/node_modules" node --test scripts/*.test.mjs
+
+      - name: Dial indicator
+        run: |
+          node examples/dial-indicator/build.mjs
+          node examples/dial-indicator/build.mjs --light
+
+      - name: Desk computer
+        run: |
+          node examples/desk-computer/build.mjs
+          node examples/desk-computer/build.mjs --light
+
+      - name: Arcade cabinet
+        run: |
+          node examples/arcade-cabinet/build.mjs
+          node examples/arcade-cabinet/build.mjs --light
+
+      - name: Ripple tank
+        run: |
+          node examples/ripple-tank/build.mjs
+          node examples/ripple-tank/build.mjs --light
+
+      - name: Turning dial
+        run: |
+          node examples/turning-dial/build.mjs
+          node examples/turning-dial/build.mjs --light
+          node examples/turning-dial/build.mjs --light --verify
+          node examples/turning-dial/stress.mjs --light
+
+      - name: Raptor engine
+        run: |
+          node examples/raptor-engine/build.mjs
+          node examples/raptor-engine/build.mjs --light
+
+      - name: Push button
+        run: |
+          node examples/push-button/build.mjs
+          node examples/push-button/build.mjs --light
+
+      - name: Committed pages are unchanged
+        run: |
+          git status --short
+          git diff --stat --exit-code
+          test -z "$(git status --porcelain)"

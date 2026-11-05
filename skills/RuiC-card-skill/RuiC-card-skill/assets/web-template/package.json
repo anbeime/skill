@@ -1,0 +1,1 @@
+{"name":"ruic-card-skill-web","private":true,"version":"1.0.0","type":"module","scripts":{"start":"node server.mjs"},"dependencies":{"three":"0.180.0"}}

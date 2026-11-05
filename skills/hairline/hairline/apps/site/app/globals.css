@@ -1,0 +1,536 @@
+@import "tailwindcss";
+
+/* Black and white: a white canvas, chroma-free greys, one serif word in the hero, mono only for code. */
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --color-canvas: #fff;
+  --color-stone: #f4f4f4;
+  --color-ink: #0a0a0a;
+  --color-muted: #737373;
+  --color-faint: #a3a3a3;
+  --color-line: rgba(0, 0, 0, 0.07);
+}
+
+:root {
+  --topbar: 54px;
+  --gutter: clamp(18px, 5vw, 28px);
+  /* a card drawn by its shadow alone: a hairline ring, then two soft drops */
+  --card: 0 0 0 1px #0000000f, 0 1px 2px -1px #0000000f, 0 2px 4px 0 #0000000a;
+  --lift: 0 1px 2px #00000008, 0 10px 28px -16px #00000024;
+  --lift-lg: 0 1px 2px #00000008, 0 2px 6px #00000008, 0 32px 64px -34px #00000038;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  /* the iOS sheet's curve: off the mark at once, then a short glide home */
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  /* a critically damped spring (no bounce, settles in 300ms), sampled: it leaves rest gently and eases home on a long tail, with no step in between */
+  --spring-icon: linear(0, 0.057, 0.18, 0.32, 0.454, 0.572, 0.67, 0.749, 0.811, 0.859, 0.896, 0.923, 0.944, 0.959, 0.97, 0.979, 0.985, 0.989, 0.992, 0.994, 0.996, 0.997, 0.998, 0.999, 1);
+  /* Code in greys, each at least 4.5:1 on the code frame's #fafafa. shiki writes these names. */
+  --code-foreground: #0a0a0a;
+  --code-background: transparent;
+  --code-token-constant: #0a0a0a;
+  --code-token-function: #404040;
+  --code-token-parameter: #404040;
+  --code-token-string: #525252;
+  --code-token-string-expression: #525252;
+  --code-token-keyword: #6b6b6b;
+  --code-token-comment: #6b6b6b;
+  --code-token-punctuation: #6b6b6b;
+  --code-token-link: #6b6b6b;
+}
+
+html { color-scheme: light; }
+/* smooth only once the docs' sidebar has mounted (it sets data-smooth), so a deep link lands at once instead of sweeping down from the top */
+@media (prefers-reduced-motion: no-preference) { html[data-smooth] { scroll-behavior: smooth; } }
+body { min-height: 100vh; color: var(--color-ink); background: var(--color-canvas); }
+em { font-style: italic; }
+
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  /* the bar spans the page, its contents keep to the 1080px column the footer, the docs and the skill page use */
+  --gutter: clamp(18px, 5vw, 28px);
+  height: var(--topbar); padding: 0 max(var(--gutter), calc((100% - 1080px) / 2 + var(--gutter)));
+  background: color-mix(in srgb, var(--color-canvas) 82%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+/* the top bar's items, alike: muted 13px text, or a 16px icon, each 10px clear of its neighbours */
+.topbar-link { position: relative; display: inline-flex; align-items: center; height: 30px; padding: 0 10px; border-radius: 8px; font-size: 13px; line-height: 1; color: var(--color-muted); }
+@media (hover: hover) { a.topbar-link:hover { color: var(--color-ink); } }
+/* a 40px target around each link, the name and the footer's links, taller than what is drawn */
+a.topbar-link::after { content: ""; position: absolute; inset: -5px 0; }
+.topbar-name { position: relative; }
+/* the version, a step smaller and greyer than the name it follows, on the name's baseline */
+.topbar-version { font-size: 12px; line-height: 1; color: var(--color-muted); font-variant-numeric: tabular-nums; }
+/* the last link's 10px padding is target, not ink: pull the nav out by it so the GitHub mark ends on the column's edge, as the footer's last link does */
+.topbar nav { margin-right: -10px; }
+.topbar-name::after { content: ""; position: absolute; inset: -9px -6px; }
+/* the docs' underline, kept clear until the pointer is on the link */
+footer a { position: relative; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: text-decoration-color 150ms ease; }
+@media (hover: hover) { footer a:hover { text-decoration-color: currentColor; } }
+footer a::after { content: ""; position: absolute; inset: -12px -8px; }
+/* under 400px the name and the first link would run together: the version, the item least needed there, goes; under
+   360px the links also draw closer, each 7px clear of its neighbours */
+@media (max-width: 399px) { .topbar [data-version] { display: none; } }
+@media (max-width: 359px) { .topbar-link { padding: 0 7px; } .topbar nav { margin-right: -7px; } }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 14px;
+  border-radius: 9px; font-size: 14px; font-weight: 500;
+  background: #fff; box-shadow: inset 0 0 0 1px var(--color-stone), var(--lift);
+}
+.btn-primary { background: var(--color-ink); color: #fff; box-shadow: var(--lift); }
+/* on its own layer from the start, so the press scales the text as drawn instead of redrawing it as the layer comes and goes */
+.press { transition: transform 160ms var(--ease-out); will-change: transform; }
+.press:active { transform: scale(0.96); }
+
+.pill {
+  display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 6px 0 16px;
+  border-radius: 14px; background: #fff; box-shadow: inset 0 0 0 1px var(--color-stone), var(--lift);
+  font: 400 14px/1 var(--font-mono); text-align: left;
+}
+/* as tall as the pill, so the manager's 40px target fits inside the line's scroll box */
+.pill-line { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; line-height: 48px; scrollbar-width: none; }
+.pill-line::-webkit-scrollbar { display: none; }
+.pill-line[data-more] { mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); }
+.pill-manager { position: relative; border-radius: 5px; padding: 3px 4px; margin: -3px -4px; line-height: 1; color: var(--color-ink); text-decoration: underline dotted var(--color-faint); text-underline-offset: 4px; cursor: pointer; transition: transform 160ms var(--ease-out); }
+.pill-manager::after { content: ""; position: absolute; inset: -10px -4px; }
+@media (hover: hover) { .pill-manager:hover { background: var(--color-stone); } }
+.pill-manager:active { transform: scale(0.96); }
+
+/* Code: a frame, a bar with the title and a copy icon, the code. Line numbers are a counter in ::before, so they are never selected or copied. */
+.code { overflow: hidden; border-radius: 12px; background: #fafafa; box-shadow: inset 0 0 0 1px var(--color-stone); }
+.code-bar { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 4px 4px 4px 14px; border-bottom: 1px solid var(--color-stone); }
+.code-tabs { display: flex; flex: none; gap: 2px; margin-left: -8px; }
+.code-tab { position: relative; border-radius: 7px; padding: 6px 10px; font-size: 13px; font-weight: 500; line-height: 1; color: var(--color-muted); transition: color 150ms ease, transform 160ms var(--ease-out); }
+.code-tab::after { content: ""; position: absolute; inset: -8px 0; }
+.code-tab[aria-selected="true"] { background: #fff; color: var(--color-ink); box-shadow: 0 0 0 1px var(--color-stone); }
+@media (hover: hover) { .code-tab:hover { color: var(--color-ink); } }
+.code-tab:active { transform: scale(0.96); }
+/* The tabs' highlight slides to the selected tab, under the tabs and never in the pointer's way. */
+.slide { position: relative; display: flex; isolation: isolate; }
+.slide-hl { position: absolute; top: 0; left: 0; z-index: -1; pointer-events: none; }
+.slide[data-ready] .slide-hl, .slide[data-ready] .slide-hl::before { transition: transform 200ms var(--ease-out), clip-path 200ms var(--ease-out); }
+/* a choice made with the keyboard lands at once */
+.slide[data-keyed] .slide-hl, .slide[data-keyed] .slide-hl::before { transition: none; }
+/* Once measured, the selected tab's white plate and its ring are one highlight that slides: a stone layer clipped to
+   the tab plus a pixel, and a white one over it clipped to the tab. */
+.code-tabs[data-hl] .code-tab[aria-selected="true"] { background: none; box-shadow: none; }
+.code-tabs .slide-hl { top: -1px; left: -1px; background: var(--color-stone); clip-path: inset(var(--t) var(--r) var(--b) var(--l) round 8px); }
+.code-tabs .slide-hl::before { content: ""; position: absolute; inset: 0; background: #fff; clip-path: inset(calc(var(--t) + 1px) calc(var(--r) + 1px) calc(var(--b) + 1px) calc(var(--l) + 1px) round 7px); }
+.code-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; color: var(--color-muted); }
+.code-tabs + .code-title { text-align: right; }
+.code-body { overflow-x: auto; padding: 16px 18px; font: 400 13px/1.65 var(--font-mono); }
+.code-body pre { margin: 0; }
+.code-body code { font: inherit; counter-reset: line; }
+.code-body .line::before { counter-increment: line; content: counter(line); display: inline-block; width: 2ch; margin-right: 16px; text-align: right; color: var(--color-faint); }
+.code-body[data-plain] .line::before { content: none; }
+
+.tile { overflow: hidden; border-radius: 14px; background: #fff; box-shadow: inset 0 0 0 1px var(--color-stone), var(--lift); }
+/* a figure on its card: its name and what it does, the figure small at the right */
+.figure-row { display: grid; grid-template-columns: minmax(0, 1fr) 150px; align-items: center; gap: 16px; padding: 12px 12px 12px 16px; border-radius: 12px; background: #fff; box-shadow: var(--card); }
+.figure-name { font-size: 13.5px; font-weight: 500; line-height: 1.4; }
+.figure-text { margin-top: 4px; font-size: 13px; line-height: 1.55; color: var(--color-muted); text-wrap: pretty; }
+.figure-text b { font-weight: 500; color: var(--color-ink); }
+.figure-row .tile { box-shadow: inset 0 0 0 1px var(--color-stone); }
+/* the empty state drawn live: the figure at 200px, a heading and one action under it, on a card */
+.empty-demo { display: grid; justify-items: center; gap: 12px; padding: 32px 16px; border-radius: 12px; background: #fff; box-shadow: var(--card); text-align: center; }
+.empty-demo > [data-hairline] { max-width: 100%; }
+.empty-demo-title { font-size: 14px; font-weight: 500; line-height: 1.4; text-wrap: balance; }
+.props, .intensity { width: 100%; border-collapse: collapse; font-size: 13px; }
+:is(.props, .intensity) th { padding: 8px 14px 8px 0; text-align: left; font-size: 13px; font-weight: 500; color: var(--color-muted); }
+:is(.props, .intensity) td { padding: 12px 14px 12px 0; vertical-align: top; border-top: 1px solid var(--color-line); line-height: 1.5; }
+.props td:nth-child(-n + 3) { white-space: nowrap; }
+.props td:nth-child(2), .props td:nth-child(3) { color: var(--color-muted); }
+.props[data-tokens] td:nth-child(3) { white-space: normal; color: var(--color-ink); }
+.intensity td { white-space: nowrap; }
+.intensity td:nth-child(n + 3) { color: var(--color-muted); font-variant-numeric: tabular-nums; }
+.table-scroll { overflow-x: auto; }
+/* a table on a card, its first and last cells kept off the card's edge */
+.tbl-card { padding: 4px 16px; border-radius: 12px; background: #fff; box-shadow: var(--card); }
+.tbl-card :is(th, td):last-child { padding-right: 0; }
+
+/* A page in the craft of a rail: one 640px column of 14px text, and beside it from 1100px a rail of the page's
+   sections, fixed by the column's left edge. The column then steps right of the rail, inside the 1080px column the top
+   bar keeps to, so the rail lines up under the name. */
+.col { max-width: calc(640px + 2 * var(--gutter)); margin: 0 auto; padding: 56px var(--gutter) 96px; font-size: 14px; line-height: 1.6; }
+.col > * { min-width: 0; }
+.col-label { font: 400 11.5px/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-muted); }
+.col-h1 { margin-top: 10px; font-size: 16px; font-weight: 500; line-height: 1.35; letter-spacing: -0.01em; text-wrap: balance; }
+.col-h1 em { font-family: var(--font-serif); font-size: 1.12em; font-weight: 400; letter-spacing: 0; }
+.col header > .col-h1:first-child { margin-top: 0; }
+.col-lede { margin-top: 12px; max-width: 60ch; color: var(--color-muted); text-wrap: pretty; }
+.col-end { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--color-line); font-size: 13px; color: var(--color-muted); text-wrap: pretty; }
+.col-end .doc-more, .col-lede .doc-more { font-size: inherit; }
+
+/* A section opens 56px under the last, its title beside a link that shows when the pointer is on the title. */
+.doc-section { display: grid; gap: 14px; padding-top: 56px; scroll-margin-top: calc(var(--topbar) + 44px); }
+.doc-section > * { min-width: 0; }
+.doc-head { display: flex; align-items: center; gap: 4px; min-height: 28px; }
+.doc-h2 { font-size: 14px; font-weight: 500; line-height: 1.4; letter-spacing: -0.005em; text-wrap: balance; }
+.anchor { width: 28px; height: 28px; opacity: 0; transition: opacity 150ms ease, color 150ms ease, background-color 150ms ease; }
+.doc-head:focus-within .anchor, .anchor[data-copied] { opacity: 1; }
+@media (hover: hover) { .doc-head:hover .anchor { opacity: 1; } }
+/* no hover on a touch screen: the link stays in view, quiet */
+@media (hover: none) { .anchor { opacity: 1; color: var(--color-faint); } }
+.doc-p, .doc-list { max-width: 64ch; font-size: 14px; line-height: 1.6; text-wrap: pretty; }
+.doc-list { display: grid; gap: 6px; padding-left: 1.2em; list-style: disc; }
+.doc-list li::marker { color: var(--color-faint); }
+.doc-note { max-width: 64ch; font-size: 13px; line-height: 1.55; color: var(--color-muted); text-wrap: pretty; }
+.doc-code { font-size: 0.9em; color: var(--color-ink); }
+.doc-more { justify-self: start; font-size: 14px; color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-faint); text-underline-offset: 4px; }
+@media (hover: hover) { .doc-more:hover { text-decoration-color: currentColor; } }
+/* code in the column is a white card, as the tables and figures are */
+.col .code { background: #fff; box-shadow: var(--card); }
+.col .code-bar { border-bottom-color: var(--color-line); }
+.col .code-body { font-size: 12.5px; }
+
+/* The rail and the strip: the same links twice, grouped in the rail from 1100px, one sideways strip under the top bar
+   below it. */
+.doc-link { position: relative; display: flex; align-items: center; height: 32px; padding: 0 10px; border-radius: 8px; font-size: 14px; color: var(--color-muted); white-space: nowrap; transition: color 200ms ease; }
+.doc-link[aria-current] { color: var(--color-ink); }
+@media (hover: hover) { .doc-link:hover { color: var(--color-ink); } }
+/* in the strip, where a finger picks, a 40px target inside the strip's own padding */
+.doc-strip .doc-link::after { content: ""; position: absolute; inset: -4px 0; }
+/* In the strip, the marked link's text steps aside for a dot that flies in from the link marked before. The old text
+   steps back at once and the new one steps aside as the dot lands, so the two never meet. Nothing moves until the first
+   mark is drawn: the page opens with it in place. */
+.doc-link > span { display: inline-block; }
+.doc-strip .doc-link[aria-current] > span { transform: translateX(12px); }
+.doc-strip [data-live] .doc-link > span { transition: transform 250ms var(--ease-out); }
+.doc-strip [data-live] .doc-link[aria-current] > span { transition-duration: 300ms; transition-delay: 160ms; }
+.doc-dot { position: absolute; top: 0; left: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--color-ink); pointer-events: none; }
+[data-live] > .doc-dot { transition: translate 350ms var(--ease-out); }
+
+/* the rail's two ends fade, so a list taller than the window runs out softly instead of being cut */
+.fade-mask-y { mask-image: linear-gradient(to bottom, transparent, #0000001a 0.375rem, #00000059 0.75rem, #000000a6 1.125rem, #000000d9 1.5rem, #000000f2 1.875rem, #000 2.25rem, #000 calc(100% - 2.25rem), #000000f2 calc(100% - 1.875rem), #000000d9 calc(100% - 1.5rem), #000000a6 calc(100% - 1.125rem), #00000059 calc(100% - 0.75rem), #0000001a calc(100% - 0.375rem), transparent); }
+.rail { display: none; }
+.rail-group { display: grid; gap: 6px; }
+.rail-title { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; line-height: 1.5; color: var(--color-ink); transition: color 240ms ease; }
+.rail-title svg { flex: none; color: var(--gc); transition: filter 240ms ease, opacity 240ms ease; }
+/* Once a section is marked, only its group is lit: the others' marks go grey and their titles fade. */
+.doc-sidebar:has([aria-current]) .rail-group:not(:has([aria-current])) .rail-title { color: #525252; }
+.doc-sidebar:has([aria-current]) .rail-group:not(:has([aria-current])) .rail-title svg { filter: grayscale(1); opacity: 0.4; }
+.rail .doc-link { height: auto; padding: 3px 0; border-radius: 0; font-size: 13px; line-height: 1.5; }
+.rail .doc-link::after { content: ""; position: absolute; inset: -2px -8px; }
+
+/* The links hang off their group's mark on a hairline: a trunk down from the mark's centre, and an arm that bends out to
+   each link. Each row draws its own stretch of trunk and its arm, from 6px over the row before's centre, so the rows
+   stack into one line. The marked row's line is drawn in the group's colour: the trunk reaches down to the row's bend,
+   then the arm draws out, then a tip lands at its end; the line to a row left behind draws back the other way. The
+   trunk is a border, revealed by a clip, not a scaled bar, on a box as wide as the rows' own, so it lands on the same
+   device pixels as the grey line and the arms' borders at any zoom or column offset, with no grey showing beside it. */
+.rail ul { position: relative; padding-left: 24px; }
+.rail li { position: relative; }
+.rail li::before, .rail li::after { content: ""; position: absolute; left: -17px; width: 11px; border: 0 solid #e5e5e5; border-width: 0 0 1px 1px; border-bottom-left-radius: 6px; pointer-events: none; }
+.rail li::before { top: calc(-50% - 6px); bottom: 50%; }
+.rail li:first-child::before { top: -2px; }
+/* over the next row's grey stretch, which starts at this row's bend and would otherwise cross the coloured arm */
+.rail li::after { top: calc(50% - 6px); height: 6px; z-index: 1; border-color: var(--gc); clip-path: inset(0 100% 0 0); }
+.rail li:has(> [aria-current])::after { clip-path: inset(0); }
+.rail ul::after { content: ""; position: absolute; top: -2px; bottom: 0; left: 7px; width: 11px; border-left: 1px solid var(--gc); clip-path: inset(0 0 calc((1 - var(--reach, 0)) * 100%) 0); pointer-events: none; }
+.rail .doc-link::before { content: ""; position: absolute; top: calc(50% - 2.5px); left: -6.5px; width: 4px; height: 4px; border-radius: 50%; background: var(--gc); transform: scale(0); }
+.rail .doc-link[aria-current]::before { transform: none; }
+.rail [data-live] ul::after { transition: clip-path 300ms var(--ease-out); }
+.rail [data-live] li::after { transition: clip-path 140ms ease-out; }
+.rail [data-live] li:has(> [aria-current])::after { transition: clip-path 220ms var(--ease-out) 160ms; }
+.rail [data-live] .doc-link::before { transition: transform 120ms ease-out; }
+.rail [data-live] .doc-link[aria-current]::before { transition: transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1) 320ms; }
+
+.doc-strip { position: sticky; top: var(--topbar); z-index: 9; background: color-mix(in srgb, var(--color-canvas) 82%, transparent); backdrop-filter: blur(12px); }
+/* the strip's first link keeps to the column's text: its 10px padding hangs out past it */
+.doc-strip-scroll { position: relative; overflow-x: auto; padding: 6px max(calc(var(--gutter) - 10px), calc((100% - 640px) / 2 - 10px)); scrollbar-width: none; }
+.doc-strip-scroll::-webkit-scrollbar { display: none; }
+.doc-strip-scroll ul { display: flex; gap: 8px; width: max-content; }
+.doc-strip-scroll[data-start] { mask-image: linear-gradient(to right, transparent, #000 24px); }
+.doc-strip-scroll[data-end] { mask-image: linear-gradient(to right, #000 calc(100% - 24px), transparent); }
+.doc-strip-scroll[data-start][data-end] { mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent); }
+@media (min-width: 1100px) {
+  .doc-strip { display: none; }
+  .doc-section { scroll-margin-top: var(--topbar); }
+  .col { max-width: none; margin: 0; padding-right: var(--gutter); padding-left: calc(max(var(--gutter), (100% - 1080px) / 2 + var(--gutter)) + 260px); }
+  .col > * { max-width: 640px; }
+  /* fixed by the column's left edge and centred in the window under the top bar; a window too short for it scrolls it */
+  .rail { position: fixed; top: var(--topbar); bottom: 0; left: max(var(--gutter), calc((100% - 1080px) / 2 + var(--gutter))); z-index: 5; display: flex; flex-direction: column; justify-content: center; gap: 28px; width: 220px; padding: 3rem 0; }
+  /* on a short window the sections scroll inside the rail */
+  .doc-sidebar { position: relative; display: grid; gap: 28px; min-height: 0; overflow-y: auto; scrollbar-width: none; }
+  .doc-sidebar::-webkit-scrollbar { display: none; }
+}
+
+/* The hero, one column: each block rises out of a blur, one after another. */
+.hero-title { max-width: 18ch; font-size: clamp(26px, 4vw, 34px); font-weight: 500; line-height: 1.12; letter-spacing: -0.03em; text-wrap: balance; }
+.hero-title em { font-family: var(--font-serif); font-size: 1.1em; font-weight: 400; letter-spacing: -0.01em; }
+.hero-sub { margin-top: 12px; max-width: 40ch; font-size: 15px; line-height: 1.6; color: var(--color-muted); text-wrap: pretty; }
+/* the command and the way in, side by side; on a phone the button goes under the pill. Here the pill is the button's
+   size, 36px with its 9px corners, so the two read as one row; the copy keeps a 36px target round a 28px circle. */
+.hero-get { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; width: 100%; }
+.hero-get .pill { flex: 0 1 312px; min-width: 0; height: 36px; gap: 9px; padding: 0 4px 0 13px; border-radius: 9px; font-size: 13px; margin-right: 4px; }
+.hero-get .pill-line { line-height: 36px; }
+.hero-get .icopy { width: 28px; height: 28px; }
+.hero-get .icopy::after { inset: -4px; }
+
+/* The way to the skill: an empty hexagon by the words. A hover draws its three inner edges one after another, and it
+   becomes a cube; leaving takes them back faster than they came. */
+.hero-skill { margin-top: 22px; }
+.skill-link { position: relative; display: inline-flex; align-items: center; gap: 9px; padding: 6px 2px; font-size: 13px; line-height: 1; color: var(--color-muted); transition: color 160ms ease; }
+.skill-link::after { content: ""; position: absolute; inset: -8px -6px; }
+.skill-link svg { flex: none; overflow: visible; }
+.skill-link-hex { stroke: var(--color-faint); transition: stroke 200ms ease; }
+.skill-link-edge { stroke: var(--color-ink); stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 160ms ease-out; }
+@media (hover: hover) {
+  .skill-link:hover { color: var(--color-ink); }
+  .skill-link:hover .skill-link-hex { stroke: var(--color-ink); }
+  .skill-link:hover .skill-link-edge { stroke-dashoffset: 0; transition: stroke-dashoffset 360ms var(--ease-out); }
+  .skill-link:hover .skill-link-edge:nth-of-type(3) { transition-delay: 70ms; }
+  .skill-link:hover .skill-link-edge:nth-of-type(4) { transition-delay: 140ms; }
+}
+.skill-link:focus-visible { color: var(--color-ink); }
+.skill-link:focus-visible .skill-link-hex { stroke: var(--color-ink); }
+.skill-link:focus-visible .skill-link-edge { stroke-dashoffset: 0; }
+
+/* The hero's drawing, drawn by components/assembly.tsx: a floor of rules and dots, a window of three plates. The box is
+   sized before the drawing mounts, so nothing moves the page. Its greys lean cool, as the figures' do. */
+.hero-art { width: 100%; margin-top: 14px; }
+.assembly { width: 100%; max-width: 760px; aspect-ratio: 760 / 388; margin: 0 auto; }
+.assembly svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.assembly path { fill: none; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+/* a stroke drawn in is a path of length 1 with a dash as long, pushed back by what is not drawn yet */
+.assembly .rule { stroke: #ebebeb; stroke-dasharray: 1 1; }
+.assembly .dots { stroke: #d9d9d9; stroke-width: 1.6; }
+.assembly .foot { stroke: #cfcfd4; stroke-dasharray: 1 1; }
+.assembly .drop { fill: #f3f3f4; stroke: none; }
+.assembly .band, .assembly .face { fill: var(--color-canvas); }
+.assembly .band { stroke: none; }
+.assembly .edge { stroke: #3f3f46; stroke-width: 1.15; }
+.assembly .part { stroke: #bdbdc2; stroke-dasharray: 1 1; }
+.assembly .pip { stroke: #3f3f46; }
+.assembly .lit { stroke: var(--color-ink); stroke-width: 1.15; stroke-dasharray: 1 1; }
+
+/* Rise, blur and fade end in that order. The rise and the blur end in steps: moving text is drawn on whole device
+   pixels, so the last pixel of travel lands as a hop, and Chrome draws no blur under 0.4px, so the last of it goes
+   in one frame. The hop comes under the blur, the blur goes while the block still fades in, and the fade ends it. */
+.hero-rise > * { animation: fade 750ms var(--ease-out) both, unblur 560ms var(--ease-out) both, rise 380ms var(--ease-out) both; animation-delay: calc(var(--i) * 70ms + 60ms); }
+@keyframes unblur { from { filter: blur(6px); } to { filter: none; } }
+@keyframes rise { from { transform: translateY(12px); } to { transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* Copy as an icon: the clipboard blurs and shrinks away as the check grows in. That swap is the one scale a copy
+   makes, so the round button stays still on press instead of shrinking under it. */
+.icopy { position: relative; flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; color: var(--color-muted); transition: color 150ms ease, background-color 150ms ease; }
+.icopy::after { content: ""; position: absolute; inset: -2px; }
+@media (hover: hover) { .icopy:hover { color: var(--color-ink); background: var(--color-stone); } }
+.icopy[data-copied] { color: var(--color-ink); }
+.icopy svg { grid-area: 1 / 1; transition: opacity 300ms var(--spring-icon), transform 300ms var(--spring-icon), filter 300ms var(--spring-icon); }
+.icopy-b, .icopy[data-copied] .icopy-a { opacity: 0; transform: scale(0.25); filter: blur(4px); }
+.icopy[data-copied] .icopy-b { opacity: 1; transform: none; filter: none; }
+
+/* Inspo, as an essay: the story in the column, each step under its number, the evidence on cards between the prose. */
+.inspo-label { font: 400 11.5px/1.5 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-muted); }
+.inspo .col-h1 { margin-top: 10px; }
+.inspo-step .doc-h2 { display: flex; align-items: baseline; gap: 10px; }
+.inspo-n { font: 500 11.5px/1 var(--font-mono); letter-spacing: 0.02em; color: var(--color-faint); font-variant-numeric: tabular-nums; }
+.inspo-p { text-wrap: pretty; }
+.card { border-radius: 12px; background: #fff; box-shadow: var(--card); }
+/* the brief: a card with a row per part, its label in a column of its own when there is room */
+.inspo-prompt { margin-block: 2px; padding: 6px 16px; }
+.inspo-prompt > .inspo-label { padding: 10px 0; }
+.inspo-quote { font-size: 13px; line-height: 1.55; text-wrap: pretty; }
+.inspo-part { display: grid; gap: 4px; padding: 12px 0; border-top: 1px solid var(--color-line); }
+/* a picture in the dark frame it was taken in, a light ring inside its edge */
+.inspo-figure { display: grid; gap: 8px; margin-block: 6px; }
+.inspo-shot { position: relative; overflow: hidden; border-radius: 12px; background: #0b0b0c; box-shadow: var(--card); }
+.inspo-shot::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08); pointer-events: none; }
+.inspo-shot img { display: block; width: 100%; height: auto; }
+.inspo-caption { font-size: 12.5px; line-height: 1.5; color: var(--color-muted); text-wrap: pretty; }
+/* the pushback: what I said on a card, and under it, set off by a green rule, what that changed */
+.inspo-pushback { display: grid; gap: 12px; margin-block: 2px; }
+.inspo-pushback li { padding: 14px 16px; }
+.inspo-said { font-size: 13.5px; line-height: 1.55; text-wrap: pretty; }
+.inspo-changed { margin-top: 8px; padding-left: 12px; border-left: 2px solid #10b981; font-size: 13px; line-height: 1.55; color: var(--color-muted); text-wrap: pretty; }
+.inspo-rules { display: grid; gap: 10px; }
+.inspo-rules li { display: grid; gap: 6px; padding: 14px 16px; }
+.inspo-rules .inspo-n { line-height: 21px; text-transform: uppercase; }
+.inspo-rule { font-weight: 500; }
+.inspo-rules .inspo-p { margin-top: 2px; font-size: 13px; line-height: 1.55; color: var(--color-muted); }
+/* what the story leaves behind, numbered */
+.inspo-keep { display: grid; gap: 10px; counter-reset: keep; }
+.inspo-keep li { display: grid; grid-template-columns: 28px minmax(0, 1fr); color: var(--color-muted); text-wrap: pretty; counter-increment: keep; }
+.inspo-keep li::before { content: counter(keep, decimal-leading-zero); font: 400 11.5px/22px var(--font-mono); color: var(--color-faint); font-variant-numeric: tabular-nums; }
+/* a 14px link on its own gets a taller target than its text */
+.inspo-step .doc-more { display: inline-block; margin-block: -10px; padding-block: 10px; }
+@media (min-width: 600px) {
+  .inspo-part { grid-template-columns: 130px minmax(0, 1fr); align-items: baseline; gap: 12px; }
+  .inspo-rules li { grid-template-columns: 76px minmax(0, 1fr); gap: 0; }
+}
+
+:is(button, a, input, .code-body, .table-scroll):focus-visible { outline: 1.5px solid var(--color-ink); outline-offset: 2px; }
+
+@media (max-width: 640px) {
+  /* a row stacks, text first, the figure under it */
+  .figure-row { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 12px; }
+  /* one option per block: name, type and default on a line, the description under them */
+  .props thead { display: none; }
+  .props tr { display: flex; flex-wrap: wrap; column-gap: 12px; padding: 14px 0; border-top: 1px solid var(--color-line); }
+  .props td { padding: 0; border: 0; }
+  .props td:nth-child(4) { flex-basis: 100%; margin-top: 6px; }
+  .props[data-tokens] td:nth-child(3) { flex-basis: 100%; margin-top: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise > * { animation-name: fade; }
+  .skill-link-hex, .skill-link-edge, .skill-link:hover .skill-link-edge { transition: none; }
+  .icopy-b, .icopy[data-copied] .icopy-a { transform: none; filter: none; }
+  [data-live] > .doc-dot, .doc-strip [data-live] .doc-link[aria-current] > span, .doc-strip [data-live] .doc-link > span { transition: none; }
+  .slide[data-ready] .slide-hl, .slide[data-ready] .slide-hl::before { transition: none; }
+  .rail [data-live] ul::after, .rail [data-live] li::after, .rail [data-live] li:has(> [aria-current])::after,
+  .rail [data-live] .doc-link::before, .rail [data-live] .doc-link[aria-current]::before { transition: none; }
+}
+
+/* /skill, as a catalogue: how to get it and use it, the steps, then a card per idea the skill has drawn. */
+.skill .pill { box-shadow: var(--card); }
+.skill [data-command="usage"] { max-width: 460px; }
+/* a prompt is read, not run: it wraps in its pill when it must, and the copy icon stays by its first line. Only the
+   install command, a shell line, keeps to one line and scrolls. */
+.pill:is([data-command="prompt"], [data-command="follow-up"], [data-command="usage"]) { height: auto; min-height: 48px; padding-block: 6px; align-items: start; }
+.pill:is([data-command="prompt"], [data-command="follow-up"], [data-command="usage"]) .pill-line { padding-block: 8px; line-height: 20px; white-space: normal; overflow: visible; text-wrap: pretty; }
+.howto { display: grid; gap: 10px; counter-reset: step; }
+.howto > li { display: grid; grid-template-columns: 28px minmax(0, 1fr); color: var(--color-muted); text-wrap: pretty; counter-increment: step; }
+.howto > li::before { content: counter(step, decimal-leading-zero); font: 400 11.5px/22px var(--font-mono); color: var(--color-faint); font-variant-numeric: tabular-nums; }
+.howto b { font-weight: 500; color: var(--color-ink); }
+/* An example's card: the prompt in its header, flat, beside a link to the file; what it drew and the turn after it;
+   then the page itself, in a frame under a hairline. */
+.ex { overflow: hidden; margin-top: 4px; }
+.ex-h { display: flex; align-items: flex-start; gap: 4px; padding: 0 6px 0 2px; border-bottom: 1px solid var(--color-line); }
+.ex-h .pill { flex: 1; min-width: 0; background: none; box-shadow: none; font-size: 12.5px; }
+.ex-b { padding: 12px 16px 14px; }
+.ex-name { font: 500 12px/1.5 var(--font-mono); }
+.ex-means { margin-top: 2px; font-size: 13px; line-height: 1.55; color: var(--color-muted); text-wrap: pretty; }
+.ex-fu { margin-top: 10px; padding-left: 12px; border-left: 2px solid var(--color-line); }
+.ex-then { font: 400 10.5px/1.5 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-muted); }
+.ex-fu .pill { margin-left: -16px; background: none; box-shadow: none; font-size: 12.5px; }
+.example-figure { container-type: inline-size; border-top: 1px solid var(--color-line); }
+/* The generated page pads its column by 24px above and below and 16px at the sides, so in the card the plate sits
+   inside that much white. The height is the one the page takes before it is measured: its plate, as wide as the
+   column less its sides up to 640px, a 5:4 stage, and the 148px of controls and lines under it, which wrap onto more
+   lines in a column narrower than 360px. */
+.example-frame { display: block; width: 100%; height: calc(min(100cqw - 32px, 640px) * 0.8 + 148px + 48px + max(0px, 392px - 100cqw) * 0.75); border: 0; }
+/* a figure the skill made, on its tile: only the page's stage, in the figures' own box, so a page that does not load
+   leaves the tile its shape */
+.made-frame { display: block; width: 100%; aspect-ratio: 5 / 4; border: 0; background: transparent; transition: opacity 180ms ease-out; }
+/* until the page in it shows only its stage, the frame shows nothing: its controls never flash in the tile */
+.made-frame:not([data-quiet]) { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .made-frame { transition: none; } }
+
+/* /figures. The shelves are a filter: from 1100px a list by the column's left edge, sticky inside the page's grid so it
+   stops where the column ends and never runs over the footer; below that the docs' strip under the top bar. The list's
+   marks sit on the line the name in the top bar starts on, as the docs rail's do: the rows' inner padding hangs out
+   past that line, and only the plate is drawn there. The shelves' grids take the 760px beside it, starting 260px in,
+   where the docs' column starts. */
+.figs { max-width: 1080px; margin: 0 auto; padding: 56px var(--gutter) 96px; font-size: 14px; line-height: 1.6; }
+.figs > * { min-width: 0; }
+.figs-main { max-width: 760px; margin: 0 auto; }
+.figs header > .col-h1:first-child { margin-top: 0; }
+.shelves { display: none; }
+.shelf-list { position: relative; display: grid; gap: 2px; margin: 0 -10px; isolation: isolate; }
+.shelf { position: relative; display: flex; align-items: center; gap: 10px; width: 100%; height: 34px; padding: 0 10px; border-radius: 9px; font-size: 13px; text-align: left; color: var(--color-muted); transition: color 200ms ease; -webkit-tap-highlight-color: transparent; }
+.shelf svg, .figs-pill svg { flex: none; color: var(--gc); filter: grayscale(1); opacity: 0.45; transition: filter 240ms ease, opacity 240ms ease; }
+/* centring the box sets a mark 1px under its name's capitals, which ride high in the line */
+.shelf svg { translate: 0 -1px; }
+.shelf-n { margin-left: auto; font: 400 11.5px/1 var(--font-mono); color: var(--color-faint); font-variant-numeric: tabular-nums; transition: color 200ms ease; }
+.shelf[aria-pressed="true"] { color: var(--color-ink); }
+.shelf[aria-pressed="true"] .shelf-n { color: var(--color-muted); }
+:is(.shelf, .figs-pill)[aria-pressed="true"] svg { filter: none; opacity: 1; }
+@media (hover: hover) { .shelf:hover { color: var(--color-ink); } .shelf:hover svg { filter: none; opacity: 1; } }
+.shelf-plate { position: absolute; top: 0; left: 0; right: 0; z-index: -1; height: 34px; border-radius: 9px; background: var(--color-stone); opacity: 0; pointer-events: none; }
+.shelf-list[data-on] .shelf-plate { opacity: 1; }
+.shelf-list[data-live] .shelf-plate { transition: transform 320ms var(--ease-out), opacity 200ms ease; }
+.figs-strip { padding-inline: max(calc(var(--gutter) - 10px), calc((100% - 760px) / 2 - 10px)); }
+.figs-strip ul { gap: 4px; }
+.figs-pill { gap: 7px; -webkit-tap-highlight-color: transparent; }
+.shelf, .figs-pill, .fig-name { cursor: pointer; }
+.figs-pill[aria-pressed="true"] { color: var(--color-ink); background: var(--color-stone); }
+/* a change of shelf comes in as the header does, shorter: a rise out of a blur */
+.figs-body[data-enter] > section { animation: fade 420ms var(--ease-out) both, unblur 320ms var(--ease-out) both, rise 260ms var(--ease-out) both; }
+.figs-body[data-enter] > section:nth-child(2) { animation-delay: 40ms; }
+.figs-body[data-enter] > section:nth-child(n + 3) { animation-delay: 80ms; }
+.figs-head { align-items: baseline; gap: 10px; }
+.figs-count { font: 400 12px/1 var(--font-mono); color: var(--color-faint); font-variant-numeric: tabular-nums; }
+@media (min-width: 1100px) {
+  .figs { display: grid; grid-template-columns: 200px minmax(0, 760px); column-gap: 60px; align-items: start; }
+  .figs-main { margin: 0; }
+  .shelves { display: block; position: sticky; top: calc(var(--topbar) + 56px); }
+}
+
+/* a tile: the figure live on its stage, its name under it */
+.fig-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.fig-tile { position: relative; overflow: hidden; border-radius: 14px; background: #fff; box-shadow: inset 0 0 0 1px var(--color-stone), var(--lift); cursor: pointer; transition: box-shadow 180ms ease; }
+@media (hover: hover) { .fig-tile:hover { box-shadow: inset 0 0 0 1px #ebebeb, 0 1px 2px #00000008, 0 12px 28px -18px #0000002b; } }
+.fig-tile[data-picked] { box-shadow: inset 0 0 0 1.5px var(--color-ink), var(--lift); }
+.fig-stage { position: relative; width: 100%; aspect-ratio: 5 / 4; --hairline-plate: #fff; }
+.fig-stage > div { width: 100%; }
+.fig-foot { display: flex; padding: 10px 14px 12px; border-top: 1px solid var(--color-line); }
+.fig-name { position: relative; font-size: 13.5px; font-weight: 500; line-height: 1.4; text-align: left; }
+.fig-name::after { content: ""; position: absolute; inset: -10px -14px -12px; }
+.fig-tile[data-planned] .fig-name { color: var(--color-muted); }
+.fig-ghost { display: block; width: 100%; height: 100%; }
+.fig-ghost path { fill: none; stroke: #c9c9c9; stroke-width: 0.9; stroke-linejoin: round; }
+.fig-ghost .fig-ghost-dash { stroke-dasharray: 3 4; }
+.fig-ghost .fig-ghost-plate { fill: #fff; }
+
+/* The drawer: a card fixed at the right under the top bar, a sheet from below on a phone. Its contents stay while it
+   slides away and go once it is out of sight. */
+.drawer { position: fixed; z-index: 20; inset: auto 0 0 0; max-height: 86vh; overflow-y: auto; overscroll-behavior: contain; padding: 18px var(--gutter) calc(24px + env(safe-area-inset-bottom, 0px)); background: #fff; border-radius: 18px 18px 0 0; box-shadow: var(--lift-lg), 0 0 0 1px var(--color-line); transform: translateY(102%); visibility: hidden; transition: transform 200ms var(--ease-drawer), visibility 0s 200ms; font-size: 14px; line-height: 1.6; }
+/* hidden once it is out, or its shadow would show at the window's edge. It arrives in 320ms and leaves in 200ms: a
+   close answers the hand at once, moving from its first frame, and is gone before the eye has followed it */
+.drawer[data-open] { transform: none; visibility: visible; transition-duration: 320ms, 0s; transition-timing-function: var(--ease-out); transition-delay: 0s; }
+@media (min-width: 900px) { .drawer { inset: calc(var(--topbar) + 14px) 14px 14px auto; width: 360px; max-height: none; border-radius: 16px; padding: 18px 18px 22px; } }
+@media (min-width: 1280px) { .drawer { right: max(14px, calc((100% - 1080px) / 2 - 376px + var(--gutter))); } }
+/* On a desk the card does not slide out: its resting place moves with the window, and past ~1810px a slide of its own
+   width would stop it inside the window and cut it off there. It steps back 24px and fades where it is, the same on any
+   monitor, so the curve's tail passes while it is already clear, and it ends with the tile's ring (180ms). It opens
+   the same way back. The reduced-motion block below still wins: the same fade without the 24px. */
+@media (min-width: 900px) {
+  .drawer { transform: translateX(24px); opacity: 0; transition: transform 180ms var(--ease-out), opacity 150ms ease, visibility 0s 180ms; }
+  .drawer[data-open] { transform: none; opacity: 1; transition: transform 300ms var(--ease-out), opacity 200ms ease, visibility 0s; }
+}
+.detail { display: grid; gap: 16px; }
+.detail-h { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.detail-name { font-size: 16px; font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; }
+.detail-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 4px; font-size: 12.5px; color: var(--color-muted); }
+.detail-shelf { display: inline-flex; align-items: center; gap: 6px; }
+.detail-shelf svg { color: var(--gc); }
+.detail-tag { display: inline-flex; align-items: center; height: 20px; padding: 0 7px; border-radius: 6px; box-shadow: inset 0 0 0 1px #e5e5e5; font: 400 11px/1 var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-faint); }
+.detail-close { position: relative; flex: none; display: grid; place-items: center; width: 30px; height: 30px; margin: -4px -6px 0 0; border-radius: 50%; color: var(--color-muted); transition: color 150ms ease, background-color 150ms ease; }
+.detail-close::after { content: ""; position: absolute; inset: -5px; }
+@media (hover: hover) { .detail-close:hover { color: var(--color-ink); background: var(--color-stone); } }
+.detail-stage { border-radius: 12px; box-shadow: inset 0 0 0 1px var(--color-stone); }
+.detail-sum { font-size: 13.5px; line-height: 1.55; color: var(--color-muted); text-wrap: pretty; }
+.detail-sum b, .detail-ask b { font-weight: 500; color: var(--color-ink); }
+.detail-reads { font-size: 12.5px; color: var(--color-muted); }
+.detail-reads b { font: 400 11.5px/1 var(--font-mono); letter-spacing: 0.02em; color: var(--color-ink); }
+.detail-ask { display: grid; gap: 6px; padding: 14px 16px; border-radius: 12px; background: var(--color-stone); font-size: 13px; color: var(--color-muted); text-wrap: pretty; }
+.detail-ask .doc-more { font-size: 13px; }
+/* a made figure's drawer: its page as /skill shows it, a container so the frame's height is reserved for the drawer's
+   width, then the prompt that drew it */
+.detail-page { container-type: inline-size; margin-inline: -16px; }
+.detail-made { display: grid; gap: 10px; }
+.detail-made .pill { font-size: 12.5px; }
+.detail-made .doc-p { font-size: 13px; color: var(--color-muted); }
+.figs-notice { font-size: 12.5px; color: var(--color-muted); }
+.drawer .code { background: #fff; box-shadow: var(--card); }
+.drawer .code-bar { border-bottom-color: var(--color-line); }
+.drawer .code-body { font-size: 12.5px; }
+.slider { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; font: 400 12px/1 var(--font-mono); color: var(--color-muted); }
+.slider input { width: 100%; height: 20px; background: none; -webkit-appearance: none; appearance: none; cursor: pointer; }
+.slider input::-webkit-slider-runnable-track { height: 1.5px; border-radius: 1px; background: #e5e5e5; }
+.slider input::-webkit-slider-thumb { width: 14px; height: 14px; margin-top: -6.25px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px var(--color-ink); -webkit-appearance: none; }
+.slider input::-moz-range-track { height: 1.5px; background: #e5e5e5; }
+.slider input::-moz-range-thumb { width: 12px; height: 12px; border: 1px solid var(--color-ink); border-radius: 50%; background: #fff; }
+.slider input:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 2px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  .figs-body[data-enter] > section { animation: none; }
+  .fig-tile, .shelf-list[data-live] .shelf-plate { transition: none; }
+  /* the drawer stays where it rests and only fades in and out */
+  .drawer { transform: none; opacity: 0; transition: opacity 150ms ease, visibility 0s 150ms; }
+  .drawer[data-open] { opacity: 1; transition: opacity 150ms ease, visibility 0s; }
+}

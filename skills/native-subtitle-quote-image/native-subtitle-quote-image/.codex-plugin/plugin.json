@@ -1,0 +1,27 @@
+{
+  "name": "native-subtitle-quote-image",
+  "version": "2.10.3",
+  "description": "把本地或在线视频经过选题、精确取帧和紧凑排版，制作成原生或脚本字幕长图，支持 3:4 和原比例布局。",
+  "author": {
+    "name": "程意",
+    "url": "https://github.com/chengyi-ai"
+  },
+  "homepage": "https://github.com/chengyi-ai/native-subtitle-quote-image",
+  "repository": "https://github.com/chengyi-ai/native-subtitle-quote-image",
+  "license": "MIT",
+  "keywords": ["agent-skills", "subtitle", "video", "quote-image", "codex"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "原生字幕拼图",
+    "shortDescription": "精确取帧，生成 3:4 或保留原比例的字幕长图",
+    "longDescription": "从本地视频或用户有权处理的在线视频建立文字时间轴，选择主题并回到真实画面精确取帧。原生字幕模式保留视频像素，脚本字幕模式绘制已审核台词；两者支持固定 3:4 或保留画面原比例的布局，字幕条紧凑相接，并完成逐张质检。",
+    "developerName": "程意",
+    "category": "Creativity",
+    "capabilities": ["Media", "Write"],
+    "websiteURL": "https://github.com/chengyi-ai/native-subtitle-quote-image",
+    "defaultPrompt": [
+      "把这个视频或链接做成紧凑的字幕拼图。",
+      "先检查来源、字幕类型和环境，明确原生或脚本字幕模式，再选题、精确取帧、渲染并逐张质检。"
+    ]
+  }
+}

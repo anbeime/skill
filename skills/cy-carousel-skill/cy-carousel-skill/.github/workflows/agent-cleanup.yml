@@ -1,0 +1,45 @@
+name: Agent Cleanup
+
+# PR 关闭后清理关联 issue 上的过程标签，避免已完成的 issue 还挂着 agent:pr-open 之类的状态。
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: read
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: read
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      PR: ${{ github.event.pull_request.number }}
+      HEAD_REF: ${{ github.event.pull_request.head.ref }}
+      MERGED: ${{ github.event.pull_request.merged }}
+    steps:
+      - run: |
+          # 关联 issue：PR 里 Closes #N 指向的 issue，加上 Agent 分支名 agent/issue-N 里的 N。
+          issues="$(gh pr view "$PR" --json closingIssuesReferences --jq '.closingIssuesReferences[].number' || true)"
+          case "$HEAD_REF" in agent/issue-*) issues="${issues} ${HEAD_REF#agent/issue-}" ;; esac
+          issues="$(printf '%s\n' $issues | grep -E '^[0-9]+$' | sort -u || true)"
+          [ -n "$issues" ] || { echo "没有关联 issue"; exit 0; }
+
+          if [ "$MERGED" = "true" ]; then
+            # 已合并：issue 的过程状态全部结束。
+            stale="agent:implement,agent:in-progress,agent:pr-open,agent:failed,status:awaiting-maintainer"
+          else
+            # 未合并就关闭：PR 不在了，但 issue 可能还要重做，只摘掉 agent:pr-open。
+            stale="agent:pr-open"
+          fi
+          for issue in $issues; do
+            current="$(gh issue view "$issue" --json labels --jq '[.labels[].name] | join(",")' 2>/dev/null)" || continue
+            remove="$(printf '%s\n' "${stale//,/$'\n'}" | grep -Fx -f <(printf '%s\n' "${current//,/$'\n'}") | paste -sd, - || true)"
+            if [ -n "$remove" ]; then
+              gh issue edit "$issue" --remove-label "$remove"
+              echo "#${issue}: 移除 ${remove}"
+            fi
+          done

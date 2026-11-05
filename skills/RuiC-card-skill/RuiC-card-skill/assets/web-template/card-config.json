@@ -1,0 +1,29 @@
+{
+  "title": "你的角色",
+  "subtitle": "角色称号",
+  "technique": "招式名称",
+  "tagline": "招式说明",
+  "edition": "001 / 001",
+  "collection": "个人全息典藏",
+  "description": "关于这张卡的一句话。",
+  "assets": {
+    "model": "./assets/card.glb",
+    "subject": "./assets/subject.png",
+    "background": "./assets/background.png",
+    "text": "./assets/text.png",
+    "lineart": "./assets/lineart.png"
+  },
+  "parameters": {
+    "subjectScale": 1.25,
+    "subjectDepth": 0.28,
+    "backgroundDepth": -0.2,
+    "foil": 0.65
+  },
+  "safeArea": {
+    "scale": 1.12,
+    "offset": [
+      -0.06,
+      -0.085
+    ]
+  }
+}

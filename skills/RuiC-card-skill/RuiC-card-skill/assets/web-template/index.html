@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#fafafa" />
+    <link rel="icon" href="data:," />
+    <title>白相 · White Atelier</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./app.bundle.js"></script>
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="wordmark" href="./" aria-label="白相首页"
+        ><span class="wordmark-cn">白相<span class="brand-dot"></span></span
+        ><span class="wordmark-en">WHITE ATELIER</span></a
+      >
+      <span class="collection-label"
+        >个人典藏 <span>/</span> <span id="edition">STUDY 001</span></span
+      >
+      <div class="header-actions">
+        <button
+          class="icon-button"
+          id="info"
+          aria-label="作品信息"
+          title="作品信息"
+          disabled
+        >
+          <i data-lucide="info"></i>
+        </button>
+        <button
+          class="icon-button save-button"
+          id="save"
+          aria-label="保存卡片图片"
+          title="保存卡片图片"
+          disabled
+        >
+          <i data-lucide="download"></i>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section class="gallery" aria-label="卡片展台">
+        <div
+          class="stage"
+          id="stage"
+          tabindex="0"
+          role="group"
+          aria-label="可旋转的全息卡片"
+        >
+          <div id="loading" class="loading" role="status">
+            <span class="loading-line"></span><span>正在装裱作品</span>
+          </div>
+        </div>
+        <div class="stage-note" aria-hidden="true">
+          <span>ART STUDY</span><span id="view-label">01 / FRONT</span>
+        </div>
+        <div class="parameter-panel" id="parameter-panel">
+          <div class="panel-heading">
+            <span>景深与构图</span>
+          </div>
+          <label class="range-row" for="scale"
+            ><span>画面比例</span><output id="scale-value"></output
+            ><input id="scale" type="range" min="0.95" max="1.35" step="0.01"
+          /></label>
+          <label class="range-row" for="depth"
+            ><span>画面景深</span><output id="depth-value"></output
+            ><input id="depth" type="range" min="-0.45" max="0.45" step="0.01"
+          /></label>
+          <label class="range-row" for="fx-depth"
+            ><span>特效景深</span><output id="fx-depth-value"></output
+            ><input id="fx-depth" type="range" min="-0.3" max="0.9" step="0.01"
+          /></label>
+          <label class="range-row" for="bg-depth"
+            ><span>底纹景深</span><output id="bg-depth-value"></output
+            ><input id="bg-depth" type="range" min="-0.4" max="0.4" step="0.01"
+          /></label>
+        </div>
+      </section>
+      <section class="artwork-bar" aria-label="作品与材质">
+        <div class="artwork-title">
+          <div class="title-line">
+            <h1 id="card-title">BOND</h1>
+            <span id="subtitle">共生</span>
+          </div>
+          <p id="description">光与影，彼此相依。</p>
+        </div>
+        <div class="face-picker" role="group" aria-label="卡片朝向">
+          <button id="front" aria-pressed="true" disabled>正面</button
+          ><button id="back" aria-pressed="false" disabled>背面</button>
+        </div>
+        <div class="finish-cluster">
+          <button
+            id="depth-toggle"
+            class="depth-toggle"
+            type="button"
+            aria-controls="parameter-panel"
+            aria-expanded="true"
+            aria-label="显示或隐藏景深调整"
+            title="显示或隐藏景深调整"
+          >
+            <i data-lucide="sliders-horizontal"></i><span>景深调整</span>
+          </button>
+          <div class="finish-control">
+          <div class="finish-heading">
+            <span>卡面质感</span>
+            <div class="swatches" role="group" aria-label="卡面材质">
+              <button
+                class="swatch pearl"
+                data-finish="pearl"
+                aria-pressed="true"
+                aria-label="珠光"
+                title="珠光"
+                disabled
+              ></button
+              ><button
+                class="swatch silver"
+                data-finish="silver"
+                aria-pressed="false"
+                aria-label="银箔"
+                title="银箔"
+                disabled
+              ></button
+              ><button
+                class="swatch gold"
+                data-finish="gold"
+                aria-pressed="true"
+                aria-label="烫金"
+                title="烫金"
+                disabled
+              ></button
+              ><button
+                class="swatch original"
+                data-finish="original"
+                aria-pressed="false"
+                aria-label="原画"
+                title="原画"
+                disabled
+              ></button>
+            </div>
+            <span id="finish-name">烫金</span>
+          </div>
+          <label class="foil-row" for="foil"
+            ><span>光泽</span
+            ><input
+              id="foil"
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.52"
+              disabled
+            /><output id="foil-value">52%</output></label
+          >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <span>光影之间，自有回响。</span><span>PERSONAL ART COLLECTION</span>
+    </footer>
+    <dialog id="about" aria-labelledby="about-title">
+      <button
+        id="close-about"
+        class="icon-button modal-close"
+        aria-label="关闭作品信息"
+        title="关闭作品信息"
+      >
+        <i data-lucide="x"></i>
+      </button>
+      <p class="dialog-mark">白相</p>
+      <h2 id="about-title">共生 / BOND</h2>
+      <p id="about-description"></p>
+      <dl>
+        <div>
+          <dt>来源</dt>
+          <dd>用户提供的参考作品</dd>
+        </div>
+        <div>
+          <dt>呈现</dt>
+          <dd>个人艺术卡片习作</dd>
+        </div>
+        <div>
+          <dt>编号</dt>
+          <dd id="about-edition">STUDY 001</dd>
+        </div>
+      </dl>
+    </dialog>
+    <div id="notice" role="status" class="notice" hidden></div>
+    <script type="module" src="./app.bundle.js"></script>
+  </body>
+</html>

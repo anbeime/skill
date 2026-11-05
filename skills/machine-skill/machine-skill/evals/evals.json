@@ -1,0 +1,30 @@
+{
+  "skill_name": "machine",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "/machine a turbofan jet engine",
+      "expected_output": "One self contained HTML file (kit inlined, three@0.170.0 from jsDelivr) of a high bypass turbofan at real size (fan about 2.8 m), on a stand, in real materials (titanium fan, painted nacelle, nickel turbine with heat glow). A Brayton cycle solver drives thrust (about 300 to 340 kN at take-off), N1, TGT and fuel flow; the throttle slider spools it up with a lag. Cutaway shows solid section faces, labels carry live values, explode separates nacelle, spools and turbine, x-ray ghosts the nacelle, and 'break it' releases a fan blade with the imbalance load computed from the blade's mass. A film records with scripts/record.mjs and the pink scan is clean."
+    },
+    {
+      "id": 2,
+      "prompt": "/machine a mechanical watch movement",
+      "expected_output": "A watch movement at real size (about 30 mm) with mainspring barrel, gear train, escape wheel, pallet fork, balance wheel and hairspring, ruby jewels, blued screws. The balance oscillates at 4 Hz from a torsional oscillator model; the hands keep real time from the gear ratios; amplitude follows mainspring torque. Cutaway, explode, labels and a computed break (shock or run down) work."
+    },
+    {
+      "id": 3,
+      "prompt": "/machine show how an LVAD heart pump keeps someone alive, for a medical explainer",
+      "expected_output": "A centrifugal LVAD at real size with levitated impeller, inflow cannula and outflow graft. A pump curve scaled with the affinity laws meets a pulsing pressure head, giving flow in L/min that pulses with the heartbeat. Blood streaks run through the cut pump. Break: suction event computed from the ventricle emptying."
+    },
+    {
+      "id": 4,
+      "prompt": "/machine a hydroelectric Francis turbine, and give me a 30 second video for X",
+      "expected_output": "Spiral casing, stay vanes, wicket gates, runner, draft tube and generator at real proportions; power from P = rho g Q H eta with gate opening as the input. A 1080p film recorded with --music, about 28 s, beats captioned, pink scan clean."
+    },
+    {
+      "id": 5,
+      "prompt": "/machine a V8 engine",
+      "expected_output": "A cross plane V8 on an engine stand with block, heads, crank, rods, pistons, cams and valves moving from slider crank kinematics and the firing order, torque and power from a BMEP curve over rpm, and valve float as the computed break above the redline."
+    }
+  ]
+}

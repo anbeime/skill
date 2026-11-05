@@ -43,6 +43,9 @@ logs/
 *.swp
 .cache/
 
+# Local staging (downloaded tarballs, never commit)
+_staging/
+
 # Node modules (if any)
 node_modules/
 

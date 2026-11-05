@@ -1,0 +1,4 @@
+* text=auto eol=lf
+examples/**/*.html linguist-generated=true
+*.webp binary
+*.png binary

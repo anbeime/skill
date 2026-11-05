@@ -1,0 +1,76 @@
+name: Feedback Intake
+
+# ① 收集：社媒 / 社区 / Discussions 的反馈统一登记为 issue，然后交给 Agent 评估。
+on:
+  repository_dispatch:
+    types: [feedback]
+  workflow_dispatch:
+    inputs:
+      title:
+        description: 一句话概括反馈
+        required: true
+      body:
+        description: 反馈原文
+        required: true
+      source:
+        description: 来源
+        type: choice
+        options: [social, community]
+        default: social
+      platform:
+        description: 平台（小红书 / 微博 / X / 微信群 …）
+        required: false
+      url:
+        description: 原帖链接（用于去重）
+        required: false
+      author:
+        description: 反馈者昵称
+        required: false
+  discussion:
+    types: [created]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: feedback-intake
+  cancel-in-progress: false
+
+jobs:
+  intake:
+    # Discussions 只收 Ideas / 反馈类分类，普通问答不自动转 issue。
+    if: >-
+      github.event_name != 'discussion' ||
+      contains(fromJSON('["Ideas", "Feedback", "反馈", "建议"]'), github.event.discussion.category.name)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    outputs:
+      issue_number: ${{ steps.intake.outputs.issue_number }}
+      created: ${{ steps.intake.outputs.created }}
+      source: ${{ steps.intake.outputs.source }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - id: intake
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: python .github/scripts/intake_feedback.py
+
+  triage:
+    needs: intake
+    if: needs.intake.outputs.created == 'true'
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      actions: write
+      id-token: write
+    uses: ./.github/workflows/agent-triage.yml
+    with:
+      issue_number: ${{ fromJSON(needs.intake.outputs.issue_number) }}
+      source: ${{ needs.intake.outputs.source }}
+    secrets: inherit

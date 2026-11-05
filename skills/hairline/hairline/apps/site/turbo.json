@@ -1,0 +1,11 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "inputs": ["$TURBO_DEFAULT$", "../../registry/**", "../../scripts/base-url.mjs"],
+      "outputs": [".next/**", "!.next/cache/**", "public/r/**"],
+      "env": ["HAIRLINE_REGISTRY_URL", "VERCEL_ENV", "VERCEL_URL", "VERCEL_PROJECT_PRODUCTION_URL"]
+    }
+  }
+}

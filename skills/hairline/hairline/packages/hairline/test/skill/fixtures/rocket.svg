@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+  <title>Deploy</title>
+  <g id="rocket">
+    <path id="body" d="M12 2 C9 5 8 9 8 13 L8 17 L16 17 L16 13 C16 9 15 5 12 2 Z"/>
+    <circle id="window" cx="12" cy="8.5" r="1.5" fill="currentColor" stroke="none"/>
+    <path id="fin-left" d="M8 12 L5 15 L5 17 L8 17 Z"/>
+    <path id="fin-right" d="M16 12 L19 15 L19 17 L16 17 Z"/>
+  </g>
+  <g id="flame">
+    <path d="M10 17 C10 20 12 22 12 22 C12 22 14 20 14 17 Z" fill="currentColor" stroke="none"/>
+  </g>
+</svg>

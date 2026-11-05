@@ -1,0 +1,6 @@
+node_modules/
+.next/
+next-env.d.ts
+package-lock.json
+# written by scripts/consumers.mjs from the registry item
+components/

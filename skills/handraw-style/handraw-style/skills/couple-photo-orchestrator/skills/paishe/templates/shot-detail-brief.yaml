@@ -1,0 +1,51 @@
+brief_id: null
+status: pending
+board_id: null
+shot_id: null
+orientation: portrait
+aspect_ratio: '3:4'
+user_detail: null
+source_prompt: null
+reference_image: null
+reference_source: null
+reference_usage: required
+identity_references: []
+identity_reference_source: original_user_upload
+composition_reference_image: null
+composition_reference_role: composition_only
+preservation_contract:
+  required:
+  - participant identities
+  - participant outfits
+  - exact participant count
+  - full location anchor
+  - exact scene node
+  - era/world context
+  - pose/blocking
+  - relative positions
+  - gaze/hand/prop relationships
+  allowed: []
+  prohibited:
+  - genericized location
+  - changed venue
+  - invented address
+  - missing person
+  - duplicated person
+  - swapped outfit
+  - reblocked action
+detail_instruction: null
+render_prompt: null
+output_path: null
+quality_check:
+  status: pending
+  notes: null
+location_context: null
+scene_area: null
+era_or_world_context: null
+
+
+# 2.24.21: Final generation must follow the confirmed Editorial 专业发型师设计 and Editorial 专业化妆师设计.
+
+# 2.24.21: When real-person references exist, preserve participant_id -> identity_references mapping; never identity-swap faces.
+
+identity_reference_hair_policy: "face_only_ignore_original_hair_unless_user_locks_it"

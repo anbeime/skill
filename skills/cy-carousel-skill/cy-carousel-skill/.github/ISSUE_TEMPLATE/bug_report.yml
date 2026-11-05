@@ -1,0 +1,38 @@
+name: 问题反馈 / Bug report
+description: 渲染结果不对、检查误报、命令报错或安装失败
+labels: ["needs-triage", "source:github", "type:bug"]
+body:
+  - type: markdown
+    attributes:
+      value: 提交后 Agent 会自动评估可行性并回复。请尽量提供可复现的信息，渲染问题附上出问题的那一页截图。
+  - type: textarea
+    id: what
+    attributes:
+      label: 发生了什么
+      description: 实际看到的现象（文字出界、压字、缺字、红圈位置不对、check_all 误报……），附截图或报错原文。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望结果
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 用到的函数和参数（`headline` / `body` / `strip` / `scan_strip` …）或命令（`render.py` / `check_all.py` / `package.py`），能贴出相关的 `制作.py` 片段最好。
+      placeholder: S.body('……', 0.06, 0.5, 0.88, font='文楷', typo=True)
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 版本
+      description: 安装目录里 `git rev-parse --short HEAD` 的输出
+  - type: input
+    id: env
+    attributes:
+      label: 运行环境
+      description: 系统（macOS / Linux / Windows）、Python 版本、所用 Agent（Claude Code / Codex / 直接运行脚本）

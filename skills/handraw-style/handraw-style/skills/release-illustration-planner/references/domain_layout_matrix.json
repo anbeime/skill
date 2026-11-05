@@ -1,0 +1,244 @@
+{
+  "version": "1.0.0",
+  "description": "HandRaw 商业领域与 170 种排版图型匹配知识库 (Domain-Layout Matching Matrix)",
+  "domains": [
+    {
+      "domain_id": "tourism_cultural_creative",
+      "name_zh": "城市文旅与在地文创",
+      "name_en": "Tourism & Cultural Creative Merchandise",
+      "keywords": ["文旅", "城市", "景区", "地标", "明信片", "胶片", "地图", "折页", "打卡", "印章"],
+      "recommended_layouts": [
+        {
+          "layout_id": "SC-021",
+          "name_zh": "左右对开 1:1 双重视口",
+          "ratio": "16:9",
+          "rationale": "左侧保留纪实摄影/地标轮廓视口，右侧进行纯艺术风格转译，极具明信片与前后对比的文创收藏价值。"
+        },
+        {
+          "layout_id": "IG-018",
+          "name_zh": "全景手绘导览地图",
+          "ratio": "16:9",
+          "rationale": "开阔全景构图，标注景区路线、地标建筑与打卡点位，完美适配折页地图与文旅导览物料。"
+        },
+        {
+          "layout_id": "SC-001",
+          "name_zh": "经典拍立得白边卡",
+          "ratio": "3:4",
+          "rationale": "复古拍立得白边与手写便签，强化旅行留念、散步回忆与限定纪念胶片属性。"
+        },
+        {
+          "layout_id": "IG-038",
+          "name_zh": "万能竖版模块化信息图",
+          "ratio": "3:4",
+          "rationale": "Citywalk 路线规划、美食地标清单与打卡打钩卡，移动端阅读体验佳。"
+        }
+      ]
+    },
+    {
+      "domain_id": "beverage_cafe_packaging",
+      "name_zh": "青春饮品与咖啡连锁包装",
+      "name_en": "Youth Beverage & Coffee Packaging",
+      "keywords": ["咖啡", "饮品", "杯套", "包装", "茶饮", "奶茶", "外带", "贴纸", "限定"],
+      "recommended_layouts": [
+        {
+          "layout_id": "SC-004",
+          "name_zh": "图文分区卡",
+          "ratio": "16:9",
+          "rationale": "上方主视觉展示艺术画面，下方清晰排版饮品风味说明与品牌信息，完美适配外带杯套展开面与盒装腰封。"
+        },
+        {
+          "layout_id": "SC-008",
+          "name_zh": "居中大卡片",
+          "ratio": "16:9",
+          "rationale": "强视觉中心徽章式构图，四周留白透气，适合杯身主图与限定周边贴纸。"
+        },
+        {
+          "layout_id": "IG-002",
+          "name_zh": "中心主图标注信息图",
+          "ratio": "3:4",
+          "rationale": "中心展示饮品透明杯剖面，引线标注奶盖、茶底、果肉原料风味与产地细节。"
+        },
+        {
+          "layout_id": "EC-003",
+          "name_zh": "咖啡挂耳与茶叶包装物料卡",
+          "ratio": "3:4",
+          "rationale": "针对独立咖啡馆、精品茶饮礼盒的挂耳包、豆袋与周边组合展示。"
+        }
+      ]
+    },
+    {
+      "domain_id": "indie_music_vinyl_posters",
+      "name_zh": "独立音乐与演艺演出周边",
+      "name_en": "Indie Music, Vinyl Sleeves & Concert Visuals",
+      "keywords": ["音乐", "黑胶", "唱片", "演出", "海报", "乐队", "巡演", "票根", "黑胶封套"],
+      "recommended_layouts": [
+        {
+          "layout_id": "SB-001",
+          "name_zh": "经典电影宽银幕分镜",
+          "ratio": "16:9",
+          "rationale": "电影宽银幕横向视野，天然契合单曲封面与音乐微电影氛围，情绪感染力极强。"
+        },
+        {
+          "layout_id": "SC-012",
+          "name_zh": "黑胶唱片视觉卡",
+          "ratio": "16:9",
+          "rationale": "正方形唱片封套与露出半截的同心圆黑胶，强化实体唱片收藏溢价与复古情怀。"
+        },
+        {
+          "layout_id": "SC-006",
+          "name_zh": "大字报式视觉海报卡",
+          "ratio": "3:4",
+          "rationale": "极简醒目的大字演出标题，搭配大面积艺术主视觉，适合音乐节与巡演宣发海报。"
+        },
+        {
+          "layout_id": "SB-017",
+          "name_zh": "胶片式连环格",
+          "ratio": "16:9",
+          "rationale": "带齿孔胶片连环画格，展现演出幕后、排练瞬间与黑胶内页歌词本插图。"
+        }
+      ]
+    },
+    {
+      "domain_id": "lifestyle_stationery_journaling",
+      "name_zh": "情感向文具与手账生活",
+      "name_en": "Emotional Stationery & Journaling Goods",
+      "keywords": ["文具", "手账", "信纸", "便签", "书签", "胶带", "书写", "礼盒"],
+      "recommended_layouts": [
+        {
+          "layout_id": "IG-007",
+          "name_zh": "标签小图卡矩阵",
+          "ratio": "16:9",
+          "rationale": "多元素排布，适合印章图样、和纸胶带循环图案与手账贴纸包全套展示。"
+        },
+        {
+          "layout_id": "SC-015",
+          "name_zh": "手账手撕拼贴卡",
+          "ratio": "3:4",
+          "rationale": "手撕纸边缘、水洗便签与胶带固定效果，营造自然亲切的手作书写仪式感。"
+        },
+        {
+          "layout_id": "SB-003",
+          "name_zh": "大格主图配多小格细节",
+          "ratio": "16:9",
+          "rationale": "主格展现桌面书写场景，小格微距展示墨水、笔尖与复古封蜡细节。"
+        },
+        {
+          "layout_id": "EC-008",
+          "name_zh": "文创礼盒套装陈列卡",
+          "ratio": "3:4",
+          "rationale": "笔记本、钢笔、印章与封套的俯视工整陈列（Knolling Layout）。"
+        }
+      ]
+    },
+    {
+      "domain_id": "app_gaming_emotional_ops",
+      "name_zh": "游戏与数字 APP 情感化运营",
+      "name_en": "Gaming & Mobile App Emotional Marketing",
+      "keywords": ["APP", "游戏", "开屏", "活动页", "限定皮肤", "加载页", "故事卡", "抽卡"],
+      "recommended_layouts": [
+        {
+          "layout_id": "SC-019",
+          "name_zh": "手机端全屏故事卡",
+          "ratio": "3:4",
+          "rationale": "模拟手机全屏视觉流，适合开屏画面（Splash Screen）与社交分享故事海报。"
+        },
+        {
+          "layout_id": "SB-008",
+          "name_zh": "沉浸式全景跨页分镜",
+          "ratio": "16:9",
+          "rationale": "宏大世界观横幅，适合游戏官网 KV、版本更新主图与大地图故事定调。"
+        },
+        {
+          "layout_id": "IP-001",
+          "name_zh": "IP 角色三视图与状态卡",
+          "ratio": "3:4",
+          "rationale": "游戏角色或应用吉祥物的正面、侧面与标志性情绪动作展示。"
+        },
+        {
+          "layout_id": "IG-010",
+          "name_zh": "阶段等级进阶信息图",
+          "ratio": "16:9",
+          "rationale": "用户成就系统、阶梯勋章与通关挑战路线图展示。"
+        }
+      ]
+    },
+    {
+      "domain_id": "home_decor_art_prints",
+      "name_zh": "家居软装与艺术版画",
+      "name_en": "Home Decor, Art Prints & Wall Decor",
+      "keywords": ["版画", "挂画", "家居", "壁纸", "软装", "客厅", "微喷", "艺术装饰"],
+      "recommended_layouts": [
+        {
+          "layout_id": "SC-010",
+          "name_zh": "极简画廊展框卡",
+          "ratio": "16:9",
+          "rationale": "自带精细木框与象牙白卡纸衬底，真实预览版画挂墙效果。"
+        },
+        {
+          "layout_id": "SB-015",
+          "name_zh": "全画幅纯净艺术主图",
+          "ratio": "16:9",
+          "rationale": "保留大面积天空、留白与空气光影，适合大尺寸艺术微喷装饰画。"
+        },
+        {
+          "layout_id": "EC-012",
+          "name_zh": "室内生活场景软装搭配卡",
+          "ratio": "3:4",
+          "rationale": "在沙发、书架与暖光落地灯背景中呈现画作，直观展现生活空间搭配。"
+        }
+      ]
+    },
+    {
+      "domain_id": "art_toys_blindbox_ip",
+      "name_zh": "潮玩手办与盲盒 IP 衍生",
+      "name_en": "Designer Toys, Blind Box & IP Merchandising",
+      "keywords": ["潮玩", "盲盒", "手办", "公仔", "IP", "三视图", "徽章", "周边"],
+      "recommended_layouts": [
+        {
+          "layout_id": "IP-003",
+          "name_zh": "潮玩盲盒全套立绘卡",
+          "ratio": "16:9",
+          "rationale": "整套常规款加隐藏款潮玩的等间距工整排布与身份卡展示。"
+        },
+        {
+          "layout_id": "IP-005",
+          "name_zh": "立体金属徽章与吊卡展示",
+          "ratio": "3:4",
+          "rationale": "烤漆滴胶徽章质感与挂卡包装设计，直观呈现衍生品实物。"
+        },
+        {
+          "layout_id": "SC-014",
+          "name_zh": "潮玩收藏卡与闪卡展示",
+          "ratio": "3:4",
+          "rationale": "带编号、稀有度标识与全息烫金边框的收藏卡设计。"
+        }
+      ]
+    },
+    {
+      "domain_id": "knowledge_editorial_infographics",
+      "name_zh": "深度知识与商业图解专栏",
+      "name_en": "In-Depth Knowledge & Editorial Infographics",
+      "keywords": ["知识", "图解", "SOP", "步骤", "对比", "架构", "流程", "分析"],
+      "recommended_layouts": [
+        {
+          "layout_id": "IG-004",
+          "name_zh": "双列多行对比信息图",
+          "ratio": "16:9",
+          "rationale": "左右双栏清晰对比正反方案、优劣势与执行前后的差异。"
+        },
+        {
+          "layout_id": "IG-008",
+          "name_zh": "多路径流程与决策步骤图",
+          "ratio": "16:9",
+          "rationale": "清晰的节点与箭头走向，拆解工业化 SOP 与复杂决策路径。"
+        },
+        {
+          "layout_id": "IG-001",
+          "name_zh": "金字塔层级权重信息图",
+          "ratio": "3:4",
+          "rationale": "经典自下而上分层，清晰展示底层逻辑、中层架构与顶层愿景。"
+        }
+      ]
+    }
+  ]
+}

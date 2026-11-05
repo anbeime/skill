@@ -1,0 +1,58 @@
+name: Figure or feature request
+description: Ask for a new example figure, a new part or helper in the kit, a new check, or a change to how the skill works.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Anatomy explains an idea as a real machine, instrument, tool or piece of furniture. It is not a chart library, and it does not draw people or exact maps.
+  - type: dropdown
+    id: request
+    attributes:
+      label: What are you asking for?
+      options:
+        - A new example figure
+        - A new part or helper in the kit
+        - A new check or script
+        - A change to the skill's instructions
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: For a figure, name the idea it should explain and its real numbers (sizes, counts, rates, thresholds), or the object you have in mind and what should move. For anything else, describe the change.
+      placeholder: A connection pool of 10 connections; requests borrow one and give it back, and wait in a queue when all 10 are busy.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of figure
+      options:
+        - SVG
+        - SVG + WebGL
+        - 3D (beta)
+        - Not sure
+        - Not about a figure
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it is worth adding
+      description: What it would teach, or what you could not do without it.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What you tried instead
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the existing issues.
+          required: true
+        - label: I read the Limits section of the README.
+          required: true

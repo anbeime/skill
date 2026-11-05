@@ -1,0 +1,84 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  # Writes the GitHub Release.
+  contents: write
+  # npm provenance: the OIDC token npm exchanges for a signed attestation of
+  # where and how the tarball was built.
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    # The protected `release` environment: a required reviewer approves before
+    # any step runs, and NPM_TOKEN exists only here, so a pushed tag alone
+    # cannot reach the registry.
+    environment: release
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      # registry-url writes an .npmrc wired to NODE_AUTH_TOKEN, so the gate's
+      # `npm whoami` and the publish below both authenticate with NPM_TOKEN.
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify the tag matches the manifest
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          PKG="$(node -p "require('./packages/hairline/package.json').version")"
+          echo "tag=$TAG  package=$PKG"
+          if [ "$TAG" != "$PKG" ]; then
+            echo "::error::Tag v$TAG does not match packages/hairline/package.json ($PKG). Refusing to publish."
+            exit 1
+          fi
+          echo "VERSION=$TAG" >> "$GITHUB_ENV"
+          # A version with a pre-release suffix (0.1.0-rc.0) goes to the `next`
+          # dist-tag, so `npm install @lucasmarkes/hairline` never picks it up.
+          case "$TAG" in
+            *-*) echo "DIST_TAG=next" >> "$GITHUB_ENV" ;;
+            *)   echo "DIST_TAG=latest" >> "$GITHUB_ENV" ;;
+          esac
+
+      # Fails here, before anything is published, if the changelog has no
+      # section for this version.
+      - name: Release notes from the changelog
+        run: node scripts/changelog.mjs "$VERSION" > "$RUNNER_TEMP/notes.md"
+
+      # Everything: build, typecheck, every test layer, publint, attw, size
+      # budgets, the tarball, both consumer fixtures, npm auth and the registry.
+      # It packs but never publishes.
+      - name: Release gate (full)
+        run: pnpm run release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # pnpm packs (it runs prepack, which copies the README and LICENSE in);
+      # npm publishes that exact tarball, because npm signs provenance.
+      - name: Publish with provenance
+        run: |
+          STAGING="$(mktemp -d)"
+          pnpm -C packages/hairline pack --pack-destination "$STAGING"
+          npm publish "$STAGING/lucasmarkes-hairline-${VERSION}.tgz" --provenance --access public --tag "$DIST_TAG"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: GitHub Release
+        run: |
+          if [ "$DIST_TAG" = "next" ]; then PRE="--prerelease"; else PRE=""; fi
+          gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes-file "$RUNNER_TEMP/notes.md" $PRE
+        env:
+          GH_TOKEN: ${{ github.token }}

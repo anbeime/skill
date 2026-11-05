@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="32">
+  <defs>
+    <clipPath id="clip"><rect x="0" y="0" width="48" height="32"/></clipPath>
+    <symbol id="dot"><circle cx="2" cy="2" r="2"/></symbol>
+  </defs>
+  <rect x="4" y="4" width="40" height="24" rx="4" fill="none" stroke="#000"/>
+  <use href="#dot" x="8" y="8"/>
+  <use xlink:href="icons.svg#other" x="20" y="8"/>
+  <text x="24" y="20">Hi</text>
+  <image href="photo.png" x="30" y="10" width="10" height="10"/>
+</svg>

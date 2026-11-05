@@ -1,0 +1,38 @@
+name: 问题反馈 / Bug report
+description: 渲染结果不对、命令报错或安装失败
+labels: ["needs-triage", "source:github", "type:bug"]
+body:
+  - type: markdown
+    attributes:
+      value: 提交后 Agent 会自动评估可行性并回复。请尽量提供可复现的信息。
+  - type: textarea
+    id: what
+    attributes:
+      label: 发生了什么
+      description: 实际看到的现象，附截图或报错原文。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望结果
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 运行的命令与参数（`render` / `render-script` / `sample` 等），视频来源类型（本地 / YouTube / 其他）。
+      placeholder: python scripts/native_subtitle_stitch.py render --aspect 3:4 ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Skill 版本
+      description: "`skills/native-subtitle-quote-image/VERSION` 的内容"
+  - type: input
+    id: env
+    attributes:
+      label: 运行环境
+      description: 系统、Python 版本、所用 Agent（Codex / Claude Code / 直接运行脚本）

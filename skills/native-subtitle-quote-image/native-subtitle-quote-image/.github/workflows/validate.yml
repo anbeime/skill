@@ -1,0 +1,46 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # Agent 用默认 token 建的 PR 不会触发 pull_request，由 Agent Implement 手动补触发。
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.13"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r skills/native-subtitle-quote-image/requirements.txt
+
+      - name: Validate package
+        run: python scripts/validate_repo.py
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Check CLI
+        run: |
+          python skills/native-subtitle-quote-image/scripts/check_environment.py
+          python skills/native-subtitle-quote-image/scripts/native_subtitle_stitch.py --help
+          python skills/native-subtitle-quote-image/scripts/native_subtitle_stitch.py sample --help
+          python skills/native-subtitle-quote-image/scripts/native_subtitle_stitch.py render-script --help

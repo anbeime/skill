@@ -391,6 +391,35 @@ MIT License
 **维护者**: anbeime  
 **联系方式**: GitHub Issues
 
+## 🆕 本期新收录 Skills（手动维护 · 腾讯元宝精选）
+
+> ⚠️ 本板块为手动维护，位于 AUTO-SYNC 标记段之外，机器人每日重写不会覆盖。
+> 数据来源：腾讯元宝《Skill视频仓库地址与特色解析》。14 个技能已 vendoring 至 `skills/`，并在 `data/local_skills.json` 的 `skill_details` 中登记中英文介绍与代码生成的动态示例图；前端技能页（skills.html / skills-en.html）支持中英文切换与动态预览。
+
+### 视频创作
+- **native-subtitle-quote-image** · 字幕金句长图 — 保留视频内嵌字幕、精确取帧拼成 3:4 社交长图 · [GitHub](https://github.com/chengyi-ai/native-subtitle-quote-image)
+- **ancient-rap-battle** · 古人说唱 Battle — 可复跑的历史人物说唱对决视频流水线（Suno+Midjourney+MiniMax）· [GitHub](https://github.com/10291124jcjc-dotcom/ancient-rap-battle)
+- **lemo-opuscar** · 用代码拍电影的 Opus 风格库 — 66 套现成风格，Canvas/WebGL 逐帧渲染，不用视频模型 · [GitHub](https://github.com/lemomo-ai/lemo-opuscar)
+- **anything2explainer** · 任意主题一条出讲解视频 — 黑幕运动图形讲解视频，每帧代码绘制 · [GitHub](https://github.com/Vincentwei1021/anything2explainer)
+
+### 内容创作与发布
+- **cy-carousel-skill** · 图文轮播流水线 — 选题→事实核查→手排→渲染→质检→打包的封面+10页竖版轮播 · [GitHub](https://github.com/chengyi-ai/cy-carousel-skill)
+
+### 智能体协作
+- **awesome-jev** · Jev 极廉价批量素材筛选 — 只做选择题的分类模型，先判再读，概率近 0.5 留人工复核 · [GitHub](https://github.com/BeatAPI/awesome-jev)
+
+### AI 创意与可视化（新增分类）
+- **hairline** · 跟随鼠标的交互线框图 — 等轴测细线图形库+两个 Agent Skill，单文件无依赖 HTML · [GitHub](https://github.com/lucasmarkes/hairline)
+- **anatomy** · 把抽象概念造成一台机器 — 概念物理化后用等轴测相机造可交互 SVG/HTML/React · [GitHub](https://github.com/wheresryan22/anatomy)
+- **machine-skill** · 让机器真跑起来的 3D 演示 — three.js+内置物理求解器实时计算推力/转速/温度/流量 · [GitHub](https://github.com/AirsupHQ/machine-skill)
+- **RuiC-card-skill** · 一句话生成 3D 闪卡 — 四层图+Blender 景深+Three.js 单文件网页 · [GitHub](https://github.com/HRuiCcc/RuiC-card-skill)
+- **handraw-style** · 261 种手绘风格编号化 — 编号管画风、主题管内容，中英双语生图 Prompt · [GitHub](https://github.com/yang0/handraw-style)
+- **threejs-scroll-worlds** · 持久 Three.js 滚动世界 — 归一化可逆滚动状态，相机/光照随章节演化 · [GitHub](https://github.com/getedgehq/skills/tree/main/threejs-scroll-worlds)
+- **scrollytelling-web** · 滚动即时间线控制器 — 固定场景+scrub 时间线+渐进式 3D 揭示 · [GitHub](https://github.com/marcmarti9/agentit/tree/main/skills/scrollytelling-web)
+- **jack-scroll-3d-sites** · 滚动 scrub 帧序列 3D 站 — Apple 风产品展示，滚动驱动逐帧播放 · [GitHub](https://github.com/radustefandumitru/agenticsupercharge/tree/main/skills/jack-scroll-3d-sites)
+
+> 提示：3D 滚动网页在元宝链接中标注了多个候选仓库，以上 3 个已据原文一并收录。
+
 <!-- AUTO-SYNC-SKILLS-START -->
 
 ## 📦 社区技能仓库聚合

@@ -1,0 +1,16 @@
+node_modules/
+.DS_Store
+*.log
+npm-debug.log*
+.env
+.env.*
+shots/
+audit.txt
+/capture.png
+.scratch/
+tmp/
+examples/*/*-a4.html
+examples/*/*-a4.png
+examples/*/*-letter.html
+examples/*/*-letter.png
+examples/*/*-letter.pdf

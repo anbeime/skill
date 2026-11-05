@@ -1,0 +1,4 @@
+interface:
+  display_name: "Layout Library Importer"
+  short_description: "Add layout assets to the local handdraw gallery"
+  default_prompt: "Use $layout-library-importer to add this layout to the local gallery."

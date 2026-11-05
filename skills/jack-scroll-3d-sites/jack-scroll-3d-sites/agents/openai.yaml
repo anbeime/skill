@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jack Scroll 3D Sites"
+  short_description: "Build scroll-driven 3D/video websites"
+  default_prompt: "Use $jack-scroll-3d-sites to build a scroll-driven frame-sequence or video-scrub website."

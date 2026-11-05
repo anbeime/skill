@@ -319,6 +319,56 @@
 
             .header h1 { font-size: 24px; }
         }
+        /* ===== 动态示例图（代码生成） ===== */
+        .lang-toggle {
+            float: right;
+            padding: 9px 18px;
+            border: 2px solid #667eea;
+            border-radius: 20px;
+            background: white;
+            color: #667eea;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .lang-toggle:hover { background: #667eea; color: white; }
+        .skill-demo {
+            position: relative;
+            width: 100%;
+            height: 160px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 14px;
+            background: #0f1226;
+        }
+        .skill-demo svg { width: 100%; height: 100%; display: block; }
+        .skill-tag.tag-sub { background: #eef2ff; color: #667eea; }
+        .dm-spin { transform-box: fill-box; transform-origin: center; animation: dmSpin 7s linear infinite; }
+        .dm-gear { transform-box: fill-box; transform-origin: center; animation: dmSpin 9s linear infinite; }
+        .dm-float { animation: dmFloat 3.2s ease-in-out infinite; }
+        .dm-draw { stroke-dasharray: 700; stroke-dashoffset: 700; animation: dmDraw 3s ease-in-out infinite; }
+        .dm-draw2 { stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: dmDraw2 3.5s ease-in-out infinite; }
+        .dm-pulse { animation: dmPulse 1.8s ease-in-out infinite; }
+        .dm-glow { animation: dmGlow 2.4s ease-in-out infinite; }
+        .dm-slide { animation: dmSlide 4s ease-in-out infinite; }
+        .dm-sheen { animation: dmSheen 2.6s ease-in-out infinite; }
+        .dm-bar { transform-box: fill-box; transform-origin: bottom; animation: dmBar 1.8s ease-in-out infinite alternate; }
+        .dm-prog { transform-box: fill-box; transform-origin: left; animation: dmProg 3s ease-in-out infinite; }
+        .dm-scrub { transform-box: fill-box; animation: dmScrub 3.5s ease-in-out infinite alternate; }
+        .dm-rotY { transform-box: fill-box; transform-origin: center; animation: dmRotY 4s ease-in-out infinite; }
+        @keyframes dmSpin { to { transform: rotate(360deg); } }
+        @keyframes dmFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+        @keyframes dmDraw { 0%{stroke-dashoffset:700} 65%,100%{stroke-dashoffset:0} }
+        @keyframes dmDraw2 { 0%{stroke-dashoffset:1400} 65%,100%{stroke-dashoffset:0} }
+        @keyframes dmPulse { 0%,100%{opacity:.35} 50%{opacity:1} }
+        @keyframes dmGlow { 0%,100%{filter:drop-shadow(0 0 2px #6cf)} 50%{filter:drop-shadow(0 0 10px #6cf)} }
+        @keyframes dmSlide { 0%{transform:translateX(-26px);opacity:0} 22%,78%{transform:translateX(0);opacity:1} 100%{transform:translateX(26px);opacity:0} }
+        @keyframes dmSheen { 0%{transform:translateX(-160%)} 100%{transform:translateX(160%)} }
+        @keyframes dmBar { from{transform:scaleY(.3)} to{transform:scaleY(1)} }
+        @keyframes dmProg { 0%{transform:scaleX(0)} 70%,100%{transform:scaleX(1)} }
+        @keyframes dmScrub { 0%{transform:translateX(0)} 100%{transform:translateX(260px)} }
+        @keyframes dmRotY { 0%,100%{transform:scaleX(1)} 50%{transform:scaleX(-1)} }
     </style>
 </head>
 <body>
@@ -360,6 +410,7 @@
             <div class="search-info" id="searchInfo">
                 加载中...
             </div>
+            <button class="lang-toggle" id="langToggle" onclick="toggleLang()">🌐 EN</button>
             <div class="filter-tabs" id="filterTabs">
                 <div class="filter-tab active" data-filter="all">全部</div>
                 <div class="filter-tab" data-filter="trending">🔥 本周热门</div>
@@ -369,6 +420,7 @@
                 <div class="filter-tab" data-filter="category:Image Generation">🎨 图像生成</div>
                 <div class="filter-tab" data-filter="category:3D / Three.js">🧊 3D 模型</div>
                 <div class="filter-tab" data-filter="category:Web Design">🎨 Web 设计</div>
+                <div class="filter-tab" data-filter="category:AI 创意与可视化">🎨 创意与可视化</div>
             </div>
         </div>
 
@@ -413,6 +465,32 @@
     let allOfficialSkills = [];
     let allLocalSkills = [];
     let currentFilter = 'all';
+    let currentLang = 'cn';
+
+    // ====== 动态示例图（代码生成的 SVG 预览，对应各技能风格） ======
+    const DEMOS = {
+        subtitle: () => '<svg viewBox="0 0 320 160" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="gsub" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b2a4a"/><stop offset="1" stop-color="#3a1b4a"/></linearGradient></defs><rect width="320" height="160" fill="url(#gsub)"/><circle cx="160" cy="58" r="20" fill="rgba(255,255,255,.14)"/><polygon points="153,48 153,68 173,58" fill="#fff"/><rect class="dm-slide" x="16" y="118" width="288" height="28" rx="6" fill="rgba(0,0,0,.55)"/><text class="dm-slide" x="160" y="137" fill="#fff" font-size="13" text-anchor="middle" font-family="sans-serif">“这句话，值得被记住。”</text></svg>',
+        carousel: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><clipPath id="ccar"><rect x="50" y="18" width="220" height="124" rx="12"/></clipPath><g clip-path="url(#ccar)"><g class="dm-slide"><rect x="50" y="18" width="66" height="124" rx="8" fill="#ec4899"/><rect x="126" y="18" width="66" height="124" rx="8" fill="#667eea"/><rect x="202" y="18" width="66" height="124" rx="8" fill="#f59e0b"/></g></g><rect x="50" y="18" width="220" height="124" rx="12" fill="none" stroke="rgba(255,255,255,.3)"/></svg>',
+        wireframe: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><g fill="none" stroke="#7fd1ff" stroke-width="2" stroke-linejoin="round" class="dm-draw"><polygon points="160,38 212,66 212,114 160,142 108,114 108,66"/><line x1="160" y1="38" x2="160" y2="90"/><line x1="108" y1="66" x2="160" y2="90"/><line x1="212" y1="66" x2="160" y2="90"/><line x1="160" y1="90" x2="160" y2="142"/><line x1="108" y1="114" x2="160" y2="90"/><line x1="212" y1="114" x2="160" y2="90"/></g></svg>',
+        anatomy: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><g class="dm-float"><g class="dm-gear" style="transform-origin:120px 80px"><circle cx="120" cy="80" r="26" fill="none" stroke="#ffd166" stroke-width="3"/><g stroke="#ffd166" stroke-width="3"><line x1="120" y1="46" x2="120" y2="34"/><line x1="120" y1="114" x2="120" y2="126"/><line x1="86" y1="80" x2="74" y2="80"/><line x1="154" y1="80" x2="166" y2="80"/><line x1="96" y1="56" x2="88" y2="48"/><line x1="144" y1="104" x2="152" y2="112"/><line x1="144" y1="56" x2="152" y2="48"/><line x1="96" y1="104" x2="88" y2="112"/></g></g></g><g class="dm-float" style="animation-delay:.6s"><rect x="186" y="60" width="40" height="40" rx="6" fill="none" stroke="#06d6a0" stroke-width="3"/><line x1="206" y1="60" x2="206" y2="40" stroke="#06d6a0" stroke-width="3"/><circle cx="206" cy="38" r="4" fill="#06d6a0"/></g><line x1="146" y1="80" x2="186" y2="80" stroke="#888" stroke-dasharray="4"/></svg>',
+        turbine: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><g class="dm-spin dm-glow" style="transform-origin:160px 80px"><circle cx="160" cy="80" r="48" fill="none" stroke="#6cf" stroke-width="2"/><g fill="#6cf"><path d="M160 80 L160 36 L174 44 Z" transform="rotate(0 160 80)"/><path d="M160 80 L160 36 L174 44 Z" transform="rotate(60 160 80)"/><path d="M160 80 L160 36 L174 44 Z" transform="rotate(120 160 80)"/><path d="M160 80 L160 36 L174 44 Z" transform="rotate(180 160 80)"/><path d="M160 80 L160 36 L174 44 Z" transform="rotate(240 160 80)"/><path d="M160 80 L160 36 L174 44 Z" transform="rotate(300 160 80)"/></g></g><circle cx="160" cy="80" r="12" fill="#fff"/></svg>',
+        rap: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#1a1030"/><g fill="#ff5c8a"><rect x="64" y="52" width="14" height="46" rx="7"/><rect x="64" y="94" width="14" height="7" rx="3"/></g><g fill="#5cc8ff"><rect x="242" y="52" width="14" height="46" rx="7"/><rect x="242" y="94" width="14" height="7" rx="3"/></g><g class="dm-pulse" stroke="#fff" stroke-width="2" fill="none"><path d="M88 66 q14 -18 28 0 q14 18 28 0"/><path d="M204 66 q14 -18 28 0 q14 18 28 0"/></g><text x="160" y="142" fill="#fff" font-size="12" text-anchor="middle" font-family="sans-serif" letter-spacing="2">RAP BATTLE</text></svg>',
+        ardecogold: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#10160c"/><g class="dm-spin" style="transform-origin:160px 80px" stroke="#e9c46a" stroke-width="2"><g>' + Array.from({length:12}).map((_,i)=>'<line x1="160" y1="80" x2="160" y2="20" transform="rotate('+(i*30)+' 160 80)"/>').join('') + '</g></g><circle cx="160" cy="80" r="30" fill="none" stroke="#e9c46a" stroke-width="3"/><circle cx="160" cy="80" r="6" fill="#e9c46a"/></svg>',
+        jev: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><g class="dm-float"><rect x="34" y="26" width="30" height="38" rx="3" fill="#667eea"/><rect x="74" y="26" width="30" height="38" rx="3" fill="#ec4899"/><rect x="114" y="26" width="30" height="38" rx="3" fill="#06d6a0"/></g><rect x="30" y="108" width="100" height="32" rx="6" fill="none" stroke="#888"/><rect x="150" y="108" width="100" height="32" rx="6" fill="none" stroke="#888"/><g class="dm-bar" fill="#f59e0b"><rect x="44" y="114" width="10" height="20"/><rect x="64" y="114" width="10" height="20"/><rect x="164" y="114" width="10" height="20"/></g><text x="160" y="152" fill="#aaa" font-size="11" text-anchor="middle" font-family="sans-serif">judge before read</text></svg>',
+        card3d: () => '<svg viewBox="0 0 320 160"><defs><linearGradient id="gc3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a07cff"/><stop offset=".5" stop-color="#6cf"/><stop offset="1" stop-color="#f59e0b"/></linearGradient></defs><rect width="320" height="160" fill="#0f1226"/><g class="dm-float"><rect x="118" y="34" width="84" height="100" rx="10" fill="#3a2d6b" stroke="#a07cff" stroke-width="2"/><rect x="132" y="48" width="56" height="56" rx="6" fill="url(#gc3)"/><rect x="132" y="112" width="56" height="8" rx="4" fill="#a07cff" opacity=".6"/><g class="dm-sheen"><rect x="118" y="34" width="26" height="100" fill="rgba(255,255,255,.22)"/></g></g></svg>',
+        handraw: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#fbf6ec"/><path class="dm-draw2" d="M30 110 C 70 50, 120 40, 150 86 S 250 140, 290 64" fill="none" stroke="#2b2b2b" stroke-width="3.5" stroke-linecap="round"/></svg>',
+        explainer: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#000"/><g class="dm-slide" fill="#fff"><rect x="34" y="36" width="130" height="14" rx="3"/><rect x="34" y="60" width="210" height="14" rx="3" opacity=".6"/><rect x="34" y="84" width="160" height="14" rx="3" opacity=".4"/></g><rect x="34" y="128" width="252" height="6" rx="3" fill="#333"/><rect class="dm-prog" x="34" y="128" width="252" height="6" rx="3" fill="#06d6a0"/></svg>',
+        scroll3d: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><g class="dm-float" opacity=".5"><rect x="28" y="62" width="60" height="58" rx="8" fill="#1b2a4a"/></g><g class="dm-float" style="animation-delay:.4s"><rect x="126" y="44" width="72" height="84" rx="8" fill="#26416e"/></g><g class="dm-float" style="animation-delay:.8s"><rect x="226" y="34" width="62" height="94" rx="8" fill="#3a5c99"/></g><circle cx="160" cy="80" r="6" fill="#6cf" class="dm-pulse"/></svg>',
+        scrolly: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><rect x="30" y="82" width="260" height="6" rx="3" fill="#333"/><circle class="dm-scrub" cx="30" cy="85" r="9" fill="#f59e0b"/><g class="dm-float"><rect x="136" y="38" width="48" height="48" rx="8" fill="none" stroke="#06d6a0" stroke-width="3"/><line x1="160" y1="38" x2="160" y2="22" stroke="#06d6a0" stroke-width="3"/></g></svg>',
+        jack: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><g class="dm-rotY" style="transform-origin:160px 80px"><rect x="118" y="32" width="84" height="104" rx="12" fill="#16203a" stroke="#6cf" stroke-width="2"/><rect x="126" y="42" width="68" height="78" rx="4" fill="#06d6a0" opacity=".75"/><rect x="146" y="124" width="28" height="6" rx="3" fill="#6cf"/></g></svg>'
+    };
+
+    function toggleLang() {
+        currentLang = (currentLang === 'cn') ? 'en' : 'cn';
+        const btn = document.getElementById('langToggle');
+        if (btn) btn.textContent = (currentLang === 'cn') ? '🌐 EN' : '🌐 中文';
+        render();
+    }
 
     // ====== 加载数据 ======
     async function loadAll() {
@@ -434,27 +512,48 @@
 
     function buildLocalSkillsList(localData) {
         if (!localData || !localData.categories) return [];
-        // Skills we vendor into the repo as <name>.skill/ dirs, or external
-        // collections, need a correct link (not the D:\tool\skills convention).
         const COLLECTION_LINKS = {
             'archify': 'https://github.com/tt-a1i/archify',
             'diagram-design': 'https://github.com/cathrynlavery/diagram-design',
-            'mattpocock-skills': 'https://github.com/mattpocock/skills'
+            'mattpocock-skills': 'https://github.com/mattpocock/skills',
+            'native-subtitle-quote-image': 'https://github.com/chengyi-ai/native-subtitle-quote-image',
+            'cy-carousel-skill': 'https://github.com/chengyi-ai/cy-carousel-skill',
+            'hairline': 'https://github.com/lucasmarkes/hairline',
+            'anatomy': 'https://github.com/wheresryan22/anatomy',
+            'machine-skill': 'https://github.com/AirsupHQ/machine-skill',
+            'ancient-rap-battle': 'https://github.com/10291124jcjc-dotcom/ancient-rap-battle',
+            'lemo-opuscar': 'https://github.com/lemomo-ai/lemo-opuscar',
+            'awesome-jev': 'https://github.com/BeatAPI/awesome-jev',
+            'RuiC-card-skill': 'https://github.com/HRuiCcc/RuiC-card-skill',
+            'handraw-style': 'https://github.com/yang0/handraw-style',
+            'anything2explainer': 'https://github.com/Vincentwei1021/anything2explainer',
+            'threejs-scroll-worlds': 'https://github.com/getedgehq/skills/tree/main/threejs-scroll-worlds',
+            'scrollytelling-web': 'https://github.com/marcmarti9/agentit/tree/main/skills/scrollytelling-web',
+            'jack-scroll-3d-sites': 'https://github.com/radustefandumitru/agenticsupercharge/tree/main/skills/jack-scroll-3d-sites'
         };
+        const det = localData.skill_details || {};
         const items = [];
         for (const [category, info] of Object.entries(localData.categories)) {
             for (const skillName of (info.skills || [])) {
-                const link = COLLECTION_LINKS[skillName]
+                const d = det[skillName] || {};
+                const link = d.repo || COLLECTION_LINKS[skillName]
                     || ('https://github.com/anbeime/skill/tree/main/skills/' + skillName);
                 const desc = category === '收录开源技能'
                     ? '已收录到仓库的开源技能 · 自动同步上游更新'
-                    : (category + ' 分类下的本地技能 · 位置 ' + (localData.metadata?.location || 'D:\\\\tool\\\\skills'));
+                    : (category + ' 分类下的本地技能');
                 items.push({
                     name: skillName,
-                    description: desc,
+                    title_cn: d.title_cn || skillName,
+                    title_en: d.title_en || skillName,
+                    description_cn: d.description_cn || desc,
+                    description_en: d.description_en || desc,
+                    demo: d.demo || null,
+                    tags: d.tags || [],
+                    author: d.author || '',
+                    license: d.license || '',
                     link: link,
                     category: category,
-                    source: 'anbeime 本地技能库',
+                    source: d.author ? ('by ' + d.author) : 'anbeime 本地技能库',
                     crawled_at: localData.metadata?.last_updated || ''
                 });
             }
@@ -528,19 +627,32 @@
         section.style.display = '';
         countEl.textContent = '(' + items.length + ' 个 · ' + hintText + ')';
 
+        const L = currentLang;
         let html = '';
         for (const s of items) {
+            const title = (L === 'en' ? s.title_en : s.title_cn) || s.name;
+            const desc = (L === 'en' ? s.description_en : s.description_cn) || s.description || '(无描述)';
             html += '<div class="skill-card ' + type + '" data-type="' + type + '" data-name="' + escapeAttr(s.name) + '">';
+            if (s.demo && DEMOS[s.demo]) {
+                html += '<div class="skill-demo">' + DEMOS[s.demo]() + '</div>';
+            }
             html += '<div class="skill-header">';
-            html += '<div class="skill-name">' + escapeHtml(s.name) + '</div>';
+            html += '<div class="skill-name">' + escapeHtml(title) + '</div>';
             html += '<span class="skill-badge badge-' + type + '">' + labelOf(type) + '</span>';
             html += '</div>';
-            html += '<div class="skill-description">' + escapeHtml(s.description || '(无描述)') + '</div>';
+            html += '<div class="skill-description">' + escapeHtml(desc) + '</div>';
             html += '<div class="skill-meta">';
             if (s.category) html += '<span class="skill-tag">' + escapeHtml(s.category) + '</span>';
+            (s.tags || []).forEach(function (t) {
+                html += '<span class="skill-tag tag-sub">' + escapeHtml(t) + '</span>';
+            });
             if (s.link) html += '<a href="' + escapeAttr(s.link) + '" target="_blank" rel="noopener" class="skill-link">查看 →</a>';
             html += '</div>';
-            if (s.source) html += '<div class="source-line">来源：' + escapeHtml(s.source) + '</div>';
+            if (s.license) {
+                html += '<div class="source-line">许可：' + escapeHtml(s.license) + (s.author ? ' · ' + escapeHtml(s.author) : '') + '</div>';
+            } else if (s.source) {
+                html += '<div class="source-line">来源：' + escapeHtml(s.source) + '</div>';
+            }
             html += '</div>';
         }
         grid.innerHTML = html;

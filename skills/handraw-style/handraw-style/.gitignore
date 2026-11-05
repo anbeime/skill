@@ -1,0 +1,100 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Temporary and preview files
+_preview-chrome/
+temp/
+downloads/
+output/
+outputs/
+skills/handdraw-style-prompter/layouts/
+dist/
+*.zip
+*.tmp
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Local workspace agent configuration
+.agents/
+.codex/
+.env
+.env.*
+!.env.example
+credentials.json
+volc-tts.json
+cookies.json
+id_rsa
+id_ed25519
+*.pem
+.workbuddy/
+.obsidian/
+download.txt
+
+# Custom library local directory configuration & cache
+*custom_library_config.json
+images/custom/
+*custom_assets.js
+*custom_assets.json
+
+# Video and tutorial production files
+videos/
+business/
+*.mp4
+*.mov
+*.webm
+*.m4v
+*.mkv
+*.avi
+*.wmv
+*.mpg
+*.mpeg
+*.mts
+*.m2ts
+
+# Image backups
+images/individual_backup/
+
+# couple-photo-orchestrator local project data & caches
+skills/couple-photo-orchestrator/projects/
+skills/couple-photo-orchestrator/references/
+skills/couple-photo-orchestrator/images/
+.pytest_cache/
+node_modules/
+tmp/
+client/cache/
+client/history/
+skills/community-share/client/
+community_auth.json
+*.auth.json
+build/
+dist/
+release/
+
+# Unfinished desktop workbench stays local until explicitly approved for release
+/client/
+/client2/
+/scripts/build_installer.py
+/启动客户端.bat
+
+# Private personal-library gallery mirror; never deploy
+/.handraw-personal/
+
+image_gen_config.json
+*config.local*
+# Private workspace experiments, motion graphics, and ad-hoc task scripts
+/work/
+/claude-motion/
+/plan-gallery-feishu.md
+/scripts/generate_sc025_suspense.py
+logs/
+*.log

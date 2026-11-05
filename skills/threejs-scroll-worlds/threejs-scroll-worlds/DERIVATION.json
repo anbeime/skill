@@ -1,0 +1,300 @@
+{
+  "slug": "threejs-scroll-worlds",
+  "source_paths": [
+    "https://github.com/MengTo/skills/tree/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds"
+  ],
+  "note": "Meng To's skill `build-threejs-scroll-worlds` from github.com/MengTo/skills, republished on Edge with credit to him. Meng To wrote every instruction, reference and demo in this folder; GetEdge wrote none of it. Not affiliated with or endorsed by Meng To.",
+  "license": {
+    "spdx": "MIT",
+    "licensed_work": "the whole of this bundle, as published by Meng To",
+    "copyright_holder": "Meng To",
+    "license_file": "LICENSE",
+    "license_file_sha256": "b2a071ba22fefd803f4e9d1f5c777dd79c62d191695586a1a73fd4d0ebd051c6",
+    "applied": null,
+    "note": "Meng To licenses this work under MIT (Copyright (c) 2026 Meng To). It is NOT covered by this repository's Apache-2.0 grant. LICENSE is the upstream MIT text, unmodified."
+  },
+  "fetched_at": "2026-09-24",
+  "upstream_commit": "a965851e27dc179e693fde1bee94457a64e1a7a5",
+  "source_files": [
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/SKILL.md",
+      "sha256": "bb36c79ff435045f57a7f3ec3f50c27d37087c2e5a5ab1b17b6ba219d3f2c091",
+      "size_bytes": 18658
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/agents/openai.yaml",
+      "sha256": "e02a650cc1806a10b257a6efba4bc9e7a591ed511ed4e7bcd5903bdd116890a5",
+      "size_bytes": 294
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/PROMPT.md",
+      "sha256": "dcfb1aa8fa1d87e290ce54375673597c2524f3709268a49f776ecbcd628aa976",
+      "size_bytes": 4204
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/index.html",
+      "sha256": "1e0a6ec6daff50a5fdb393193325edf3bfb074a51beff2b53dfe4e73880d3fba",
+      "size_bytes": 238698
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/preview.jpg",
+      "sha256": "bfb0bec8b9e22fb1f4b14402a3f3e4b93db19acc99dc96969a29e07036167c1c",
+      "size_bytes": 144402
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/fonts.css",
+      "sha256": "985f85a904a4096f92c06552b06f42a45973ac004af4780d68f18af65ddcc1b0",
+      "size_bytes": 99356
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/foreground/png/basalt-stones.webp",
+      "sha256": "150f1c87e181d651c318168c271bb65c9c8abac6dea6f2421fdd081c5b740471",
+      "size_bytes": 167866
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/foreground/png/garden-bush.webp",
+      "sha256": "707e2516ebc0108041fe0ddc26d8bff0a69dc9700641f837765018b64e9ff15e",
+      "size_bytes": 286406
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/foreground/png/hill.webp",
+      "sha256": "ffba816244bcba98e4e33c6ee56165edfe4048db4af122ef3f5822180a85edbc",
+      "size_bytes": 84142
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/foreground/png/maple-leaves.webp",
+      "sha256": "35a90fec62c1a6bbfbbe73cd5d7b1acb889e80546d404182ef9a45fe417b531f",
+      "size_bytes": 178208
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/foreground/png/pine-tree.webp",
+      "sha256": "79b233716d067bbc64c1507f79e4a30ba5f445995158c78562cc5b81f607ede7",
+      "size_bytes": 195918
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/foreground/png/sakura-branch.webp",
+      "sha256": "48564194d40496090dbf3bba2a68785cf91fafb655dc8d43ac16f6678aff196d",
+      "size_bytes": 252528
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/foreground/png/shrine-ruins.webp",
+      "sha256": "77006e58f2066e6fa9bfc504df396db49b1c7977858fa52d34dd2dad5feced77",
+      "size_bytes": 145814
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/foreground/png/stone-lantern.webp",
+      "sha256": "d5f3c881bc9d92b72eaaff2b709614d66e21a19e14025d2b9b16a15ab52df3bc",
+      "size_bytes": 150108
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/foreground/png/tall-grass.webp",
+      "sha256": "8db0b5fbd160a7225391a6283a99681e346e205f24191031657285ef85ef12d2",
+      "size_bytes": 351644
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/foreground/png/temple-wall.webp",
+      "sha256": "41c00f017e4ecf2147ee468d74da955bb4e2dad773f75a575022842eaf7609ce",
+      "size_bytes": 86466
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/generated/kage-approach.webp",
+      "sha256": "39ff338936097e1bde0c4eadcf09805b9890862703186e67314942de7e0bc36c",
+      "size_bytes": 180064
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/generated/kage-lantern-court.webp",
+      "sha256": "c0a6ff7da1cd6909d66e2f3f690b0d524a693e01d2222ab846d0074a90f47471",
+      "size_bytes": 197940
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/generated/kage-moonwater.webp",
+      "sha256": "b8c8060c51c87a103bae619b3a4cc8b8b80632649d83f1f2c2299051e7f9b400",
+      "size_bytes": 102234
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/generated/kage-sanmon-preview.webp",
+      "sha256": "23937f8c8350c55730c3bd17066a250548b2d29aad0e6ffb96218c1354b6db43",
+      "size_bytes": 186398
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/demo/secret-pathways-assets/three.min.js",
+      "sha256": "8a5f7249903b54d30f79f708699d2fed2d6a1d0741a4cd41377d1f01bb5a2271",
+      "size_bytes": 608081
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/references/kage-anatomy.md",
+      "sha256": "0f14a21eef2fcac4d9e43be42ca93c049d82e2fdf3430857d7fe5b0d8080651e",
+      "size_bytes": 7732
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/references/quality-and-qa.md",
+      "sha256": "4f422973f46d4ec3a9eead3e4816998a33fd5ba78ddff0c3dbd17b5ebf204eaf",
+      "size_bytes": 11414
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/references/realtime-architecture.md",
+      "sha256": "1f4bcb2ed0f1bbf5f48d8b7372e1296894f1e99148b5376455eada0c51ad5c63",
+      "size_bytes": 15791
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/references/scroll-conductor.js",
+      "sha256": "d72cb6da9f4ad5cdfb1ea42678a073a74f590154f639cf66737d194d1d63c103",
+      "size_bytes": 7665
+    },
+    {
+      "path": "https://github.com/MengTo/skills/blob/a965851e27dc179e693fde1bee94457a64e1a7a5/agent-skills/web-design/build-threejs-scroll-worlds/references/world-bible.md",
+      "sha256": "292600301358e93e20794eae093f539348358aa0db433fab84633fdae9d08f65",
+      "size_bytes": 12682
+    }
+  ],
+  "hash_scope": "copy_files_sha256 is sha256 over \"path:sha256\\n\" lines in path order. copy_files does not list DERIVATION.json.",
+  "copy_files_sha256": "7ce9a2d8ce8aa5c4d40a9e31ebc6e2d49203094fbe01dd01b7d7f7c2ae84c907",
+  "copy_files": [
+    {
+      "path": "LICENSE",
+      "sha256": "b2a071ba22fefd803f4e9d1f5c777dd79c62d191695586a1a73fd4d0ebd051c6",
+      "size_bytes": 1064
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "6e475d885a3f729e5e6a4f28082b46d0432f7d4b59f8ebceb0f7de8f0b695cce",
+      "size_bytes": 18836
+    },
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "e02a650cc1806a10b257a6efba4bc9e7a591ed511ed4e7bcd5903bdd116890a5",
+      "size_bytes": 294
+    },
+    {
+      "path": "demo/PROMPT.md",
+      "sha256": "dcfb1aa8fa1d87e290ce54375673597c2524f3709268a49f776ecbcd628aa976",
+      "size_bytes": 4204
+    },
+    {
+      "path": "demo/index.html",
+      "sha256": "1e0a6ec6daff50a5fdb393193325edf3bfb074a51beff2b53dfe4e73880d3fba",
+      "size_bytes": 238698
+    },
+    {
+      "path": "demo/preview.jpg",
+      "sha256": "bfb0bec8b9e22fb1f4b14402a3f3e4b93db19acc99dc96969a29e07036167c1c",
+      "size_bytes": 144402
+    },
+    {
+      "path": "demo/secret-pathways-assets/fonts.css",
+      "sha256": "985f85a904a4096f92c06552b06f42a45973ac004af4780d68f18af65ddcc1b0",
+      "size_bytes": 99356
+    },
+    {
+      "path": "demo/secret-pathways-assets/foreground/png/basalt-stones.webp",
+      "sha256": "150f1c87e181d651c318168c271bb65c9c8abac6dea6f2421fdd081c5b740471",
+      "size_bytes": 167866
+    },
+    {
+      "path": "demo/secret-pathways-assets/foreground/png/garden-bush.webp",
+      "sha256": "707e2516ebc0108041fe0ddc26d8bff0a69dc9700641f837765018b64e9ff15e",
+      "size_bytes": 286406
+    },
+    {
+      "path": "demo/secret-pathways-assets/foreground/png/hill.webp",
+      "sha256": "ffba816244bcba98e4e33c6ee56165edfe4048db4af122ef3f5822180a85edbc",
+      "size_bytes": 84142
+    },
+    {
+      "path": "demo/secret-pathways-assets/foreground/png/maple-leaves.webp",
+      "sha256": "35a90fec62c1a6bbfbbe73cd5d7b1acb889e80546d404182ef9a45fe417b531f",
+      "size_bytes": 178208
+    },
+    {
+      "path": "demo/secret-pathways-assets/foreground/png/pine-tree.webp",
+      "sha256": "79b233716d067bbc64c1507f79e4a30ba5f445995158c78562cc5b81f607ede7",
+      "size_bytes": 195918
+    },
+    {
+      "path": "demo/secret-pathways-assets/foreground/png/sakura-branch.webp",
+      "sha256": "48564194d40496090dbf3bba2a68785cf91fafb655dc8d43ac16f6678aff196d",
+      "size_bytes": 252528
+    },
+    {
+      "path": "demo/secret-pathways-assets/foreground/png/shrine-ruins.webp",
+      "sha256": "77006e58f2066e6fa9bfc504df396db49b1c7977858fa52d34dd2dad5feced77",
+      "size_bytes": 145814
+    },
+    {
+      "path": "demo/secret-pathways-assets/foreground/png/stone-lantern.webp",
+      "sha256": "d5f3c881bc9d92b72eaaff2b709614d66e21a19e14025d2b9b16a15ab52df3bc",
+      "size_bytes": 150108
+    },
+    {
+      "path": "demo/secret-pathways-assets/foreground/png/tall-grass.webp",
+      "sha256": "8db0b5fbd160a7225391a6283a99681e346e205f24191031657285ef85ef12d2",
+      "size_bytes": 351644
+    },
+    {
+      "path": "demo/secret-pathways-assets/foreground/png/temple-wall.webp",
+      "sha256": "41c00f017e4ecf2147ee468d74da955bb4e2dad773f75a575022842eaf7609ce",
+      "size_bytes": 86466
+    },
+    {
+      "path": "demo/secret-pathways-assets/generated/kage-approach.webp",
+      "sha256": "39ff338936097e1bde0c4eadcf09805b9890862703186e67314942de7e0bc36c",
+      "size_bytes": 180064
+    },
+    {
+      "path": "demo/secret-pathways-assets/generated/kage-lantern-court.webp",
+      "sha256": "c0a6ff7da1cd6909d66e2f3f690b0d524a693e01d2222ab846d0074a90f47471",
+      "size_bytes": 197940
+    },
+    {
+      "path": "demo/secret-pathways-assets/generated/kage-moonwater.webp",
+      "sha256": "b8c8060c51c87a103bae619b3a4cc8b8b80632649d83f1f2c2299051e7f9b400",
+      "size_bytes": 102234
+    },
+    {
+      "path": "demo/secret-pathways-assets/generated/kage-sanmon-preview.webp",
+      "sha256": "23937f8c8350c55730c3bd17066a250548b2d29aad0e6ffb96218c1354b6db43",
+      "size_bytes": 186398
+    },
+    {
+      "path": "demo/secret-pathways-assets/three.min.js",
+      "sha256": "8a5f7249903b54d30f79f708699d2fed2d6a1d0741a4cd41377d1f01bb5a2271",
+      "size_bytes": 608081
+    },
+    {
+      "path": "references/kage-anatomy.md",
+      "sha256": "0f14a21eef2fcac4d9e43be42ca93c049d82e2fdf3430857d7fe5b0d8080651e",
+      "size_bytes": 7732
+    },
+    {
+      "path": "references/quality-and-qa.md",
+      "sha256": "4f422973f46d4ec3a9eead3e4816998a33fd5ba78ddff0c3dbd17b5ebf204eaf",
+      "size_bytes": 11414
+    },
+    {
+      "path": "references/realtime-architecture.md",
+      "sha256": "1f4bcb2ed0f1bbf5f48d8b7372e1296894f1e99148b5376455eada0c51ad5c63",
+      "size_bytes": 15791
+    },
+    {
+      "path": "references/scroll-conductor.js",
+      "sha256": "d72cb6da9f4ad5cdfb1ea42678a073a74f590154f639cf66737d194d1d63c103",
+      "size_bytes": 7665
+    },
+    {
+      "path": "references/world-bible.md",
+      "sha256": "292600301358e93e20794eae093f539348358aa0db433fab84633fdae9d08f65",
+      "size_bytes": 12682
+    }
+  ],
+  "dropped_files": [],
+  "edits": [
+    {
+      "date": "2026-09-24",
+      "note": "Front matter only: `name:` changed from `build-threejs-scroll-worlds` to `threejs-scroll-worlds` so the Edge install name is short, and a `metadata` block added crediting Meng To as author with the pinned source URL and licence. The body of SKILL.md and every other file are byte for byte the upstream files at a965851."
+    },
+    {
+      "date": "2026-09-24",
+      "note": "LICENSE added: the MIT licence from the root of MengTo/skills, copied unmodified, so the notice travels with the installed folder."
+    }
+  ]
+}

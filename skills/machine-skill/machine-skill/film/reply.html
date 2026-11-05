@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Machine Skill · refinery reply film</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* The refinery reply film: a pump and a compressor, one line each, live pages in a card, an editorial layer on top.
+   Recorded frame by frame with scripts/record.mjs (window.__film). */
+:root { --paper:#f3f2ee; --ink:#141414; --mute:#8c8b87; --faint:#c9c7c1; --line:#e2e0da; --serif:'Instrument Serif',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace }
+html,body { margin:0; width:1920px; height:1080px; overflow:hidden; background:var(--paper); color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased }
+* { box-sizing:border-box }
+.layer { position:absolute; inset:0; opacity:0; will-change:opacity, transform }
+#title .pair { position:absolute; left:150px; right:150px; top:150px; display:flex; gap:40px }
+#title .fc { flex:1; background:#fbfaf7; border:1px solid var(--line); box-shadow:0 1px 2px rgba(0,0,0,0.04), 0 24px 50px rgba(0,0,0,0.07); padding:14px 14px 18px }
+#title .fc img { width:100%; aspect-ratio:16/10; object-fit:cover; object-position:22% 50%; display:block; background:#eceae4 }
+#title .fc .t { font-family:var(--serif); font-size:40px; margin-top:12px; line-height:1 } #title .fc .t i { color:#6d6b66; font-size:0.86em }
+#title .big { position:absolute; left:0; right:0; top:820px; text-align:center; font-family:var(--serif); font-size:84px; line-height:1; letter-spacing:-0.01em }
+#title .big i { color:#6d6b66 }
+.prompt .card { position:absolute; left:290px; top:230px; width:1340px; height:520px; background:#fbfaf7; border:1px solid var(--line); box-shadow:0 1px 2px rgba(0,0,0,0.04), 0 30px 70px rgba(0,0,0,0.07) }
+.prompt .hd { display:flex; justify-content:space-between; padding:26px 34px; font-size:17px; color:#a9a7a1 }
+.prompt .tx { padding:44px 34px 0 74px; font-size:40px; line-height:1.42; color:#3c3a37; position:relative; letter-spacing:-0.01em }
+.prompt .tx::before { content:'>'; position:absolute; left:36px; color:#b4b2ac }
+.prompt .tx b { color:var(--ink); font-weight:600 }
+.caret { display:inline-block; width:3px; height:1.02em; background:var(--ink); vertical-align:-0.16em; margin-left:2px }
+.stage .card { position:absolute; left:230px; top:100px; width:1460px; height:821.25px; background:var(--paper); border:1px solid var(--line); box-shadow:0 1px 2px rgba(0,0,0,0.04), 0 30px 70px rgba(0,0,0,0.08); overflow:hidden }
+.stage iframe { position:absolute; left:0; top:0; width:1920px; height:1080px; border:0; transform-origin:0 0; transform:scale(0.7604); background:var(--paper) }
+#beat { position:absolute; left:230px; top:968px; display:flex; align-items:center; gap:22px; font-size:42px; letter-spacing:-0.012em; opacity:0 }
+#beat .n { font-size:21px; border:1px solid var(--faint); color:var(--mute); padding:9px 13px; line-height:1; font-variant-numeric:tabular-nums }
+#beat b { font-weight:500 } #beat span.g { color:#9a9892 }
+#end .name { position:absolute; left:0; right:0; top:300px; text-align:center; font-family:var(--serif); font-size:220px; letter-spacing:-0.02em; line-height:1 }
+#end .line { position:absolute; left:0; right:0; top:560px; text-align:center; font-size:30px; color:#8c8b87 } #end .line b { color:var(--ink); font-weight:500 } #end .line i { font-family:var(--serif); font-size:1.18em; color:var(--ink) }
+#end .cmd { position:absolute; left:50%; top:648px; transform:translateX(-50%); width:760px; height:76px; border:1px solid var(--line); background:#fbfaf7; box-shadow:0 10px 30px rgba(0,0,0,0.05); font-family:var(--mono); font-size:27px; padding:0 28px; display:flex; align-items:center; color:#9a988f; white-space:nowrap }
+#end .cmd b { color:var(--ink); font-weight:500 }
+#end .small { position:absolute; left:0; right:0; top:760px; text-align:center; font-size:19px; color:#a9a7a1 }
+#fade { position:absolute; inset:0; background:var(--paper); opacity:0; pointer-events:none }
+</style>
+</head>
+<body>
+<div id="title" class="layer"><div class="pair">
+  <div class="fc"><img src="stills/refinery-pump_0.0.jpg" alt=""><div class="t">Process pump <i>API 610</i></div></div>
+  <div class="fc"><img src="stills/compressor_0.0.jpg" alt=""><div class="t">Compressor <i>API 617 barrel</i></div></div>
+</div><div class="big">A refinery pump and a compressor, <i>cut open for plant training</i></div></div>
+<div id="p1" class="layer prompt"><div class="card"><div class="hd"><span>You type</span><span>Claude Code</span></div><div class="tx"><b>/machine</b> <span class="t"></span><span class="caret"></span></div></div></div>
+<div id="s1" class="layer stage"><div class="card"><iframe id="sim1" title="pump"></iframe></div></div>
+<div id="p2" class="layer prompt"><div class="card"><div class="hd"><span>You type</span><span>Claude Code</span></div><div class="tx"><b>/machine</b> <span class="t"></span><span class="caret"></span></div></div></div>
+<div id="s2" class="layer stage"><div class="card"><iframe id="sim2" title="compressor"></iframe></div></div>
+<div id="end" class="layer"><div class="name">Machine Skill</div><div class="line"><b>One line in,</b> the real machine out, <i>running on real physics</i>.</div><div class="cmd"><span class="t"></span><span class="caret"></span></div><div class="small">Open source skill for Claude Code, by Airsup &#183; airsup.ai/lab/skill</div></div>
+<div id="beat"><span class="n"></span><div><b></b> <span class="g"></span></div></div>
+<div id="fade"></div>
+<script type="module">
+const P1 = 'a refinery process pump, API 610 style, cut open for plant training'
+const P2 = 'a multistage centrifugal compressor for a refinery, cut open'
+const LEN = 34
+const T = { p1: 1.8, s1: 4.0, p2: 16.5, s2: 18.0, end: 30.5 }
+const BEATS = [
+  [4.2, 7.0, '01', 'One line, same skill.', 'An API 610 process pump, built part by part.'],
+  [7.2, 9.6, '02', 'It runs on its curve.', 'Affinity laws, BEP and NPSH, live.'],
+  [9.8, 12.8, '03', 'Cut open for training.', 'Hover a part: what it does, what to check.'],
+  [13.0, 16.3, '04', 'Drop the tower level.', 'NPSH available under required: it cavitates.'],
+  [18.2, 21.0, '05', 'Second line: a compressor.', 'API 617 barrel, six stages, built the same way.'],
+  [21.2, 23.6, '06', 'It runs on its map.', 'Polytropic head, stage by stage.'],
+  [23.8, 26.8, '07', 'Cut open, every part named.', 'And what the operator checks on rounds.'],
+  [27.0, 30.3, '08', 'Trip the downstream unit.', 'The anti-surge valve sticks: flow reverses. Surge.'],
+]
+const $ = (s) => document.querySelector(s)
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x))
+const io = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
+const out = (t) => 1 - Math.pow(1 - t, 3)
+const win = (t, a, b, f = 0.45) => clamp((t - a) / f) * clamp((b - t) / f)
+const ss = new URLSearchParams(location.search).get('ss') || 1
+const sims = [['#sim1', 'refinery-pump', T.s1], ['#sim2', 'compressor', T.s2]].map(([id, n, t0]) => { const el = $(id); el.src = `../examples/${n}.html?film=1&shot=reply&embed=1&ss=${ss}`; return { el, t0, t: 0, w: () => el.contentWindow?.__film } })
+function simTo(s, t) { const f = s.w(); if (!f) return; const target = Math.max(0, t - s.t0); while (s.t < target - 1e-6) { const d = Math.min(1 / 30, target - s.t); f.step(d); s.t += d } }
+function typeIn(sel, txt, t, a, b) {
+  const k = clamp((t - a) / (b - a)), n = txt.length
+  $(sel + ' .t').textContent = txt.slice(0, Math.round(n * io(k) * 0.4 + n * k * 0.6))
+  $(sel + ' .caret').style.opacity = k < 1 || Math.floor(t * 2.2) % 2 === 0 ? '1' : '0'
+}
+const CMD = 'npx skills add AirsupHQ/machine-skill'
+function end(t) {
+  const lt = t - T.end, k = clamp((lt - 1.0) / 1.4), n = Math.round(CMD.length * k)
+  $('#end .t').innerHTML = n <= 3 ? CMD.slice(0, n) : `<span>${CMD.slice(0, 15)}</span><b>${CMD.slice(15, n)}</b>`
+  $('#end .caret').style.opacity = Math.floor(t * 2.2) % 2 === 0 || k < 1 ? '1' : '0'
+  $('#end .name').style.transform = `translateY(${(1 - out(clamp(lt / 0.9))) * 24}px)`
+  $('#end .line').style.opacity = String(out(clamp((lt - 0.4) / 0.6)))
+  $('#end .cmd').style.opacity = String(out(clamp((lt - 0.7) / 0.5)))
+  $('#end .small').style.opacity = String(out(clamp((lt - 2.2) / 0.6)))
+}
+function beat(t) {
+  const el = $('#beat'); let shown = null
+  for (const b of BEATS) if (t >= b[0] - 0.01 && t < b[1]) shown = b
+  if (!shown) { el.style.opacity = '0'; return }
+  const [a, z, n, s1, s2] = shown
+  el.querySelector('.n').textContent = n; el.querySelector('b').textContent = s1; el.querySelector('.g').textContent = s2
+  el.style.opacity = String(win(t, a, z, 0.35)); el.style.transform = `translateY(${(1 - out(clamp((t - a) / 0.35))) * 12}px)`
+}
+let t = 0
+function frame() {
+  const L = (id, a, b, f = 0.5) => { $(id).style.opacity = String(win(t, a, b, f)) }
+  L('#title', -1, T.p1 + 0.2, 0.4)
+  L('#p1', T.p1, T.s1 + 0.3, 0.4)
+  L('#s1', T.s1, T.p2 + 0.3, 0.5)
+  L('#p2', T.p2, T.s2 + 0.3, 0.4)
+  L('#s2', T.s2, T.end + 0.3, 0.5)
+  L('#end', T.end, LEN + 1, 0.6)
+  $('#title .pair').style.transform = `scale(${1 + 0.02 * t})`
+  if (t > T.p1 - 0.2 && t < T.s1 + 0.5) typeIn('#p1', P1, t, T.p1 + 0.3, T.s1 - 0.5)
+  if (t > T.p2 - 0.2 && t < T.s2 + 0.5) typeIn('#p2', P2, t, T.p2 + 0.2, T.s2 - 0.3)
+  for (const [s, sel] of [[sims[0], '#s1'], [sims[1], '#s2']]) { const ks = out(clamp((t - s.t0) / 0.8)); $(sel + ' .card').style.transform = `translateY(${(1 - ks) * 30}px) scale(${0.985 + 0.015 * ks})` }
+  if (t > T.s1 && t < T.p2 + 0.8) simTo(sims[0], t)
+  if (t > T.s2 && t < T.end + 0.8) simTo(sims[1], t)
+  if (t > T.end - 0.2) end(t)
+  beat(t)
+}
+window.__film = {
+  ready: true, len: LEN,
+  loaded: () => document.fonts.status === 'loaded' && sims.every((s) => !!s.w()?.ready && s.w().loaded()) && [...document.images].every((i) => i.complete),
+  start: () => { t = 0; for (const s of sims) { s.w()?.start(); s.t = 0 } frame() },
+  step: (dt) => { t += dt; frame() },
+  seek: (s) => { while (t < s - 1e-6) { t = Math.min(s, t + 1 / 30); frame() } },
+}
+if (!new URLSearchParams(location.search).has('film')) {
+  const wait = setInterval(() => {
+    if (!window.__film.loaded()) return
+    clearInterval(wait); window.__film.start()
+    let last = performance.now()
+    const loop = (now) => { const dt = Math.min(0.05, (now - last) / 1000); last = now; t += dt; if (t > LEN) { location.reload(); return } frame(); requestAnimationFrame(loop) }
+    requestAnimationFrame(loop)
+  }, 200)
+}
+</script>
+</body>
+</html>

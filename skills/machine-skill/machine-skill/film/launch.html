@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Machine Skill · launch film</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* The launch film, directed in the browser: live Machine Skill pages in a card, an editorial layer on top.
+   Recorded frame by frame with scripts/record.mjs (window.__film), so every frame is complete. */
+:root { --paper:#f3f2ee; --ink:#141414; --mute:#8c8b87; --faint:#c9c7c1; --line:#e2e0da; --serif:'Instrument Serif',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace }
+html,body { margin:0; width:1920px; height:1080px; overflow:hidden; background:var(--paper); color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased }
+* { box-sizing:border-box }
+.layer { position:absolute; inset:0; opacity:0; will-change:opacity, transform }
+/* floating grid */
+#grid { perspective:1600px }
+#grid .world { position:absolute; inset:0; transform-style:preserve-3d }
+.fc { position:absolute; width:300px; background:#fbfaf7; border:1px solid var(--line); box-shadow:0 1px 2px rgba(0,0,0,0.04), 0 18px 40px rgba(0,0,0,0.06); padding:12px 12px 14px }
+.fc img { width:100%; aspect-ratio:16/10; object-fit:cover; display:block; background:#eceae4 }
+.fc .t { font-family:var(--serif); font-size:24px; margin-top:10px; line-height:1 } .fc .t i { color:#6d6b66; font-size:0.86em }
+.word { position:absolute; font-size:17px; color:#a9a7a1; white-space:nowrap }
+.word b { color:var(--ink); font-weight:600 }
+#big { position:absolute; left:0; right:0; top:470px; text-align:center; font-family:var(--serif); font-size:104px; letter-spacing:-0.01em; line-height:1 }
+#big i { color:#6d6b66 }
+/* prompt card */
+#prompt .card { position:absolute; left:290px; top:150px; width:1340px; height:640px; background:#fbfaf7; border:1px solid var(--line); box-shadow:0 1px 2px rgba(0,0,0,0.04), 0 30px 70px rgba(0,0,0,0.07) }
+#prompt .hd { display:flex; justify-content:space-between; padding:26px 34px; font-size:17px; color:#a9a7a1 }
+#prompt .tx { padding:44px 34px 0 74px; font-size:38px; line-height:1.42; color:#3c3a37; position:relative; letter-spacing:-0.01em }
+#prompt .tx::before { content:'>'; position:absolute; left:36px; color:#b4b2ac }
+#prompt .tx b { color:var(--ink); font-weight:600 }
+.caret { display:inline-block; width:3px; height:1.02em; background:var(--ink); vertical-align:-0.16em; margin-left:2px }
+#prompt .send { position:absolute; right:30px; bottom:28px; width:46px; height:46px; border-radius:8px; background:#ecebe6; display:grid; place-items:center; color:#9a988f; font-size:22px }
+/* stage: a live lab page in a card */
+#stage .card { position:absolute; left:230px; top:100px; width:1460px; height:821.25px; background:var(--paper); border:1px solid var(--line); box-shadow:0 1px 2px rgba(0,0,0,0.04), 0 30px 70px rgba(0,0,0,0.08); overflow:hidden }
+#stage iframe { position:absolute; left:0; top:0; width:1920px; height:1080px; border:0; transform-origin:0 0; transform:scale(0.7604); background:var(--paper) }
+/* beat captions */
+#beat { position:absolute; left:230px; top:968px; display:flex; align-items:center; gap:22px; font-size:42px; letter-spacing:-0.012em; opacity:0 }
+#beat .n { font-size:21px; border:1px solid var(--faint); color:var(--mute); padding:9px 13px; line-height:1; font-variant-numeric:tabular-nums }
+#beat b { font-weight:500 } #beat span.g { color:#9a9892 }
+/* second machine */
+#mont .card { position:absolute; left:230px; top:100px; width:1460px; height:821.25px; background:var(--paper); border:1px solid var(--line); box-shadow:0 1px 2px rgba(0,0,0,0.04), 0 30px 70px rgba(0,0,0,0.08); overflow:hidden }
+#mont iframe { position:absolute; left:0; top:0; width:1920px; height:1080px; border:0; transform-origin:0 0; transform:scale(0.7604); background:var(--paper) }
+/* old montage */
+#mont .tile { position:absolute; width:440px; background:#fbfaf7; border:1px solid var(--line); box-shadow:0 1px 2px rgba(0,0,0,0.04), 0 16px 34px rgba(0,0,0,0.06); padding:10px }
+#mont video, #mont img { width:100%; aspect-ratio:16/9; display:block; object-fit:cover; background:#eceae4 }
+#mont .cap { font-size:14px; color:#8c8b87; margin-top:8px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis } #mont .cap b { color:var(--ink); font-weight:600 }
+#mont .head { position:absolute; left:0; right:0; top:478px; text-align:center; font-family:var(--serif); font-size:92px; line-height:1; z-index:5; text-shadow:0 0 40px var(--paper), 0 0 18px var(--paper) }
+#mont .head i { color:#6d6b66 }
+#mont .wash { position:absolute; inset:0; background:radial-gradient(ellipse 52% 30% at 50% 50%, rgba(243,242,238,0.96), rgba(243,242,238,0) 100%); z-index:4 }
+/* end card */
+#end .name { position:absolute; left:0; right:0; top:300px; text-align:center; font-family:var(--serif); font-size:220px; letter-spacing:-0.02em; line-height:1 }
+#end .line { position:absolute; left:0; right:0; top:560px; text-align:center; font-size:30px; color:#8c8b87 } #end .line b { color:var(--ink); font-weight:500 } #end .line i { font-family:var(--serif); font-size:1.18em; color:var(--ink) }
+#end .cmd { position:absolute; left:50%; top:648px; transform:translateX(-50%); width:760px; height:76px; border:1px solid var(--line); background:#fbfaf7; box-shadow:0 10px 30px rgba(0,0,0,0.05); font-family:var(--mono); font-size:27px; padding:0 28px; display:flex; align-items:center; color:#9a988f; white-space:nowrap }
+#end .cmd b { color:var(--ink); font-weight:500 }
+#end .small { position:absolute; left:0; right:0; top:760px; text-align:center; font-size:17px; color:#a9a7a1 }
+#fade { position:absolute; inset:0; background:var(--paper); opacity:0; pointer-events:none }
+</style>
+</head>
+<body>
+<div id="grid" class="layer"><div class="world"></div><div id="big"></div></div>
+<div id="prompt" class="layer"><div class="card"><div class="hd"><span>You type</span><span>Claude Code</span></div><div class="tx"><b>/machine</b> <span class="t"></span><span class="caret"></span></div><div class="send">&#8593;</div></div></div>
+<div id="stage" class="layer"><div class="card"><iframe id="sim" title="live machine"></iframe></div></div>
+<div id="mont" class="layer"><div class="card"><iframe id="sim2" title="second machine"></iframe></div></div>
+<div id="end" class="layer"><div class="name">Machine Skill</div><div class="line"><b>One sentence in,</b> the real machine out, <i>running on real physics</i>.</div><div class="cmd"><span class="t"></span><span class="caret"></span></div><div class="small">An open source skill for Claude Code, by Airsup &#183; built with Claude Opus 5.5 &#183; MIT &#183; airsup.ai/lab/skill</div></div>
+<div id="beat"><span class="n"></span><div><b></b> <span class="g"></span></div></div>
+<div id="fade"></div>
+<script type="module">
+// ------------------------------------------------------------------ data
+const M = [
+  { id: 'turbofan', img: 'stills/turbofan_13.5.jpg', t: 'Turbofan', s: 'ground run', p: 'a turbofan jet engine, the kind that pushes a widebody off the runway' },
+  { id: 'rocket-engine', img: 'stills/rocket-engine_9.8.jpg', t: 'Rocket engine', s: 'full flow', p: 'a Raptor style full flow rocket engine on a test stand' },
+  { id: 'turbofan', img: 'stills/turbofan_18.6.jpg', t: 'Turbofan', s: 'taken apart' },
+  { id: 'rocket-engine', img: 'stills/rocket-engine_13.5.jpg', t: 'Rocket engine', s: 'cut open' },
+  { id: 'turbofan', img: 'stills/turbofan_23.4.jpg', t: 'Turbofan', s: 'blade off' },
+  { id: 'rocket-engine', img: 'stills/rocket-engine_23.4.jpg', t: 'Rocket engine', s: 'burn-through' },
+  { id: 'turbofan', img: 'stills/turbofan_9.8.jpg', t: 'Turbofan', s: 'take-off' },
+  { id: 'rocket-engine', img: 'stills/rocket-engine_18.6.jpg', t: 'Rocket engine', s: 'in pieces' },
+]
+const WORDS = ['a tourbillon', 'a jet engine', 'a heart pump', 'a V8', 'a wind turbine', 'a gearbox', 'a CNC spindle', 'a rocket engine', 'an espresso machine', 'a hydro turbine', 'a robot arm', 'a steam engine']
+const HERO = M[0]
+const LEN = 40
+// timeline (s)
+const T = { gridIn: 0, here: 3.0, promptIn: 4.3, typeA: 4.9, typeB: 7.6, stageIn: 8.6, simStart: 8.9, montIn: 28.2, endIn: 34.2 }
+const BEATS = [
+  [4.5, 8.5, '01', 'One sentence is the whole brief.', 'Typed into Claude Code.'],
+  [9.0, 14.2, '02', 'Claude builds the machine.', 'Real parts, real sizes, real materials.'],
+  [14.4, 19.4, '03', 'You open the throttle.', 'A Brayton cycle solves every frame.'],
+  [19.6, 23.9, '04', 'Cut it open.', 'Solid section faces, live numbers.'],
+  [24.1, 28.0, '05', 'Then throw a fan blade.', 'The solver decides what the case must hold.'],
+  [28.5, 34.0, '06', 'A new sentence, a new machine.', 'A full flow rocket engine, cut open while it fires.'],
+]
+const $ = (s) => document.querySelector(s)
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x))
+const lerp = (a, b, t) => a + (b - a) * t
+const io = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
+const out = (t) => 1 - Math.pow(1 - t, 3)
+const win = (t, a, b, f = 0.45) => clamp((t - a) / f) * clamp((b - t) / f)
+
+// ------------------------------------------------------------------ grid of machines
+const world = $('#grid .world')
+const R = (() => { let s = 7; return () => ((s = (s * 16807) % 2147483647) / 2147483647) })()
+const cards = []
+const spots = [[-610, -300, -260], [520, -330, -120], [-120, -400, -420], [820, 40, -320], [-860, 60, -380], [-470, 300, -160], [430, 310, -60], [80, 420, -480], [-1000, -330, -700], [1060, -250, -720], [180, -120, -900], [-300, 120, -980]]
+spots.forEach((p, i) => {
+  const m = M[i % M.length]
+  const el = document.createElement('div'); el.className = 'fc'
+  el.innerHTML = `<img src="${m.img}" alt=""><div class="t">${m.t} <i>${m.s}</i></div>`
+  world.appendChild(el); cards.push({ el, p, m, ph: R() * 6.28 })
+})
+const words = WORDS.map((w, i) => { const el = document.createElement('div'); el.className = 'word'; el.innerHTML = w; world.appendChild(el); return { el, p: [(R() - 0.5) * 1700, (R() - 0.5) * 900, -200 - R() * 700] } })
+const slash = document.createElement('div'); slash.className = 'word'; slash.innerHTML = '<b>/machine</b>'; world.appendChild(slash)
+function grid(t) {
+  const z = t * 46
+  for (const c of cards) {
+    const [x, y, zz] = c.p, f = c.m.id === HERO.id && cards.indexOf(c) === 0
+    const k = f ? io(clamp((t - T.here) / 1.2)) : 0
+    const dx = Math.sin(t * 0.4 + c.ph) * 10, dy = Math.cos(t * 0.33 + c.ph) * 8
+    const X = lerp(x + dx, 0, k), Y = lerp(y + dy, -40, k), Z = lerp(zz + z, 160, k)
+    c.el.style.transform = `translate3d(${960 - 150 + X}px, ${540 - 110 + Y}px, ${Z}px)`
+    c.el.style.opacity = String(f ? 1 : 1 - 0.85 * io(clamp((t - T.here) / 0.9)))
+  }
+  for (const w of words) { const [x, y, zz] = w.p; w.el.style.transform = `translate3d(${960 + x}px, ${540 + y}px, ${zz + z}px)`; w.el.style.opacity = String(1 - io(clamp((t - T.here) / 0.8))) }
+  slash.style.transform = `translate3d(${960 - 50}px, ${540 - 90}px, ${z * 0.6}px)`; slash.style.opacity = String(1 - io(clamp((t - T.here) / 0.8)))
+  const big = $('#big')
+  const a = t < T.here - 0.3 ? 'Think of any machine' : 'Say, this one'
+  big.innerHTML = a
+  big.style.opacity = String(t < T.here - 0.3 ? out(clamp((t - 0.3) / 0.7)) * clamp((T.here - 0.3 - t) / 0.3 + 0.0001) : out(clamp((t - T.here + 0.2) / 0.4)) * clamp((T.promptIn - t) / 0.4))
+  big.style.transform = `translateY(${t < T.here ? 0 : 0}px)`
+}
+
+// ------------------------------------------------------------------ prompt card
+function prompt(t) {
+  const n = HERO.p.length, k = clamp((t - T.typeA) / (T.typeB - T.typeA))
+  $('#prompt .t').textContent = HERO.p.slice(0, Math.round(n * io(k) * 0.4 + n * k * 0.6))
+  $('#prompt .caret').style.opacity = k < 1 || Math.floor(t * 2.2) % 2 === 0 ? '1' : '0'
+  const s = 1 - 0.035 * io(clamp((t - T.stageIn + 0.6) / 0.6))
+  $('#prompt .card').style.transform = `scale(${s})`
+}
+
+// ------------------------------------------------------------------ the live machine
+const sim = $('#sim')
+sim.src = `../examples/${HERO.id}.html?film=1&shot=launch&embed=1&ss=${new URLSearchParams(location.search).get('ss') || 1}`
+let simT = 0
+const simWin = () => sim.contentWindow?.__film
+async function simTo(t) {
+  const f = simWin(); if (!f) return
+  const target = Math.max(0, t - T.simStart)
+  while (simT < target - 1e-6) { const d = Math.min(1 / 30, target - simT); f.step(d); simT += d }
+}
+
+// ------------------------------------------------------------------ the second machine
+const SECOND = M[1]
+const sim2 = $('#sim2')
+sim2.src = `../examples/${SECOND.id}.html?film=1&shot=launch&embed=1&ss=${new URLSearchParams(location.search).get('ss') || 1}`
+let sim2T = 0
+const sim2Win = () => sim2.contentWindow?.__film
+function montage(t) {
+  const f = sim2Win(); if (!f) return
+  const target = Math.max(0, t - T.montIn)
+  while (sim2T < target - 1e-6) { const d = Math.min(1 / 30, target - sim2T); f.step(d); sim2T += d }
+  const ks = out(clamp((t - T.montIn) / 0.8))
+  $('#mont .card').style.transform = `translateY(${(1 - ks) * 30}px) scale(${0.985 + 0.015 * ks})`
+}
+
+// ------------------------------------------------------------------ end card
+const CMD = 'npx skills add AirsupHQ/machine-skill'
+function end(t) {
+  const lt = t - T.endIn
+  const k = clamp((lt - 1.4) / 1.6)
+  const n = Math.round(CMD.length * k)
+  $('#end .t').innerHTML = n <= 3 ? CMD.slice(0, n) : `<span>${CMD.slice(0, 15)}</span><b>${CMD.slice(15, n)}</b>`
+  $('#end .caret').style.opacity = Math.floor(t * 2.2) % 2 === 0 || k < 1 ? '1' : '0'
+  $('#end .name').style.transform = `translateY(${(1 - out(clamp(lt / 0.9))) * 24}px)`
+  $('#end .line').style.opacity = String(out(clamp((lt - 0.5) / 0.6)))
+  $('#end .cmd').style.opacity = String(out(clamp((lt - 0.9) / 0.5)))
+  $('#end .small').style.opacity = String(out(clamp((lt - 3.2) / 0.6)))
+}
+
+// ------------------------------------------------------------------ beats
+function beat(t) {
+  const el = $('#beat'); let shown = null
+  for (const b of BEATS) if (t >= b[0] - 0.01 && t < b[1]) shown = b
+  if (!shown) { el.style.opacity = '0'; return }
+  const [a, z, n, s1, s2] = shown
+  el.querySelector('.n').textContent = n; el.querySelector('b').textContent = s1; el.querySelector('.g').textContent = s2
+  const k = win(t, a, z, 0.35)
+  el.style.opacity = String(k); el.style.transform = `translateY(${(1 - out(clamp((t - a) / 0.35))) * 12}px)`
+}
+
+// ------------------------------------------------------------------ frame
+let t = 0
+async function frame() {
+  const L = (id, a, b, f = 0.5) => { $(id).style.opacity = String(win(t, a, b, f)) }
+  L('#grid', -1, T.promptIn + 0.2, 0.5)
+  L('#prompt', T.promptIn, T.stageIn + 0.3, 0.5)
+  L('#stage', T.stageIn, T.montIn + 0.3, 0.6)
+  L('#mont', T.montIn, T.endIn + 0.2, 0.6)
+  L('#end', T.endIn, LEN + 1, 0.6)
+  // the loop: the last half second fades to the paper the first frame starts on
+  $('#fade').style.opacity = String(clamp((t - (LEN - 0.5)) / 0.5))
+  if (t < T.promptIn + 0.8) grid(t)
+  if (t > T.promptIn - 0.2 && t < T.stageIn + 0.8) prompt(t)
+  const st = $('#stage .card'), ks = out(clamp((t - T.stageIn) / 0.8))
+  st.style.transform = `translateY(${(1 - ks) * 30}px) scale(${0.985 + 0.015 * ks})`
+  if (t > T.simStart && t < T.montIn + 0.8) await simTo(t)
+  if (t > T.montIn - 0.2 && t < T.endIn + 0.8) montage(t)
+  if (t > T.endIn - 0.2) end(t)
+  beat(t)
+}
+
+window.__film = {
+  ready: true, len: LEN,
+  loaded: () => document.fonts.status === 'loaded' && !!simWin()?.ready && simWin().loaded() && !!sim2Win()?.ready && sim2Win().loaded() && [...document.images].every((i) => i.complete),
+  start: () => { t = 0; simWin()?.start(); sim2Win()?.start(); simT = 0; sim2T = 0; return frame() },
+  step: async (dt) => { t += dt; await frame() },
+  seek: async (s) => { while (t < s - 1e-6) { t = Math.min(s, t + 1 / 30); await frame() } },
+}
+// preview in a normal browser: play in real time
+if (!new URLSearchParams(location.search).has('film')) {
+  const wait = setInterval(async () => {
+    if (!window.__film.loaded()) return
+    clearInterval(wait); await window.__film.start()
+    let last = performance.now()
+    const loop = async (now) => { const dt = Math.min(0.05, (now - last) / 1000); last = now; t += dt; if (t > LEN) { t = 0; simT = 0; location.reload(); return } await frame(); requestAnimationFrame(loop) }
+    requestAnimationFrame(loop)
+  }, 200)
+}
+</script>
+</body>
+</html>

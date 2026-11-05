@@ -1,0 +1,178 @@
+[
+  {
+    "id": "T-01",
+    "name_zh": "高调",
+    "name_en": "High-key",
+    "category": "key",
+    "category_zh": "明暗阶调",
+    "category_en": "Key & Exposure",
+    "desc_zh": "以明亮浅淡色调为主，阴影极少，明朗纯净",
+    "desc_en": "Bright and light tones dominate, minimal shadows, clear and pure",
+    "image": "../../../images/tones/T-01.webp"
+  },
+  {
+    "id": "T-02",
+    "name_zh": "中间调",
+    "name_en": "Mid-key",
+    "category": "key",
+    "category_zh": "明暗阶调",
+    "category_en": "Key & Exposure",
+    "desc_zh": "明暗层次丰富均衡，还原自然视觉真实感",
+    "desc_en": "Balanced lighting and natural gradations, realistic and true-to-life",
+    "image": "../../../images/tones/T-02.webp"
+  },
+  {
+    "id": "T-03",
+    "name_zh": "低调",
+    "name_en": "Low-key",
+    "category": "key",
+    "category_zh": "明暗阶调",
+    "category_en": "Key & Exposure",
+    "desc_zh": "以深重暗色调为主，高光点缀，神秘沉稳",
+    "desc_en": "Deep and dark tones dominate, selective highlights, enigmatic and moody",
+    "image": "../../../images/tones/T-03.webp"
+  },
+  {
+    "id": "T-04",
+    "name_zh": "软调",
+    "name_en": "Soft Tone",
+    "category": "contrast",
+    "category_zh": "反差过渡",
+    "category_en": "Contrast & Transition",
+    "desc_zh": "阶调过渡柔和绵密，对比微弱，温润细腻",
+    "desc_en": "Gentle transitions, delicate contrast, tender and subtle",
+    "image": "../../../images/tones/T-04.webp"
+  },
+  {
+    "id": "T-05",
+    "name_zh": "硬调",
+    "name_en": "Hard Tone",
+    "category": "contrast",
+    "category_zh": "反差过渡",
+    "category_en": "Contrast & Transition",
+    "desc_zh": "明暗反差强烈，光影交界锐利，轮廓硬朗有力量",
+    "desc_en": "Crisp and firm contrast, sharp light transitions, punchy and bold",
+    "image": "../../../images/tones/T-05.webp"
+  },
+  {
+    "id": "T-06",
+    "name_zh": "高反差",
+    "name_en": "High Contrast",
+    "category": "contrast",
+    "category_zh": "反差过渡",
+    "category_en": "Contrast & Transition",
+    "desc_zh": "亮部极亮、暗部极深，冲击力强，张力十足",
+    "desc_en": "Brilliant highlights and deep blacks, striking dramatic impact",
+    "image": "../../../images/tones/T-06.webp"
+  },
+  {
+    "id": "T-07",
+    "name_zh": "中反差",
+    "name_en": "Medium Contrast",
+    "category": "contrast",
+    "category_zh": "反差过渡",
+    "category_en": "Contrast & Transition",
+    "desc_zh": "反差适中，层次自然过渡，舒适耐看",
+    "desc_en": "Moderate contrast, rich gray gradation, comfortable and balanced",
+    "image": "../../../images/tones/T-07.webp"
+  },
+  {
+    "id": "T-08",
+    "name_zh": "低反差",
+    "name_en": "Low Contrast",
+    "category": "contrast",
+    "category_zh": "反差过渡",
+    "category_en": "Contrast & Transition",
+    "desc_zh": "明暗差异微小，灰度丰富，平和静谧",
+    "desc_en": "Subtle contrast, expansive mid-tones, serene, calm, and grounded",
+    "image": "../../../images/tones/T-08.webp"
+  },
+  {
+    "id": "T-09",
+    "name_zh": "灰调",
+    "name_en": "Gray Tone",
+    "category": "atmosphere",
+    "category_zh": "氛围风格",
+    "category_en": "Atmosphere & Style",
+    "desc_zh": "阶调分布均衡于中间灰，克制内敛，高级质感",
+    "desc_en": "Centered in refined mid-grays, restrained, understated elegance",
+    "image": "../../../images/tones/T-09.webp"
+  },
+  {
+    "id": "T-10",
+    "name_zh": "雾化调",
+    "name_en": "Muted / Hazy Tone",
+    "category": "atmosphere",
+    "category_zh": "氛围风格",
+    "category_en": "Atmosphere & Style",
+    "desc_zh": "空气透视感明显，烟波雾霭，诗意朦胧",
+    "desc_en": "Atmospheric haze, gentle dissipation of detail, poetic and dreamy",
+    "image": "../../../images/tones/T-10.webp"
+  },
+  {
+    "id": "T-11",
+    "name_zh": "戏剧调",
+    "name_en": "Dramatic Tone",
+    "category": "atmosphere",
+    "category_zh": "氛围风格",
+    "category_en": "Atmosphere & Style",
+    "desc_zh": "戏剧性强光影明暗交错，舞台光感，张力拉满",
+    "desc_en": "Dramatic interplay of dark and light, stage-lit focus, intense storytelling",
+    "image": "../../../images/tones/T-11.webp"
+  },
+  {
+    "id": "T-12",
+    "name_zh": "剪影调",
+    "name_en": "Silhouette Tone",
+    "category": "atmosphere",
+    "category_zh": "氛围风格",
+    "category_en": "Atmosphere & Style",
+    "desc_zh": "强逆光曝光，勾勒主体纯黑剪影轮廓，意境深邃",
+    "desc_en": "Strong backlight silhouettes the subject, stark contours, profound aura",
+    "image": "../../../images/tones/T-12.webp"
+  },
+  {
+    "id": "T-13",
+    "name_zh": "通透调",
+    "name_en": "Luminous / Clear Tone",
+    "category": "atmosphere",
+    "category_zh": "氛围风格",
+    "category_en": "Atmosphere & Style",
+    "desc_zh": "光线澄澈纯净，空气透明度高，明快清爽",
+    "desc_en": "Crystal-clear lighting, ultra-high transparency, vivid, crisp and fresh",
+    "image": "../../../images/tones/T-13.webp"
+  },
+  {
+    "id": "T-14",
+    "name_zh": "胶片调",
+    "name_en": "Film Tone",
+    "category": "atmosphere",
+    "category_zh": "氛围风格",
+    "category_en": "Atmosphere & Style",
+    "desc_zh": "经典胶片颗粒与复古调色，色彩浓郁，叙事质感",
+    "desc_en": "Analogue film color science, organic grain, nostalgic cinematic warmth",
+    "image": "../../../images/tones/T-14.webp"
+  },
+  {
+    "id": "T-15",
+    "name_zh": "暗沉调",
+    "name_en": "Moody / Somber Tone",
+    "category": "atmosphere",
+    "category_zh": "氛围风格",
+    "category_en": "Atmosphere & Style",
+    "desc_zh": "压低环境照度，暗调情绪弥漫，幽静深邃",
+    "desc_en": "Low ambient luminosity, brooding mood, mysterious and introspective",
+    "image": "../../../images/tones/T-15.webp"
+  },
+  {
+    "id": "T-16",
+    "name_zh": "柔灰调",
+    "name_en": "Soft Gray Tone",
+    "category": "atmosphere",
+    "category_zh": "氛围风格",
+    "category_en": "Atmosphere & Style",
+    "desc_zh": "低饱和柔和灰阶，光影微澜，静谧典雅",
+    "desc_en": "Low saturation soft gray grading, gentle highlights, peaceful and graceful",
+    "image": "../../../images/tones/T-16.webp"
+  }
+]

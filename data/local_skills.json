@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "total_skills": 67,
+    "total_skills": 81,
     "core_skills": 26,
     "sub_skills": 30,
     "system_builtin": 6,
@@ -12,7 +12,7 @@
   },
   "categories": {
     "内容创作与发布": {
-      "count": 10,
+      "count": 11,
       "skills": [
         "content-creation-publisher",
         "intelligent-content-system",
@@ -22,11 +22,12 @@
         "baoyu-post-to-wechat",
         "baoyu-post-to-x",
         "baoyu-xhs-images",
-        "wechat-hotspot-publisher"
+        "wechat-hotspot-publisher",
+        "cy-carousel-skill"
       ]
     },
     "视频创作": {
-      "count": 9,
+      "count": 13,
       "skills": [
         "video-creation-suite",
         "video-creation-collaborator",
@@ -36,7 +37,11 @@
         "viral-video-copywriting",
         "historical-science-video-prod",
         "historical-interview-scripts",
-        "three-body-video-creator"
+        "three-body-video-creator",
+        "native-subtitle-quote-image",
+        "ancient-rap-battle",
+        "lemo-opuscar",
+        "anything2explainer"
       ]
     },
     "电商与营销": {
@@ -90,7 +95,7 @@
       ]
     },
     "智能体协作": {
-      "count": 8,
+      "count": 9,
       "skills": [
         "agent-team",
         "multi-agent-meeting",
@@ -99,7 +104,8 @@
         "antinet-doc-parse",
         "antinet-four-color-cards",
         "antinet-provenance",
-        "expert-prompt-migrator"
+        "expert-prompt-migrator",
+        "awesome-jev"
       ]
     },
     "产品与项目管理": {
@@ -116,6 +122,19 @@
         "ai-drawio",
         "pop-up-book-illustration",
         "web-to-app"
+      ]
+    },
+    "AI 创意与可视化": {
+      "count": 8,
+      "skills": [
+        "hairline",
+        "anatomy",
+        "machine-skill",
+        "RuiC-card-skill",
+        "handraw-style",
+        "threejs-scroll-worlds",
+        "scrollytelling-web",
+        "jack-scroll-3d-sites"
       ]
     },
     "文档处理": {
@@ -203,7 +222,173 @@
       }
     ]
   },
+  "skill_details": {
+    "native-subtitle-quote-image": {
+      "title_cn": "字幕金句长图",
+      "title_en": "Subtitle Quote Poster",
+      "description_cn": "保留视频内嵌原字幕、精确取帧，拼成 3:4 社交平台长图的 Agent Skill。两级 seek 避开长 GOP 跳帧残影，字幕条零间隙；可 Codex/Claude Code 一句话调用或单独跑 Python，附中/英/韩三语 README 与成品案例。",
+      "description_en": "Preserves embedded subtitles and extracts precise frames into 3:4 social quote posters. Two-stage seek avoids GOP artifacts; zero-gap captions. Callable from Codex/Claude Code or run standalone Python; ships zh/en/ko READMEs and samples.",
+      "author": "chengyi-ai",
+      "repo": "https://github.com/chengyi-ai/native-subtitle-quote-image",
+      "license": "MIT",
+      "tags": ["视频", "字幕", "长图", "Python"],
+      "demo": "subtitle"
+    },
+    "cy-carousel-skill": {
+      "title_cn": "图文轮播流水线",
+      "title_en": "Carousel Pipeline",
+      "description_cn": "给选题交回可直接发布的封面 + 10 页竖版轮播 (1440×1920)。带质检流水线：选题比稿→事实核查回论文/史料→只用开放授权素材→手排逐页→渲染→零错误自检→打包，附置顶评论与来源清单。自带 ELIZA、聪明汉斯等样板。",
+      "description_en": "Turns a topic into a publish-ready cover + 10 portrait carousel pages (1440×1920). Fact-checked against primary sources, open-license assets only, with QC, packaging and source lists. Ships ELIZA/Smart-Hans sample sets.",
+      "author": "chengyi-ai",
+      "repo": "https://github.com/chengyi-ai/cy-carousel-skill",
+      "license": "MIT",
+      "tags": ["图文", "轮播", "内容", "质检"],
+      "demo": "carousel"
+    },
+    "hairline": {
+      "title_cn": "跟随鼠标的交互线框图",
+      "title_en": "Interactive Wireframe",
+      "description_cn": "33 个等轴测细线图形库 + 两个 Agent Skill（hairline-create 把想法生成单文件无依赖 HTML 线框图；hairline-adopt 把 SVG/Logo 重建为可交互线框）。零运行时依赖、约 35 kB、MIT，React/原生 JS 通用。克制风格：只描边、无填充渐变、图内无文字。",
+      "description_en": "33 isometric line-art figures plus two agent skills (hairline-create: idea→single-file dependency-free HTML wireframe; hairline-adopt: rebuild SVG/logo into interactive wireframe). ~35kB, zero deps, MIT, works in React or vanilla JS.",
+      "author": "lucasmarkes",
+      "repo": "https://github.com/lucasmarkes/hairline",
+      "license": "MIT",
+      "tags": ["线框图", "等轴测", "SVG", "前端"],
+      "demo": "wireframe"
+    },
+    "anatomy": {
+      "title_cn": "把抽象概念造成一台机器",
+      "title_en": "Concept as a Machine",
+      "description_cn": "先为概念发明物理对应物（缓存命中=弹子锁、令牌桶=带阀水桶、多画布 GPU=龙门绘图仪），再用等轴测相机与零件库逐件造出可交互 SVG/HTML/React。可叠加 WebGL 着色器，悬停爆炸拆解，零 npm 依赖，自带几何审计与 headless 截图自检。",
+      "description_en": "Gives an abstract concept a physical machine analog, then builds interactive SVG/HTML/React with an isometric camera and parts library. WebGL shaders, hover-explode, zero npm deps, built-in geometry audit and headless screenshot self-check.",
+      "author": "wheresryan22",
+      "repo": "https://github.com/wheresryan22/anatomy",
+      "license": "MIT",
+      "tags": ["3D", "等轴测", "SVG", "图解"],
+      "demo": "anatomy"
+    },
+    "machine-skill": {
+      "title_cn": "让机器真跑起来的 3D 演示",
+      "title_en": "Physics 3D Simulation",
+      "description_cn": "查真实尺寸原理→程序化 three.js 把机器搭进自包含 HTML，推力/转速/温度/流量由内置物理求解器实时计算（涡扇布雷顿循环、火箭喷管、泵性能曲线）。旋转/剖切/爆炸/X 光/慢放/标注/破坏模式，可录 20–30 秒成片。MIT，教学模型非工程计算。",
+      "description_en": "Researches real specs, builds machines into a self-contained three.js HTML where thrust/RPM/temp/flow are computed live by an internal physics solver. Rotate/cutaway/explode/X-ray/slow-mo/destroy modes; record 20-30s clips. MIT.",
+      "author": "AirsupHQ",
+      "repo": "https://github.com/AirsupHQ/machine-skill",
+      "license": "MIT",
+      "tags": ["3D", "three.js", "物理", "机械"],
+      "demo": "turbine"
+    },
+    "ancient-rap-battle": {
+      "title_cn": "古人说唱 Battle 流水线",
+      "title_en": "Historical Rap Battle",
+      "description_cn": "把导演活拆成可复跑流水线：文本层挑历史死对头四句一换韵带典故 + Suno API；画面层生图三视图/特写 + 运镜；MiniMax H3 做口型动作对齐 + 史料注释。需 Claude Code + Suno + Midjourney + MiniMax，一期约 $15。",
+      "description_en": "Reproducible pipeline for historical-figure rap battles: script layer picks rival pairs with rhymed allusion-laden bars + Suno API; visual layer generates turntable/close-ups + camera moves; MiniMax H3 lip-sync/action alignment + footnotes. ~$15/episode.",
+      "author": "10291124jcjc-dotcom",
+      "repo": "https://github.com/10291124jcjc-dotcom/ancient-rap-battle",
+      "license": "MIT",
+      "tags": ["视频", "说唱", "Suno", "MiniMax"],
+      "demo": "rap"
+    },
+    "lemo-opuscar": {
+      "title_cn": "用代码拍电影的 Opus 风格库",
+      "title_en": "Cinema-by-Code Styles",
+      "description_cn": "66 套现成风格（art-deco/blueprint/ink-wash/ukiyoe/watercolor 等）+ OPUSCAR 98 奥斯卡特别放映。Canvas/WebGL 逐帧渲染 + 原创配乐 + TTS 旁白，不用视频生成模型/素材库。支持一问一答定制专属风格。Claude Opus 5.5 专用。",
+      "description_en": "66 ready styles (art-deco, blueprint, ink-wash, ukiyoe, watercolor…) + OPUSCAR 98 Oscar retrospective. Frame-by-frame Canvas/WebGL rendering with original score + TTS narration—no video-gen models, no stock. Claude Opus 5.5 only.",
+      "author": "lemomo-ai",
+      "repo": "https://github.com/lemomo-ai/lemo-opuscar",
+      "license": "MIT",
+      "tags": ["视频", "风格库", "Canvas", "WebGL"],
+      "demo": "ardecogold"
+    },
+    "awesome-jev": {
+      "title_cn": "Jev 极廉价批量素材筛选",
+      "title_en": "Jev Batch Triage",
+      "description_cn": "只做选择题的极廉价分类模型 Jev，把『先读再筛』倒成『先判再读』：不把全文塞上下文就对批次分类，概率近 0.5 的留人工复核。228 个项目按 6 大场景编目，npx skills add 装完让 Agent 找参考实现。",
+      "description_en": "Jev is an ultra-cheap multiple-choice triage model—judge before you read. Batch-classify without loading full text; near-0.5 confidence routed to human review. 228 projects cataloged across 6 scenarios.",
+      "author": "BeatAPI",
+      "repo": "https://github.com/BeatAPI/awesome-jev",
+      "license": "MIT",
+      "tags": ["智能体", "分类", "筛选", "素材"],
+      "demo": "jev"
+    },
+    "RuiC-card-skill": {
+      "title_cn": "一句话生成 3D 闪卡",
+      "title_en": "3D Holographic Card",
+      "description_cn": "一句话/参考图→画四层图（主体/背景/线稿/文字）→Blender 按景深撑开→镭射材质流光→Three.js 单文件网页。交付网页链接 + card.blend 源工程 + 四层透明 PNG + 配置 + 渲染图 + 验收截图，可拖拽旋转翻面调滑块，四种卡面质感。",
+      "description_en": "One sentence or reference image → four-layer art → Blender depth-extrude → iridescent material → single-file Three.js page. Ships web link + card.blend + layered PNGs + config + render + QA; drag-rotate/flip/slider; four finishes.",
+      "author": "HRuiCcc",
+      "repo": "https://github.com/HRuiCcc/RuiC-card-skill",
+      "license": "MIT",
+      "tags": ["3D", "闪卡", "Blender", "Three.js"],
+      "demo": "card3d"
+    },
+    "handraw-style": {
+      "title_cn": "261 种手绘风格编号化",
+      "title_en": "Numbered Hand-drawn Styles",
+      "description_cn": "把 261→290 种手绘风格、161 种排版图型、36 种单色主题全部编号化；看图选编号，输出中英双语生图 Prompt。『编号管画风、主题管内容』，同编号可反复换主题；传参考图限定只借线条/笔触/材质/配色。",
+      "description_en": "Numbered catalog of 261→290 hand-drawn styles, 161 layout motifs, 36 monochrome themes. Pick a number → bilingual image prompt. Same number swaps themes freely; reference images borrow only line/stroke/material/palette.",
+      "author": "yang0",
+      "repo": "https://github.com/yang0/handraw-style",
+      "license": "MIT",
+      "tags": ["手绘", "风格", "Prompt", "编号"],
+      "demo": "handraw"
+    },
+    "anything2explainer": {
+      "title_cn": "任意主题一条出讲解视频",
+      "title_en": "Explainer Video Pipeline",
+      "description_cn": "任意主题/文章→黑幕运动图形讲解视频（1280×720@30fps，词级字幕/章节进度条/顶部 HUD）。研究→旁白→TTS→时间线对齐→故事板→并行 Remotion 构建→QC，4 检查点；每帧代码绘制不用视频模型，中文云希/英文 kokoro 配音，全程留档。",
+      "description_en": "Any topic/article → motion-graphics explainer video (1280×720@30fps, word-level captions, chapter bar, top HUD). Research→narration→TTS→timeline→storyboard→parallel Remotion build→QC; every frame code-drawn, no video model.",
+      "author": "Vincentwei1021",
+      "repo": "https://github.com/Vincentwei1021/anything2explainer",
+      "license": "MIT",
+      "tags": ["视频", "讲解", "Remotion", "TTS"],
+      "demo": "explainer"
+    },
+    "threejs-scroll-worlds": {
+      "title_cn": "持久 Three.js 滚动世界",
+      "title_en": "Persistent Scroll World",
+      "description_cn": "一个持久 Three.js 世界 + 归一化可逆滚动状态，相机/光照/材质随章节演化。滚动即叙事时间线，适合产品展示与沉浸式官网首屏。",
+      "description_en": "A persistent Three.js world with normalized, reversible scroll state; camera/lighting/material evolve per chapter. Scroll is the narrative timeline—ideal for product showcases and immersive landing pages.",
+      "author": "getedgehq",
+      "repo": "https://github.com/getedgehq/skills/tree/main/threejs-scroll-worlds",
+      "license": "MIT",
+      "tags": ["3D", "Three.js", "滚动", "网页"],
+      "demo": "scroll3d"
+    },
+    "scrollytelling-web": {
+      "title_cn": "滚动即时间线控制器",
+      "title_en": "Scroll-as-Timeline",
+      "description_cn": "固定场景、scrub 时间线、产品拆解、渐进式 3D 揭示，按复杂度在 CSS/Motion/GSAP/Three.js 间选最小引擎。轻量滚动叙事方案。",
+      "description_en": "Fixed scene, scrub timeline, product teardown, progressive 3D reveal—picks the smallest engine (CSS/Motion/GSAP/Three.js) for the complexity. Lightweight scrollytelling.",
+      "author": "marcmarti9",
+      "repo": "https://github.com/marcmarti9/agentit/tree/main/skills/scrollytelling-web",
+      "license": "MIT",
+      "tags": ["滚动", "叙事", "GSAP", "网页"],
+      "demo": "scrolly"
+    },
+    "jack-scroll-3d-sites": {
+      "title_cn": "滚动 scrub 帧序列 3D 站",
+      "title_en": "Scroll-scrubbed 3D Site",
+      "description_cn": "滚动 scrub 视频或帧序列，Apple 风产品展示，建议 40–150 帧。滚动驱动逐帧播放的 3D 产品演示。",
+      "description_en": "Scroll-scrubbed video or frame sequence for Apple-style product reveals (40–150 frames suggested). Scroll-driven frame-by-frame 3D product demo.",
+      "author": "radustefandumitru",
+      "repo": "https://github.com/radustefandumitru/agenticsupercharge/tree/main/skills/jack-scroll-3d-sites",
+      "license": "MIT",
+      "tags": ["3D", "滚动", "产品", "网页"],
+      "demo": "jack"
+    }
+  },
   "update_log": [
+    {
+      "date": "2026-11-05",
+      "version": "2.3",
+      "changes": [
+        "新增 14 个元宝视频精选 Skills（代码生成视觉 / 视频创作方向）：native-subtitle-quote-image、cy-carousel-skill、hairline、anatomy、machine-skill、ancient-rap-battle、lemo-opuscar、awesome-jev、RuiC-card-skill、handraw-style、anything2explainer，以及 3D 滚动网页三候选 threejs-scroll-worlds、scrollytelling-web、jack-scroll-3d-sites",
+        "新增分类『AI 创意与可视化』收录 8 个设计/3D 技能；技能总数从 67 个增加到 81 个",
+        "local_skills.json 新增 skill_details（中英文介绍 + 上游链接 + demo 标识），前端技能页支持中英文切换与代码生成的动态示例图",
+        "数据来源：腾讯元宝《Skill视频仓库地址与特色解析》"
+      ]
+    },
     {
       "date": "2026-08-11",
       "version": "2.2",

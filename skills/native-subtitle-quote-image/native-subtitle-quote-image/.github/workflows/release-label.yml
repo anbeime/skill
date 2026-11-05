@@ -1,0 +1,31 @@
+name: Release Label
+
+# 合并前确认 PR 恰好带一个 release:* 标签，决定合并后是否发版、发哪一级。
+on:
+  pull_request:
+    types: [opened, reopened, labeled, unlabeled, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+          # 建 PR 和加标签通常是先后两步：刚打开时多等一会儿，避免先报一次红。
+          ATTEMPTS: ${{ github.event.action == 'opened' && 4 || 1 }}
+        run: |
+          for attempt in $(seq 1 "$ATTEMPTS"); do
+            # 每次都实时读取标签，事件里的标签快照可能已过时。
+            count=$(gh pr view "$PR" --json labels --jq '[.labels[].name | select(startswith("release:"))] | length')
+            [ "$count" -eq 1 ] && exit 0
+            [ "$attempt" -lt "$ATTEMPTS" ] && sleep 10
+          done
+          echo "::error::请给 PR 加且只加一个标签：release:patch / release:minor / release:major / release:skip（当前 ${count} 个）"
+          exit 1

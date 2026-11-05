@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.turbo/
+.next/
+.vercel
+*.tsbuildinfo
+.DS_Store
+.env*
+coverage/
+test-results/
+playwright-report/
+
+# Agent scratch
+.claude/
+
+# Copied in from the root by the package's prepack
+packages/hairline/README.md
+packages/hairline/LICENSE
+
+# Specs and plans from the superpowers skills: kept on the machine, not in the repo
+docs/superpowers/

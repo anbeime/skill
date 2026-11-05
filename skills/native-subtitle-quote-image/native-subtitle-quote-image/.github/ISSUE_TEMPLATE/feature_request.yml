@@ -1,0 +1,25 @@
+name: 功能建议 / Feature request
+description: 新版式、新参数、新平台支持或体验改进
+labels: ["needs-triage", "source:github", "type:feature"]
+body:
+  - type: markdown
+    attributes:
+      value: 提交后 Agent 会自动评估可行性。注意本项目的原则：原生字幕不重绘，脚本字幕不冒充原字幕。
+  - type: textarea
+    id: problem
+    attributes:
+      label: 想解决什么问题
+      description: 你在什么场景下遇到了什么不便。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 期望的做法
+      description: 理想中的命令、参数或成品效果，可附参考图。
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 目前的替代办法

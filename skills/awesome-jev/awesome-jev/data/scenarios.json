@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "scenarios": [
+    {
+      "id": "filter-content",
+      "title": {
+        "en": "Filter news & content",
+        "zh": "筛选新闻与内容",
+        "ja": "ニュース・コンテンツの選別"
+      },
+      "description": {
+        "en": "Keep relevant information and skip unwanted content.",
+        "zh": "从信息流中保留相关内容，过滤不需要的信息。",
+        "ja": "情報の流れから必要な内容を残し、不要なものを除きます。"
+      },
+      "flow": {
+        "en": "Collected content → JEV relevance or category judgment → application filters or forwards items",
+        "zh": "已获取的内容 → JEV 判断相关性或类别 → 程序筛选或分流",
+        "ja": "取得済みの内容 → JEV が関連性・分類を判定 → アプリが選別・振り分け"
+      },
+      "projects": [
+        {
+          "projectId": "newsjack",
+          "reference": {
+            "en": "Headline screening before an agent develops PR opportunities.",
+            "zh": "参考新闻初筛如何衔接后续品牌话题处理。",
+            "ja": "見出しの選別から PR 候補の検討につなぐ流れ。"
+          }
+        },
+        {
+          "projectId": "rokcso:bluenoise",
+          "reference": {
+            "en": "Optional JEV checks after deterministic reply-filtering rules.",
+            "zh": "参考本地规则先过滤、JEV 补充判断未命中回复的分工。",
+            "ja": "返信のルール判定後に JEV を補助的に使う分担。"
+          }
+        },
+        {
+          "projectId": "trungdq88:youtube-sponsor-detection",
+          "reference": {
+            "en": "Classifying transcript segments before player controls skip sponsorships.",
+            "zh": "参考字幕片段分类如何衔接播放器跳过广告的操作。",
+            "ja": "字幕区間の分類と広告スキップ操作の連携。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "retrieve-context",
+      "title": {
+        "en": "Find useful documents & memories",
+        "zh": "找到相关文档与记忆",
+        "ja": "関連文書・記憶の検索"
+      },
+      "description": {
+        "en": "Improve which retrieved passages reach an agent.",
+        "zh": "从已经召回的候选中，选出更值得交给 Agent 的内容。",
+        "ja": "検索済みの候補から Agent に渡す情報を絞ります。"
+      },
+      "flow": {
+        "en": "Retrieve candidates → JEV relevance scoring → local ranking and fallback",
+        "zh": "召回候选 → JEV 相关性评分 → 本地重排与回退",
+        "ja": "候補を検索 → JEV が関連性を採点 → ローカルで再順位付け・フォールバック"
+      },
+      "projects": [
+        {
+          "projectId": "openviking-jev-rerank",
+          "reference": {
+            "en": "Per-document relevance questions and vector-score fallback.",
+            "zh": "参考逐文档相关性判断，以及失败时回退向量分数。",
+            "ja": "文書ごとの関連性判定とベクトルスコアへのフォールバック。"
+          }
+        },
+        {
+          "projectId": "hindsight-typesafe-rerank",
+          "reference": {
+            "en": "Relevance scoring and pruning in memory recall.",
+            "zh": "参考记忆召回中的评分与候选剔除。",
+            "ja": "記憶検索における関連性採点と候補削減。"
+          }
+        },
+        {
+          "projectId": "hippo-memory-jev",
+          "reference": {
+            "en": "Batched relevance judgments with a local ranking fallback.",
+            "zh": "参考批量判断召回记忆，以及本地排序回退。",
+            "ja": "記憶の一括判定とローカル順位へのフォールバック。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "route-agents",
+      "title": {
+        "en": "Choose models, tools & agents",
+        "zh": "选择模型、工具与 Agent",
+        "ja": "モデル・ツール・Agent の選択"
+      },
+      "description": {
+        "en": "Choose an execution route from known options.",
+        "zh": "在已有候选中，为任务选择执行路线。",
+        "ja": "既知の候補からタスクの実行先を選びます。"
+      },
+      "flow": {
+        "en": "Task + available options → JEV classification → local route selection",
+        "zh": "任务与可用候选 → JEV 分类判断 → 本地策略选择执行路线",
+        "ja": "タスクと候補 → JEV が分類 → ローカル方針で実行先を選択"
+      },
+      "projects": [
+        {
+          "projectId": "litellm-jev-router",
+          "reference": {
+            "en": "Request complexity classification before model routing.",
+            "zh": "参考先判断请求复杂度，再路由到后端模型。",
+            "ja": "リクエストの複雑さを分類してからモデルに振り分ける方法。"
+          }
+        },
+        {
+          "projectId": "jev-model-router",
+          "reference": {
+            "en": "Mapping task classes to Claude Code model and reasoning settings.",
+            "zh": "参考任务类别到 Claude Code 模型、推理配置的映射。",
+            "ja": "タスク分類を Claude Code のモデル・推論設定に対応させる方法。"
+          }
+        },
+        {
+          "projectId": "billionsbobby-jevrouter",
+          "reference": {
+            "en": "Bounded selection among models, tools and subagents.",
+            "zh": "参考从模型、工具、子 Agent 候选中进行有限选择。",
+            "ja": "モデル・ツール・サブ Agent の候補から選択する方法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "review-work",
+      "title": {
+        "en": "Review code & check outputs",
+        "zh": "审查代码与检查产出",
+        "ja": "コード・出力のレビュー"
+      },
+      "description": {
+        "en": "Add bounded checks before accepting or passing on a result.",
+        "zh": "在采纳或放行结果前，增加明确条件下的检查。",
+        "ja": "結果を採用・通過させる前に、明確な条件で確認します。"
+      },
+      "flow": {
+        "en": "Candidate output + criteria → JEV judgment → code flags, blocks or requests review",
+        "zh": "候选产出与检查标准 → JEV 判断 → 程序标记、拦截或转交复核",
+        "ja": "出力候補と基準 → JEV が判定 → コードが報告・停止・再確認"
+      },
+      "projects": [
+        {
+          "projectId": "jev-review",
+          "reference": {
+            "en": "Staged decisions about evidence, issue mechanism and severity.",
+            "zh": "参考如何分阶段判断证据、问题机制与严重程度。",
+            "ja": "証拠・問題の仕組み・重大度を段階的に判定する方法。"
+          }
+        },
+        {
+          "projectId": "supercov-jev-quality",
+          "reference": {
+            "en": "Checking tests and coverage changes against quality criteria.",
+            "zh": "参考按质量标准检查生成测试与覆盖率变化。",
+            "ja": "生成テストとカバレッジの変化を品質基準で確認する方法。"
+          }
+        },
+        {
+          "projectId": "agentgateway-jev-guardrail",
+          "reference": {
+            "en": "Scoring request/response risks before gateway policy decides.",
+            "zh": "参考请求和响应风险评分，以及网关策略如何消费结果。",
+            "ja": "リクエスト・レスポンスのリスク採点とゲートウェイ方針の連携。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "operate-interfaces",
+      "title": {
+        "en": "Automate browser & desktop actions",
+        "zh": "自动操作网页与桌面",
+        "ja": "ブラウザ・デスクトップの操作"
+      },
+      "description": {
+        "en": "Select the next interface action while code executes it.",
+        "zh": "根据当前界面选择下一步动作，由程序实际执行。",
+        "ja": "現在の画面から次の操作を選び、実行はコードが担います。"
+      },
+      "flow": {
+        "en": "Observed interface + legal actions → JEV selects target/action → executor acts",
+        "zh": "观察界面与合法候选动作 → JEV 选择目标和动作 → 执行器操作",
+        "ja": "画面の観察と操作候補 → JEV が対象・操作を選択 → 実行器が操作"
+      },
+      "projects": [
+        {
+          "projectId": "jev-ultrafast",
+          "reference": {
+            "en": "Selecting an action and DOM target together; text generation stays separate.",
+            "zh": "参考动作与 DOM 目标一起选择，以及与文本生成的分工。",
+            "ja": "操作と DOM 対象の同時選択、文章生成との役割分担。"
+          }
+        },
+        {
+          "projectId": "cua-jev-use",
+          "reference": {
+            "en": "Connecting interface observations to bounded action IDs.",
+            "zh": "参考界面观察如何转成有限动作 ID 的选择。",
+            "ja": "画面の観察結果を有限の操作 ID 選択につなぐ方法。"
+          }
+        },
+        {
+          "projectId": "agent-desktop-jev",
+          "reference": {
+            "en": "Choosing native controls from accessibility data.",
+            "zh": "参考通过无障碍数据选择原生桌面控件。",
+            "ja": "アクセシビリティ情報からネイティブの操作対象を選ぶ方法。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trim-context",
+      "title": {
+        "en": "Trim agent history & tool output",
+        "zh": "精简 Agent 历史与工具输出",
+        "ja": "Agent 履歴・ツール出力の整理"
+      },
+      "description": {
+        "en": "Keep useful context within a limited budget.",
+        "zh": "在有限上下文预算里，保留更有用的信息。",
+        "ja": "限られた文脈予算の中で有用な情報を残します。"
+      },
+      "flow": {
+        "en": "History or output slices → JEV retention judgment → code keeps, truncates or drops",
+        "zh": "历史或输出片段 → JEV 判断保留价值 → 程序保留、截断或丢弃",
+        "ja": "履歴・出力断片 → JEV が保持価値を判定 → コードが保持・短縮・削除"
+      },
+      "projects": [
+        {
+          "projectId": "fast-jev-compaction",
+          "reference": {
+            "en": "Preserving useful tool history without rewriting retained text.",
+            "zh": "参考保留有用工具历史，并让保留内容维持原文。",
+            "ja": "有用なツール履歴を原文のまま保持する方法。"
+          }
+        },
+        {
+          "projectId": "jev-pruner",
+          "reference": {
+            "en": "Trimming long Bash output before it reaches the model.",
+            "zh": "参考模型读取前，如何裁剪过长的 Bash 输出。",
+            "ja": "モデルに渡す前に長い Bash 出力を絞る方法。"
+          }
+        },
+        {
+          "projectId": "save-token-jev-clean",
+          "reference": {
+            "en": "Applying retention scores to conversation history.",
+            "zh": "参考对话条目的保留评分如何驱动清理。",
+            "ja": "会話項目の保持スコアを整理処理に反映する方法。"
+          }
+        }
+      ]
+    }
+  ]
+}

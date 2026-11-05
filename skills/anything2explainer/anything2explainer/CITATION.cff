@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use anything2explainer in your work, please cite it as below."
+title: "anything2explainer"
+type: software
+authors:
+  - family-names: Wei
+    given-names: Yihao
+    alias: Vincentwei1021
+repository-code: "https://github.com/Vincentwei1021/anything2explainer"
+url: "https://github.com/Vincentwei1021/anything2explainer"
+abstract: >-
+  A Claude Code / Codex skill that turns any topic into a narrated motion-graphics
+  explainer video in Chinese or English. Black starfield canvas, white line art with
+  purple accents, TTS voiceover, word-aligned subtitles and a chapter progress bar;
+  every frame is drawn in code with Remotion (React + TypeScript). Ships a compilable
+  template, primitives and lighting library, voiceover / storyboard / render / QC
+  tooling, written style and motion specs, a multi-agent build protocol and a complete
+  reference film as the quality bar.
+keywords:
+  - claude-code
+  - codex
+  - agent-skill
+  - remotion
+  - explainer-video
+  - motion-graphics
+  - text-to-video
+  - tts
+  - multi-agent
+license: PolyForm-Noncommercial-1.0.0
+date-released: "2026-09-09"

@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+# per-episode working files never belong in the repo
+work/
+clips/
+preview/
+final/
+.env

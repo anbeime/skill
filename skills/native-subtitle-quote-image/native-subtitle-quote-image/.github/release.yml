@@ -1,0 +1,13 @@
+# GitHub Release 自动生成说明时按标签分类。
+changelog:
+  exclude:
+    labels: [release:skip]
+  categories:
+    - title: 新功能
+      labels: [type:feature, release:minor, release:major]
+    - title: 问题修复
+      labels: [type:bug]
+    - title: 文档
+      labels: [type:docs]
+    - title: 其他改动
+      labels: ["*"]

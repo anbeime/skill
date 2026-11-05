@@ -1,0 +1,36 @@
+{
+  "name": "@hairline/site",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prebuild": "node ../../registry/build.mjs",
+    "build": "next build",
+    "predev": "node ../../registry/build.mjs",
+    "dev": "next dev -p 3000",
+    "start": "next start -p 3000",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:browser": "playwright test",
+    "clean": "rm -rf .next .turbo public/r"
+  },
+  "dependencies": {
+    "@lucasmarkes/hairline": "workspace:*",
+    "@vercel/analytics": "2.0.1",
+    "geist": "1.7.2",
+    "next": "16.3.8",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "shiki": "4.5.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "^22",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3"
+  }
+}

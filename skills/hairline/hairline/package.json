@@ -1,0 +1,34 @@
+{
+  "name": "hairline-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Thirty-three isometric line figures that answer the pointer",
+  "packageManager": "pnpm@10.20.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:browser": "turbo run test:browser",
+    "clean": "turbo run clean",
+    "release": "node scripts/release.mjs",
+    "kernel": "node scripts/kernel.mjs"
+  },
+  "devDependencies": {
+    "ajv": "8.20.0",
+    "esbuild": "0.28.2",
+    "turbo": "^2.10.5",
+    "typescript": "5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasmarkes/hairline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lucasmarkes/hairline/issues"
+  },
+  "homepage": "https://hairline.lucasmarkes.com"
+}

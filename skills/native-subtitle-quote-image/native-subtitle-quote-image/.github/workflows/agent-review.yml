@@ -1,0 +1,77 @@
+name: Agent Review
+
+# ⑤ 审查：Agent 先审一遍，给出行内意见和总结；合并仍由维护者决定。
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review, reopened]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 要审查的 PR 编号
+        required: true
+        type: number
+
+permissions:
+  contents: read
+
+concurrency:
+  group: agent-review-${{ inputs.pr_number || github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  preflight:
+    # fork 来的 PR 拿不到密钥，草稿 PR 等转正后再审。
+    # 同时检查 Agent 凭据：未配置时整条流程跳过，而不是让每个 issue / PR 都报红。
+    if: >-
+      github.event_name == 'workflow_dispatch' || (
+        !github.event.pull_request.draft &&
+        github.event.pull_request.head.repo.full_name == github.repository
+      )
+    runs-on: ubuntu-latest
+    outputs:
+      ready: ${{ steps.check.outputs.ready }}
+    steps:
+      - id: check
+        env:
+          HAS_CREDENTIALS: ${{ secrets.ANTHROPIC_API_KEY != '' || secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+        run: |
+          echo "ready=${HAS_CREDENTIALS}" >> "$GITHUB_OUTPUT"
+          if [ "$HAS_CREDENTIALS" != "true" ]; then
+            echo "::notice::未配置 ANTHROPIC_API_KEY 或 CLAUDE_CODE_OAUTH_TOKEN，跳过 Agent 步骤。配置方法见 docs/agent-workflow.md"
+          fi
+
+  review:
+    needs: preflight
+    if: needs.preflight.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+    env:
+      PR: ${{ inputs.pr_number || github.event.pull_request.number }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: refs/pull/${{ env.PR }}/head
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ github.token }}
+          # Agent Implement 用默认 token 补触发审查时，发起者是 github-actions 机器人。
+          allowed_bots: github-actions
+          prompt: |
+            仓库：${{ github.repository }}，PR 编号：${{ env.PR }}。
+            阅读 .github/agent/review.md 并按其审查这个 PR。
+          claude_args: >-
+            --allowedTools "Read,Glob,Grep,mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"
+            --max-turns 40
+            ${{ vars.AGENT_MODEL != '' && format('--model {0}', vars.AGENT_MODEL) || '' }}

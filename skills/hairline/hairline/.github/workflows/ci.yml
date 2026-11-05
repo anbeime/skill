@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# A newer push to the same branch or PR cancels the run in flight.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      # Corepack activates the pnpm pinned in package.json's packageManager.
+      - name: Enable Corepack
+        run: corepack enable
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Unit and component tests
+        run: pnpm test
+
+      # The browser tests drive the Chrome that ubuntu-latest ships
+      # (playwright.config.ts sets channel: "chrome"), so nothing is downloaded.
+      - name: Browser tests
+        run: pnpm test:browser
+
+      # The release gate without the network: publint, attw, size budgets, pack
+      # and tarball inspection. Its build, typecheck and unit tests replay from
+      # the turbo cache the steps above filled.
+      - name: Release gate (static)
+        run: pnpm run release --static

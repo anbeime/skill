@@ -1,0 +1,129 @@
+name: Agent Triage
+
+# ② 评估：Agent 读代码判断需求是否可行，结论由脚本落成标签和评论。
+on:
+  issues:
+    types: [opened, reopened]
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 要重新评估的 issue 编号
+        required: true
+        type: number
+  workflow_call:
+    inputs:
+      issue_number:
+        required: true
+        type: number
+      source:
+        description: 由维护者控制的入口（social / community）登记时传入
+        required: false
+        type: string
+        default: github
+
+permissions:
+  contents: read
+
+concurrency:
+  # 普通评论用独立分组，避免有人留言时取消正在进行的评估。
+  group: >-
+    agent-triage-${{ inputs.issue_number || github.event.issue.number }}-${{
+    github.event_name == 'issue_comment' && !startsWith(github.event.comment.body, '/triage') && github.run_id || 'run' }}
+  cancel-in-progress: true
+
+jobs:
+  preflight:
+    # issue_comment 只响应维护者的 /triage；带 agent:skip 的 issue 不处理。
+    # 同时检查 Agent 凭据：未配置时整条流程跳过，而不是让每个 issue / PR 都报红。
+    if: >-
+      (github.event_name != 'issue_comment' || (
+        !github.event.issue.pull_request &&
+        startsWith(github.event.comment.body, '/triage') &&
+        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
+      )) &&
+      !contains(github.event.issue.labels.*.name, 'agent:skip') &&
+      github.event.issue.user.type != 'Bot'
+    runs-on: ubuntu-latest
+    outputs:
+      ready: ${{ steps.check.outputs.ready }}
+    steps:
+      - id: check
+        env:
+          HAS_CREDENTIALS: ${{ secrets.ANTHROPIC_API_KEY != '' || secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+        run: |
+          echo "ready=${HAS_CREDENTIALS}" >> "$GITHUB_OUTPUT"
+          if [ "$HAS_CREDENTIALS" != "true" ]; then
+            echo "::notice::未配置 ANTHROPIC_API_KEY 或 CLAUDE_CODE_OAUTH_TOKEN，跳过 Agent 步骤。配置方法见 docs/agent-workflow.md"
+          fi
+
+  triage:
+    needs: preflight
+    if: needs.preflight.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      issues: write
+      id-token: write
+    outputs:
+      implement: ${{ steps.apply.outputs.implement }}
+      issue_number: ${{ steps.ctx.outputs.issue }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - id: ctx
+        run: |
+          issue="${{ inputs.issue_number || github.event.issue.number }}"
+          echo "issue=${issue}" >> "$GITHUB_OUTPUT"
+          .github/scripts/dump_issue.sh "$issue"
+          echo "association=$(cat .agent-in/association.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Assess feasibility
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ github.token }}
+          # 外部用户提的 issue 也要评估；Agent 只有读文件和写结果文件的工具，没有 Bash 和 GitHub 写权限。
+          allowed_non_write_users: "*"
+          prompt: |
+            阅读 .github/agent/triage.md 并严格按其执行。
+            待评估的是 issue #${{ steps.ctx.outputs.issue }}，内容在 .agent-in/issue.json。
+          claude_args: >-
+            --allowedTools "Read,Glob,Grep,Write"
+            --max-turns 30
+            ${{ vars.AGENT_MODEL != '' && format('--model {0}', vars.AGENT_MODEL) || '' }}
+
+      - id: apply
+        name: Apply verdict
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          python .github/scripts/apply_triage.py \
+            --result .agent-out/triage.json \
+            --issue "${{ steps.ctx.outputs.issue }}" \
+            --association "${{ steps.ctx.outputs.association }}" \
+            --source "${{ inputs.source || 'github' }}" \
+            --auto-implement "${{ vars.AGENT_AUTO_IMPLEMENT || 'false' }}"
+
+  implement:
+    needs: triage
+    if: needs.triage.outputs.implement == 'true'
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      actions: write
+      id-token: write
+    uses: ./.github/workflows/agent-implement.yml
+    with:
+      issue_number: ${{ fromJSON(needs.triage.outputs.issue_number) }}
+    secrets: inherit

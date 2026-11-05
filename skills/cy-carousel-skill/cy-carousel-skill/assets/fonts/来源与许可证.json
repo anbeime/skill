@@ -1,0 +1,30 @@
+[
+  {
+    "font": "NotoSerifSC[wght].ttf",
+    "license": "notoserifsc-OFL.txt",
+    "official_source": "https://github.com/google/fonts/tree/main/ofl/notoserifsc",
+    "font_sha256": "050080d9255a86808f2945bffac582b31ef32bc36411ce29563b4961670c66f9",
+    "license_sha256": "5e0da210fb04058a8c0087985d2d456b931c2579811a49655721d3cf0c36b6d6"
+  },
+  {
+    "font": "NotoSansSC[wght].ttf",
+    "license": "notosanssc-OFL.txt",
+    "official_source": "https://github.com/google/fonts/tree/main/ofl/notosanssc",
+    "font_sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+    "license_sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9"
+  },
+  {
+    "font": "MaShanZheng-Regular.ttf",
+    "license": "mashanzheng-OFL.txt",
+    "official_source": "https://github.com/google/fonts/tree/main/ofl/mashanzheng",
+    "font_sha256": "6d2546bb189c732a8ca29af9e22457b152387d158aa459e4ac2ce1e51788b7fb",
+    "license_sha256": "d7bdb1cee215b689e23c2f95672a6084c790542170648267a55114103d756a08"
+  },
+  {
+    "font": "LXGWWenKai-Medium.ttf",
+    "license": "lxgwwenkai-OFL.txt",
+    "official_source": "https://github.com/lxgw/LxgwWenKai/releases/tag/v1.522",
+    "font_sha256": "d4bdeb38a39151d74d084cba5090f8cb7d20bf83eedb78c35939ae70b9f4e3f6",
+    "license_sha256": "1a25e35da1031c6c3436fde545bb9cb5aca954e9873afe510c834b8b79bd21a0"
+  }
+]

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hairline figure</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { color-scheme: light; --ground: #ffffff; --ink: #232327; --muted: #6f6f78; --line: #e0e0e4; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { color-scheme: dark; --ground: #08090a; --ink: #d0d6e0; --muted: #8a8c95; --line: #29292d; }
+  }
+  :root[data-theme="dark"] { color-scheme: dark; --ground: #08090a; --ink: #d0d6e0; --muted: #8a8c95; --line: #29292d; }
+  :root[data-theme="light"] { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px 16px;
+    background: var(--ground); color: var(--ink);
+    font: 13px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased;
+  }
+  main { width: 100%; max-width: 640px; }
+  .plate { position: relative; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .tag, .label, output, button { font: 11px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: 0.02em; }
+  .tag { position: absolute; top: 12px; z-index: 1; color: var(--muted); pointer-events: none; }
+  #name { left: 14px; }
+  #read { right: 14px; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin-top: 14px; }
+  .label { color: var(--muted); }
+  input[type="range"] {
+    flex: 1 1 96px; min-width: 0; height: 32px; margin: 0; background: transparent; cursor: pointer;
+    -webkit-appearance: none; appearance: none;
+  }
+  input[type="range"]::-webkit-slider-runnable-track { height: 1px; background: var(--muted); }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 13px; height: 13px; margin-top: -6px; border-radius: 50%;
+    border: 1px solid var(--ink); background: var(--ground);
+  }
+  input[type="range"]::-moz-range-track { height: 1px; background: var(--muted); }
+  input[type="range"]::-moz-range-thumb { width: 11px; height: 11px; border-radius: 50%; border: 1px solid var(--ink); background: var(--ground); }
+  input[type="range"]:focus-visible, button:focus-visible { outline: 1.5px solid var(--ink); outline-offset: 2px; }
+  output { min-width: 4ch; text-align: right; font-variant-numeric: tabular-nums; }
+  button {
+    height: 32px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px;
+    background: transparent; color: var(--ink); cursor: pointer;
+  }
+  #play[aria-pressed="true"] { background: var(--ink); color: var(--ground); border-color: var(--ink); }
+  #means { margin: 14px 0 0; text-wrap: pretty; }
+  #rules { margin: 6px 0 0; line-height: 1.6; }
+  #error { margin: 12px 0 0; padding-left: 10px; border-left: 1px solid var(--ink); }
+</style>
+</head>
+<body>
+<main>
+  <div class="plate">
+    <span class="tag" id="name"></span>
+    <span class="tag" id="read"></span>
+    <div id="stage"></div>
+  </div>
+  <div class="controls">
+    <label class="label" for="intensity">intensity</label>
+    <input id="intensity" type="range" min="0" max="1" step="0.01" value="0.5">
+    <output id="value" for="intensity"></output>
+    <span class="label">theme</span>
+    <button id="theme" type="button" aria-label="Switch between the light and the dark theme"></button>
+    <span class="label">play</span>
+    <button id="play" type="button" aria-pressed="false">play</button>
+  </div>
+  <p id="means"></p>
+  <p id="rules" class="label"></p>
+  <p id="error" role="alert" hidden></p>
+</main>
+<script id="hl-kernel">/*KERNEL*/</script>
+<script id="hl-bench">
+/*
+ * The bench: the page a figure is shown on. It makes the host and the svg the
+ * way the package's mount does, hands them to the figure, and owns everything
+ * around it: the read-out, the slider, the theme, the line under the stage.
+ */
+(() => {
+  const RULES = ["hit", "order", "reach", "accent", "rest", "honesty", "cost", "clock", "radius", "quiet"];
+  const $ = (id) => document.getElementById(id);
+  const root = document.documentElement, params = new URLSearchParams(location.search);
+
+  /* the theme: the system's until the switch is pressed, then the switch's */
+  const dark = () => (root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches);
+  const label = () => { $("theme").textContent = dark() ? "dark" : "light"; };
+  $("theme").addEventListener("click", () => { root.dataset.theme = dark() ? "light" : "dark"; label(); });
+  /* ?theme=light or ?theme=dark wins over the system's, as pressing the switch does */
+  if (["light", "dark"].includes(params.get("theme"))) root.dataset.theme = params.get("theme");
+  label();
+
+  /* ?intensity=0 sets the slider before the figure mounts, for a look at either end */
+  const i = (params.get("intensity") || "").trim();
+  if (i && Number.isFinite(Number(i))) $("intensity").value = String(Math.min(1, Math.max(0, Number(i))));
+
+  /* ?w=240 narrows the page, for a look at the size of a thumbnail */
+  const w = Number(params.get("w"));
+  if (w > 0) document.querySelector("main").style.maxWidth = w + "px";
+
+  /* a figure that fails says so under the stage, instead of leaving an empty plate */
+  addEventListener("error", (e) => {
+    $("error").hidden = false;
+    $("error").textContent = String((e.error && e.error.message) || e.message);
+  });
+
+  let mounted = false;
+  window.hairline = (figure) => {
+    if (mounted) throw new Error("hairline: one figure per page.");
+    mounted = true;
+    const stage = $("stage"), slider = $("intensity");
+
+    /* intensity to the figure's own number: two straight lines that meet at 0.5, as in the package */
+    const [lo, mid, hi] = figure.range;
+    const at = (i) => Math.round((i <= 0.5 ? lo + (i / 0.5) * (mid - lo) : mid + ((i - 0.5) / 0.5) * (hi - mid)) * 1000) / 1000;
+
+    HL.inject(document);
+    stage.setAttribute("data-hairline", figure.name);
+    stage.setAttribute("role", "img");
+    stage.setAttribute("aria-label", figure.means);
+    const svg = HL.mk("svg", { viewBox: "0 0 400 320", "aria-hidden": "true" }, stage);
+
+    let text = null;
+    const read = {
+      get textContent() { return text; },
+      set textContent(value) { text = value == null ? "" : String(value); $("read").textContent = text; },
+    };
+
+    document.title = "Hairline · " + figure.name;
+    $("name").textContent = figure.name;
+    $("means").textContent = figure.means;
+    $("rules").textContent = figure.rules.map((n) => String(n).padStart(2, "0") + " " + RULES[n - 1]).join(" · ");
+    const show = () => { $("value").textContent = String(at(Number(slider.value))); };
+    show();
+
+    const handle = figure.mount({ stage, svg, read }, at(Number(slider.value)));
+    if (text === null) read.textContent = "rest";
+    slider.addEventListener("input", () => { show(); handle.set(at(Number(slider.value))); });
+    window.hairline.figure = handle;
+
+    /* play: an unseen pointer walks the figure's tour (or HL.LAP) until a hand arrives; ?play=1 starts it on load */
+    const play = $("play");
+    window.hairline.playing = null;
+    play.addEventListener("click", () => {
+      const was = play.getAttribute("aria-pressed") === "true";
+      if (was) { window.hairline.playing.stop(); window.hairline.playing = null; }
+      else window.hairline.playing = HL.tour(stage, figure.tour || HL.LAP, (i) => { if (window.hairline.onStop) window.hairline.onStop(i); });
+      play.setAttribute("aria-pressed", String(!was));
+    });
+    if (params.get("play") === "1") play.click();
+
+    /* ?at=200,160 holds the pointer at a viewBox point, for a picture of the answer without a mouse */
+    const p = (params.get("at") || "").split(",").map(Number);
+    if (p.length === 2 && p.every(Number.isFinite)) {
+      const r = stage.getBoundingClientRect();
+      stage.dispatchEvent(new PointerEvent("pointermove", {
+        pointerType: "mouse", pointerId: 1, bubbles: true,
+        clientX: r.left + (p[0] / 400) * r.width, clientY: r.top + (p[1] / 320) * r.height,
+      }));
+    }
+  };
+})();
+</script>
+<script type="module" id="hl-figure">/*FIGURE*/</script>
+</body>
+</html>

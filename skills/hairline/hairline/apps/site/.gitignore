@@ -1,0 +1,4 @@
+.next/
+next-env.d.ts
+# written by registry/build.mjs before every build
+public/r/

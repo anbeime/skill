@@ -1,0 +1,12 @@
+{
+  "name": "awesome-jev",
+  "description": "Curated open-source JEV projects, tools, models, and experiments with source evidence.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "catalog:refresh": "node scripts/refresh-curated-projects.mjs",
+    "catalog:export": "node scripts/export-website-data.mjs",
+    "catalog:readmes": "node scripts/sync-readmes.mjs",
+    "test": "node --test scripts/*.test.mjs"
+  }
+}

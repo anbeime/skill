@@ -1,0 +1,6 @@
+interface:
+  display_name: "3D 镭射卡工坊"
+  short_description: "从描述或参考图片生成 Blender 卡牌与可交互的 Three.js 镭射网页"
+  default_prompt: "使用 $RuiC-card-skill 根据我的描述或参考图片制作一张可拖动翻面的 3D 全息卡牌网页。"
+policy:
+  allow_implicit_invocation: true

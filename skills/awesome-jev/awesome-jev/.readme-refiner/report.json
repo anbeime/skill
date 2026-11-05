@@ -1,0 +1,52 @@
+{
+  "mode": "structure-refinement",
+  "project": "Awesome JEV",
+  "direction": "decision-field",
+  "audience": "Developers evaluating bounded decision patterns for agents, tools, search, interfaces, and review workflows.",
+  "oneSentenceValue": "Find JEV projects for your use case and identify the implementation worth referencing.",
+  "primaryProof": "183 source-reviewed projects, 10 project types, 6 scenario guides, and 10 preserved featured cards.",
+  "firstSuccessfulAction": "Choose a scenario, open a referenced project, and inspect the linked implementation.",
+  "nativeVisualMaterial": "Many noisy signals converge into one bounded decision and resolve into choose, score, route, or filter paths.",
+  "cover": {
+    "size": "1200x400",
+    "source": "assets/readme/cover.svg",
+    "rendered": "assets/readme/cover.webp",
+    "generatedBackground": "assets/readme/decision-field.png",
+    "exactText": [
+      "Awesome JEV",
+      "Small decisions. Serious systems.",
+      "CHOOSE / SCORE / ROUTE / FILTER",
+      "Powered by BeatAPI"
+    ]
+  },
+  "factBoundaries": [
+    "Catalogue and gallery metrics are historical snapshots, not live counts.",
+    "Source review is not runtime, benchmark, security, or compatibility verification.",
+    "Remote Skill installation requires these changes to reach the default branch."
+  ],
+  "imageGeneration": {
+    "mode": "built-in image_gen",
+    "promptSummary": "Premium midnight-navy decision field: many noisy signals converge into a crystalline decision core and resolve into four clean paths; no text, logos, people, robots, or watermark."
+  },
+  "reviewedAt": "2026-09-22",
+  "readingOrder": [
+    "Existing cover and use-case promise",
+    "Compact scenario navigation",
+    "Original 10-card featured gallery",
+    "Agent search installation and example",
+    "Complete catalogue with 10-type navigation",
+    "Free JEV API and contribution links"
+  ],
+  "validation": {
+    "catalogueTests": "7 passed",
+    "readmeRefinerCheck": {
+      "errors": 0,
+      "warnings": 0,
+      "scope": "README.md local static checks"
+    },
+    "localizedNavigation": "All README, scenario and agent guide local links and anchors passed",
+    "galleryPreservation": "All three original galleries match HEAD exactly",
+    "browserRendering": "Not verified in a browser",
+    "publication": "Local changes only; not committed or pushed"
+  }
+}

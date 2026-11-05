@@ -1,0 +1,25 @@
+name: 功能建议 / Feature request
+description: 新版式元素、新字体候选、新检查项或体验改进
+labels: ["needs-triage", "source:github", "type:feature"]
+body:
+  - type: markdown
+    attributes:
+      value: 提交后 Agent 会自动评估可行性。注意本项目的红线：事实可回溯、只用开放授权素材、不改原文、脚本不发布、参照图不外传。
+  - type: textarea
+    id: problem
+    attributes:
+      label: 想解决什么问题
+      description: 你在做哪类选题、哪一页时遇到了什么不便。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 期望的做法
+      description: 理想中的函数、参数或成品效果，可附参考图（自己的图或开放授权的图）。
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 目前的替代办法

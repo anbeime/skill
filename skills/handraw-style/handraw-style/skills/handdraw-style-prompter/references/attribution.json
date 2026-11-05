@@ -1,0 +1,16 @@
+{
+  "Saul Steinberg": {"status": "deceased", "source": "https://en.wikipedia.org/wiki/Saul_Steinberg"},
+  "Jean-Jacques Sempé": {"status": "deceased", "source": "https://en.wikipedia.org/wiki/Jean-Jacques_Semp%C3%A9"},
+  "James Thurber": {"status": "deceased", "source": "https://en.wikipedia.org/wiki/James_Thurber"},
+  "Shel Silverstein": {"status": "deceased", "source": "https://en.wikipedia.org/wiki/Shel_Silverstein"},
+  "Edward Gorey": {"status": "deceased", "source": "https://en.wikipedia.org/wiki/Edward_Gorey"},
+  "Ronald Searle": {"status": "deceased", "source": "https://en.wikipedia.org/wiki/Ronald_Searle"},
+  "Charles M. Schulz": {"status": "deceased", "source": "https://en.wikipedia.org/wiki/Charles_M._Schulz"},
+  "Gary Larson": {"status": "living", "source": "https://en.wikipedia.org/wiki/Gary_Larson"},
+  "Quentin Blake": {"status": "living", "source": "https://en.wikipedia.org/wiki/Quentin_Blake"},
+  "Tove Jansson": {"status": "deceased", "source": "https://en.wikipedia.org/wiki/Tove_Jansson"},
+  "Richard Scarry": {"status": "deceased", "source": "https://en.wikipedia.org/wiki/Richard_Scarry"},
+  "Arnold Lobel": {"status": "deceased", "source": "https://en.wikipedia.org/wiki/Arnold_Lobel"},
+  "Maurice Sendak": {"status": "deceased", "source": "https://en.wikipedia.org/wiki/Maurice_Sendak"},
+  "Dr. Seuss": {"status": "deceased", "source": "https://en.wikipedia.org/wiki/Dr._Seuss"}
+}

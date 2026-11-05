@@ -1,0 +1,104 @@
+name: Bug report
+description: A figure, the kit, a check script or the install did something wrong.
+title: "Bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. A screenshot helps most, and for a drawing fault a 4× close-up (`node scripts/capture.mjs page.html --zoom x,y,w,h`).
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where is the problem?
+      options:
+        - A figure an agent made with the skill
+        - One of the examples
+        - The kit (kit/)
+        - A check script (scripts/)
+        - SKILL.md or a reference
+        - Installing the skill
+    validations:
+      required: true
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Which agent?
+      options:
+        - Claude Code
+        - Antigravity
+        - OpenCode
+        - Codex
+        - MiniMax Code
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of figure
+      options:
+        - SVG
+        - SVG + WebGL
+        - 3D (beta)
+        - Not about a figure
+  - type: dropdown
+    id: target
+    attributes:
+      label: Where does the figure live?
+      options:
+        - Standalone HTML
+        - A lone SVG file
+        - React / Next.js
+        - Not about a figure
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Theme
+      options:
+        - Light
+        - Dark
+        - Both
+        - Not about a figure
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you saw, and where in the figure or the output.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to reproduce
+      description: The prompt you gave the agent, or the exact command you ran.
+      placeholder: |
+        /anatomy explain how a token bucket rate limiter works, interactive
+        node examples/raptor-engine/build.mjs --audit
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: Any error, audit lines or console messages.
+      render: shell
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Node.js version, operating system, Chrome version, agent version.
+      placeholder: output of `node --version` and `claude --version`, `agy --version`, `opencode --version`, `codex --version` or `mcode --version`, your OS, your Chrome version
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Drag images here. Close-ups at 4× for drawing faults.

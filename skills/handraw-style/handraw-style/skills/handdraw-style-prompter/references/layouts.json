@@ -1,0 +1,2679 @@
+[
+  {
+    "id": "SB-001",
+    "category": "comic-storyboard",
+    "name": "规则网格",
+    "image": "../../../images/layouts/comic-storyboards/SB-001.webp",
+    "prompt_file": "layouts/SB-001.md",
+    "keywords": [
+      "漫画分镜",
+      "规则网格",
+      "等分面板",
+      "稳定节奏",
+      "日常对白"
+    ],
+    "name_en": "Regular Grid"
+  },
+  {
+    "id": "SB-002",
+    "category": "comic-storyboard",
+    "name": "四格起承转合",
+    "image": "../../../images/layouts/comic-storyboards/SB-002.webp",
+    "prompt_file": "layouts/SB-002.md",
+    "keywords": [
+      "漫画分镜",
+      "四格漫画",
+      "起承转合",
+      "四等格",
+      "搞笑短剧"
+    ],
+    "name_en": "Four-Panel Kishōtenketsu"
+  },
+  {
+    "id": "SB-003",
+    "category": "comic-storyboard",
+    "name": "大格 + 小格",
+    "image": "../../../images/layouts/comic-storyboards/SB-003.webp",
+    "prompt_file": "layouts/SB-003.md",
+    "keywords": [
+      "漫画分镜",
+      "主次画格",
+      "一大配多小",
+      "视觉重点",
+      "节奏对比"
+    ],
+    "name_en": "Hero Panel + Inset Panels"
+  },
+  {
+    "id": "SB-004",
+    "category": "comic-storyboard",
+    "name": "顶部大格开场",
+    "image": "../../../images/layouts/comic-storyboards/SB-004.webp",
+    "prompt_file": "layouts/SB-004.md",
+    "keywords": [
+      "漫画分镜",
+      "顶部大格",
+      "横跨页面",
+      "建立场景",
+      "开场分镜"
+    ],
+    "name_en": "Top Splash Panel Opening"
+  },
+  {
+    "id": "SB-005",
+    "category": "comic-storyboard",
+    "name": "底部大格收尾",
+    "image": "../../../images/layouts/comic-storyboards/SB-005.webp",
+    "prompt_file": "layouts/SB-005.md",
+    "keywords": [
+      "漫画分镜",
+      "底部大格",
+      "高潮收尾",
+      "情绪落点",
+      "反转揭示"
+    ],
+    "name_en": "Bottom Climax Panel Ending"
+  },
+  {
+    "id": "SB-006",
+    "category": "comic-storyboard",
+    "name": "中央大格爆发",
+    "image": "../../../images/layouts/comic-storyboards/SB-006.webp",
+    "prompt_file": "layouts/SB-006.md",
+    "keywords": [
+      "漫画分镜",
+      "中央大格",
+      "视觉中心",
+      "核心爆发",
+      "动作高潮"
+    ],
+    "name_en": "Center Focal Panel"
+  },
+  {
+    "id": "SB-007",
+    "category": "comic-storyboard",
+    "name": "对角切割",
+    "image": "../../../images/layouts/comic-storyboards/SB-007.webp",
+    "prompt_file": "layouts/SB-007.md",
+    "keywords": [
+      "漫画分镜",
+      "对角切割",
+      "斜线构图",
+      "速度感",
+      "冲突对峙"
+    ],
+    "name_en": "Diagonal Dynamic Split"
+  },
+  {
+    "id": "SB-008",
+    "category": "comic-storyboard",
+    "name": "Z 字阅读",
+    "image": "../../../images/layouts/comic-storyboards/SB-008.webp",
+    "prompt_file": "layouts/SB-008.md",
+    "keywords": [
+      "漫画分镜",
+      "Z字阅读",
+      "视线流动",
+      "经典阅读路径",
+      "清晰叙事"
+    ],
+    "name_en": "Z-Pattern Reading Flow"
+  },
+  {
+    "id": "SB-009",
+    "category": "comic-storyboard",
+    "name": "S 型阅读",
+    "image": "../../../images/layouts/comic-storyboards/SB-009.webp",
+    "prompt_file": "layouts/SB-009.md",
+    "keywords": [
+      "漫画分镜",
+      "S型阅读",
+      "柔和曲线",
+      "轻快浪漫",
+      "旅途叙事"
+    ],
+    "name_en": "S-Curve Narrative Flow"
+  },
+  {
+    "id": "SB-010",
+    "category": "comic-storyboard",
+    "name": "螺旋阅读",
+    "image": "../../../images/layouts/comic-storyboards/SB-010.webp",
+    "prompt_file": "layouts/SB-010.md",
+    "keywords": [
+      "漫画分镜",
+      "螺旋阅读",
+      "环形收拢",
+      "层层逼近",
+      "核心聚焦"
+    ],
+    "name_en": "Spiral Inward Flow"
+  },
+  {
+    "id": "SB-011",
+    "category": "comic-storyboard",
+    "name": "放射型分镜",
+    "image": "../../../images/layouts/comic-storyboards/SB-011.webp",
+    "prompt_file": "layouts/SB-011.md",
+    "keywords": [
+      "漫画分镜",
+      "放射型分镜",
+      "向心聚拢",
+      "爆发时刻",
+      "强焦点"
+    ],
+    "name_en": "Radial Converging Panels"
+  },
+  {
+    "id": "SB-012",
+    "category": "comic-storyboard",
+    "name": "碎片面板",
+    "image": "../../../images/layouts/comic-storyboards/SB-012.webp",
+    "prompt_file": "layouts/SB-012.md",
+    "keywords": [
+      "漫画分镜",
+      "碎片面板",
+      "玻璃破碎",
+      "混乱战斗",
+      "心理冲击"
+    ],
+    "name_en": "Shattered Glass Panels"
+  },
+  {
+    "id": "SB-013",
+    "category": "comic-storyboard",
+    "name": "破框构图",
+    "image": "../../../images/layouts/comic-storyboards/SB-013.webp",
+    "prompt_file": "layouts/SB-013.md",
+    "keywords": [
+      "漫画分镜",
+      "破框构图",
+      "越界动态",
+      "空间突破",
+      "力量感"
+    ],
+    "name_en": "Border Break"
+  },
+  {
+    "id": "SB-014",
+    "category": "comic-storyboard",
+    "name": "跨格人物",
+    "image": "../../../images/layouts/comic-storyboards/SB-014.webp",
+    "prompt_file": "layouts/SB-014.md",
+    "keywords": [
+      "漫画分镜",
+      "跨格人物",
+      "连续动作",
+      "跨格延伸",
+      "流动感"
+    ],
+    "name_en": "Multi-Panel Spanning Character"
+  },
+  {
+    "id": "SB-015",
+    "category": "comic-storyboard",
+    "name": "跨格背景",
+    "image": "../../../images/layouts/comic-storyboards/SB-015.webp",
+    "prompt_file": "layouts/SB-015.md",
+    "keywords": [
+      "漫画分镜",
+      "跨格背景",
+      "共享空间",
+      "全景延续",
+      "时空位移"
+    ],
+    "name_en": "Continuous Background Across Panels"
+  },
+  {
+    "id": "SB-016",
+    "category": "comic-storyboard",
+    "name": "一镜到底",
+    "image": "../../../images/layouts/comic-storyboards/SB-016.webp",
+    "prompt_file": "layouts/SB-016.md",
+    "keywords": [
+      "漫画分镜",
+      "一镜到底",
+      "完整空间",
+      "多位置连续",
+      "纯镜头感"
+    ],
+    "name_en": "Single Continuous Take"
+  },
+  {
+    "id": "SB-017",
+    "category": "comic-storyboard",
+    "name": "电影胶片式",
+    "image": "../../../images/layouts/comic-storyboards/SB-017.webp",
+    "prompt_file": "layouts/SB-017.md",
+    "keywords": [
+      "漫画分镜",
+      "电影胶片",
+      "连续画格",
+      "时间推进",
+      "电影质感"
+    ],
+    "name_en": "Cinematic Filmstrip"
+  },
+  {
+    "id": "SB-018",
+    "category": "comic-storyboard",
+    "name": "宽银幕横格",
+    "image": "../../../images/layouts/comic-storyboards/SB-018.webp",
+    "prompt_file": "layouts/SB-018.md",
+    "keywords": [
+      "漫画分镜",
+      "宽银幕横格",
+      "横向宽幅",
+      "宏大场景",
+      "动作场面"
+    ],
+    "name_en": "Widescreen Horizontal Panels"
+  },
+  {
+    "id": "SB-019",
+    "category": "comic-storyboard",
+    "name": "竖向长格",
+    "image": "../../../images/layouts/comic-storyboards/SB-019.webp",
+    "prompt_file": "layouts/SB-019.md",
+    "keywords": [
+      "漫画分镜",
+      "竖向长格",
+      "细长垂直",
+      "高空坠落",
+      "纵向运动"
+    ],
+    "name_en": "Vertical Skyscraper Panels"
+  },
+  {
+    "id": "SB-020",
+    "category": "comic-storyboard",
+    "name": "超窄反应格",
+    "image": "../../../images/layouts/comic-storyboards/SB-020.webp",
+    "prompt_file": "layouts/SB-020.md",
+    "keywords": [
+      "漫画分镜",
+      "超窄反应格",
+      "极速插入",
+      "局部特写",
+      "节奏切换"
+    ],
+    "name_en": "Ultra-Slim Reaction Insets"
+  },
+  {
+    "id": "SB-021",
+    "category": "comic-storyboard",
+    "name": "眼睛特写链",
+    "image": "../../../images/layouts/comic-storyboards/SB-021.webp",
+    "prompt_file": "layouts/SB-021.md",
+    "keywords": [
+      "漫画分镜",
+      "眼神特写链",
+      "对峙神态",
+      "心理悬念",
+      "情绪升级"
+    ],
+    "name_en": "Eye Close-Up Sequence"
+  },
+  {
+    "id": "SB-022",
+    "category": "comic-storyboard",
+    "name": "手部动作链",
+    "image": "../../../images/layouts/comic-storyboards/SB-022.webp",
+    "prompt_file": "layouts/SB-022.md",
+    "keywords": [
+      "漫画分镜",
+      "手部动作链",
+      "关键细节",
+      "局部操作",
+      "推进动作"
+    ],
+    "name_en": "Hand Action Sequence"
+  },
+  {
+    "id": "SB-023",
+    "category": "comic-storyboard",
+    "name": "由远到近",
+    "image": "../../../images/layouts/comic-storyboards/SB-023.webp",
+    "prompt_file": "layouts/SB-023.md",
+    "keywords": [
+      "漫画分镜",
+      "由远到近",
+      "远景到特写",
+      "层层逼近",
+      "紧张感累积"
+    ],
+    "name_en": "Long Shot to Extreme Close-Up"
+  },
+  {
+    "id": "SB-024",
+    "category": "comic-storyboard",
+    "name": "由近到远",
+    "image": "../../../images/layouts/comic-storyboards/SB-024.webp",
+    "prompt_file": "layouts/SB-024.md",
+    "keywords": [
+      "漫画分镜",
+      "由近到远",
+      "特写拉远",
+      "揭晓真相",
+      "环境反差"
+    ],
+    "name_en": "Extreme Close-Up to Wide Reveal"
+  },
+  {
+    "id": "SB-025",
+    "category": "comic-storyboard",
+    "name": "正反打",
+    "image": "../../../images/layouts/comic-storyboards/SB-025.webp",
+    "prompt_file": "layouts/SB-025.md",
+    "keywords": [
+      "漫画分镜",
+      "正反打",
+      "交替对视",
+      "台词博弈",
+      "对话节奏"
+    ],
+    "name_en": "Shot-Reverse-Shot"
+  },
+  {
+    "id": "SB-026",
+    "category": "comic-storyboard",
+    "name": "三连特写",
+    "image": "../../../images/layouts/comic-storyboards/SB-026.webp",
+    "prompt_file": "layouts/SB-026.md",
+    "keywords": [
+      "漫画分镜",
+      "三连特写",
+      "快速切换",
+      "三级递进",
+      "紧凑节拍"
+    ],
+    "name_en": "Triple Rapid Close-Ups"
+  },
+  {
+    "id": "SB-027",
+    "category": "comic-storyboard",
+    "name": "动作分解",
+    "image": "../../../images/layouts/comic-storyboards/SB-027.webp",
+    "prompt_file": "layouts/SB-027.md",
+    "keywords": [
+      "漫画分镜",
+      "动作分解",
+      "起势过程",
+      "击中反馈",
+      "慢动作解析"
+    ],
+    "name_en": "Action Breakdown"
+  },
+  {
+    "id": "SB-028",
+    "category": "comic-storyboard",
+    "name": "连续动作残影",
+    "image": "../../../images/layouts/comic-storyboards/SB-028.webp",
+    "prompt_file": "layouts/SB-028.md",
+    "keywords": [
+      "漫画分镜",
+      "连续残影",
+      "多重影像",
+      "高速轨迹",
+      "动能表现"
+    ],
+    "name_en": "Motion Trail Strobe Sequence"
+  },
+  {
+    "id": "SB-029",
+    "category": "comic-storyboard",
+    "name": "静止重复",
+    "image": "../../../images/layouts/comic-storyboards/SB-029.webp",
+    "prompt_file": "layouts/SB-029.md",
+    "keywords": [
+      "漫画分镜",
+      "静止重复",
+      "微小变化",
+      "冷面幽默",
+      "尴尬停滞"
+    ],
+    "name_en": "Static Panel Repetition"
+  },
+  {
+    "id": "SB-030",
+    "category": "comic-storyboard",
+    "name": "节奏骤停",
+    "image": "../../../images/layouts/comic-storyboards/SB-030.webp",
+    "prompt_file": "layouts/SB-030.md",
+    "keywords": [
+      "漫画分镜",
+      "节奏骤停",
+      "急停空白",
+      "反高潮",
+      "戏剧反差"
+    ],
+    "name_en": "Sudden Pacing Halt"
+  },
+  {
+    "id": "SB-031",
+    "category": "comic-storyboard",
+    "name": "爆发后留白",
+    "image": "../../../images/layouts/comic-storyboards/SB-031.webp",
+    "prompt_file": "layouts/SB-031.md",
+    "keywords": [
+      "漫画分镜",
+      "爆发后留白",
+      "余韵留白",
+      "空旷微小",
+      "反差幽默"
+    ],
+    "name_en": "Post-Climax Negative Space"
+  },
+  {
+    "id": "SB-032",
+    "category": "comic-storyboard",
+    "name": "上下镜像",
+    "image": "../../../images/layouts/comic-storyboards/SB-032.webp",
+    "prompt_file": "layouts/SB-032.md",
+    "keywords": [
+      "漫画分镜",
+      "上下镜像",
+      "构图对照",
+      "内容反转",
+      "前后对比"
+    ],
+    "name_en": "Vertical Mirroring"
+  },
+  {
+    "id": "SB-033",
+    "category": "comic-storyboard",
+    "name": "左右对峙",
+    "image": "../../../images/layouts/comic-storyboards/SB-033.webp",
+    "prompt_file": "layouts/SB-033.md",
+    "keywords": [
+      "漫画分镜",
+      "左右对峙",
+      "两极分化",
+      "视觉对抗",
+      "阵营博弈"
+    ],
+    "name_en": "Split-Side Confrontation"
+  },
+  {
+    "id": "SB-034",
+    "category": "comic-storyboard",
+    "name": "双线并行",
+    "image": "../../../images/layouts/comic-storyboards/SB-034.webp",
+    "prompt_file": "layouts/SB-034.md",
+    "keywords": [
+      "漫画分镜",
+      "双线并行",
+      "双线推进",
+      "时空汇聚",
+      "多线叙事"
+    ],
+    "name_en": "Dual Parallel Storylines"
+  },
+  {
+    "id": "SB-035",
+    "category": "comic-storyboard",
+    "name": "交叉剪辑",
+    "image": "../../../images/layouts/comic-storyboards/SB-035.webp",
+    "prompt_file": "layouts/SB-035.md",
+    "keywords": [
+      "漫画分镜",
+      "交叉剪辑",
+      "两地交替",
+      "悬念紧迫",
+      "误会冲突"
+    ],
+    "name_en": "Cross-Cutting Parallel Action"
+  },
+  {
+    "id": "SB-036",
+    "category": "comic-storyboard",
+    "name": "闪回嵌套",
+    "image": "../../../images/layouts/comic-storyboards/SB-036.webp",
+    "prompt_file": "layouts/SB-036.md",
+    "keywords": [
+      "漫画分镜",
+      "闪回嵌套",
+      "记忆画格",
+      "画中画",
+      "回忆片段"
+    ],
+    "name_en": "Inset Memory Flashback"
+  },
+  {
+    "id": "SB-037",
+    "category": "comic-storyboard",
+    "name": "想象嵌套",
+    "image": "../../../images/layouts/comic-storyboards/SB-037.webp",
+    "prompt_file": "layouts/SB-037.md",
+    "keywords": [
+      "漫画分镜",
+      "想象嵌套",
+      "脑洞格",
+      "现实幻想",
+      "内心喜剧"
+    ],
+    "name_en": "Inset Fantasy Bubble"
+  },
+  {
+    "id": "SB-038",
+    "category": "comic-storyboard",
+    "name": "监控屏幕式",
+    "image": "../../../images/layouts/comic-storyboards/SB-038.webp",
+    "prompt_file": "layouts/SB-038.md",
+    "keywords": [
+      "漫画分镜",
+      "监控屏幕式",
+      "多视角监视",
+      "悬疑探案",
+      "客观观察"
+    ],
+    "name_en": "Multi-CCTV Security Grid"
+  },
+  {
+    "id": "SB-039",
+    "category": "comic-storyboard",
+    "name": "手机聊天式",
+    "image": "../../../images/layouts/comic-storyboards/SB-039.webp",
+    "prompt_file": "layouts/SB-039.md",
+    "keywords": [
+      "漫画分镜",
+      "手机聊天式",
+      "社交气泡",
+      "虚拟现实",
+      "现代生活"
+    ],
+    "name_en": "Smartphone Chat Overlay"
+  },
+  {
+    "id": "SB-040",
+    "category": "comic-storyboard",
+    "name": "档案拼贴式",
+    "image": "../../../images/layouts/comic-storyboards/SB-040.webp",
+    "prompt_file": "layouts/SB-040.md",
+    "keywords": [
+      "漫画分镜",
+      "档案拼贴式",
+      "线索板",
+      "图文便签",
+      "破案调查"
+    ],
+    "name_en": "Detective Case File Collage"
+  },
+  {
+    "id": "SB-041",
+    "category": "comic-storyboard",
+    "name": "杂志编辑式",
+    "image": "../../../images/layouts/comic-storyboards/SB-041.webp",
+    "prompt_file": "layouts/SB-041.md",
+    "keywords": [
+      "漫画分镜",
+      "杂志编辑式",
+      "大标题排版",
+      "时尚版面",
+      "图文混排"
+    ],
+    "name_en": "Editorial Magazine Layout"
+  },
+  {
+    "id": "SB-042",
+    "category": "comic-storyboard",
+    "name": "信息图漫画",
+    "image": "../../../images/layouts/comic-storyboards/SB-042.webp",
+    "prompt_file": "layouts/SB-042.md",
+    "keywords": [
+      "漫画分镜",
+      "信息图漫画",
+      "图表箭头",
+      "科普漫画",
+      "数据可视化"
+    ],
+    "name_en": "Infographic Comic Hybrid"
+  },
+  {
+    "id": "SB-043",
+    "category": "comic-storyboard",
+    "name": "地图路线式",
+    "image": "../../../images/layouts/comic-storyboards/SB-043.webp",
+    "prompt_file": "layouts/SB-043.md",
+    "keywords": [
+      "漫画分镜",
+      "地图路线式",
+      "路径引导",
+      "空间位移",
+      "旅行冒险"
+    ],
+    "name_en": "Map & Trail Journey"
+  },
+  {
+    "id": "SB-044",
+    "category": "comic-storyboard",
+    "name": "时间轴式",
+    "image": "../../../images/layouts/comic-storyboards/SB-044.webp",
+    "prompt_file": "layouts/SB-044.md",
+    "keywords": [
+      "漫画分镜",
+      "时间轴式",
+      "早中晚顺序",
+      "时光流转",
+      "阶段演进"
+    ],
+    "name_en": "Chronological Timeline Progression"
+  },
+  {
+    "id": "SB-045",
+    "category": "comic-storyboard",
+    "name": "时钟式",
+    "image": "../../../images/layouts/comic-storyboards/SB-045.webp",
+    "prompt_file": "layouts/SB-045.md",
+    "keywords": [
+      "漫画分镜",
+      "时钟式",
+      "表盘刻度",
+      "倒计时",
+      "日周循环"
+    ],
+    "name_en": "Clock Face Radial Layout"
+  },
+  {
+    "id": "SB-046",
+    "category": "comic-storyboard",
+    "name": "中心物件式",
+    "image": "../../../images/layouts/comic-storyboards/SB-046.webp",
+    "prompt_file": "layouts/SB-046.md",
+    "keywords": [
+      "漫画分镜",
+      "中心物件式",
+      "核心道具",
+      "环绕事件",
+      "物象聚焦"
+    ],
+    "name_en": "Central Anchor Prop"
+  },
+  {
+    "id": "SB-047",
+    "category": "comic-storyboard",
+    "name": "中心人物式",
+    "image": "../../../images/layouts/comic-storyboards/SB-047.webp",
+    "prompt_file": "layouts/SB-047.md",
+    "keywords": [
+      "漫画分镜",
+      "中心人物式",
+      "主角居中",
+      "环视多角",
+      "众星捧月"
+    ],
+    "name_en": "Central Anchor Protagonist"
+  },
+  {
+    "id": "SB-048",
+    "category": "comic-storyboard",
+    "name": "环形阅读",
+    "image": "../../../images/layouts/comic-storyboards/SB-048.webp",
+    "prompt_file": "layouts/SB-048.md",
+    "keywords": [
+      "漫画分镜",
+      "环形阅读",
+      "闭环循环",
+      "首尾相接",
+      "时间莫比乌斯"
+    ],
+    "name_en": "Circular Loop Narrative"
+  },
+  {
+    "id": "SB-049",
+    "category": "comic-storyboard",
+    "name": "上下坠落式",
+    "image": "../../../images/layouts/comic-storyboards/SB-049.webp",
+    "prompt_file": "layouts/SB-049.md",
+    "keywords": [
+      "漫画分镜",
+      "上下坠落式",
+      "纵深俯冲",
+      "失重加速",
+      "垂直贯穿"
+    ],
+    "name_en": "Downward Plunge Flow"
+  },
+  {
+    "id": "SB-050",
+    "category": "comic-storyboard",
+    "name": "阶梯式",
+    "image": "../../../images/layouts/comic-storyboards/SB-050.webp",
+    "prompt_file": "layouts/SB-050.md",
+    "keywords": [
+      "漫画分镜",
+      "阶梯式",
+      "台阶排版",
+      "层级爬升",
+      "逐级强化"
+    ],
+    "name_en": "Stepped Staircase Progression"
+  },
+  {
+    "id": "SB-051",
+    "category": "comic-storyboard",
+    "name": "波浪式",
+    "image": "../../../images/layouts/comic-storyboards/SB-051.webp",
+    "prompt_file": "layouts/SB-051.md",
+    "keywords": [
+      "漫画分镜",
+      "波浪式",
+      "曲线律动",
+      "梦境起伏",
+      "音乐流动"
+    ],
+    "name_en": "Undulating Wave Flow"
+  },
+  {
+    "id": "SB-052",
+    "category": "comic-storyboard",
+    "name": "自由漂浮式",
+    "image": "../../../images/layouts/comic-storyboards/SB-052.webp",
+    "prompt_file": "layouts/SB-052.md",
+    "keywords": [
+      "漫画分镜",
+      "自由漂浮式",
+      "散点排布",
+      "留白飘逸",
+      "视线导引"
+    ],
+    "name_en": "Free-Floating Unframed Panels"
+  },
+  {
+    "id": "SB-053",
+    "category": "comic-storyboard",
+    "name": "无边框分镜",
+    "image": "../../../images/layouts/comic-storyboards/SB-053.webp",
+    "prompt_file": "layouts/SB-053.md",
+    "keywords": [
+      "漫画分镜",
+      "无边框分镜",
+      "自然破框",
+      "呼吸留白",
+      "有机排版"
+    ],
+    "name_en": "Frameless Organic Narrative"
+  },
+  {
+    "id": "SB-054",
+    "category": "comic-storyboard",
+    "name": "白场分镜",
+    "image": "../../../images/layouts/comic-storyboards/SB-054.webp",
+    "prompt_file": "layouts/SB-054.md",
+    "keywords": [
+      "漫画分镜",
+      "白场分镜",
+      "大面积留白",
+      "极简留白",
+      "诗意克制"
+    ],
+    "name_en": "Generous Negative Space"
+  },
+  {
+    "id": "SB-055",
+    "category": "comic-storyboard",
+    "name": "满版冲击格",
+    "image": "../../../images/layouts/comic-storyboards/SB-055.webp",
+    "prompt_file": "layouts/SB-055.md",
+    "keywords": [
+      "漫画分镜",
+      "满版冲击格",
+      "全版画格",
+      "视觉爆点",
+      "高潮定格"
+    ],
+    "name_en": "Full-Bleed Splash Page"
+  },
+  {
+    "id": "SB-056",
+    "category": "comic-storyboard",
+    "name": "跨页式单页模拟",
+    "image": "../../../images/layouts/comic-storyboards/SB-056.webp",
+    "prompt_file": "layouts/SB-056.md",
+    "keywords": [
+      "漫画分镜",
+      "跨页式单页",
+      "中央对称",
+      "双页模拟",
+      "史诗宽幅"
+    ],
+    "name_en": "Simulated Double-Page Spread"
+  },
+  {
+    "id": "SB-057",
+    "category": "comic-storyboard",
+    "name": "海报式漫画",
+    "image": "../../../images/layouts/comic-storyboards/SB-057.webp",
+    "prompt_file": "layouts/SB-057.md",
+    "keywords": [
+      "漫画分镜",
+      "海报式漫画",
+      "主视觉封面",
+      "画中嵌入",
+      "故事附着"
+    ],
+    "name_en": "Poster-Style Narrative"
+  },
+  {
+    "id": "SB-058",
+    "category": "comic-storyboard",
+    "name": "封面式叙事页",
+    "image": "../../../images/layouts/comic-storyboards/SB-058.webp",
+    "prompt_file": "layouts/SB-058.md",
+    "keywords": [
+      "漫画分镜",
+      "封面式叙事",
+      "杂志头条",
+      "刊头标题",
+      "完整情节"
+    ],
+    "name_en": "Magazine Cover Narrative"
+  },
+  {
+    "id": "SB-059",
+    "category": "comic-storyboard",
+    "name": "舞台式分镜",
+    "image": "../../../images/layouts/comic-storyboards/SB-059.webp",
+    "prompt_file": "layouts/SB-059.md",
+    "keywords": [
+      "漫画分镜",
+      "舞台式分镜",
+      "固定机位",
+      "角色进出",
+      "戏剧空间"
+    ],
+    "name_en": "Fixed Proscenium Stage"
+  },
+  {
+    "id": "SB-060",
+    "category": "comic-storyboard",
+    "name": "横卷式分镜",
+    "image": "../../../images/layouts/comic-storyboards/SB-060.webp",
+    "prompt_file": "layouts/SB-060.md",
+    "keywords": [
+      "漫画分镜",
+      "横卷式分镜",
+      "长卷漫步",
+      "连续画卷",
+      "步移景异"
+    ],
+    "name_en": "Horizontal Continuous Scroll"
+  },
+  {
+    "id": "SB-061",
+    "category": "comic-storyboard",
+    "name": "竖卷式分镜",
+    "image": "../../../images/layouts/comic-storyboards/SB-061.webp",
+    "prompt_file": "layouts/SB-061.md",
+    "keywords": [
+      "漫画分镜",
+      "竖卷式分镜",
+      "立轴画幅",
+      "垂直流转",
+      "古风长卷"
+    ],
+    "name_en": "Vertical Hanging Scroll"
+  },
+  {
+    "id": "SB-062",
+    "category": "comic-storyboard",
+    "name": "镜面反射式",
+    "image": "../../../images/layouts/comic-storyboards/SB-062.webp",
+    "prompt_file": "layouts/SB-062.md",
+    "keywords": [
+      "漫画分镜",
+      "镜面反射式",
+      "倒影双重视角",
+      "双重人格",
+      "心理对照"
+    ],
+    "name_en": "Mirror Reflection Dualism"
+  },
+  {
+    "id": "SB-063",
+    "category": "comic-storyboard",
+    "name": "窗口式分镜",
+    "image": "../../../images/layouts/comic-storyboards/SB-063.webp",
+    "prompt_file": "layouts/SB-063.md",
+    "keywords": [
+      "漫画分镜",
+      "窗口式分镜",
+      "现实画框",
+      "门窗借景",
+      "空间切割"
+    ],
+    "name_en": "Architectural Window Framing"
+  },
+  {
+    "id": "SB-064",
+    "category": "comic-storyboard",
+    "name": "物件遮挡式",
+    "image": "../../../images/layouts/comic-storyboards/SB-064.webp",
+    "prompt_file": "layouts/SB-064.md",
+    "keywords": [
+      "漫画分镜",
+      "物件遮挡式",
+      "前景遮挡",
+      "自然隔断",
+      "纵深分层"
+    ],
+    "name_en": "Foreground Silhouette Framing"
+  },
+  {
+    "id": "SB-065",
+    "category": "comic-storyboard",
+    "name": "文字主导式",
+    "image": "../../../images/layouts/comic-storyboards/SB-065.webp",
+    "prompt_file": "layouts/SB-065.md",
+    "keywords": [
+      "漫画分镜",
+      "文字主导式",
+      "字形骨架",
+      "拟声构架",
+      "图文共构"
+    ],
+    "name_en": "Typographic Scaffold Layout"
+  },
+  {
+    "id": "SB-066",
+    "category": "comic-storyboard",
+    "name": "音效主导式",
+    "image": "../../../images/layouts/comic-storyboards/SB-066.webp",
+    "prompt_file": "layouts/SB-066.md",
+    "keywords": [
+      "漫画分镜",
+      "音效主导式",
+      "巨大声效",
+      "动势贯通",
+      "冲击力"
+    ],
+    "name_en": "Onomatopoeia Trail"
+  },
+  {
+    "id": "SB-067",
+    "category": "comic-storyboard",
+    "name": "色块主导式",
+    "image": "../../../images/layouts/comic-storyboards/SB-067.webp",
+    "prompt_file": "layouts/SB-067.md",
+    "keywords": [
+      "漫画分镜",
+      "色块主导式",
+      "纯色分隔",
+      "情绪色彩",
+      "平面设计感"
+    ],
+    "name_en": "Color Block Panel Partitions"
+  },
+  {
+    "id": "SB-068",
+    "category": "comic-storyboard",
+    "name": "几何分割式",
+    "image": "../../../images/layouts/comic-storyboards/SB-068.webp",
+    "prompt_file": "layouts/SB-068.md",
+    "keywords": [
+      "漫画分镜",
+      "几何分割式",
+      "非矩形面板",
+      "圆形三角",
+      "视觉律动"
+    ],
+    "name_en": "Non-Rectangular Geometric Mosaic"
+  },
+  {
+    "id": "SB-069",
+    "category": "comic-storyboard",
+    "name": "上下两格生活漫画分镜",
+    "image": "../../../images/layouts/comic-storyboards/SB-069.webp",
+    "prompt_file": "layouts/SB-069.md",
+    "keywords": [
+      "竖版上下两格",
+      "等大纵向排列",
+      "上图下文结构",
+      "80%场景插画",
+      "20%横向文字栏",
+      "阿拉伯数字编号",
+      "细横线分隔",
+      "统一边距与比例",
+      "独立生活场景",
+      "规整简洁无装饰"
+    ],
+    "name_en": "Two-Panel Vertical Lifestyle Comic Storyboard"
+  },
+  {
+    "id": "SB-070",
+    "category": "comic-storyboard",
+    "name": "上下四格生活漫画分镜",
+    "image": "../../../images/layouts/comic-storyboards/SB-070.webp",
+    "prompt_file": "layouts/SB-070.md",
+    "keywords": [
+      "竖版上下四格",
+      "等大纵向排列",
+      "上图下文结构",
+      "80%场景插画",
+      "20%横向文字栏",
+      "阿拉伯数字编号",
+      "细横线分隔",
+      "统一边距与比例",
+      "独立生活场景",
+      "规整简洁无装饰"
+    ],
+    "name_en": "Four-Panel Vertical Lifestyle Comic Storyboard"
+  },
+  {
+    "id": "SB-071",
+    "category": "comic-storyboard",
+    "name": "上下三格生活漫画分镜",
+    "image": "../../../images/layouts/comic-storyboards/SB-071.webp",
+    "prompt_file": "layouts/SB-071.md",
+    "keywords": [
+      "竖版上下三格",
+      "等大纵向排列",
+      "上图下文结构",
+      "80%场景插画",
+      "20%横向文字栏",
+      "阿拉伯数字编号",
+      "细横线分隔",
+      "统一边距与比例",
+      "独立生活场景",
+      "规整简洁无装饰"
+    ],
+    "name_en": "Three-Panel Vertical Lifestyle Comic Storyboard"
+  },
+  {
+    "id": "EC-001",
+    "category": "ecommerce",
+    "name": "单品主图",
+    "name_en": "Single Product Hero Image",
+    "image": "../../../images/layouts/ecommerce/EC-001.webp",
+    "prompt_file": "layouts/EC-001.md",
+    "keywords": [
+      "单品主图",
+      "商品主图",
+      "主体清晰",
+      "第一眼看懂商品"
+    ]
+  },
+  {
+    "id": "EC-002",
+    "category": "ecommerce",
+    "name": "多角度展示图",
+    "name_en": "Multi-Angle Display Image",
+    "image": "../../../images/layouts/ecommerce/EC-002.webp",
+    "prompt_file": "layouts/EC-002.md",
+    "keywords": [
+      "多角度展示图",
+      "不同视角",
+      "整体结构",
+      "形态展示"
+    ]
+  },
+  {
+    "id": "EC-003",
+    "category": "ecommerce",
+    "name": "细节特写图",
+    "name_en": "Detail Closeup Image",
+    "image": "../../../images/layouts/ecommerce/EC-003.webp",
+    "prompt_file": "layouts/EC-003.md",
+    "keywords": [
+      "细节特写图",
+      "局部细节",
+      "做工",
+      "材质质感"
+    ]
+  },
+  {
+    "id": "EC-004",
+    "category": "ecommerce",
+    "name": "包装 / 套装 / 内容物展示图",
+    "name_en": "Packaging / Set / Contents Display Image",
+    "image": "../../../images/layouts/ecommerce/EC-004.webp",
+    "prompt_file": "layouts/EC-004.md",
+    "keywords": [
+      "包装展示图",
+      "套装展示",
+      "内容物展示",
+      "配件清单",
+      "陈列"
+    ]
+  },
+  {
+    "id": "EC-005",
+    "category": "ecommerce",
+    "name": "卖点标注图",
+    "name_en": "Feature Callout Image",
+    "image": "../../../images/layouts/ecommerce/EC-005.webp",
+    "prompt_file": "layouts/EC-005.md",
+    "keywords": [
+      "卖点标注图",
+      "核心卖点",
+      "购买理由",
+      "视觉层级"
+    ]
+  },
+  {
+    "id": "EC-006",
+    "category": "ecommerce",
+    "name": "功能演示图",
+    "name_en": "Function Demonstration Image",
+    "image": "../../../images/layouts/ecommerce/EC-006.webp",
+    "prompt_file": "layouts/EC-006.md",
+    "keywords": [
+      "功能演示图",
+      "核心功能",
+      "动作设计",
+      "功能可视化"
+    ]
+  },
+  {
+    "id": "EC-007",
+    "category": "ecommerce",
+    "name": "参数尺寸图",
+    "name_en": "Specification & Dimension Image",
+    "image": "../../../images/layouts/ecommerce/EC-007.webp",
+    "prompt_file": "layouts/EC-007.md",
+    "keywords": [
+      "参数尺寸图",
+      "规格尺寸",
+      "测量关系",
+      "参数说明"
+    ]
+  },
+  {
+    "id": "EC-008",
+    "category": "ecommerce",
+    "name": "材质 / 结构解析图",
+    "name_en": "Material / Structure Exploded Image",
+    "image": "../../../images/layouts/ecommerce/EC-008.webp",
+    "prompt_file": "layouts/EC-008.md",
+    "keywords": [
+      "材质解析图",
+      "结构解析图",
+      "剖面",
+      "分层",
+      "爆炸展开"
+    ]
+  },
+  {
+    "id": "EC-009",
+    "category": "ecommerce",
+    "name": "生活方式场景图",
+    "name_en": "Lifestyle Scenario Image",
+    "image": "../../../images/layouts/ecommerce/EC-009.webp",
+    "prompt_file": "layouts/EC-009.md",
+    "keywords": [
+      "生活方式场景图",
+      "生活情境",
+      "场景氛围",
+      "品牌调性"
+    ]
+  },
+  {
+    "id": "EC-010",
+    "category": "ecommerce",
+    "name": "人物使用图",
+    "name_en": "In-Use Demonstration Image",
+    "image": "../../../images/layouts/ecommerce/EC-010.webp",
+    "prompt_file": "layouts/EC-010.md",
+    "keywords": [
+      "人物使用图",
+      "真实使用",
+      "使用者",
+      "交互表现"
+    ]
+  },
+  {
+    "id": "EC-011",
+    "category": "ecommerce",
+    "name": "多场景适用图",
+    "name_en": "Multi-Scenario Application Image",
+    "image": "../../../images/layouts/ecommerce/EC-011.webp",
+    "prompt_file": "layouts/EC-011.md",
+    "keywords": [
+      "多场景适用图",
+      "典型场景",
+      "适用性",
+      "场景对比"
+    ]
+  },
+  {
+    "id": "EC-012",
+    "category": "ecommerce",
+    "name": "使用步骤 / 教程图",
+    "name_en": "Usage Steps / Tutorial Image",
+    "image": "../../../images/layouts/ecommerce/EC-012.webp",
+    "prompt_file": "layouts/EC-012.md",
+    "keywords": [
+      "使用步骤图",
+      "教程图",
+      "使用指南",
+      "流程组织"
+    ]
+  },
+  {
+    "id": "EC-013",
+    "category": "ecommerce",
+    "name": "对比优势图",
+    "name_en": "Comparative Advantage Image",
+    "image": "../../../images/layouts/ecommerce/EC-013.webp",
+    "prompt_file": "layouts/EC-013.md",
+    "keywords": [
+      "对比优势图",
+      "关键差异",
+      "比较维度",
+      "选购对比"
+    ]
+  },
+  {
+    "id": "EC-014",
+    "category": "ecommerce",
+    "name": "型号 / SKU 差异图",
+    "name_en": "Model / SKU Comparison Image",
+    "image": "../../../images/layouts/ecommerce/EC-014.webp",
+    "prompt_file": "layouts/EC-014.md",
+    "keywords": [
+      "型号差异图",
+      "SKU差异图",
+      "多版本陈列",
+      "颜色尺寸区分"
+    ]
+  },
+  {
+    "id": "EC-015",
+    "category": "ecommerce",
+    "name": "适配 / 选择指南图",
+    "name_en": "Fit / Selection Guide Image",
+    "image": "../../../images/layouts/ecommerce/EC-015.webp",
+    "prompt_file": "layouts/EC-015.md",
+    "keywords": [
+      "适配指南图",
+      "选择指南",
+      "版本推荐",
+      "需求匹配"
+    ]
+  },
+  {
+    "id": "EC-016",
+    "category": "ecommerce",
+    "name": "FAQ / 注意事项图",
+    "name_en": "FAQ / Precautions Image",
+    "image": "../../../images/layouts/ecommerce/EC-016.webp",
+    "prompt_file": "layouts/EC-016.md",
+    "keywords": [
+      "FAQ图",
+      "注意事项图",
+      "常见问答",
+      "购买须知"
+    ]
+  },
+  {
+    "id": "EC-017",
+    "category": "ecommerce",
+    "name": "品质 / 工艺说明图",
+    "name_en": "Quality & Craftsmanship Explanatory Image",
+    "image": "../../../images/layouts/ecommerce/EC-017.webp",
+    "prompt_file": "layouts/EC-017.md",
+    "keywords": [
+      "品质说明图",
+      "工艺说明图",
+      "制造过程",
+      "做工细节",
+      "品质感"
+    ]
+  },
+  {
+    "id": "EC-018",
+    "category": "ecommerce",
+    "name": "认证 / 数据证明图",
+    "name_en": "Certification & Data Proof Image",
+    "image": "../../../images/layouts/ecommerce/EC-018.webp",
+    "prompt_file": "layouts/EC-018.md",
+    "keywords": [
+      "认证图",
+      "数据证明图",
+      "检测结果",
+      "权威认证",
+      "数据可视化"
+    ]
+  },
+  {
+    "id": "EC-019",
+    "category": "ecommerce",
+    "name": "评价 / 口碑图",
+    "name_en": "Review & Word-of-Mouth Image",
+    "image": "../../../images/layouts/ecommerce/EC-019.webp",
+    "prompt_file": "layouts/EC-019.md",
+    "keywords": [
+      "评价图",
+      "口碑图",
+      "用户反馈",
+      "好评如潮",
+      "真实口碑"
+    ]
+  },
+  {
+    "id": "EC-020",
+    "category": "ecommerce",
+    "name": "品牌 / 来源故事图",
+    "name_en": "Brand & Origin Story Image",
+    "image": "../../../images/layouts/ecommerce/EC-020.webp",
+    "prompt_file": "layouts/EC-020.md",
+    "keywords": [
+      "品牌故事图",
+      "来源故事",
+      "产区溯源",
+      "设计理念",
+      "品牌背景"
+    ]
+  },
+  {
+    "id": "EC-021",
+    "category": "ecommerce",
+    "name": "新品上市图",
+    "name_en": "New Arrival Launch Image",
+    "image": "../../../images/layouts/ecommerce/EC-021.webp",
+    "prompt_file": "layouts/EC-021.md",
+    "keywords": [
+      "新品上市图",
+      "全新升级",
+      "首发上市",
+      "新品亮点",
+      "视觉冲击"
+    ]
+  },
+  {
+    "id": "EC-022",
+    "category": "ecommerce",
+    "name": "促销活动图",
+    "name_en": "Promotion & Sales Event Image",
+    "image": "../../../images/layouts/ecommerce/EC-022.webp",
+    "prompt_file": "layouts/EC-022.md",
+    "keywords": [
+      "促销活动图",
+      "限时抢购",
+      "满减折扣",
+      "爆款直降",
+      "大促海报"
+    ]
+  },
+  {
+    "id": "EC-023",
+    "category": "ecommerce",
+    "name": "内容种草 / UGC 图",
+    "name_en": "Content Seeding & UGC Image",
+    "image": "../../../images/layouts/ecommerce/EC-023.webp",
+    "prompt_file": "layouts/EC-023.md",
+    "keywords": [
+      "内容种草图",
+      "UGC分享",
+      "真实分享",
+      "随拍感",
+      "好物推荐"
+    ]
+  },
+  {
+    "id": "EC-024",
+    "category": "ecommerce",
+    "name": "广告主视觉 / Hero / KV",
+    "name_en": "Key Visual & Hero Art (KV)",
+    "image": "../../../images/layouts/ecommerce/EC-024.webp",
+    "prompt_file": "layouts/EC-024.md",
+    "keywords": [
+      "广告主视觉",
+      "Hero图",
+      "主KV",
+      "核心视觉概念",
+      "传播大图"
+    ]
+  },
+  {
+    "id": "IG-001",
+    "category": "infographic",
+    "name": "标题金字塔图标信息图",
+    "image": "../../../images/layouts/infographics/IG-001.webp",
+    "prompt_file": "layouts/IG-001.md",
+    "keywords": [
+      "带标题",
+      "金字塔示意图",
+      "分层结构",
+      "标签图标",
+      "多层信息图"
+    ],
+    "name_en": "Pyramid Hierarchy Icon Infographic"
+  },
+  {
+    "id": "IG-002",
+    "category": "infographic",
+    "name": "中心主图标注信息图",
+    "image": "../../../images/layouts/infographics/IG-002.webp",
+    "prompt_file": "layouts/IG-002.md",
+    "keywords": [
+      "中心主图",
+      "带线标注",
+      "环绕注释",
+      "部位说明",
+      "标注图"
+    ],
+    "name_en": "Central Hero Callout Infographic"
+  },
+  {
+    "id": "IG-003",
+    "category": "infographic",
+    "name": "多行左文右图信息图",
+    "image": "../../../images/layouts/infographics/IG-003.webp",
+    "prompt_file": "layouts/IG-003.md",
+    "keywords": [
+      "多行图文",
+      "左文右图",
+      "主标题",
+      "行程路线",
+      "图鉴速览",
+      "分类清单",
+      "多行对比",
+      "信息图"
+    ],
+    "name_en": "Multi-Row Left-Text Right-Image Infographic"
+  },
+  {
+    "id": "IG-004",
+    "category": "infographic",
+    "name": "双列多行对比信息图",
+    "image": "../../../images/layouts/infographics/IG-004.webp",
+    "prompt_file": "layouts/IG-004.md",
+    "keywords": [
+      "双列对比",
+      "主标题",
+      "多行内容",
+      "左右分栏",
+      "逐项比较",
+      "信息图"
+    ],
+    "name_en": "Two-Column Multi-Row Comparison"
+  },
+  {
+    "id": "IG-005",
+    "category": "infographic",
+    "name": "大主视觉下方图鉴信息图",
+    "image": "../../../images/layouts/infographics/IG-005.webp",
+    "prompt_file": "layouts/IG-005.md",
+    "keywords": [
+      "超大标题",
+      "大型主视觉",
+      "嵌入式标签",
+      "下方图鉴单元",
+      "分类浏览",
+      "强层级结构"
+    ],
+    "name_en": "Hero Visual Catalog Infographic"
+  },
+  {
+    "id": "IG-006",
+    "category": "infographic",
+    "name": "多层标题图标对比信息图",
+    "image": "../../../images/layouts/infographics/IG-006.webp",
+    "prompt_file": "layouts/IG-006.md",
+    "keywords": [
+      "多层对比",
+      "主标题",
+      "左侧层级标题",
+      "右侧带字图标",
+      "整齐排列",
+      "信息图"
+    ],
+    "name_en": "Multi-Tier Headline Icon Comparison"
+  },
+  {
+    "id": "IG-007",
+    "category": "infographic",
+    "name": "粗体标题标签小图卡",
+    "image": "../../../images/layouts/infographics/IG-007.webp",
+    "prompt_file": "layouts/IG-007.md",
+    "keywords": [
+      "粗体标题",
+      "标签小图",
+      "底部短句",
+      "纯色背景",
+      "留白"
+    ],
+    "name_en": "Bold Headline Tag Cards"
+  },
+  {
+    "id": "IG-008",
+    "category": "infographic",
+    "name": "多路径流程步骤图",
+    "image": "../../../images/layouts/infographics/IG-008.webp",
+    "prompt_file": "layouts/IG-008.md",
+    "keywords": [
+      "流程步骤",
+      "有标题",
+      "横向流程",
+      "纵向流程",
+      "S形路径",
+      "一步一图一句"
+    ],
+    "name_en": "Multi-Path Process Step Flow"
+  },
+  {
+    "id": "IG-009",
+    "category": "infographic",
+    "name": "时间轴节点信息图",
+    "image": "../../../images/layouts/infographics/IG-009.webp",
+    "prompt_file": "layouts/IG-009.md",
+    "keywords": [
+      "时间轴",
+      "主轴节点",
+      "横向时间轴",
+      "纵向时间轴",
+      "节点小图",
+      "时间短句",
+      "大面积留白"
+    ],
+    "name_en": "Timeline Milestone Infographic"
+  },
+  {
+    "id": "IG-010",
+    "category": "infographic",
+    "name": "阶段等级进阶信息图",
+    "image": "../../../images/layouts/infographics/IG-010.webp",
+    "prompt_file": "layouts/IG-010.md",
+    "keywords": [
+      "阶段进阶",
+      "等级变化",
+      "阶梯",
+      "上升箭头",
+      "层级结构",
+      "大面积留白"
+    ],
+    "name_en": "Stage Progression Infographic"
+  },
+  {
+    "id": "IG-011",
+    "category": "infographic",
+    "name": "前后变化对比信息图",
+    "image": "../../../images/layouts/infographics/IG-011.webp",
+    "prompt_file": "layouts/IG-011.md",
+    "keywords": [
+      "Before After",
+      "前后对比",
+      "变化重点",
+      "左右对比",
+      "上下对比",
+      "箭头",
+      "少量说明"
+    ],
+    "name_en": "Before & After Comparison Infographic"
+  },
+  {
+    "id": "IG-012",
+    "category": "infographic",
+    "name": "分层结构型信息图",
+    "image": "../../../images/layouts/infographics/IG-012.webp",
+    "prompt_file": "layouts/IG-012.md",
+    "keywords": [
+      "分层结构",
+      "上中下",
+      "内中外",
+      "表层深层",
+      "层级关系",
+      "层层递进"
+    ],
+    "name_en": "Layered Hierarchy Infographic"
+  },
+  {
+    "id": "IG-013",
+    "category": "infographic",
+    "name": "漏斗转化型信息图",
+    "image": "../../../images/layouts/infographics/IG-013.webp",
+    "prompt_file": "layouts/IG-013.md",
+    "keywords": [
+      "漏斗型",
+      "上宽下窄",
+      "筛选",
+      "转化",
+      "淘汰",
+      "聚焦",
+      "层级递进"
+    ],
+    "name_en": "Conversion Funnel Infographic"
+  },
+  {
+    "id": "IG-014",
+    "category": "infographic",
+    "name": "四象限矩阵信息图",
+    "image": "../../../images/layouts/infographics/IG-014.webp",
+    "prompt_file": "layouts/IG-014.md",
+    "keywords": [
+      "矩阵型",
+      "2×2",
+      "两条轴",
+      "四象限",
+      "横纵坐标",
+      "象限对比"
+    ],
+    "name_en": "Four-Quadrant Matrix Infographic"
+  },
+  {
+    "id": "IG-015",
+    "category": "infographic",
+    "name": "坐标散点型信息图",
+    "image": "../../../images/layouts/infographics/IG-015.webp",
+    "prompt_file": "layouts/IG-015.md",
+    "keywords": [
+      "坐标散点",
+      "坐标空间",
+      "横轴",
+      "纵轴",
+      "对象分布",
+      "位置关系"
+    ],
+    "name_en": "Coordinate Scatter Plot Infographic"
+  },
+  {
+    "id": "IG-016",
+    "category": "infographic",
+    "name": "分类树状型信息图",
+    "image": "../../../images/layouts/infographics/IG-016.webp",
+    "prompt_file": "layouts/IG-016.md",
+    "keywords": [
+      "分类树",
+      "树状结构",
+      "大类分小类",
+      "层级分支",
+      "父子关系",
+      "末端节点"
+    ],
+    "name_en": "Categorical Tree Hierarchy Infographic"
+  },
+  {
+    "id": "IG-017",
+    "category": "infographic",
+    "name": "思维导图型信息图",
+    "image": "../../../images/layouts/infographics/IG-017.webp",
+    "prompt_file": "layouts/IG-017.md",
+    "keywords": [
+      "思维导图",
+      "脑图",
+      "中心节点",
+      "多条分支",
+      "层级关系",
+      "辐射展开"
+    ],
+    "name_en": "Mind Map Radial Infographic"
+  },
+  {
+    "id": "IG-018",
+    "category": "infographic",
+    "name": "关系网络型信息图",
+    "image": "../../../images/layouts/infographics/IG-018.webp",
+    "prompt_file": "layouts/IG-018.md",
+    "keywords": [
+      "关系网络",
+      "多节点",
+      "连线关系",
+      "复杂网络",
+      "节点群",
+      "网状结构"
+    ],
+    "name_en": "Relationship Network Infographic"
+  },
+  {
+    "id": "IG-019",
+    "category": "infographic",
+    "name": "循环闭环型信息图",
+    "image": "../../../images/layouts/infographics/IG-019.webp",
+    "prompt_file": "layouts/IG-019.md",
+    "keywords": [
+      "循环闭环",
+      "环形路径",
+      "连续箭头",
+      "反馈迭代",
+      "闭环流程",
+      "持续循环"
+    ],
+    "name_en": "Closed-Loop Cycle Infographic"
+  },
+  {
+    "id": "IG-020",
+    "category": "infographic",
+    "name": "路径地图型信息图",
+    "image": "../../../images/layouts/infographics/IG-020.webp",
+    "prompt_file": "layouts/IG-020.md",
+    "keywords": [
+      "路径地图",
+      "探索路线",
+      "编号节点",
+      "阶段路标",
+      "蜿蜒路线",
+      "游戏地图式"
+    ],
+    "name_en": "Narrative Route Map Infographic"
+  },
+  {
+    "id": "IG-021",
+    "category": "infographic",
+    "name": "真实地图标注型信息图",
+    "image": "../../../images/layouts/infographics/IG-021.webp",
+    "prompt_file": "layouts/IG-021.md",
+    "keywords": [
+      "真实地图",
+      "地图轮廓",
+      "地点标注",
+      "区域关系",
+      "图例简洁",
+      "空间分布"
+    ],
+    "name_en": "Geographic Map with Annotations"
+  },
+  {
+    "id": "IG-022",
+    "category": "infographic",
+    "name": "数字大字型信息图",
+    "image": "../../../images/layouts/infographics/IG-022.webp",
+    "prompt_file": "layouts/IG-022.md",
+    "keywords": [
+      "数字大字",
+      "超大数字",
+      "视觉主体",
+      "数据冲击",
+      "极短说明",
+      "极简数字"
+    ],
+    "name_en": "Big Number Stat Highlight Infographic"
+  },
+  {
+    "id": "IG-023",
+    "category": "infographic",
+    "name": "排行榜型信息图",
+    "image": "../../../images/layouts/infographics/IG-023.webp",
+    "prompt_file": "layouts/IG-023.md",
+    "keywords": [
+      "排行榜",
+      "名次顺序",
+      "前五名",
+      "纵向排行",
+      "核心数据",
+      "领跑视觉"
+    ],
+    "name_en": "Leaderboard Ranking Infographic"
+  },
+  {
+    "id": "IG-024",
+    "category": "infographic",
+    "name": "比例构成型信息图",
+    "image": "../../../images/layouts/infographics/IG-024.webp",
+    "prompt_file": "layouts/IG-024.md",
+    "keywords": [
+      "比例构成",
+      "圆环图",
+      "饼图",
+      "百分比",
+      "份额占比",
+      "整体部分"
+    ],
+    "name_en": "Part-to-Whole Composition Infographic"
+  },
+  {
+    "id": "IG-025",
+    "category": "infographic",
+    "name": "尺度比较型信息图",
+    "image": "../../../images/layouts/infographics/IG-025.webp",
+    "prompt_file": "layouts/IG-025.md",
+    "keywords": [
+      "尺度比较",
+      "从小到大",
+      "相对尺寸",
+      "真实尺度",
+      "视觉比较",
+      "递进关系"
+    ],
+    "name_en": "Scale Comparison Infographic"
+  },
+  {
+    "id": "IG-026",
+    "category": "infographic",
+    "name": "拆解爆炸图型信息图",
+    "image": "../../../images/layouts/infographics/IG-026.webp",
+    "prompt_file": "layouts/IG-026.md",
+    "keywords": [
+      "拆解爆炸图",
+      "组件分离",
+      "零件结构",
+      "引导线说明",
+      "组成关系",
+      "剖析结构"
+    ],
+    "name_en": "Exploded Assembly View Infographic"
+  },
+  {
+    "id": "IG-027",
+    "category": "infographic",
+    "name": "剖面截面型信息图",
+    "image": "../../../images/layouts/infographics/IG-027.webp",
+    "prompt_file": "layouts/IG-027.md",
+    "keywords": [
+      "剖面截面",
+      "切开展示",
+      "内部空间",
+      "楼层结构",
+      "功能分区",
+      "透视切口"
+    ],
+    "name_en": "Cutaway Sectional View Infographic"
+  },
+  {
+    "id": "IG-028",
+    "category": "infographic",
+    "name": "连续场景信息图",
+    "image": "../../../images/layouts/infographics/IG-028.webp",
+    "prompt_file": "layouts/IG-028.md",
+    "keywords": [
+      "连续场景",
+      "连贯空间",
+      "时间场景",
+      "信息节点",
+      "场景串联",
+      "沉浸叙事"
+    ],
+    "name_en": "Continuous Scene Panoramic Infographic"
+  },
+  {
+    "id": "IG-029",
+    "category": "infographic",
+    "name": "人物群像标签型信息图",
+    "image": "../../../images/layouts/infographics/IG-029.webp",
+    "prompt_file": "layouts/IG-029.md",
+    "keywords": [
+      "人物群像",
+      "角色标签",
+      "自由站位",
+      "形态差异",
+      "特征标注",
+      "角色概括"
+    ],
+    "name_en": "Character Ensemble Label Infographic"
+  },
+  {
+    "id": "IG-030",
+    "category": "infographic",
+    "name": "一大多小知识图谱型信息图",
+    "image": "../../../images/layouts/infographics/IG-030.webp",
+    "prompt_file": "layouts/IG-030.md",
+    "keywords": [
+      "核心主图",
+      "多节点",
+      "小视觉",
+      "知识图谱",
+      "短文字",
+      "弱中心关系"
+    ],
+    "name_en": "Core Hero Knowledge Map Infographic"
+  },
+  {
+    "id": "IG-031",
+    "category": "infographic",
+    "name": "百科全书式信息卡",
+    "image": "../../../images/layouts/infographics/IG-031.webp",
+    "prompt_file": "layouts/IG-031.md",
+    "keywords": [
+      "百科全书",
+      "标本展示",
+      "多模块信息",
+      "细线网格",
+      "博物馆导览",
+      "图文混排",
+      "理性设计"
+    ],
+    "name_en": "Encyclopedic Specimen Information Card"
+  },
+  {
+    "id": "IG-032",
+    "category": "infographic",
+    "name": "手绘编辑式知识信息图",
+    "image": "../../../images/layouts/infographics/IG-032.webp",
+    "prompt_file": "layouts/IG-032.md",
+    "keywords": [
+      "手绘编辑式",
+      "大标题",
+      "核心主视觉",
+      "编号模块",
+      "思维泡泡",
+      "手写注释",
+      "清单总结",
+      "轻漫画叙事",
+      "知识信息图"
+    ],
+    "name_en": "Hand-Drawn Editorial Knowledge Infographic"
+  },
+  {
+    "id": "IG-033",
+    "category": "infographic",
+    "name": "讲义式高密分析信息图",
+    "image": "../../../images/layouts/infographics/IG-033.webp",
+    "prompt_file": "layouts/IG-033.md",
+    "keywords": [
+      "讲义式排版",
+      "高信息密度",
+      "总览分解总结",
+      "编号分析模块",
+      "表格容器",
+      "步骤流程区",
+      "思维导图决策树",
+      "重点结论区",
+      "易错提醒",
+      "知识点结构化"
+    ],
+    "name_en": "High-Density Handout Analytical Infographic"
+  },
+  {
+    "id": "IG-034",
+    "category": "infographic",
+    "name": "编辑式等距轴测全景地图信息图",
+    "image": "../../../images/layouts/infographics/IG-034.webp",
+    "prompt_file": "layouts/IG-034.md",
+    "keywords": [
+      "编辑式轴测地图",
+      "等距轴测全景",
+      "微缩世界地图",
+      "纵向长幅构图",
+      "不规则节点错落",
+      "大留白呼吸感",
+      "空间叙事隐藏流程",
+      "极简线稿插画",
+      "趣味微缩互动"
+    ],
+    "name_en": "Editorial Isometric Illustrated Map Infographic"
+  },
+  {
+    "id": "IG-035",
+    "category": "infographic",
+    "name": "2.5D等距轴测微缩场景",
+    "image": "../../../images/layouts/infographics/IG-035.webp",
+    "prompt_file": "layouts/IG-035.md",
+    "keywords": [
+      "2.5D",
+      "等距轴测",
+      "微缩场景"
+    ],
+    "name_en": "2.5D Isometric Miniature Scene"
+  },
+  {
+    "id": "IG-036",
+    "category": "infographic",
+    "name": "迷宫大侦探高密度轴测全景信息图",
+    "image": "../../../images/layouts/infographics/IG-036.webp",
+    "prompt_file": "layouts/IG-036.md",
+    "keywords": [
+      "迷宫大侦探",
+      "轴测俯瞰",
+      "高密度构图",
+      "多中心分区叙事",
+      "立体空间布局",
+      "微细节嵌套",
+      "连续动线",
+      "可探索全景",
+      "45度轴测"
+    ],
+    "name_en": "Maze Detective High-Density Isometric Exploration Infographic"
+  },
+  {
+    "id": "IG-037",
+    "category": "infographic",
+    "name": "高精细手绘等距轴测地图信息图",
+    "image": "../../../images/layouts/infographics/IG-037.webp",
+    "prompt_file": "layouts/IG-037.md",
+    "keywords": [
+      "高精细手绘等距轴测地图信息图",
+      "等距轴测地图",
+      "旅游导览地图",
+      "鸟瞰微缩城市",
+      "地图信息图",
+      "线路图",
+      "景点打卡"
+    ],
+    "name_en": "High-Detail Isometric Travel Guide Map Infographic"
+  },
+  {
+    "id": "IG-038",
+    "category": "infographic",
+    "name": "万能信息图",
+    "image": "../../../images/layouts/infographics/IG-038.webp",
+    "prompt_file": "layouts/IG-038.md",
+    "keywords": [
+      "万能信息图",
+      "万能信息图",
+      "信息图",
+      "通用信息图",
+      "万能版式",
+      "结构化图解"
+    ],
+    "name_en": "Universal Infographic"
+  },
+  {
+    "id": "IP-001",
+    "category": "ip-character",
+    "name": "IP定位卡",
+    "image": "../../../images/layouts/ip-characters/IP-001.webp",
+    "prompt_file": "layouts/IP-001.md",
+    "keywords": [
+      "IP定位卡",
+      "品牌封面感",
+      "纯色背景",
+      "大字排版",
+      "非人吉祥物",
+      "视觉隐喻",
+      "受众画像",
+      "调性标签"
+    ],
+    "name_en": "IP Positioning Card"
+  },
+  {
+    "id": "IP-002",
+    "category": "ip-character",
+    "name": "角色形象三视图基准图",
+    "image": "../../../images/layouts/ip-characters/IP-002.webp",
+    "prompt_file": "layouts/IP-002.md",
+    "keywords": [
+      "三视图",
+      "角色三视图",
+      "形象基准图",
+      "正视图侧视图背视图",
+      "头像特写"
+    ],
+    "name_en": "Character Model Sheet & Turnaround"
+  },
+  {
+    "id": "IP-003",
+    "category": "ip-character",
+    "name": "16宫格角色微信表情包",
+    "image": "../../../images/layouts/ip-characters/IP-003.webp",
+    "prompt_file": "layouts/IP-003.md",
+    "keywords": [
+      "16宫格",
+      "微信表情包",
+      "表情包",
+      "角色表情",
+      "4x4宫格",
+      "日常互动",
+      "贴纸设计"
+    ],
+    "name_en": "16-Grid Character WeChat Sticker Sheet"
+  },
+  {
+    "id": "IP-004",
+    "category": "ip-character",
+    "name": "IP服装与道具卡",
+    "image": "../../../images/layouts/ip-characters/IP-004.webp",
+    "prompt_file": "layouts/IP-004.md",
+    "keywords": [
+      "服装与道具卡",
+      "常服搭配",
+      "随身道具",
+      "IP设计手册",
+      "角色服装",
+      "道具展示",
+      "Character Bible"
+    ],
+    "name_en": "IP Outfit & Props Card"
+  },
+  {
+    "id": "IP-005",
+    "category": "ip-character",
+    "name": "IP内容传播示范卡",
+    "image": "../../../images/layouts/ip-characters/IP-005.webp",
+    "prompt_file": "layouts/IP-005.md",
+    "keywords": [
+      "内容传播卡",
+      "社交平台单图宣传",
+      "封面传播",
+      "6宫格矩阵",
+      "社媒封面",
+      "IP传播手册",
+      "Character Bible"
+    ],
+    "name_en": "IP Content Communication Showcase Card"
+  },
+  {
+    "id": "IP-006",
+    "category": "ip-character",
+    "name": "IP角色家族卡",
+    "image": "../../../images/layouts/ip-characters/IP-006.webp",
+    "prompt_file": "layouts/IP-006.md",
+    "keywords": [
+      "角色家族卡",
+      "家族卡",
+      "系列化延展",
+      "群像展示",
+      "全家福",
+      "日常小剧场",
+      "IP设计手册",
+      "Character Bible"
+    ],
+    "name_en": "IP Character Family Lineup Card"
+  },
+  {
+    "id": "IP-007",
+    "category": "ip-character",
+    "name": "IP商业应用卡",
+    "image": "../../../images/layouts/ip-characters/IP-007.webp",
+    "prompt_file": "layouts/IP-007.md",
+    "keywords": [
+      "商业应用卡",
+      "周边衍生",
+      "产品落地",
+      "Mockup",
+      "实体周边",
+      "周边开发",
+      "IP设计手册",
+      "Character Bible"
+    ],
+    "name_en": "IP Commercial Mockup Card"
+  },
+  {
+    "id": "IP-008",
+    "category": "ip-character",
+    "name": "IP角色关系卡",
+    "image": "../../../images/layouts/ip-characters/IP-008.webp",
+    "prompt_file": "layouts/IP-008.md",
+    "keywords": [
+      "角色关系卡",
+      "相处机制",
+      "主角与搭档",
+      "互动模式",
+      "微缩剧场",
+      "IP设计手册",
+      "Character Bible"
+    ],
+    "name_en": "IP Character Relationship Card"
+  },
+  {
+    "id": "IP-009",
+    "category": "ip-character",
+    "name": "IP角色一日生活相册",
+    "image": "../../../images/layouts/ip-characters/IP-009.webp",
+    "prompt_file": "layouts/IP-009.md",
+    "keywords": [
+      "一日生活相册",
+      "iPhone相册",
+      "生活记录",
+      "18宫格照片流",
+      "手机截屏",
+      "角色日常",
+      "时间线记录",
+      "IP设计手册"
+    ],
+    "name_en": "IP Character A Day in the Life Photo Album"
+  },
+  {
+    "id": "IP-010",
+    "category": "ip-character",
+    "name": "IP角色社交圈动态卡",
+    "image": "../../../images/layouts/ip-characters/IP-010.webp",
+    "prompt_file": "layouts/IP-010.md",
+    "keywords": [
+      "朋友圈动态卡",
+      "微信朋友圈",
+      "社交圈动态",
+      "朋友视角",
+      "手机截屏",
+      "日常抓拍",
+      "第三方侧写",
+      "IP设计手册"
+    ],
+    "name_en": "IP Character Social Feed Moments Card"
+  },
+  {
+    "id": "IP-011",
+    "category": "ip-character",
+    "name": "IP角色微信群聊界面卡",
+    "image": "../../../images/layouts/ip-characters/IP-011.webp",
+    "prompt_file": "layouts/IP-011.md",
+    "keywords": [
+      "微信群聊",
+      "群聊截屏",
+      "聊天界面",
+      "好友互动",
+      "角色日常",
+      "表情包互动",
+      "社交对话",
+      "IP设计手册"
+    ],
+    "name_en": "IP Character WeChat Group Chat Interface Card"
+  },
+  {
+    "id": "IP-012",
+    "category": "ip-character",
+    "name": "IP角色小红书主页卡",
+    "image": "../../../images/layouts/ip-characters/IP-012.webp",
+    "prompt_file": "layouts/IP-012.md",
+    "keywords": [
+      "小红书主页",
+      "个人主页",
+      "社媒账号",
+      "应用截屏",
+      "爆款笔记",
+      "内容流",
+      "粉丝运营",
+      "IP设计手册"
+    ],
+    "name_en": "IP Character Xiaohongshu Profile Interface Card"
+  },
+  {
+    "id": "IP-013",
+    "category": "ip-character",
+    "name": "IP招牌体态与动态力线卡",
+    "image": "../../../images/layouts/ip-characters/IP-013.webp",
+    "prompt_file": "layouts/IP-013.md",
+    "keywords": [
+      "招牌体态",
+      "动态力线",
+      "体态展示",
+      "动作力线",
+      "角色动作",
+      "视觉延展",
+      "IP设计手册",
+      "Character Bible"
+    ],
+    "name_en": "IP Signature Poses & Action Lines Card"
+  },
+  {
+    "id": "SC-001",
+    "category": "social-card",
+    "name": "上文下图社媒卡",
+    "image": "../../../images/layouts/social-cards/SC-001.webp",
+    "prompt_file": "layouts/SC-001.md",
+    "keywords": [
+      "上文下图",
+      "上方文字",
+      "下方主图",
+      "上下结构",
+      "简洁构图"
+    ],
+    "name_en": "Text-Above-Image Social Card"
+  },
+  {
+    "id": "SC-002",
+    "category": "social-card",
+    "name": "文案主导底部辅助图卡",
+    "image": "../../../images/layouts/social-cards/SC-002.webp",
+    "prompt_file": "layouts/SC-002.md",
+    "keywords": [
+      "文字主视觉",
+      "底部辅助图",
+      "图文留白",
+      "纯色背景",
+      "极简"
+    ],
+    "name_en": "Text-Dominant Bottom-Graphic Card"
+  },
+  {
+    "id": "SC-003",
+    "category": "social-card",
+    "name": "上下双格图文卡",
+    "image": "../../../images/layouts/social-cards/SC-003.webp",
+    "prompt_file": "layouts/SC-003.md",
+    "keywords": [
+      "上下两宫格",
+      "上文下图",
+      "带框",
+      "纯色背景",
+      "留白"
+    ],
+    "name_en": "Two-Panel Stacked Card"
+  },
+  {
+    "id": "SC-004",
+    "category": "social-card",
+    "name": "上下双格图文分区卡",
+    "image": "../../../images/layouts/social-cards/SC-004.webp",
+    "prompt_file": "layouts/SC-004.md",
+    "keywords": [
+      "上下两宫格",
+      "图文分区",
+      "带框",
+      "纯色背景",
+      "留白"
+    ],
+    "name_en": "Two-Panel Split Section Card"
+  },
+  {
+    "id": "SC-005",
+    "category": "social-card",
+    "name": "气泡文字思考IP卡",
+    "image": "../../../images/layouts/social-cards/SC-005.webp",
+    "prompt_file": "layouts/SC-005.md",
+    "keywords": [
+      "气泡文字",
+      "思考IP",
+      "左下/右下角色",
+      "无独立标题",
+      "大面积留白",
+      "简洁构图"
+    ],
+    "name_en": "Thought-Bubble Character Card"
+  },
+  {
+    "id": "SC-006",
+    "category": "social-card",
+    "name": "三层标题辅助图卡",
+    "image": "../../../images/layouts/social-cards/SC-006.webp",
+    "prompt_file": "layouts/SC-006.md",
+    "keywords": [
+      "三层结构",
+      "上层主标题",
+      "中层辅助图",
+      "下层副标题",
+      "纯色背景",
+      "大面积留白"
+    ],
+    "name_en": "Three-Tier Headline Graphic Card"
+  },
+  {
+    "id": "SC-007",
+    "category": "social-card",
+    "name": "引号关键词文字卡",
+    "image": "../../../images/layouts/social-cards/SC-007.webp",
+    "prompt_file": "layouts/SC-007.md",
+    "keywords": [
+      "文字型",
+      "左上双引号",
+      "中心主题文案",
+      "关键词重点化",
+      "右下下划线",
+      "适配emoji"
+    ],
+    "name_en": "Quote Keyword Typography Card"
+  },
+  {
+    "id": "SC-008",
+    "category": "social-card",
+    "name": "图上文下留白卡",
+    "image": "../../../images/layouts/social-cards/SC-008.webp",
+    "prompt_file": "layouts/SC-008.md",
+    "keywords": [
+      "图上文下",
+      "图文融合",
+      "无明显界线",
+      "角色概括",
+      "纯色背景",
+      "大面积留白"
+    ],
+    "name_en": "Image-Above-Text Whitespace Card"
+  },
+  {
+    "id": "SC-009",
+    "category": "social-card",
+    "name": "居中文字右下辅助图卡",
+    "image": "../../../images/layouts/social-cards/SC-009.webp",
+    "prompt_file": "layouts/SC-009.md",
+    "keywords": [
+      "文字主体",
+      "居中排版",
+      "右下辅助图",
+      "简洁构图",
+      "文字型社媒卡"
+    ],
+    "name_en": "Centered Text Corner Graphic Card"
+  },
+  {
+    "id": "SC-010",
+    "category": "social-card",
+    "name": "上下双格标题列表卡",
+    "image": "../../../images/layouts/social-cards/SC-010.webp",
+    "prompt_file": "layouts/SC-010.md",
+    "keywords": [
+      "上下双格",
+      "带框分区",
+      "一行标题",
+      "简短列表",
+      "简单配图",
+      "图文融合"
+    ],
+    "name_en": "Two-Panel List & Graphic Card"
+  },
+  {
+    "id": "SC-011",
+    "category": "social-card",
+    "name": "中心主图多场景信息卡",
+    "image": "../../../images/layouts/social-cards/SC-011.webp",
+    "prompt_file": "layouts/SC-011.md",
+    "keywords": [
+      "主标题",
+      "中心主图",
+      "同主体信息图",
+      "多场景配图",
+      "简单标注",
+      "大面积留白"
+    ],
+    "name_en": "Central Hero Multi-Scene Card"
+  },
+  {
+    "id": "SC-012",
+    "category": "social-card",
+    "name": "中心标题上下图标卡",
+    "image": "../../../images/layouts/social-cards/SC-012.webp",
+    "prompt_file": "layouts/SC-012.md",
+    "keywords": [
+      "垂直居中标题",
+      "上方两行图标",
+      "下方两行图标",
+      "中心对称",
+      "图标环绕",
+      "简洁构图"
+    ],
+    "name_en": "Center Title Top-Bottom Icon Card"
+  },
+  {
+    "id": "SC-014",
+    "category": "social-card",
+    "name": "留白驱动主视觉信息卡",
+    "image": "../../../images/layouts/social-cards/SC-014.webp",
+    "prompt_file": "layouts/SC-014.md",
+    "keywords": [
+      "顶部短标题",
+      "大型主视觉",
+      "留白信息单元",
+      "不规则分布",
+      "主视觉优先",
+      "底部总结"
+    ],
+    "name_en": "Whitespace-Driven Hero Information Card"
+  },
+  {
+    "id": "SC-015",
+    "category": "social-card",
+    "name": "上下双区递进短句卡",
+    "image": "../../../images/layouts/social-cards/SC-015.webp",
+    "prompt_file": "layouts/SC-015.md",
+    "keywords": [
+      "上下双区",
+      "核心短句",
+      "单一主视觉",
+      "补充说明",
+      "对照递进",
+      "手机端阅读"
+    ],
+    "name_en": "Two-Tier Progressive Short-Phrase Card"
+  },
+  {
+    "id": "SC-016",
+    "category": "social-card",
+    "name": "极简大字小图点缀卡",
+    "image": "../../../images/layouts/social-cards/SC-016.webp",
+    "prompt_file": "layouts/SC-016.md",
+    "keywords": [
+      "大面积留白",
+      "大字号短文案",
+      "偏左文字",
+      "小型视觉点缀",
+      "四角弱信息",
+      "极简社媒卡"
+    ],
+    "name_en": "Minimalist Big-Type Accent Card"
+  },
+  {
+    "id": "SC-017",
+    "category": "social-card",
+    "name": "自由标注留白信息卡",
+    "image": "../../../images/layouts/social-cards/SC-017.webp",
+    "prompt_file": "layouts/SC-017.md",
+    "keywords": [
+      "主标题",
+      "自由标签",
+      "元素注解",
+      "文字参与构图",
+      "大面积留白",
+      "角色概括"
+    ],
+    "name_en": "Freely Annotated Whitespace Card"
+  },
+  {
+    "id": "SC-018",
+    "category": "social-card",
+    "name": "中心主视觉环绕信息卡",
+    "image": "../../../images/layouts/social-cards/SC-018.webp",
+    "prompt_file": "layouts/SC-018.md",
+    "keywords": [
+      "两级短标题",
+      "中心主视觉",
+      "环绕小插图",
+      "自由分布",
+      "极短标签",
+      "大面积留白"
+    ],
+    "name_en": "Center Hero Surrounding Info Card"
+  },
+  {
+    "id": "SC-019",
+    "category": "social-card",
+    "name": "中央人物细线标注卡",
+    "image": "../../../images/layouts/social-cards/SC-019.webp",
+    "prompt_file": "layouts/SC-019.md",
+    "keywords": [
+      "顶部短标题",
+      "完整人物",
+      "左右标签",
+      "细线指向",
+      "三级结构",
+      "手机端阅读"
+    ],
+    "name_en": "Central Character Leader-Line Card"
+  },
+  {
+    "id": "SC-020",
+    "category": "social-card",
+    "name": "一大一组非对称信息卡",
+    "image": "../../../images/layouts/social-cards/SC-020.webp",
+    "prompt_file": "layouts/SC-020.md",
+    "keywords": [
+      "顶部短标题",
+      "大型主视觉",
+      "集中信息簇",
+      "非对称布局",
+      "4-6个小单元",
+      "底部总结"
+    ],
+    "name_en": "Asymmetric Hero & Group Cluster Card"
+  },
+  {
+    "id": "SC-021",
+    "category": "social-card",
+    "name": "自适应双拼照片转译社媒卡",
+    "image": "../../../images/layouts/social-cards/SC-021.webp",
+    "prompt_file": "layouts/SC-021.md",
+    "keywords": [
+      "自适应双拼",
+      "比例驱动切分",
+      "画幅自适应",
+      "照片转译",
+      "视线锚点跨界",
+      "撕纸第二世界",
+      "7种可选玩法",
+      "前后对比",
+      "真实与艺术",
+      "微排版",
+      "四周负空间"
+    ],
+    "name_en": "Adaptive Split Photo-to-Art Social Card"
+  },
+  {
+    "id": "SC-022",
+    "category": "social-card",
+    "name": "姓名四款签名设计展示卡",
+    "image": "../../../images/layouts/social-cards/SC-022.webp",
+    "prompt_file": "layouts/SC-022.md",
+    "keywords": [
+      "姓名签名设计",
+      "四款签名方案",
+      "上下分割排版",
+      "顶部姓名展示区",
+      "底部2x2四宫格",
+      "细虚线分隔",
+      "飘逸签名",
+      "锋势签名",
+      "回环签名",
+      "极简签名",
+      "手写签名设计稿",
+      "9:16竖版"
+    ],
+    "name_en": "Name-to-Four-Signature Showcase Card"
+  },
+  {
+    "id": "SC-023",
+    "category": "social-card",
+    "name": "代表性情景概括知识封面卡",
+    "image": "../../../images/layouts/social-cards/SC-023.webp",
+    "prompt_file": "layouts/SC-023.md",
+    "keywords": [
+      "竖版4:5",
+      "知识封面构图",
+      "大标题突出",
+      "人物紧凑环绕",
+      "情景自然穿插",
+      "手绘色块冲击",
+      "4到6个核心情景",
+      "角色群像构图",
+      "中央偏下核心角色",
+      "前后遮挡呼应",
+      "自然留白衔接",
+      "无分镜框融合"
+    ],
+    "name_en": "Representative Scenario Knowledge Cover Card"
+  },
+  {
+    "id": "SC-024",
+    "category": "social-card",
+    "name": "图下文上留白卡",
+    "image": "../../../images/layouts/social-cards/SC-024.webp",
+    "prompt_file": "layouts/SC-024.md",
+    "keywords": [
+      "图下文上",
+      "文上图下",
+      "无大标题",
+      "图文自然衔接",
+      "无明显界线",
+      "角色概括",
+      "纯色背景",
+      "大面积留白",
+      "简单构图"
+    ],
+    "name_en": "Text-Above-Image Whitespace Card"
+  },
+  {
+    "id": "SC-025",
+    "category": "social-card",
+    "name": "漫画型社媒卡",
+    "image": "../../../images/layouts/social-cards/SC-025.webp",
+    "prompt_file": "layouts/SC-025.md",
+    "keywords": [
+      "漫画型社媒卡",
+      "上文下图",
+      "气泡文字",
+      "多个气泡",
+      "图文无明显边界",
+      "漫画气泡",
+      "多图成集",
+      "连续漫画故事",
+      "社媒单集短漫"
+    ],
+    "name_en": "Comic Dialogue Social Card"
+  }
+]

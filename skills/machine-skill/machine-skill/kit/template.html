@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MACHINE · Machine Skill</title>
+<meta name="description" content="ONE LINE ABOUT THE MACHINE. Built with the Machine Skill skill for Claude.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<!-- lab-kit:start -->
+<script type="module" src="../kit/lab-kit.js"></script>
+<!-- lab-kit:end -->
+<script type="module">
+const { THREE, Lab, MAT, GEO, clamp, lerp, approach, fmt } = window.LabKit
+
+// 1. the lab: the one line, the title, the real size
+const lab = new Lab({
+  prompt: 'THE ONE LINE THE USER TYPED',
+  no: 1, title: 'Machine', sub: 'what it is doing',
+  size: 1.0,                       // metres, the longest dimension of the real machine
+  view: { az: 35, el: 14, dist: 2.2, target: [0, 0.3, 0] },
+  cut: { a: [0, 0, 1], b: [0, 1, 0] },  // quarter cut toward the viewer and up
+})
+
+// 2. the parts: real dimensions in metres, real materials, closed solids
+const body = lab.mesh(GEO.disc(0.3, 0.2), MAT.steel(), { name: 'Body', pos: [0, 0.1, 0], explode: [0, 0.3, 0], label: 'Body' })
+
+// 3. the solver: real equations, real units, one hero number
+lab.hero({ label: 'Output', unit: 'W', max: 100 })
+const thr = lab.slider({ id: 'in', label: 'Input', min: 0, max: 100, value: 20, unit: '%', ends: ['Low', 'High'] })
+lab.onTick((dt) => {
+  const P = thr.value
+  body.rotation.y += dt * P * 0.05
+  lab.setHero(P, { state: 'running', sub: `input ${fmt(thr.value)} %` })
+})
+
+// 4. break it, explain it, film it
+lab.breakIt({ label: 'Break it', run: () => {}, reset: () => {} })
+lab.how('Plain words on the model.', ['P = ...'])
+lab.start()
+</script>
+</body>
+</html>

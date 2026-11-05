@@ -1,0 +1,29 @@
+name: Sync to Gitee
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  sync-to-gitee:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.GITEE_RSA_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan gitee.com >> ~/.ssh/known_hosts
+
+      - name: Push to Gitee
+        run: |
+          git remote add gitee git@gitee.com:yang02010/handraw-style.git
+          git push --force gitee master
+          git push --tags --force gitee

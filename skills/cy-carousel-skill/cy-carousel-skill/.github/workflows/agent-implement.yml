@@ -1,0 +1,116 @@
+name: Agent Implement
+
+# ③ 编码与测试 → ④ 提交 PR：Agent 只改工作区，提交、推送和建 PR 由脚本完成。
+on:
+  issues:
+    types: [labeled]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 要实现的 issue 编号
+        required: true
+        type: number
+  workflow_call:
+    inputs:
+      issue_number:
+        required: true
+        type: number
+
+permissions:
+  contents: read
+
+concurrency:
+  group: agent-implement-${{ inputs.issue_number || github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    # 标签触发只认维护者添加的 agent:implement（只有有分类权限的人能加标签）。
+    # 同时检查 Agent 凭据：未配置时整条流程跳过，而不是让每个 issue / PR 都报红。
+    # 被 Agent Triage 以 workflow_call 调用时，event_name 仍是调用方的 issues（opened），
+    # 所以先看 inputs.issue_number：workflow_call / workflow_dispatch 都会带上它。
+    if: >-
+      inputs.issue_number ||
+      github.event_name != 'issues' ||
+      (github.event.label.name == 'agent:implement' && github.event.issue.state == 'open')
+    runs-on: ubuntu-latest
+    outputs:
+      ready: ${{ steps.check.outputs.ready }}
+    steps:
+      - id: check
+        env:
+          HAS_CREDENTIALS: ${{ secrets.ANTHROPIC_API_KEY != '' || secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+        run: |
+          echo "ready=${HAS_CREDENTIALS}" >> "$GITHUB_OUTPUT"
+          if [ "$HAS_CREDENTIALS" != "true" ]; then
+            echo "::notice::未配置 ANTHROPIC_API_KEY 或 CLAUDE_CODE_OAUTH_TOKEN，跳过 Agent 步骤。配置方法见 docs/agent-workflow.md"
+          fi
+
+  implement:
+    needs: preflight
+    if: needs.preflight.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      actions: write
+      id-token: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      ISSUE: ${{ inputs.issue_number || github.event.issue.number }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch || 'main' }}
+          persist-credentials: false
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          # jieba 只有源码包，新版 Python 上要先升级 setuptools 才装得上。
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install -r requirements.txt
+
+      - name: Prepare context
+        run: |
+          gh issue edit "$ISSUE" --add-label agent:in-progress
+          for label in agent:implement agent:failed status:awaiting-maintainer; do
+            gh issue edit "$ISSUE" --remove-label "$label" >/dev/null 2>&1 || true
+          done
+          .github/scripts/dump_issue.sh "$ISSUE"
+
+      - name: Implement and test
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ github.token }}
+          prompt: |
+            阅读 .github/agent/implement.md 并严格按其执行。
+            要实现的是 issue #${{ env.ISSUE }}，内容在 .agent-in/issue.json。
+          claude_args: >-
+            --allowedTools "Read,Glob,Grep,Edit,MultiEdit,Write,Bash(python:*),Bash(python3:*),Bash(git diff:*),Bash(git status:*),Bash(ls:*)"
+            --max-turns 80
+            ${{ vars.AGENT_MODEL != '' && format('--model {0}', vars.AGENT_MODEL) || '' }}
+
+      - id: pr
+        name: Validate, push and open PR
+        env:
+          # 配置了 AGENT_GITHUB_TOKEN（PAT 或 GitHub App token）时，PR 会正常触发 CI；否则脚本手动补触发。
+          GH_TOKEN: ${{ secrets.AGENT_GITHUB_TOKEN || github.token }}
+          PUSH_TOKEN: ${{ secrets.AGENT_GITHUB_TOKEN || github.token }}
+          USING_FALLBACK_TOKEN: ${{ secrets.AGENT_GITHUB_TOKEN == '' }}
+          BASE_BRANCH: ${{ github.event.repository.default_branch || 'main' }}
+        run: .github/scripts/open_agent_pr.sh "$ISSUE"
+
+      - name: Report failure
+        if: failure()
+        run: |
+          gh issue edit "$ISSUE" --add-label agent:failed --remove-label agent:in-progress || true
+          gh issue comment "$ISSUE" --body "🤖 Agent 编码流程异常中止，详见 ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true

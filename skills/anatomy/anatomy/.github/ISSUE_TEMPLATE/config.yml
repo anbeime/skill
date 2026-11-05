@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security problem
+    url: https://github.com/wheresryan22/anatomy/security/advisories/new
+    about: Report security problems privately, not in a public issue.

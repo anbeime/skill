@@ -1,0 +1,106 @@
+name: Release
+
+# ⑥ 发包：带 release:patch / minor / major 标签的 PR 合并后自动发版；也可手动触发。
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: 版本递增方式
+        type: choice
+        options: [patch, minor, major]
+        default: patch
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: >-
+      github.event_name == 'workflow_dispatch' || (
+        github.event.pull_request.merged &&
+        (contains(github.event.pull_request.labels.*.name, 'release:patch') ||
+         contains(github.event.pull_request.labels.*.name, 'release:minor') ||
+         contains(github.event.pull_request.labels.*.name, 'release:major'))
+      )
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - id: bump
+        env:
+          LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+          INPUT: ${{ inputs.bump }}
+        run: |
+          bump="$INPUT"
+          if [ -z "$bump" ]; then
+            for level in major minor patch; do
+              if echo "$LABELS" | grep -q "\"release:${level}\""; then bump="$level"; break; fi
+            done
+          fi
+          echo "bump=${bump}" >> "$GITHUB_OUTPUT"
+
+      # 推送到受保护的 main 需要能绕过保护规则的 RELEASE_TOKEN；未配置时用默认 token。
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.RELEASE_TOKEN || github.token }}
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: python -m pip install -r skills/native-subtitle-quote-image/requirements.txt
+
+      - id: version
+        name: Bump version
+        run: echo "version=$(python scripts/bump_version.py '${{ steps.bump.outputs.bump }}')" >> "$GITHUB_OUTPUT"
+
+      - name: Validate
+        run: |
+          python scripts/validate_repo.py
+          python -m unittest discover -s tests
+
+      - name: Commit and tag
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "release: v${VERSION}"
+          git tag -a "v${VERSION}" -m "v${VERSION}"
+          git push --atomic origin HEAD:main "v${VERSION}"
+
+      - name: Package skill
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          mkdir -p dist
+          (cd skills && zip -qr "../dist/native-subtitle-quote-image-v${VERSION}.zip" native-subtitle-quote-image -x '*/__pycache__/*')
+
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_TOKEN || github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          gh release create "v${VERSION}" dist/*.zip \
+            --title "v${VERSION}" --generate-notes --verify-tag --latest
+
+      - name: Notify PR
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          gh pr comment "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}" \
+            --body "📦 已发布 [v${VERSION}](${{ github.server_url }}/${{ github.repository }}/releases/tag/v${VERSION})。"

@@ -1,0 +1,3 @@
+# Image gallery building and Skill metadata tools only.
+Pillow==12.2.0
+PyYAML==6.0.3

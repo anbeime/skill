@@ -1,0 +1,1359 @@
+#!/usr/bin/env python3
+"""Build the offline custom assets library gallery (characters, props, scenes)."""
+from __future__ import annotations
+
+import html
+import json
+from pathlib import Path
+
+SKILL = Path(__file__).resolve().parents[1]
+CHARACTERS_JSON = SKILL / "references" / "characters.json"
+PROPS_JSON = SKILL / "references" / "props.json"
+SCENES_JSON = SKILL / "references" / "scenes.json"
+OUTPUT_HTML = SKILL / "gallery" / "assets.html"
+REDIRECT_HTML = SKILL / "gallery" / "characters.html"
+
+IMAGE_FALLBACK_SCRIPT = """<script>
+(function() {
+  function fixImg(img) {
+    if (!img || img.__fixed) return;
+    var src = img.getAttribute('src') || '';
+    var idx = src.indexOf('images/');
+    if (idx === -1) return;
+    var sub = src.substring(idx);
+    var step = parseInt(img.dataset.retry || '0', 10);
+    var candidates = [
+      '../../../../' + sub,
+      '../../../' + sub,
+      '../../' + sub,
+      '../' + sub,
+      './' + sub,
+      '/' + sub,
+      'https://img.handraw-style.com/' + sub,
+      'https://raw.githubusercontent.com/yang0/handraw-style/master/' + sub
+    ];
+    while (step < candidates.length) {
+      var nextSrc = candidates[step];
+      step++;
+      if (nextSrc !== src) {
+        img.dataset.retry = step.toString();
+        img.src = nextSrc;
+        return;
+      }
+    }
+    img.__fixed = true;
+  }
+  window.addEventListener('error', function(e) {
+    if (e.target && e.target.tagName === 'IMG') {
+      fixImg(e.target);
+    }
+  }, true);
+  window.addEventListener('load', function(e) {
+    if (e.target && e.target.tagName === 'IMG') {
+      var card = e.target.closest('.style-card, .layout-card, .color-card, .asset-card, .picker-card');
+      if (card && e.target.src) {
+        card.dataset.image = e.target.src;
+      }
+    }
+  }, true);
+})();
+</script>"""
+
+
+
+def load_json_list(path: Path) -> list[dict[str, object]]:
+    if not path.exists():
+        return []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return data if isinstance(data, list) else []
+    except Exception:
+        return []
+
+
+def merge_items(presets: list[dict[str, object]], customs: list[dict[str, object]]) -> list[dict[str, object]]:
+    seen_ids = set()
+    result = []
+    for p in presets:
+        pid = str(p.get("id", ""))
+        seen_ids.add(pid)
+        result.append(p)
+    for c in customs:
+        cid = str(c.get("id", ""))
+        if cid not in seen_ids:
+            seen_ids.add(cid)
+            result.append(c)
+    return result
+
+
+def render_cards(items: list[dict[str, object]], category_label: str) -> str:
+    if not items:
+        return ""
+    cards = []
+    for item in items:
+        item_id = html.escape(str(item.get("id", "")))
+        name_zh = html.escape(str(item.get("name", "")))
+        name_en = html.escape(str(item.get("name_en", name_zh)))
+        img_src = html.escape(str(item.get("image", "")))
+        tags = item.get("tags", [])
+        tags_html = "".join(f'<span class="char-tag">{html.escape(str(t))}</span>' for t in tags)
+
+        is_custom = bool(item.get("is_custom"))
+        badge_cls = "custom-badge" if is_custom else "preset-badge"
+        badge_i18n = "customBadge" if is_custom else "officialPreset"
+        badge_text = "自建资产" if is_custom else "官方预置"
+
+        card = f'''<article class="char-card" data-id="{item_id}" data-name-zh="{name_zh}" data-name-en="{name_en}" data-image="{img_src}">
+  <div class="char-thumb-wrap" tabindex="0" role="button" aria-label="查看 {name_zh} 基准图详情">
+    <img src="{img_src}" alt="{name_zh}" loading="lazy">
+    <span class="view-badge">{category_label}</span>
+  </div>
+  <div class="char-card-body">
+    <div class="char-card-header">
+      <span class="char-id">{item_id}</span>
+      <span class="char-status-badge {badge_cls}" data-i18n="{badge_i18n}">{badge_text}</span>
+    </div>
+    <h3 class="char-name" data-zh="{name_zh}" data-en="{name_en}">{name_zh}</h3>
+    <div class="char-tags">{tags_html}</div>
+    <div class="char-card-actions">
+      <button type="button" class="btn-action preview-btn" data-i18n="previewDetail">查看大图</button>
+      <a class="btn-action use-char-btn" href="tutorials.html?asset={item_id}" data-i18n="useInWorkshop">以此出图</a>
+    </div>
+  </div>
+</article>'''
+        cards.append(card)
+    return "\n".join(cards)
+
+
+def build_assets_gallery() -> None:
+    characters = load_json_list(CHARACTERS_JSON)
+    props = load_json_list(PROPS_JSON)
+    scenes = load_json_list(SCENES_JSON)
+
+    try:
+        import sys
+        scripts_dir = str(Path(__file__).resolve().parent)
+        if scripts_dir not in sys.path:
+            sys.path.insert(0, scripts_dir)
+        import custom_library_manager
+        custom_library_manager.export_custom_assets_js()
+    except Exception:
+        pass
+
+    # Static HTML strictly contains official presets only (never bake local custom assets into Git)
+    all_characters = characters
+    all_props = props
+    all_scenes = scenes
+
+    char_cards_str = render_cards(all_characters, "角色基准图")
+    prop_cards_str = render_cards(all_props, "道具基准图")
+    scene_cards_str = render_cards(all_scenes, "场景基准图")
+
+    char_count = len(all_characters)
+    prop_count = len(all_props)
+    scene_count = len(all_scenes)
+
+    page_html = f"""<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自建图库 - 手绘风格与排版图型</title>
+<style>
+:root {{
+  color: #24211e;
+  background: #f7f5f0;
+  font: 16px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft YaHei", sans-serif;
+  --accent: #b74227;
+  --accent-hover: #cf4f33;
+  --accent-light: #fff0eb;
+  --border: #ded8cf;
+  --bg-card: #fff;
+  --bg-subtle: #fcfbfa;
+  --text-dim: #786f65;
+}}
+body {{ margin: 0; }}
+img {{ max-width: 100%; box-sizing: border-box; }}
+main {{ max-width: 1440px; margin: auto; padding: 20px 30px 40px; }}
+
+.sticky-header {{ position: sticky; top: 0; z-index: 100; }}
+.site-nav {{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 12px 30px;
+  border-bottom: 1px solid var(--border);
+  background: #fffdf9;
+}}
+.site-nav a {{
+  border: 1px solid #9e9185;
+  border-radius: 8px;
+  background: #fff;
+  color: #403a34;
+  padding: 7px 13px;
+  text-decoration: none;
+  font-weight: 800;
+  line-height: 1.2;
+  transition: all .15s;
+}}
+.site-nav a:hover {{ border-color: var(--accent); background: var(--accent-light); color: #9f351f; }}
+.site-nav a[aria-current="page"] {{
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(183,66,39,0.3);
+}}
+.nav-right {{ margin-left: auto; display: flex; align-items: center; gap: 8px; }}
+.nav-ext {{ display: inline-flex; align-items: center; font-weight: 700; }}
+.nav-btn {{
+  border: 1px solid #9e9185;
+  border-radius: 8px;
+  background: #fff;
+  color: #403a34;
+  padding: 7px 13px;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: all .15s;
+}}
+.nav-btn:hover {{ border-color: var(--accent); background: var(--accent-light); color: #9f351f; }}
+.nav-btn:focus-visible, .site-nav a:focus-visible {{ outline: 3px solid #d67d4d; outline-offset: 3px; }}
+
+/* Sub-nav for Assets (Sub-menus / Tabs) */
+.sub-nav {{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 30px;
+  background: #faf7f2;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}}
+.tab-btn {{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #c9c1b6;
+  border-radius: 6px;
+  background: #fff;
+  color: #514a43;
+  padding: 6px 14px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: all .15s;
+}}
+.tab-btn:hover {{ border-color: var(--accent); color: var(--accent); background: #fff8f5; }}
+.tab-btn span.tab-count {{
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: #eee8df;
+  color: #6b6257;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  transition: all .15s;
+}}
+.tab-btn.is-active {{
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(183,66,39,0.3);
+}}
+.tab-btn.is-active span.tab-count {{ background: rgba(255,255,255,0.25); color: #fff; }}
+
+/* Sub-nav Help Button */
+.help-icon-btn {{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-left: 2px;
+  border: 1px solid #c9c1b6;
+  border-radius: 50%;
+  background: #fff;
+  color: #6b6257;
+  font: 800 15px/1 system-ui, -apple-system, sans-serif;
+  cursor: pointer;
+  transition: all .15s;
+  flex-shrink: 0;
+}}
+.help-icon-btn:hover {{
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-light);
+  box-shadow: 0 1px 4px rgba(183,66,39,0.25);
+  transform: scale(1.06);
+}}
+
+/* Directory Initialization Notice */
+.init-notice-banner {{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border: 1px solid #e0d7c7;
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  background: #fff;
+  color: #403a34;
+  font-size: 13.5px;
+  line-height: 1.6;
+  transition: all .2s;
+}}
+.init-notice-banner.is-hidden {{
+  display: none !important;
+}}
+.init-notice-content {{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  flex-wrap: wrap;
+}}
+.init-notice-icon {{
+  font-size: 18px;
+  flex-shrink: 0;
+}}
+.init-notice-text-wrap {{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}}
+.init-notice-lead {{
+  font-weight: 700;
+  color: #24211e;
+}}
+.init-command-inline {{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f8f6f1;
+  border: 1px solid #e2ddd3;
+  border-radius: 6px;
+  padding: 2px 8px;
+}}
+.init-command-code {{
+  font: 13px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace;
+  color: var(--accent);
+  font-weight: 750;
+}}
+.init-notice-close {{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: #8c8275;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all .15s;
+  flex-shrink: 0;
+}}
+.init-notice-close:hover {{
+  background: #f5efe4;
+  color: #24211e;
+  border-color: #dcd3c5;
+}}
+
+/* Title & Lead (Flat Non-Card Layout) */
+.gallery-title-bar {{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 0 0 2px;
+}}
+.gallery-title-bar h1 {{
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  color: #24211e;
+  line-height: 1.2;
+}}
+.lead {{
+  margin: 8px 0 18px;
+  color: #665f57;
+  font-size: 14.5px;
+  line-height: 1.6;
+}}
+
+/* Character Creation Guide in Panel */
+.char-guide-box {{
+  margin: 0 0 20px;
+  background: #fff;
+  border: 1px solid #eee8df;
+  border-radius: 10px;
+  padding: 16px 20px;
+  transition: all .2s;
+}}
+.char-guide-box.is-hidden {{
+  display: none !important;
+}}
+.char-guide-header {{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}}
+.char-guide-badge {{
+  font-size: 12px;
+  font-weight: 750;
+  color: var(--accent);
+  background: var(--accent-light);
+  border: 1px solid #fedcd3;
+  padding: 2px 8px;
+  border-radius: 4px;
+}}
+.char-guide-desc {{
+  font-size: 13.5px;
+  color: #665f57;
+  font-weight: 600;
+  flex: 1;
+}}
+.guide-close-btn {{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: #8c8275;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all .15s;
+  flex-shrink: 0;
+  margin-left: auto;
+}}
+.guide-close-btn:hover {{
+  background: #f5efe4;
+  color: #24211e;
+  border-color: #dcd3c5;
+}}
+
+/* Two-Step Ordered List Guide */
+.guide-steps-list {{
+  margin: 0;
+  padding: 0 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}}
+.guide-step-item {{
+  color: #453e37;
+  font-size: 14px;
+  line-height: 1.6;
+}}
+.guide-step-lead {{
+  font-weight: 750;
+  color: #24211e;
+}}
+.step-sub-tip {{
+  display: block;
+  margin-top: 3px;
+  font-size: 12.5px;
+  color: #786f65;
+}}
+.formula-inline-box {{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 3px 8px;
+  background: #f8f6f1;
+  border: 1px solid #e2ddd3;
+  border-radius: 6px;
+}}
+.formula-code {{
+  font: 13px/1.3 ui-monospace, SFMono-Regular, Consolas, monospace;
+  color: var(--accent);
+  font-weight: 750;
+}}
+.btn-mini-copy {{
+  border: 1px solid #d0c8be;
+  border-radius: 4px;
+  background: #fff;
+  color: #403a34;
+  padding: 2px 7px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .15s;
+}}
+.btn-mini-copy:hover {{
+  border-color: var(--accent);
+  background: var(--accent-light);
+  color: var(--accent);
+}}
+
+/* Character Grid Section */
+.asset-panel {{ display: none; }}
+.asset-panel.is-active {{ display: block; }}
+.char-grid-section {{ margin-top: 8px; }}
+.char-grid-title-bar {{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}}
+.title-with-help {{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}}
+.char-grid-title {{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #24211e;
+}}
+.char-help-icon {{
+  width: 22px;
+  height: 22px;
+  font-size: 13px;
+}}
+
+.char-grid {{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}}
+.char-card {{
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform .15s, box-shadow .15s;
+}}
+.char-card:hover {{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}}
+.char-thumb-wrap {{
+  position: relative;
+  background: #ede8e1;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  cursor: zoom-in;
+}}
+.char-thumb-wrap img {{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}}
+.view-badge {{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 11px;
+  font-weight: 750;
+  padding: 3px 7px;
+  border-radius: 5px;
+  background: rgba(36, 33, 30, 0.75);
+  color: #fff;
+  backdrop-filter: blur(4px);
+}}
+.char-card-body {{
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}}
+.char-card-header {{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}}
+.char-id {{
+  font-size: 13px;
+  font-weight: 850;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}}
+.char-status-badge {{
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}}
+.preset-badge {{ background: #eee8df; color: #514a43; }}
+.custom-badge {{ background: #fff0eb; color: var(--accent); border: 1px solid #fedcd3; }}
+
+.char-name {{ margin: 0; font-size: 16px; font-weight: 800; color: #24211e; }}
+.char-tags {{ display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px; }}
+.char-tag {{
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #f7f4ed;
+  color: #786f65;
+  border: 1px solid #ede7dc;
+}}
+.char-card-actions {{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #f0ebe2;
+}}
+.btn-action {{
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #d0c8be;
+  border-radius: 6px;
+  background: #fff;
+  color: #403a34;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: all .15s;
+}}
+.btn-action:hover {{
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-light);
+}}
+.use-char-btn {{
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}}
+.use-char-btn:hover {{
+  background: var(--accent-hover);
+  color: #fff;
+  border-color: var(--accent-hover);
+}}
+
+/* Empty State Card */
+.empty-state-card {{
+  padding: 42px 24px;
+  background: #fff;
+  border: 1px dashed #dcd5ca;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 600px;
+  margin: 30px auto;
+}}
+.empty-icon {{ font-size: 40px; margin-bottom: 12px; }}
+.empty-state-card h3 {{ margin: 0 0 8px; font-size: 17px; font-weight: 800; color: #24211e; }}
+.empty-state-card p {{ margin: 0; font-size: 13.5px; color: #665f57; line-height: 1.6; }}
+.empty-state-card code {{ background: #f5f1ea; padding: 2px 6px; border-radius: 4px; color: var(--accent); font-weight: 700; }}
+
+/* Preview Modal */
+dialog#preview-dialog {{
+  width: min(94vw, 1100px);
+  padding: 18px 20px;
+  border: 0;
+  border-radius: 14px;
+  background: #171513;
+  color: #fff;
+  box-shadow: 0 20px 70px rgba(0,0,0,0.5);
+  box-sizing: border-box;
+}}
+dialog::backdrop {{ background: rgba(0,0,0,0.75); backdrop-filter: blur(3px); }}
+.dialog-header {{ display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }}
+.dialog-title-wrap {{ display: flex; flex-direction: column; gap: 2px; }}
+.dialog-title {{ margin: 0; font-size: 18px; font-weight: 800; color: #fff; }}
+.dialog-subtitle {{ font-size: 12.5px; color: #a9a198; }}
+.dialog-img-box {{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  background: #24211e;
+  border-radius: 8px;
+  padding: 8px;
+}}
+.dialog-img-box img {{
+  display: block;
+  max-width: 100%;
+  max-height: 72vh;
+  margin: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}}
+.dialog-actions {{ display: flex; align-items: center; gap: 10px; margin-top: 14px; }}
+.close-btn, .copy-dialog-btn {{
+  border: 0;
+  border-radius: 7px;
+  padding: 7px 14px;
+  font: inherit;
+  font-weight: 750;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .15s;
+}}
+.copy-dialog-btn {{ background: var(--accent); color: #fff; margin-left: auto; }}
+.copy-dialog-btn:hover {{ background: var(--accent-hover); }}
+.close-btn {{ background: #383430; color: #fff; }}
+.close-btn:hover {{ background: #4f4a45; }}
+
+/* WeChat Community Modal */
+dialog#wechat-modal {{
+  width: min(92vw, 480px);
+  padding: 24px;
+  border: 0;
+  border-radius: 16px;
+  background: #fff;
+  color: #24211e;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+}}
+dialog#wechat-modal h3 {{ margin: 0 0 8px; font-size: 18px; font-weight: 850; }}
+dialog#wechat-modal p {{ margin: 0 0 16px; font-size: 13.5px; color: #665f57; }}
+.qr-wrapper {{ display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-bottom: 16px; }}
+.qr-card {{
+  border: 1px solid #ded8cf;
+  border-radius: 10px;
+  padding: 10px;
+  background: #fff;
+  width: 180px;
+}}
+.qr-tag {{ font-size: 12px; font-weight: 750; color: #514a43; margin-bottom: 6px; display: block; }}
+.qr-card img {{ width: 100%; height: auto; border-radius: 6px; display: block; }}
+.qr-tip {{ font-size: 11.5px; color: #887f75; margin-top: 6px; display: block; }}
+
+@media(max-width:760px) {{
+  main {{ padding: 14px 16px 30px; }}
+  .site-nav {{ padding: 10px 16px; flex-wrap: wrap; gap: 8px; }}
+  .sub-nav {{ padding: 8px 16px; gap: 6px; overflow-x: auto; }}
+  .nav-right {{ width: 100%; justify-content: flex-start; gap: 6px; margin-left: 0; }}
+  .site-nav a, .nav-btn {{ padding: 6px 10px; font-size: 13px; }}
+  .guide-steps-list {{ padding-left: 28px; }}
+  .char-grid {{ grid-template-columns: 1fr; }}
+}}
+</style>
+{IMAGE_FALLBACK_SCRIPT}
+</head>
+<body>
+<header class="sticky-header">
+<nav class="site-nav" aria-label="画廊导航"><a href="index.html" data-i18n="stylesNav">风格画廊</a><a href="layouts.html" data-i18n="layoutsNav">图型画廊</a><a href="colors.html" data-i18n="colorsNav">色彩画廊</a><a href="assets.html" aria-current="page" data-i18n="assetsNav">自建图库</a><a href="tutorials.html" data-i18n="tutorialsNav">提示词</a><div class="nav-right"><a class="nav-ext" href="https://github.com/yang0/handraw-style" target="_blank" rel="noopener noreferrer" title="GitHub 仓库"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" style="vertical-align:-2px;margin-right:4px" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a><a class="nav-ext" href="https://x.com/yang02010" target="_blank" rel="noopener noreferrer" title="X (Twitter) @yang02010"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px;margin-right:4px" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X (@yang02010)</a><button class="nav-btn" id="wechat-btn" type="button" data-i18n="wechatBtn">💬 创作变现交流群</button><button class="nav-btn" id="lang-btn" type="button" aria-label="Switch Language">🌐 EN / 中</button></div></nav>
+<nav class="sub-nav sub-library-nav" aria-label="子图库分类">
+  <button type="button" class="tab-btn is-active" data-tab="characters"><span data-i18n="tabCharacters">角色库</span> <span class="tab-count">{char_count}</span></button>
+  <button type="button" class="tab-btn" data-tab="props"><span data-i18n="tabProps">道具库</span> <span class="tab-count">{prop_count}</span></button>
+  <button type="button" class="tab-btn" data-tab="scenes"><span data-i18n="tabScenes">场景库</span> <span class="tab-count">{scene_count}</span></button>
+  <button type="button" class="help-icon-btn" id="help-btn" title="查看初始化说明" aria-label="查看初始化说明">?</button>
+</nav>
+</header>
+
+<main>
+  <!-- Initialization Notice Banner (Dismissible, re-opened via ? button) -->
+  <div class="init-notice-banner" id="init-notice-banner">
+    <div class="init-notice-content">
+      <span class="init-notice-icon">💡</span>
+      <div class="init-notice-text-wrap">
+        <span class="init-notice-lead" data-i18n="initNoticeLead">首次使用请先初始化图库目录，请在codex或者其他AI客户端输入：</span>
+        <div class="init-command-inline">
+          <code class="init-command-code" id="init-cmd-text">请帮我初始化图库目录：d:\\path\\to\\tuku</code>
+          <button type="button" class="btn-mini-copy" id="copy-init-btn" data-i18n="copyFormula">复制指令</button>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="init-notice-close" id="close-init-btn" title="关闭说明" aria-label="关闭说明">✕</button>
+  </div>
+
+  <div class="gallery-title-bar">
+    <h1 data-i18n="heroTitle">自建图库</h1>
+  </div>
+  <p class="lead" data-i18n="heroLead">沉淀与管理您的专属视觉资产。库中所有角色、道具与场景均以<strong>参考图（垫图）</strong>形式参与出图，跨媒介调用绝不漂移。</p>
+
+  <!-- Panel 1: Characters -->
+  <section class="asset-panel is-active" id="panel-characters">
+    <div class="char-grid-title-bar">
+      <div class="title-with-help">
+        <h2 class="char-grid-title"><span data-i18n="tabCharacters">角色库</span> ({char_count})</h2>
+        <button type="button" class="help-icon-btn char-help-icon" id="char-help-btn" title="查看角色创建指引" aria-label="查看角色创建指引">?</button>
+      </div>
+    </div>
+
+    <div class="char-guide-box" id="char-guide-box">
+      <div class="char-guide-header">
+        <span class="char-guide-badge" data-i18n="charGuideBadge">角色创建指引</span>
+        <span class="char-guide-desc" data-i18n="charGuideDesc">支持创建三视图基准图，或直接上传已有形象一键归档：</span>
+        <button type="button" class="guide-close-btn" id="close-char-guide-btn" title="关闭指引" aria-label="关闭指引">✕</button>
+      </div>
+      <ol class="guide-steps-list">
+        <li class="guide-step-item">
+          <strong class="guide-step-lead" data-i18n="step1Title">创建三视图：</strong>
+          <span data-i18n="step1Desc">添加一张角色参考图到 Codex，然后输入提示词：</span>
+          <div class="formula-inline-box">
+            <code class="formula-code">图型：IP-002，其他你帮我设计</code>
+            <button type="button" class="btn-mini-copy" id="copy-formula-btn" data-i18n="copyFormula">复制指令</button>
+          </div>
+        </li>
+        <li class="guide-step-item">
+          <strong class="guide-step-lead" data-i18n="step2Title">保存到自建图库：</strong>
+          <span data-i18n="step2Desc">生成图片后，或直接上传已有图片到 Codex，输入提示词：</span>
+          <div class="formula-inline-box">
+            <code class="formula-code">保存图片到角色库，名称：xxx</code>
+            <button type="button" class="btn-mini-copy" id="copy-save-btn" data-i18n="copySaveFormula">复制指令</button>
+          </div>
+          <span class="step-sub-tip" data-i18n="step2SubTip">（Codex 会自动将图片转存至本地图库对应目录、更新索引并完成归档，出图时直接作为固定参考图调用）</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="char-grid">
+      {char_cards_str}
+    </div>
+  </section>
+
+  <!-- Panel 2: Props -->
+  <section class="asset-panel" id="panel-props">
+    <div class="char-grid-title-bar">
+      <h2 class="char-grid-title"><span data-i18n="tabProps">道具库</span> ({prop_count})</h2>
+    </div>
+    {f'<div class="char-grid">{prop_cards_str}</div>' if prop_count > 0 else '''
+    <div class="empty-state-card">
+      <div class="empty-icon">📦</div>
+      <h3 data-i18n="propsEmptyTitle">暂无自建道具</h3>
+      <p data-i18n-html="propsEmptyDesc">在 Codex 中生成道具图片后输入指令：<code>保存图片到道具库，名称：xxx</code>，即可将生成的道具基准图自动归档到此处。</p>
+    </div>
+    '''}
+  </section>
+
+  <!-- Panel 3: Scenes -->
+  <section class="asset-panel" id="panel-scenes">
+    <div class="char-grid-title-bar">
+      <h2 class="char-grid-title"><span data-i18n="tabScenes">场景库</span> ({scene_count})</h2>
+    </div>
+    {f'<div class="char-grid">{scene_cards_str}</div>' if scene_count > 0 else '''
+    <div class="empty-state-card">
+      <div class="empty-icon">🏞️</div>
+      <h3 data-i18n="scenesEmptyTitle">暂无自建场景</h3>
+      <p data-i18n-html="scenesEmptyDesc">在 Codex 中生成场景图片后输入指令：<code>保存图片到场景库，名称：xxx</code>，即可将生成的场景基准图自动归档到此处。</p>
+    </div>
+    '''}
+  </section>
+</main>
+
+<!-- Dialog: Preview Large Image -->
+<dialog id="preview-dialog" aria-labelledby="dialog-char-title">
+  <div class="dialog-header">
+    <div class="dialog-title-wrap">
+      <h3 class="dialog-title" id="dialog-char-title"></h3>
+      <span class="dialog-subtitle" data-i18n="dialogSubtitle">视觉基准图 · 纯参考图（垫图）使用</span>
+    </div>
+    <button type="button" class="close-btn" id="close-preview-btn">✕</button>
+  </div>
+  <div class="dialog-img-box">
+    <img id="preview-sheet-img" src="" alt="视觉资产基准图">
+  </div>
+  <div class="dialog-actions">
+    <button type="button" class="close-btn" id="close-preview-btn-2" data-i18n="closeBtn">关闭</button>
+    <a class="copy-dialog-btn" id="dialog-use-btn" href="tutorials.html" data-i18n="useInWorkshop">前往提示词拼装器出图</a>
+  </div>
+</dialog>
+
+<!-- WeChat Community Modal -->
+<dialog id="wechat-modal">
+  <h3 data-i18n="wechatTitle">💬 创作变现交流群</h3>
+  <p data-i18n="wechatSub">请优先加群，满了的话也可以尝试加我个人微信</p>
+  <div class="qr-wrapper">
+    <div class="qr-card">
+      <span class="qr-tag" data-i18n="wechatGroupLabel">① 优先加入群聊</span>
+      <img src="../../../images/wechat_group.png" alt="微信交流群二维码">
+      <span class="qr-tip">群聊：手绘10</span>
+    </div>
+    <div class="qr-card">
+      <span class="qr-tag" data-i18n="wechatPersonalLabel">② 个人微信备用</span>
+      <img src="../../../images/wechat_personal.png" alt="个人微信号二维码">
+      <span class="qr-tip">微信：yang02010</span>
+    </div>
+  </div>
+  <button type="button" class="close-btn" id="close-wechat-btn" data-i18n="closeBtn">关闭</button>
+</dialog>
+
+<script src="../../../images/custom/custom_assets.js" onerror="window.CUSTOM_ASSETS_DATA=null;"></script>
+<script>
+const I18N = {{
+  zh: {{
+    pageTitle: "自建图库 - 手绘风格与排版图型",
+    stylesNav: "风格画廊",
+    layoutsNav: "图型画廊",
+    colorsNav: "色彩画廊",
+    assetsNav: "自建图库",
+    tutorialsNav: "提示词",
+    wechatBtn: "💬 创作变现交流群",
+    wechatTitle: "💬 创作变现交流群",
+    wechatSub: "请优先加群，满了的话也可以尝试加我个人微信",
+    wechatGroupLabel: "① 优先加入群聊",
+    wechatPersonalLabel: "② 个人微信备用",
+    heroTitle: "自建图库",
+    heroLead: "沉淀与管理您的专属视觉资产。库中所有角色、道具与场景均以参考图（垫图）形式参与出图，跨媒介调用绝不漂移。",
+    initNoticeLead: "首次使用请先初始化图库目录，请在codex或者其他AI客户端输入：",
+    initNoticeCmd: "请帮我初始化图库目录：d:\\\\path\\\\to\\\\tuku",
+    helpBtnTitle: "查看初始化说明",
+    closeNoticeTitle: "关闭说明",
+    charGuideBadge: "角色创建指引",
+    charGuideDesc: "支持创建三视图基准图，或直接上传已有形象一键归档：",
+    step1Title: "创建三视图：",
+    step1Desc: "添加一张角色参考图到 Codex，然后输入提示词：",
+    copyFormula: "复制指令",
+    copiedFormula: "已复制 ✓",
+    step2Title: "保存到自建图库：",
+    step2Desc: "生成图片后，或直接上传已有图片到 Codex，输入提示词：",
+    copySaveFormula: "复制指令",
+    copiedSaveFormula: "已复制 ✓",
+    step2SubTip: "（Codex 会自动将图片转存至本地图库对应目录、更新索引并完成归档，出图时直接作为固定参考图调用）",
+    tabCharacters: "角色库",
+    tabProps: "道具库",
+    tabScenes: "场景库",
+    officialPreset: "官方预置",
+    customBadge: "自建资产",
+    previewDetail: "查看大图",
+    useInWorkshop: "以此出图",
+    closeBtn: "关闭",
+    dialogSubtitle: "视觉基准图 · 纯参考图（垫图）使用",
+    propsEmptyTitle: "暂无自建道具",
+    propsEmptyDesc: '在 Codex 中生成道具图片或上传已有图片后，输入指令：<code>保存图片到道具库，名称：xxx</code>，即可将道具基准图自动归档到此处。',
+    scenesEmptyTitle: "暂无自建场景",
+    scenesEmptyDesc: '在 Codex 中生成场景图片或上传已有图片后，输入指令：<code>保存图片到场景库，名称：xxx</code>，即可将场景基准图自动归档到此处。',
+    charHelpBtnTitle: "查看角色创建指引",
+    closeCharGuideTitle: "关闭指引"
+  }},
+  en: {{
+    pageTitle: "Custom Library - Hand-drawn Style & Layout",
+    stylesNav: "Styles",
+    layoutsNav: "Layouts",
+    colorsNav: "Colors",
+    assetsNav: "Custom Library",
+    tutorialsNav: "Prompts",
+    wechatBtn: "💬 Creator Community",
+    wechatTitle: "💬 Creator Monetization Community",
+    wechatSub: "Please prioritize joining the group; if full, try adding personal WeChat",
+    wechatGroupLabel: "① Join Group (Priority)",
+    wechatPersonalLabel: "② Personal WeChat (Fallback)",
+    heroTitle: "Custom Asset Library",
+    heroLead: "Curate and persist your recurring visual IP. All characters, props, and scenes participate in generation solely as reference images, preventing character drift across styles.",
+    initNoticeLead: "First time setup: please initialize your asset library directory. Run in Codex or other AI client:",
+    initNoticeCmd: "Please initialize asset library directory: d:\\\\path\\\\to\\\\tuku",
+    helpBtnTitle: "Show initialization guide",
+    closeNoticeTitle: "Close notice",
+    charGuideBadge: "Character Guide",
+    charGuideDesc: "Create turnaround model sheets or directly upload existing artwork to archive:",
+    step1Title: "Create Turnaround Views:",
+    step1Desc: "Attach a reference photo to Codex, then prompt:",
+    copyFormula: "Copy Command",
+    copiedFormula: "Copied ✓",
+    step2Title: "Save to Custom Library:",
+    step2Desc: "After generating an image, or directly uploading an existing image to Codex, prompt:",
+    copySaveFormula: "Copy Command",
+    copiedSaveFormula: "Copied ✓",
+    step2SubTip: "(Codex automatically archives the image into your local asset directory and updates the index for recurring generation)",
+    tabCharacters: "Characters",
+    tabProps: "Props",
+    tabScenes: "Scenes",
+    officialPreset: "Official Preset",
+    customBadge: "Custom Asset",
+    previewDetail: "View Large",
+    useInWorkshop: "Generate with Asset",
+    closeBtn: "Close",
+    dialogSubtitle: "Visual Model Sheet · Use as Reference Image",
+    propsEmptyTitle: "No Custom Props Yet",
+    propsEmptyDesc: 'After generating prop artwork or uploading an existing image in Codex, prompt: <code>Save image to props library, name: xxx</code> to archive it here.',
+    scenesEmptyTitle: "No Custom Scenes Yet",
+    scenesEmptyDesc: 'After generating scene artwork or uploading an existing image in Codex, prompt: <code>Save image to scenes library, name: xxx</code> to archive it here.',
+    charHelpBtnTitle: "Show character creation guide",
+    closeCharGuideTitle: "Close guide"
+  }}
+}};
+
+let currentLang = localStorage.getItem('handdraw_lang') || ((navigator.language && navigator.language.startsWith('zh')) ? 'zh' : 'en');
+
+function applyLang(lang) {{
+  currentLang = lang;
+  localStorage.setItem('handdraw_lang', lang);
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  document.title = I18N[lang].pageTitle;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {{
+    const key = el.dataset.i18n;
+    if (I18N[lang] && I18N[lang][key]) {{
+      el.textContent = I18N[lang][key];
+    }}
+  }});
+
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {{
+    const key = el.dataset.i18nHtml;
+    if (I18N[lang] && I18N[lang][key]) {{
+      el.innerHTML = I18N[lang][key];
+    }}
+  }});
+
+  const initCmdText = document.getElementById('init-cmd-text');
+  if (initCmdText && I18N[lang] && I18N[lang].initNoticeCmd) {{
+    initCmdText.textContent = I18N[lang].initNoticeCmd;
+  }}
+  const helpBtn = document.getElementById('help-btn');
+  if (helpBtn && I18N[lang] && I18N[lang].helpBtnTitle) {{
+    helpBtn.title = I18N[lang].helpBtnTitle;
+    helpBtn.setAttribute('aria-label', I18N[lang].helpBtnTitle);
+  }}
+  const closeInitBtn = document.getElementById('close-init-btn');
+  if (closeInitBtn && I18N[lang] && I18N[lang].closeNoticeTitle) {{
+    closeInitBtn.title = I18N[lang].closeNoticeTitle;
+    closeInitBtn.setAttribute('aria-label', I18N[lang].closeNoticeTitle);
+  }}
+  const charHelpBtn = document.getElementById('char-help-btn');
+  if (charHelpBtn && I18N[lang] && I18N[lang].charHelpBtnTitle) {{
+    charHelpBtn.title = I18N[lang].charHelpBtnTitle;
+    charHelpBtn.setAttribute('aria-label', I18N[lang].charHelpBtnTitle);
+  }}
+  const closeCharGuideBtn = document.getElementById('close-char-guide-btn');
+  if (closeCharGuideBtn && I18N[lang] && I18N[lang].closeCharGuideTitle) {{
+    closeCharGuideBtn.title = I18N[lang].closeCharGuideTitle;
+    closeCharGuideBtn.setAttribute('aria-label', I18N[lang].closeCharGuideTitle);
+  }}
+
+  document.querySelectorAll('.char-name').forEach(el => {{
+    const name = lang === 'en' ? (el.dataset.en || el.dataset.zh) : el.dataset.zh;
+    if (name) el.textContent = name;
+  }});
+
+  const langBtn = document.getElementById('lang-btn');
+  if (langBtn) langBtn.textContent = lang === 'zh' ? '🌐 English' : '🌐 中文';
+}}
+
+const langBtn = document.getElementById('lang-btn');
+if (langBtn) {{
+  langBtn.addEventListener('click', () => {{
+    applyLang(currentLang === 'zh' ? 'en' : 'zh');
+  }});
+}}
+
+// Tabs Switching Logic
+const tabBtns = document.querySelectorAll('.sub-library-nav .tab-btn');
+const panels = {{
+  characters: document.getElementById('panel-characters'),
+  props: document.getElementById('panel-props'),
+  scenes: document.getElementById('panel-scenes')
+}};
+
+tabBtns.forEach(btn => {{
+  btn.addEventListener('click', () => {{
+    const targetTab = btn.dataset.tab;
+    tabBtns.forEach(b => b.classList.toggle('is-active', b === btn));
+    Object.keys(panels).forEach(key => {{
+      if (panels[key]) panels[key].classList.toggle('is-active', key === targetTab);
+    }});
+  }});
+}});
+
+// Preview Modal Logic
+const previewDialog = document.getElementById('preview-dialog');
+const previewSheetImg = document.getElementById('preview-sheet-img');
+const dialogCharTitle = document.getElementById('dialog-char-title');
+
+function openPreview(card) {{
+  const id = card.dataset.id;
+  const name = currentLang === 'en' ? (card.dataset.nameEn || card.dataset.nameZh) : card.dataset.nameZh;
+  const img = card.dataset.image;
+
+  previewSheetImg.src = img;
+  previewSheetImg.alt = `${{id}} · ${{name}}`;
+  dialogCharTitle.textContent = `${{id}} · ${{name}}`;
+
+  const dialogUseBtn = document.getElementById('dialog-use-btn');
+  if (dialogUseBtn) {{
+    dialogUseBtn.href = `tutorials.html?asset=${{encodeURIComponent(id)}}`;
+  }}
+
+  previewDialog.showModal();
+}}
+
+document.querySelectorAll('.char-card').forEach(card => {{
+  const thumbWrap = card.querySelector('.char-thumb-wrap');
+  if (thumbWrap) {{
+    thumbWrap.addEventListener('click', () => openPreview(card));
+    thumbWrap.addEventListener('keydown', (e) => {{
+      if (e.key === 'Enter' || e.key === ' ') {{
+        e.preventDefault();
+        openPreview(card);
+      }}
+    }});
+  }}
+  const previewBtn = card.querySelector('.preview-btn');
+  if (previewBtn) {{
+    previewBtn.addEventListener('click', () => openPreview(card));
+  }}
+}});
+
+document.getElementById('close-preview-btn').addEventListener('click', () => previewDialog.close());
+document.getElementById('close-preview-btn-2').addEventListener('click', () => previewDialog.close());
+previewDialog.addEventListener('click', (e) => {{
+  if (e.target === previewDialog) previewDialog.close();
+}});
+
+// Helper to copy text
+async function copyToClipboard(text, btn, successTextKey, defaultTextKey) {{
+  try {{
+    await navigator.clipboard.writeText(text);
+  }} catch (err) {{
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    ta.remove();
+  }}
+  btn.textContent = I18N[currentLang][successTextKey];
+  setTimeout(() => {{
+    btn.textContent = I18N[currentLang][defaultTextKey];
+  }}, 1500);
+}}
+
+// Copy Formula Buttons
+const copyFormulaBtn = document.getElementById('copy-formula-btn');
+if (copyFormulaBtn) {{
+  copyFormulaBtn.addEventListener('click', () => {{
+    copyToClipboard("图型：IP-002，其他你帮我设计", copyFormulaBtn, "copiedFormula", "copyFormula");
+  }});
+}}
+
+const copySaveBtn = document.getElementById('copy-save-btn');
+if (copySaveBtn) {{
+  copySaveBtn.addEventListener('click', () => {{
+    copyToClipboard("保存图片到角色库，名称：xxx", copySaveBtn, "copiedSaveFormula", "copySaveFormula");
+  }});
+}}
+
+// Init Notice Close, Open, and Copy
+const initNoticeBanner = document.getElementById('init-notice-banner');
+const closeInitBtn = document.getElementById('close-init-btn');
+const helpBtn = document.getElementById('help-btn');
+
+if (localStorage.getItem('handdraw_init_notice_hidden') === 'true' && initNoticeBanner) {{
+  initNoticeBanner.classList.add('is-hidden');
+}}
+
+if (closeInitBtn && initNoticeBanner) {{
+  closeInitBtn.addEventListener('click', () => {{
+    initNoticeBanner.classList.add('is-hidden');
+    localStorage.setItem('handdraw_init_notice_hidden', 'true');
+  }});
+}}
+
+if (helpBtn && initNoticeBanner) {{
+  helpBtn.addEventListener('click', () => {{
+    initNoticeBanner.classList.remove('is-hidden');
+    localStorage.removeItem('handdraw_init_notice_hidden');
+    initNoticeBanner.scrollIntoView({{ behavior: 'smooth', block: 'nearest' }});
+  }});
+}}
+
+const copyInitBtn = document.getElementById('copy-init-btn');
+if (copyInitBtn) {{
+  copyInitBtn.addEventListener('click', () => {{
+    const cmd = currentLang === 'en' ? I18N.en.initNoticeCmd : I18N.zh.initNoticeCmd;
+    copyToClipboard(cmd, copyInitBtn, "copiedFormula", "copyFormula");
+  }});
+}}
+
+// Character Guide Box Close & Open
+const charGuideBox = document.getElementById('char-guide-box');
+const closeCharGuideBtn = document.getElementById('close-char-guide-btn');
+const charHelpBtn = document.getElementById('char-help-btn');
+
+if (localStorage.getItem('handdraw_char_guide_hidden') === 'true' && charGuideBox) {{
+  charGuideBox.classList.add('is-hidden');
+}}
+
+if (closeCharGuideBtn && charGuideBox) {{
+  closeCharGuideBtn.addEventListener('click', () => {{
+    charGuideBox.classList.add('is-hidden');
+    localStorage.setItem('handdraw_char_guide_hidden', 'true');
+  }});
+}}
+
+if (charHelpBtn && charGuideBox) {{
+  charHelpBtn.addEventListener('click', () => {{
+    charGuideBox.classList.remove('is-hidden');
+    localStorage.removeItem('handdraw_char_guide_hidden');
+    charGuideBox.scrollIntoView({{ behavior: 'smooth', block: 'nearest' }});
+  }});
+}}
+
+// WeChat Modal Logic
+const wechatBtn = document.getElementById('wechat-btn');
+const wechatModal = document.getElementById('wechat-modal');
+const closeWechatBtn = document.getElementById('close-wechat-btn');
+
+if (wechatBtn && wechatModal) {{
+  wechatBtn.addEventListener('click', () => wechatModal.showModal());
+  if (closeWechatBtn) closeWechatBtn.addEventListener('click', () => wechatModal.close());
+  wechatModal.addEventListener('click', (e) => {{
+    if (e.target === wechatModal) wechatModal.close();
+  }});
+}}
+
+function escapeHtml(str) {{
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}}
+
+function hydrateCustomAssets() {{
+  if (!window.CUSTOM_ASSETS_DATA) return;
+  const data = window.CUSTOM_ASSETS_DATA;
+  const categories = [
+    {{ key: 'characters', panelId: 'panel-characters', label: '角色基准图' }},
+    {{ key: 'props', panelId: 'panel-props', label: '道具基准图' }},
+    {{ key: 'scenes', panelId: 'panel-scenes', label: '场景基准图' }}
+  ];
+
+  categories.forEach(cat => {{
+    const items = data[cat.key];
+    if (!Array.isArray(items) || items.length === 0) return;
+
+    const panel = document.getElementById(cat.panelId);
+    if (!panel) return;
+
+    let grid = panel.querySelector('.char-grid');
+    const emptyCard = panel.querySelector('.empty-state-card');
+    if (!grid) {{
+      grid = document.createElement('div');
+      grid.className = 'char-grid';
+      if (emptyCard) {{
+        emptyCard.style.display = 'none';
+        panel.appendChild(grid);
+      }} else {{
+        panel.appendChild(grid);
+      }}
+    }} else if (emptyCard) {{
+      emptyCard.style.display = 'none';
+    }}
+
+    items.forEach(item => {{
+      const itemId = item.id || '';
+      if (!itemId || panel.querySelector(`.char-card[data-id="${{itemId}}"]`)) return;
+
+      const nameZh = item.name || itemId;
+      const nameEn = item.name_en || nameZh;
+      const imgSrc = item.image || '';
+      const tags = Array.isArray(item.tags) ? item.tags : ['自建资产'];
+      const tagsHtml = tags.map(t => `<span class="char-tag">${{escapeHtml(t)}}</span>`).join('');
+
+      const card = document.createElement('article');
+      card.className = 'char-card';
+      card.dataset.id = itemId;
+      card.dataset.nameZh = nameZh;
+      card.dataset.nameEn = nameEn;
+      card.dataset.image = imgSrc;
+
+      card.innerHTML = `
+  <div class="char-thumb-wrap" tabindex="0" role="button" aria-label="查看 ${{escapeHtml(nameZh)}} 基准图详情">
+    <img src="${{escapeHtml(imgSrc)}}" alt="${{escapeHtml(nameZh)}}" loading="lazy">
+    <span class="view-badge">${{cat.label}}</span>
+  </div>
+  <div class="char-card-body">
+    <div class="char-card-header">
+      <span class="char-id">${{escapeHtml(itemId)}}</span>
+      <span class="char-status-badge custom-badge" data-i18n="customBadge">自建资产</span>
+    </div>
+    <h3 class="char-name" data-zh="${{escapeHtml(nameZh)}}" data-en="${{escapeHtml(nameEn)}}">${{escapeHtml(nameZh)}}</h3>
+    <div class="char-tags">${{tagsHtml}}</div>
+    <div class="char-card-actions">
+      <button type="button" class="btn-action preview-btn" data-i18n="previewDetail">查看大图</button>
+      <a class="btn-action use-char-btn" href="tutorials.html?asset=${{encodeURIComponent(itemId)}}" data-i18n="useInWorkshop">以此出图</a>
+    </div>
+  </div>
+`;
+      grid.appendChild(card);
+
+      const thumbWrap = card.querySelector('.char-thumb-wrap');
+      if (thumbWrap) {{
+        thumbWrap.addEventListener('click', () => openPreview(card));
+        thumbWrap.addEventListener('keydown', (e) => {{
+          if (e.key === 'Enter' || e.key === ' ') {{
+            e.preventDefault();
+            openPreview(card);
+          }}
+        }});
+      }}
+      const previewBtn = card.querySelector('.preview-btn');
+      if (previewBtn) {{
+        previewBtn.addEventListener('click', () => openPreview(card));
+      }}
+    }});
+
+    // Update counts
+    const totalCount = panel.querySelectorAll('.char-card').length;
+    const tabCount = document.querySelector(`.sub-library-nav .tab-btn[data-tab="${{cat.key}}"] .tab-count`);
+    if (tabCount) tabCount.textContent = totalCount;
+
+    const titleEl = panel.querySelector('.char-grid-title');
+    if (titleEl) {{
+      const spanEl = titleEl.querySelector('span');
+      const spanHtml = spanEl ? spanEl.outerHTML : '';
+      titleEl.innerHTML = `${{spanHtml}} (${{totalCount}})`;
+    }}
+  }});
+}}
+
+// Hydrate local custom assets (isolated from Git repository)
+hydrateCustomAssets();
+
+// Initialize language
+applyLang(currentLang);
+</script>
+<script src="local-navigation.js" defer></script></body>
+</html>
+"""
+
+    OUTPUT_HTML.write_text(page_html, encoding="utf-8")
+    print(f"Built custom assets gallery: {OUTPUT_HTML}")
+
+    # Backward compatibility: write redirect to characters.html
+    redirect_html_content = '''<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0; url=assets.html">
+<title>正在跳转至自建图库...</title>
+<script>window.location.replace("assets.html");</script>
+</head>
+<body>
+<p>正在跳转至 <a href="assets.html">自建图库</a>...</p>
+</body>
+</html>
+'''
+    REDIRECT_HTML.write_text(redirect_html_content, encoding="utf-8")
+    print(f"Built redirect: {REDIRECT_HTML} -> assets.html")
+
+
+if __name__ == "__main__":
+    build_assets_gallery()

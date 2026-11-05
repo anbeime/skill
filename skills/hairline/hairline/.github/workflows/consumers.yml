@@ -1,0 +1,42 @@
+name: Consumers
+
+# Layer 6: the packed tarball installed in a Next.js app and a Vite app, built
+# and opened in a browser. Slow and network-bound, so it runs only when what
+# ships (or what checks it) changes. The release gate runs it too.
+on:
+  pull_request:
+    paths:
+      - 'packages/**'
+      - 'fixtures/**'
+      - 'scripts/consumers.mjs'
+      - '.github/workflows/consumers.yml'
+
+concurrency:
+  group: consumers-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  consumers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Install, build and open the fixtures
+        run: node scripts/consumers.mjs

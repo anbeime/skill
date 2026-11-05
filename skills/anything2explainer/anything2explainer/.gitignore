@@ -1,0 +1,19 @@
+.DS_Store
+*.log
+
+# 模板工程被安装/跑过之后产生的东西（模板本身只提交源码与字体）
+node_modules/
+template/build*/
+template/renders/
+template/fin_frames/
+template/stills/
+template/audio/
+template/public/assets/*/audio.wav
+template/script/timeline.json
+template/script/timeline.md
+template/分镜表.md
+template/render.done
+template/fin_count.txt
+.synapse/
+
+__pycache__/

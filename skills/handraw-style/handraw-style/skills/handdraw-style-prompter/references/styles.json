@@ -1,0 +1,2578 @@
+[
+  {
+    "number": "FA-001",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Gemma Correll",
+    "generation_name": "Playful Deadpan Doodle",
+    "traits": "松散黑线、怪萌人物、少量点色、白底、日常吐槽与尴尬幽默；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情偏冷脸、尴尬或突然夸张，姿态要有明确喜剧节奏，避免统一的可爱微笑。"
+  },
+  {
+    "number": "FA-002",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Saul Steinberg",
+    "generation_name": "Conceptual Continuous-Line Editorial",
+    "traits": "极简线描、连续线、概念隐喻、人与空间一体化、智性幽默。"
+  },
+  {
+    "number": "FA-003",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Jean-Jacques Sempé",
+    "generation_name": "Fine-Line Urban Miniature",
+    "traits": "极细钢笔线、小人物大空间、大量留白、温柔法式都市幽默。"
+  },
+  {
+    "number": "FA-004",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "James Thurber",
+    "generation_name": "Awkward Minimal Ink Cartoon",
+    "traits": "故意笨拙的极简线条、比例失衡、几笔成形、冷幽默。"
+  },
+  {
+    "number": "FA-005",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Shel Silverstein",
+    "generation_name": "Childlike Free-Line Humor",
+    "traits": "极简黑线、儿童式自由造型、荒诞动作、低细节。"
+  },
+  {
+    "number": "FA-006",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Edward Gorey",
+    "generation_name": "Victorian Crosshatch Gothic Cartoon",
+    "traits": "黑白钢笔、密集排线、维多利亚气息、古怪冷峻黑色幽默。"
+  },
+  {
+    "number": "FA-007",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Ronald Searle",
+    "generation_name": "Frenetic Scratch-Ink Caricature",
+    "traits": "狂躁钢笔、断裂墨线、细长人体、尖锐夸张、动态极强。"
+  },
+  {
+    "number": "FA-008",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Roz Chast",
+    "generation_name": "Nervous Urban Notebook Cartoon",
+    "traits": "神经质手绘、歪斜线条、手写文字、都市焦虑式喜剧；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FA-009",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Lynda Barry",
+    "generation_name": "Raw Zine Diary Cartoon",
+    "traits": "粗糙手帐、Zine 感、手写字、原始情绪、反精致；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；保留纸纹、颗粒、套印或手工媒介的不完美，强化独立出版物的触感。"
+  },
+  {
+    "number": "FA-010",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Tom Gauld",
+    "generation_name": "Geometric Literary Deadpan",
+    "traits": "极小几何人物、极简场景、文学/科技梗、冷面幽默；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；表情偏冷脸、尴尬或突然夸张，姿态要有明确喜剧节奏，避免统一的可爱微笑。"
+  },
+  {
+    "number": "FA-011",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "David Shrigley",
+    "generation_name": "Deliberately Bad Absurd Doodle",
+    "traits": "故意画坏、粗糙黑线、幼稚造型、荒诞文字、强 meme 感；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情偏冷脸、尴尬或突然夸张，姿态要有明确喜剧节奏，避免统一的可爱微笑。"
+  },
+  {
+    "number": "FA-012",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Christoph Niemann",
+    "generation_name": "Minimal Visual-Pun Editorial",
+    "traits": "极简概念设计、物体重解释、视觉双关、脑洞型构图；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FA-013",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Jean Jullien",
+    "generation_name": "Bold Flat Everyday Satire",
+    "traits": "粗黑轮廓、扁平色块、现代人物、互联网生活讽刺；以醒目外轮廓和大形组织人物，五官少而有力，动作通过肩胯与手脚方向直接传达；表情偏冷脸、尴尬或突然夸张，姿态要有明确喜剧节奏，避免统一的可爱微笑。"
+  },
+  {
+    "number": "FA-014",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Mr Bingo",
+    "generation_name": "Handwritten British Anti-Inspiration Cartoon",
+    "traits": "随手钢笔、手写字、恶趣味、英式反鸡汤幽默；保留明显手绘笔压、停顿与轻微不齐整感，让轮廓产生真实纸上绘制的节奏；表情偏冷脸、尴尬或突然夸张，姿态要有明确喜剧节奏，避免统一的可爱微笑。"
+  },
+  {
+    "number": "FA-015",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Brian Rea",
+    "generation_name": "Soft Relationship Editorial Line Art",
+    "traits": "极简人物线稿、人与关系、柔和色块、生活型社论；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；配色控制在柔和低刺激色域，用少量点色区分层次，背景保持轻和干净。"
+  },
+  {
+    "number": "FA-016",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Rubyetc",
+    "generation_name": "Raw Emotional Internet Doodle",
+    "traits": "粗糙黑线、极简人体、心理情绪、自嘲式互联网漫画；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；保留纸纹、颗粒、套印或手工媒介的不完美，强化独立出版物的触感。"
+  },
+  {
+    "number": "FA-017",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Sarah Andersen",
+    "generation_name": "Black-and-White Reaction Diary Cartoon",
+    "traits": "黑白简线、圆眼反应表情、松散黑发、日常衣着；人物常与小动物或生活物件并置，依靠简单轮廓和大面积留白塑造轻松的生活漫画感。"
+  },
+  {
+    "number": "FA-018",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Poorly Drawn Lines / Reza Farazmand",
+    "generation_name": "Minimal Deadpan Dialogue Cartoon",
+    "traits": "极简圆头人物、面无表情、简单动物、灰蓝与米色小色块；人物和动物以干净轮廓置于白底中，靠冷淡姿态和微小关系制造荒诞幽默。"
+  },
+  {
+    "number": "FA-019",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "The Oatmeal / Matthew Inman",
+    "generation_name": "Explosive Webcomic Exaggeration",
+    "traits": "粗黑线、夸张圆眼、张大嘴、头发和四肢大幅甩动；人物常与动物同框，以强烈动作、巨大表情和少量灰黑色块形成爆发式网络漫画效果。"
+  },
+  {
+    "number": "FA-020",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Allie Brosh",
+    "generation_name": "Low-Fi Frenzy Cartoon",
+    "traits": "粗糙鼠绘感、黑色乱发、极端大眼大嘴、粉色大色块、单人失控动作；保留低保真数字涂画的不规整轮廓和直接粗粝的互联网幽默。"
+  },
+  {
+    "number": "FA-021",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Mari Andrew",
+    "generation_name": "Watercolor Handwritten Life Notes",
+    "traits": "极简女性人物、细黑线、细长四肢、柔和水彩点染；以红色心形等单一物件承载生活情绪，画面保持白底、留白和轻微纸张质感。"
+  },
+  {
+    "number": "FA-022",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Sally Nixon",
+    "generation_name": "Flat Everyday Women Lifestyle",
+    "traits": "蓬松手绘线稿、质朴低饱和粉彩色块平涂、松弛生活速写感、克制留白与温暖呼吸感。"
+  },
+  {
+    "number": "FA-023",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Agathe Sorlet",
+    "generation_name": "Warm Minimal Female Line Cartoon",
+    "traits": "极简黑色钢笔细线、克制几何平涂、少量高饱和暖色点睛、大面积纯净留白背景、亲密松弛的图形速写感。"
+  },
+  {
+    "number": "FA-024",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Jean-Michel Tixier",
+    "generation_name": "Geometric Fashion Deadpan",
+    "traits": "夸张大头、松散黑色短线、冷面人物、横条纹上衣、灰黑与浅色块；人物比例故意不协调，依靠简化脸部和粗略纹理形成时尚而疏离的幽默感。"
+  },
+  {
+    "number": "FA-025",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Gary Larson",
+    "generation_name": "One-Panel Absurd Social Cartoon",
+    "traits": "单格漫画、极简黑线、细长人物与动物并置、荒诞社会情境；人物和动物以克制的姿态和少量灰绿色块呈现一本正经的反逻辑幽默。"
+  },
+  {
+    "number": "FA-026",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Sergio Aragonés",
+    "generation_name": "Dense Silent Physical Comedy",
+    "traits": "密集小动物和小人物、粗黑线、夸张鼻子与张嘴大笑、四肢向外伸展；画面充满无字肢体喜剧和拥挤的动作信息。"
+  },
+  {
+    "number": "FA-027",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "R. Crumb",
+    "generation_name": "Underground Crosshatched Grotesque Cartoon",
+    "traits": "黑色密排线、粗重轮廓、坐姿人物、夸张而不修饰的人体比例；皮肤、头发和衣物依靠密集交叉排线塑造，带有地下漫画的粗粝与怪诞。"
+  },
+  {
+    "number": "FA-028",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Daniel Clowes",
+    "generation_name": "Retro Detached American Comic",
+    "traits": "黑色齐肩直发、方形眼镜、条纹上衣与绿色外套、冷静平涂色块；人物正面站立、表情疏离，画面具有复古美式成人漫画的克制感。"
+  },
+  {
+    "number": "FA-029",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Chris Ware",
+    "generation_name": "Geometric Diagrammatic Narrative",
+    "traits": "几何精密线条、孤立小人物、公交站牌与城市方块、信息图式留白；人物和环境由规整矩形与细线组成，色彩克制，叙事像一张安静的城市图表。"
+  },
+  {
+    "number": "FA-030",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Adrian Tomine",
+    "generation_name": "Clean Urban Solitude Comic",
+    "traits": "清晰细线、年轻亚洲女性半身像、深色外套、低饱和肤色与黑发；人物侧身回望，表情安静克制，背景留白，呈现都市观察和轻微疏离。"
+  },
+  {
+    "number": "FA-031",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Marjane Satrapi",
+    "generation_name": "High-Contrast Black-White Memoir Cartoon",
+    "traits": "黑白高对比、粗黑剪影、盘坐女性、简化五官、大片纯黑服装；人物姿态直接而静止，依靠白色脸部和黑色轮廓形成克制的回忆录漫画感。"
+  },
+  {
+    "number": "FA-032",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Joann Sfar",
+    "generation_name": "Loose French Improvised Ink",
+    "traits": "松散即兴法式墨线、轻微抖动与手绘停顿笔触、少量暖色水彩晕染点缀、俏皮略带怪诞的插画张力。"
+  },
+  {
+    "number": "FA-033",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Charles M. Schulz",
+    "generation_name": "Minimal Newspaper Comic",
+    "traits": "极简报纸漫画线、圆头小人物、低动作高人格、细微表情。"
+  },
+  {
+    "number": "FA-034",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Bill Watterson",
+    "generation_name": "Elastic Sunday Strip",
+    "traits": "松散弹性墨线、夸张儿童表情、强肢体动作、少量透明水彩；保留明显手绘笔压、停顿与轻微不齐整感，让轮廓产生真实纸上绘制的节奏；上色保留透明叠染、柔软边缘和纸纹，允许轻微颜色不均与留白。"
+  },
+  {
+    "number": "FA-035",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Matt Groening",
+    "generation_name": "Bold Pop Satire Cartoon",
+    "traits": "粗黑轮廓、圆凸大眼、扁平人物、极少阴影、成人讽刺；以醒目外轮廓和大形组织人物，五官少而有力，动作通过肩胯与手脚方向直接传达；配色使用少量高纯度撞色和平涂，让人物剪影和服装保持强图形对比。"
+  },
+  {
+    "number": "FA-036",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "OscarAI",
+    "generation_name": "Minimalist Organic Pastel Editorial",
+    "traits": "现代极简编辑插画风、轻细灵动的铅笔/墨线、抽象有机几何形状、柔和莫兰迪粉彩色调、微颗粒纸本噪点与呼吸感留白。"
+  },
+  {
+    "number": "FA-037",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "Ahmed",
+    "generation_name": "Chic Urban Editorial Motion Character",
+    "traits": "现代都市时尚编辑插画风、优雅舒展的动态剪影、松弛大方的服饰垂坠感、哑光粉彩与柔和铅笔微颗粒纹理、暖色提亮撞色、兼具高级时尚感与动画角色设计的清爽气质。"
+  },
+  {
+    "number": "FA-038",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "James Yeung",
+    "generation_name": "Minimalist Poetic Sempé Ink Doodle",
+    "traits": "极简法式诗意水墨线描风、桑贝式松弛写意小人与萌宠、大面积纯净留白、质朴手绘墨水笔触、治愈松弛的都市童心与生活小哲思。"
+  },
+  {
+    "number": "FA-039",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "手绘火柴人漫画",
+    "generation_name": "Hand-Drawn Stick Figure Cartoon",
+    "traits": "手绘火柴人漫画。人物必须采用真正的 stick figure anatomy：正常偏小的圆形头部，头部约占人物总高度 1/4～1/3；脖子、躯干、双臂、双腿主要由单根细黑线构成。肩、肘、膝只通过线条折角表达，手和脚极度简化。五官仅用两个小黑点眼睛、短线眉毛和极简单嘴型，发型用简单平涂。人物姿态依靠火柴线骨架的倾斜、弯曲、重心和四肢方向表达。黑色细手绘线条，轻微不规则，但整体清晰克制。上身/衣服用极简单的几何色块。背景根据主题使用低细节卡通，部分留白。"
+  },
+  {
+    "number": "FA-040",
+    "group": "FA 国际社论幽默 / Editorial & Humor Doodle",
+    "reference": "极简手绘",
+    "generation_name": "Minimalist 2D Hand-Drawn Doodle",
+    "traits": "极简2D手绘简笔画表现，强调概括造型、轻柔线条、低细节、天真趣味"
+  },
+  {
+    "number": "FB-001",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Quentin Blake",
+    "generation_name": "Loose Ink-and-Wash Storybook",
+    "traits": "抖动墨线、松散水彩、四肢夸张、动作极灵、快速速写感。"
+  },
+  {
+    "number": "FB-002",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Tove Jansson",
+    "generation_name": "Nordic Fine-Line Whimsy",
+    "traits": "北欧墨线、细密但轻盈、奇异人物、温柔孤独、大留白。"
+  },
+  {
+    "number": "FB-003",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Richard Scarry",
+    "generation_name": "Busy Anthropomorphic Everyday World",
+    "traits": "拟人动物社会、职业角色、圆润轮廓、丰富生活动作。"
+  },
+  {
+    "number": "FB-004",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Arnold Lobel",
+    "generation_name": "Warm Vintage Line-and-Wash",
+    "traits": "古典细线、水彩旧书感、安静角色、温暖生活气息。"
+  },
+  {
+    "number": "FB-005",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Maurice Sendak",
+    "generation_name": "Crosshatched Wild Storybook",
+    "traits": "细线排线、怪物造型、童话荒诞、毛茸茸纹理。"
+  },
+  {
+    "number": "FB-006",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Dr. Seuss",
+    "generation_name": "Bendy Absurd Storybook",
+    "traits": "极端比例、弯曲结构、怪生物、流动线条、疯狂想象。"
+  },
+  {
+    "number": "FB-007",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Beatrix Potter",
+    "generation_name": "Naturalist Watercolor Animal Storybook",
+    "traits": "精细水彩、自然主义动物、古典绘本、柔和纸张感。"
+  },
+  {
+    "number": "FB-008",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "E. H. Shepard",
+    "generation_name": "Classic Pen-and-Light-Wash Storybook",
+    "traits": "钢笔速写、淡水彩、古典角色、优雅而轻松。"
+  },
+  {
+    "number": "FB-009",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Satoshi Kitamura",
+    "generation_name": "Quirky Ink-and-Watercolor Tale",
+    "traits": "怪趣人物、墨线、水彩、不规则比例、现代童话；保留明显手绘笔压、停顿与轻微不齐整感，让轮廓产生真实纸上绘制的节奏；上色保留透明叠染、柔软边缘和纸纹，允许轻微颜色不均与留白。"
+  },
+  {
+    "number": "FB-010",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Oliver Jeffers",
+    "generation_name": "Minimal Poetic Picturebook Doodle",
+    "traits": "极简人物、手写感、松散涂色、诗意荒诞；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；表情偏冷脸、尴尬或突然夸张，姿态要有明确喜剧节奏，避免统一的可爱微笑。"
+  },
+  {
+    "number": "FB-011",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Chris Haughton",
+    "generation_name": "Bold Geometric Picturebook",
+    "traits": "几何块面、极简轮廓、高饱和色、强剪影；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；配色使用少量高纯度撞色和平涂，让人物剪影和服装保持强图形对比。"
+  },
+  {
+    "number": "FB-012",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Jon Klassen",
+    "generation_name": "Muted Deadpan Picturebook",
+    "traits": "极简动物、半闭眼、低饱和、Deadpan 冷幽默；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；配色控制在柔和低刺激色域，用少量点色区分层次，背景保持轻和干净。"
+  },
+  {
+    "number": "FB-013",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Carson Ellis",
+    "generation_name": "Folk-Line Decorative Storybook",
+    "traits": "民俗线描、复古配色、植物纹样、奇异群像；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FB-014",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Shaun Tan",
+    "generation_name": "Dreamlike Surreal Storybook",
+    "traits": "柔和手绘笔触、轻微超现实人物、低饱和梦境配色、安静叙事气质；人物轮廓简洁清楚，比例略诗意变形，表情克制偏沉静，留出白底与空间感，避免过于指向单一作者的独特怪脸机制。"
+  },
+  {
+    "number": "FB-015",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Lane Smith",
+    "generation_name": "Layered Vintage Storybook Collage",
+    "traits": "分层拼贴质感、复古纸张肌理、手工剪贴与印刷颗粒感并存；人物由大形与贴纸般色块构成，造型怪趣但易读，配色温暖克制，强调材料感与旧书气息，避免复现某个固定童书角色。"
+  },
+  {
+    "number": "FB-016",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Peter de Sève",
+    "generation_name": "Expressive Character Sketch Cartoon",
+    "traits": "速写式手绘线条、夸张但亲切的人物表演、清楚外轮廓与鲜明性格；脸部结构简化，眉眼嘴主导情绪，动作有动画草图般弹性和节奏，适合做高人格角色，避免过度逼近具体作者角色设计。"
+  },
+  {
+    "number": "FB-017",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Jean Giraud / Moebius",
+    "generation_name": "Dreamlike Clean-Line Sci-Fi Figure",
+    "traits": "干净细线、轻科技感人物、简洁未来服装与梦境般留白；线条清晰克制，配色偏浅淡蓝灰或柔和中性色，人物修长、姿态安静，强调现代科幻插图气质而非某个具体世界观。"
+  },
+  {
+    "number": "FB-018",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Hergé",
+    "generation_name": "European Clear-Line Adventure Figure",
+    "traits": "欧洲清线漫画语言、整洁闭合轮廓、平涂配色、人物可读性极高；造型简洁、动作明确，脸部结构控制在少量特征之内，带轻冒险叙事感，避免直接滑向某个经典固定角色。"
+  },
+  {
+    "number": "FB-019",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Joost Swarte",
+    "generation_name": "Geometric European Clear-Line Figure",
+    "traits": "几何化清线人物、现代主义图形秩序、简洁建筑感服装与姿态；以圆方弧线组织角色，平涂色块干净，表情直接而克制，整体更偏欧洲平面设计人物感，避免过强的单一作者指纹。"
+  },
+  {
+    "number": "FB-020",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "OscarAI",
+    "generation_name": "Quirky 60s-70s Retro Storybook Illustration",
+    "traits": "60-70年代复古儿童绘本插画感、夸张大眼睛与生动面部特征、粗糙手绘线条、质朴色铅笔/蜡笔颗粒质感、暖调复古配色、简练几何轮廓与怪诞可爱的人物造型。"
+  },
+  {
+    "number": "FB-021",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "OscarAI",
+    "generation_name": "Charming Vintage Storybook Illustration",
+    "traits": "复古暖调手绘儿童绘本插画风、质感蜡笔与彩铅颗粒肌理、松弛粗糙的墨水轮廓线、夸张生动的大眼睛与古怪可爱角色造型、复古纸本留边边框、明亮温暖的欧式复古动画叙事感。"
+  },
+  {
+    "number": "FB-022",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "OscarAI",
+    "generation_name": "Mid-Century Poetic Ink & Watercolor Storybook",
+    "traits": "二十世纪中叶经典复古儿童绘本风、细腻松弛的钢笔墨水线条、清透柔和的水彩晕染、大面积纯净留白、质朴水彩纸纹理、丁丁历险记般的诗意复古童趣。"
+  },
+  {
+    "number": "FB-023",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "OscarAI",
+    "generation_name": "Whimsical Watercolor Die-Cut Sticker Cartoon",
+    "traits": "手绘水彩贴纸风、圆形模切与干净白边边框、明亮灵动的大眼睛与微卷发丝、温润水彩与不透明水粉质感、治愈可爱的现代儿童插画与潮玩贴纸美学。"
+  },
+  {
+    "number": "FB-024",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "OscarAI",
+    "generation_name": "Painterly Gouache Animation Storybook",
+    "traits": "温暖厚涂水粉动画插画风、松弛可见的干湿画笔笔触、夸张清澈的纯真大眼、温润电影感柔光与雪景氛围、复古绘本与现代动画长片概念美术质感。"
+  },
+  {
+    "number": "FB-025",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "OscarAI",
+    "generation_name": "Vintage Ink & Watercolor Comic Storybook",
+    "traits": "经典复古手绘漫画绘本风、生动流畅的蘸水笔墨水线条、温润质朴的水彩平涂晕染、复古报刊插画排线、大眼睛与红润脸蛋的可爱人物造型、温暖怀旧的童年冒险叙事感。"
+  },
+  {
+    "number": "FB-026",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "OscarAI",
+    "generation_name": "Warm Gouache & Colored Pencil Storybook Character",
+    "traits": "温暖水粉与彩色铅笔手绘绘本风、细腻柔和的铅笔颗粒质感与排线肌理、圆润饱满的卡通面部轮廓、大黑框眼镜与可爱红鼻头、治愈温馨的现代儿童插画质感。"
+  },
+  {
+    "number": "FB-027",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "OscarAI",
+    "generation_name": "Edwardian Vintage Ink Fashion Editorial",
+    "traits": "复古墨水插画风、精美利落的钢笔交叉排线与羽化阴影、修长典雅的图形化剪影、复古蓝与芥末黄点缀平涂、大面积呼吸感留白与诗意文学氛围。"
+  },
+  {
+    "number": "FB-028",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "OscarAI",
+    "generation_name": "Loose Ink & Gouache Storybook Studio",
+    "traits": "松散墨水线条与水粉手绘插画风、率性写意的笔触排线、大头蓬松卷发与胡须大叔与宠物鸭子、温馨充满故事感的欧式生活日常画室。"
+  },
+  {
+    "number": "FB-029",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "儿童蜡笔手绘绘本",
+    "generation_name": "Charming Children Crayon Storybook",
+    "traits": "儿童蜡笔手绘绘本风、粗蜡笔涂抹质感与明显手绘肌理、低幼绘本插画、童真可爱、造型简化与平视视角、画面干净简约、温暖柔和马卡龙配色、明亮轻快、线条自然稚拙、整体温暖治愈。"
+  },
+  {
+    "number": "FB-030",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "なっくす",
+    "generation_name": "Soft Crayon & Sumi-e Cat Storybook",
+    "traits": "温润蜡笔与水墨和风绘本风、质朴手绘炭笔与蜡笔颗粒肌理、细腻毛流与柔和边缘晕染、微型对比构图与红色印章点缀、充满童趣温暖的日式日常绘本。"
+  },
+  {
+    "number": "FB-031",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "几米",
+    "generation_name": "Jimmy Liao Whimsical & Poetic Storybook Watercolor",
+    "traits": "几米绘本插画风、大面积纯净留白与空灵通透构图、童真童趣与细腻温情、淡雅水彩晕染与柔和手绘线条、治愈诗意的绘本故事感。"
+  },
+  {
+    "number": "FB-032",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "yang02010",
+    "generation_name": "Minimalist Atmospheric Storybook & Vast Scale Contrast",
+    "traits": "现代极简绘本插画风、大面积同色系连续环境主导画面、背景极度简化并仅保留少量必要景物、人物微缩与宏大环境强烈尺度反差、安静松弛与诗意孤独氛围、非对称大面积负空间留白、主体轮廓简练概括、手绘笔触与纸张颗粒/蜡笔丙烯干刷纹理。"
+  },
+  {
+    "number": "FB-033",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "森系儿童插画",
+    "generation_name": "Forest Children Storybook Illustration",
+    "traits": "新自然系治愈绘本风、高度二维平面化几何造型、清透嫩绿与大地色系点缀、圆润几何色块概括、柔和漫射环境光、弱透视与装饰性插画质感、安静温暖生命力。"
+  },
+  {
+    "number": "FB-034",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "简笔与半写实融合风",
+    "generation_name": "Minimalist Doodle & Semi-Realistic Hybrid Illustration",
+    "traits": "写实与简笔融合的混合插画风。画面中同时存在两种清晰区分的视觉语言：一部分内容采用细腻写实或半写实表现，强调自然质感、真实纹理、柔和层次、细节刻画与轻盈光感；另一部分内容采用极简2D手绘简笔画表现，强调概括造型、轻柔线条、低细节、适度留白与天真趣味。两种画法并置共存，形成明确可辨的风格反差，同时保持统一、和谐、克制的审美协调。 主体角色或主要视觉对象优先采用2D插画化表现，保持平面感、手绘感与概括感，不要做成照片感、3D感或厚重写实感；其余环境、植物、材质、局部场景元素可适度引入细腻半写实表现，另有部分装饰性元素可继续使用极简手绘简笔语言。整体应保留“主体偏2D、局部写实、局部简笔”的清晰层次关系。 整体气质轻盈、温柔、治愈、清新、诗意，带有文艺感与绘本感。色彩以低饱和、高明度、柔和通透的浅色系为主，避免浓烈对比、厚重综合色块和高饱和炫目视觉。背景倾向干净、简洁、留白充足，不过度堆叠信息，画面重视呼吸感、秩序感与视觉节奏。 写实部分不要过度摄影化，不要强烈商业修图感，不要走照片级写实路线；简笔部分不要复杂化，不追求真实结构与繁复刻画，应保留手绘的松弛感、稚拙感与亲和力。线条细而柔和，造型圆润、概括、克制，整体呈现“精致与天真并存”“真实与童趣并存”的视觉效果。 风格重点不是把所有内容统一成单一画法，而是保留“精细写实”与“简洁手绘”之间清晰可辨的差异，并让这种差异成为画面的核心风格特征。整体不做厚涂，不做3D，不做强戏剧光影，不做复杂纹样堆砌，不做过强体积塑造，不做商业海报式锐利修饰。"
+  },
+  {
+    "number": "FB-035",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Charlie Mackesy",
+    "generation_name": "Charlie Mackesy Expressive Ink & Watercolor Storybook",
+    "traits": "参考绘本作者Charlie Mackesy"
+  },
+  {
+    "number": "FB-036",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Liz Climo",
+    "generation_name": "Liz Climo Minimal Animal Cartoon Storybook",
+    "traits": "参考绘本作者Liz Climo"
+  },
+  {
+    "number": "FB-037",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Naoko Takagi",
+    "generation_name": "Naoko Takagi Warm Daily Life Storybook",
+    "traits": "参考绘本作者Naoko Takagi"
+  },
+  {
+    "number": "FB-038",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Yoko Sano",
+    "generation_name": "Yoko Sano Whimsical Crayon & Watercolor Storybook",
+    "traits": "参考绘本作者Yoko Sano"
+  },
+  {
+    "number": "FB-039",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Emily Hughes",
+    "generation_name": "Emily Hughes Wild Lush Botanical Storybook",
+    "traits": "参考绘本作者Emily Hughes"
+  },
+  {
+    "number": "FB-040",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Felicita Sala",
+    "generation_name": "Felicita Sala Cozy Kitchen & Nature Storybook",
+    "traits": "参考绘本作者Felicita Sala"
+  },
+  {
+    "number": "FB-041",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Michael Grejniec",
+    "generation_name": "Michael Grejniec Textured Paper Watercolor Storybook",
+    "traits": "参考绘本作者Michael Grejniec"
+  },
+  {
+    "number": "FB-042",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Jackie Morris",
+    "generation_name": "Jackie Morris Luminous Wildlife Watercolor Storybook",
+    "traits": "参考绘本作者Jackie Morris"
+  },
+  {
+    "number": "FB-043",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Manuel Marsol",
+    "generation_name": "Manuel Marsol Bold Acrylic Cinematic Storybook",
+    "traits": "参考绘本作者Manuel Marsol"
+  },
+  {
+    "number": "FB-044",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Suzy Lee",
+    "generation_name": "Suzy Lee Expressive Border Charcoal & Watercolor Storybook",
+    "traits": "参考绘本作者Suzy Lee"
+  },
+  {
+    "number": "FB-045",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Komako Sakai",
+    "generation_name": "Komako Sakai Textured Acrylic & Charcoal Storybook",
+    "traits": "参考绘本作者Komako Sakai"
+  },
+  {
+    "number": "FB-046",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Sydney Smith",
+    "generation_name": "Sydney Smith Luminous Atmospheric Watercolor Storybook",
+    "traits": "参考绘本作者Sydney Smith"
+  },
+  {
+    "number": "FB-047",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Isabelle Arsenault",
+    "generation_name": "Isabelle Arsenault Poetic Pencil & Gouache Storybook",
+    "traits": "参考绘本作者Isabelle Arsenault"
+  },
+  {
+    "number": "FB-048",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Júlia Sardà",
+    "generation_name": "Júlia Sardà Ornate Gothic Whimsical Storybook",
+    "traits": "参考绘本作者Júlia Sardà"
+  },
+  {
+    "number": "FB-049",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Sophie Blackall",
+    "generation_name": "Sophie Blackall Vintage Chinese Ink & Watercolor Storybook",
+    "traits": "参考绘本作者Sophie Blackall"
+  },
+  {
+    "number": "FB-050",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Katsumi Komagata",
+    "generation_name": "Katsumi Komagata Minimal Geometric Cut-Paper Storybook",
+    "traits": "参考绘本作者Katsumi Komagata"
+  },
+  {
+    "number": "FB-051",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Kazuo Iwamura",
+    "generation_name": "Kazuo Iwamura Warm Forest Animals Watercolor Storybook",
+    "traits": "参考绘本作者Kazuo Iwamura"
+  },
+  {
+    "number": "FB-052",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Keiko Sena",
+    "generation_name": "Keiko Sena Whimsical Collage Paper-Cut Storybook",
+    "traits": "参考绘本作者Keiko Sena"
+  },
+  {
+    "number": "FB-053",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Rotraut Susanne Berner",
+    "generation_name": "Rotraut Susanne Berner Bustling Wimmelbuch Line & Wash Storybook",
+    "traits": "参考绘本作者Rotraut Susanne Berner"
+  },
+  {
+    "number": "FB-054",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Wolf Erlbruch",
+    "generation_name": "Wolf Erlbruch Philosophical Collage & Chalk Storybook",
+    "traits": "参考绘本作者Wolf Erlbruch"
+  },
+  {
+    "number": "FB-055",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Peter Sís",
+    "generation_name": "Peter Sis Intricate Stippled Map & Fantasy Storybook",
+    "traits": "参考绘本作者Peter Sis"
+  },
+  {
+    "number": "FB-056",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Carll Cneut",
+    "generation_name": "Carll Cneut Ornate Flemish Baroque Gouache Storybook",
+    "traits": "参考绘本作者Carll Cneut"
+  },
+  {
+    "number": "FB-057",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Benjamin Lacombe",
+    "generation_name": "Benjamin Lacombe Gothic Romantic Gouache Storybook",
+    "traits": "参考绘本作者Benjamin Lacombe"
+  },
+  {
+    "number": "FB-058",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Rébecca Green",
+    "generation_name": "Rebecca Green Cozy Gouache & Colored Pencil Storybook",
+    "traits": "参考绘本作者Rebecca Green"
+  },
+  {
+    "number": "FB-059",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Marianne Dubuc",
+    "generation_name": "Marianne Dubuc Gentle Forest Animal Watercolor Storybook",
+    "traits": "参考绘本作者Marianne Dubuc"
+  },
+  {
+    "number": "FB-060",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Marla Frazee",
+    "generation_name": "Marla Frazee Playful Childlike Pencil & Watercolor Storybook",
+    "traits": "参考绘本作者Marla Frazee"
+  },
+  {
+    "number": "FB-061",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Catarina Sobral",
+    "generation_name": "Catarina Sobral Bold Geometric Midcentury Graphic Storybook",
+    "traits": "参考绘本作者Catarina Sobral"
+  },
+  {
+    "number": "FB-062",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Violeta Lópiz",
+    "generation_name": "Violeta Lopiz Poetic Minimal Ink & Botanical Storybook",
+    "traits": "参考绘本作者Violeta Lopiz"
+  },
+  {
+    "number": "FB-063",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Mariachiara Di Giorgio",
+    "generation_name": "Mariachiara Di Giorgio Luminous Atmospheric Water & Nature Storybook",
+    "traits": "参考绘本作者Mariachiara Di Giorgio"
+  },
+  {
+    "number": "FB-064",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "JiHyun Kim",
+    "generation_name": "JiHyun Kim Deep Ocean Sunlit Watercolor Storybook",
+    "traits": "参考绘本作者JiHyun Kim"
+  },
+  {
+    "number": "FB-065",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "蔡皋",
+    "generation_name": "Cai Gao Traditional Chinese Folk Warm Storybook",
+    "traits": "参考绘本作者蔡皋"
+  },
+  {
+    "number": "FB-066",
+    "group": "FB 经典绘本叙事 / Picture Book & Watercolor",
+    "reference": "Aiko Fukawa / 布川爱子",
+    "generation_name": "Aiko Fukawa Cozy Domestic Life & Floral Gouache Storybook",
+    "traits": "参考绘本作者Aiko Fukawa"
+  },
+  {
+    "number": "FC-001",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Jon Burgerman",
+    "generation_name": "Chaotic Color Doodle Crowd",
+    "traits": ""
+  },
+  {
+    "number": "FC-002",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Hattie Stewart",
+    "generation_name": "Pop Magazine Doodle Overlay",
+    "traits": "卡通嘴眼、杂志涂鸦覆盖、Pop 色彩、朋克恶搞；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；配色使用少量高纯度撞色和平涂，让人物剪影和服装保持强图形对比。"
+  },
+  {
+    "number": "FC-003",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Andy Rementer",
+    "generation_name": "Retro Geometric City Cartoon",
+    "traits": "几何人物、复古城市、高饱和平涂、70s–80s 商业卡通感；人物以圆、方、弧线等大形构成，五官图标化，比例强调图形辨识而非写实解剖；配色使用少量高纯度撞色和平涂，让人物剪影和服装保持强图形对比。"
+  },
+  {
+    "number": "FC-004",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Olimpia Zagnoli",
+    "generation_name": "Minimal Bold-Color Fashion Geometry",
+    "traits": "极简几何、大块高饱和色、女性时尚人物；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；配色使用少量高纯度撞色和平涂，让人物剪影和服装保持强图形对比。"
+  },
+  {
+    "number": "FC-005",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Malika Favre",
+    "generation_name": "High-Contrast Negative-Space Figure",
+    "traits": "极简剪影、正负形、高对比色、强视觉切割；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；主要依靠黑白关系和大面积留白塑形，表情集中在眼神、眉形与嘴形变化。"
+  },
+  {
+    "number": "FC-006",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Noma Bar",
+    "generation_name": "Negative-Space Visual-Pun Graphic",
+    "traits": "负空间、双重图像、极少颜色、视觉双关；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FC-007",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Mary Blair",
+    "generation_name": "Midcentury Geometric Fairytale",
+    "traits": "几何童话、现代主义色块、夸张比例、明快配色。"
+  },
+  {
+    "number": "FC-008",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Charley Harper",
+    "generation_name": "Ultra-Geometric Nature Character",
+    "traits": "极端几何化动物与人物、Flat Shape、装饰性强。"
+  },
+  {
+    "number": "FC-009",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Saul Bass",
+    "generation_name": "Rough Cut-Paper Modernist Graphic",
+    "traits": "剪纸般粗粝几何形、强符号、极少元素。"
+  },
+  {
+    "number": "FC-010",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Paul Rand",
+    "generation_name": "Playful Modernist Collage Character",
+    "traits": "拼贴、玩具式图形、几何人物、现代主义幽默。"
+  },
+  {
+    "number": "FC-011",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Milton Glaser",
+    "generation_name": "Retro Pop Editorial Figure",
+    "traits": "复古社论、强轮廓、波普色彩、海报化人物。"
+  },
+  {
+    "number": "FC-012",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Seymour Chwast",
+    "generation_name": "Bold Retro Advertising Cartoon",
+    "traits": "粗线、复古广告、怪趣人物、Push Pin 气质。"
+  },
+  {
+    "number": "FC-013",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Push Pin Studios",
+    "generation_name": "Decorative Retro Commercial Illustration",
+    "traits": "复古商业插画、装饰线条、怪人物、印刷感。"
+  },
+  {
+    "number": "FC-014",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Henri Matisse cut-outs",
+    "generation_name": "Freeform Cut-Paper Figure",
+    "traits": "剪纸色块、自由人体、极简轮廓、大面积纯色。"
+  },
+  {
+    "number": "FC-015",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Jean Cocteau line drawing",
+    "generation_name": "Poetic Single-Line Figure",
+    "traits": "单线脸、不断笔、极少细节、优雅诗性。"
+  },
+  {
+    "number": "FC-016",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Pablo Picasso line drawings",
+    "generation_name": "Abstract Continuous-Line Figure",
+    "traits": "连续线、抽象人体、几何变形、符号化。"
+  },
+  {
+    "number": "FC-017",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Keith Haring",
+    "generation_name": "Bold Kinetic Street-Pictogram",
+    "traits": "粗黑连续轮廓、动态小人、高动作、街头图腾。"
+  },
+  {
+    "number": "FC-018",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Jean-Michel Basquiat",
+    "generation_name": "Raw Symbolic Graffiti Figure",
+    "traits": "原始涂鸦、皇冠与符号、文字碎片、爆裂能量。"
+  },
+  {
+    "number": "FC-019",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Raymond Pettibon",
+    "generation_name": "Punk Ink-and-Text Editorial",
+    "traits": "黑墨速写、朋克线稿、文字并置、粗粝社论；保留明显手绘笔压、停顿与轻微不齐整感，让轮廓产生真实纸上绘制的节奏；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FC-020",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "George Condo drawing",
+    "generation_name": "Grotesque Classical-Comic Portrait",
+    "traits": "扭曲五官、怪表情、古典人物与漫画混合；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FC-021",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Henri de Toulouse-Lautrec",
+    "generation_name": "Flat Belle-Époque Poster Figure",
+    "traits": "海报式人物、简化轮廓、平面色块、都市生活。"
+  },
+  {
+    "number": "FC-022",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Egon Schiele drawing",
+    "generation_name": "Angular Expressive Figure Line",
+    "traits": "断裂敏感线条、细瘦人体、扭曲姿态、强情绪。"
+  },
+  {
+    "number": "FC-023",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Jean Dubuffet",
+    "generation_name": "Raw Art-Brut Figure",
+    "traits": "Art Brut、粗糙线、人形符号、儿童式反精致。"
+  },
+  {
+    "number": "FC-024",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Paul Klee",
+    "generation_name": "Poetic Geometric Symbol Figure",
+    "traits": "细线几何、童真符号、诗意色块、抽象人物。"
+  },
+  {
+    "number": "FC-025",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Joan Miró",
+    "generation_name": "Biomorphic Symbolic Character",
+    "traits": "生物符号、原始线条、红蓝黄点色、自由空间。"
+  },
+  {
+    "number": "FC-026",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Alexander Calder drawings",
+    "generation_name": "Fluid Single-Line Motion Figure",
+    "traits": "单线人物、流畅连续线、极简动态。"
+  },
+  {
+    "number": "FC-027",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Tom Haugomat",
+    "generation_name": "Cinematic Grainy Flat-Shape Illustration",
+    "traits": "电影感极简色块、颗粒、强光影、远近层次；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；保留纸纹、颗粒、套印或手工媒介的不完美，强化独立出版物的触感。"
+  },
+  {
+    "number": "FC-028",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "Blexbolex",
+    "generation_name": "Retro Silkscreen Geometric Figure",
+    "traits": "复古丝网印刷、厚重几何色层、旧书颗粒；人物以圆、方、弧线等大形构成，五官图标化，比例强调图形辨识而非写实解剖；保留纸纹、颗粒、套印或手工媒介的不完美，强化独立出版物的触感。"
+  },
+  {
+    "number": "FC-029",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "清透扁平插画",
+    "generation_name": "Clean Airy Flat Vector Illustration",
+    "traits": "轮廓清晰的大面积平涂色块塑造形体；造型适度概括与圆润几何化，保留关键识别特征；每个区域最多两级平面明暗与清晰硬边阴影，通过色块明度、冷暖和面积对比表现空间层次；色彩明亮清爽、柔和通透，纯净平滑的画面质感；极简主义、简洁现代，具有轻盈的现代商业插画与编辑插画感"
+  },
+  {
+    "number": "FC-030",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "扁平几何气刷颗粒插画",
+    "generation_name": "Flat Geometric Airbrush Grain Illustration",
+    "traits": "扁平几何插图、夸张的不对称比例、柔和的气刷阴影、精细的印刷颗粒感。角色由几个超大尺寸、不对称的形状构建而成。大型物体是姿势的一部分，并改变轮廓。黑色剪纸面部特征。情感从全身姿态中传达出来。扁平颜色块带有清晰边缘；形状重叠处采用柔和的深色到颜色的喷雾渐变。精细的点刻颗粒主要位于墨水区域内部，在纸张上几乎不可见。"
+  },
+  {
+    "number": "FC-031",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "美式现代复古橡皮管卡通插画",
+    "generation_name": "Modern Retro Rubber-Hose Cartoon Illustration",
+    "traits": "灵感来自美式现代复古 Rubber-Hose 插画风格。但整体更加现代、明亮、干净、可爱。角色采用圆润、简洁、夸张的卡通造型，四肢像柔软的橡皮管一样自然弯曲和延伸，弱化真实关节与人体结构，让动作更自由、更有节奏感。整体以粗而流畅的黑色轮廓线搭配干净的平涂色块，减少复杂光影和厚重做旧效果。造型简洁时尚，比例可爱，表情有个性。整体清爽、协调、有设计感。画面具有轻松幽默、俏皮可爱和一点点怪趣感，动作夸张流畅，像带有爵士节奏的动态瞬间。整体视觉偏现代潮流插画、复古海报和独立品牌插画质感，干净、可爱、有辨识度，减少老旧胶片颗粒与过度怀旧感。"
+  },
+  {
+    "number": "FC-032",
+    "group": "FC 现代平面艺术 / Modern Graphic & Pop",
+    "reference": "阿尔丰斯·穆夏 / Alphonse Mucha",
+    "generation_name": "Alphonse Mucha Art Nouveau Illustration",
+    "traits": ""
+  },
+  {
+    "number": "FD-001",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Yuko Shimizu",
+    "generation_name": "Dynamic East-Asian Ink Editorial",
+    "traits": "流动墨线、东方笔意、强动作、现代 Editorial；保留明显手绘笔压、停顿与轻微不齐整感，让轮廓产生真实纸上绘制的节奏；线条带书写性与留白意识，衣褶、发丝和姿势顺势流动，东方感来自形与节奏。"
+  },
+  {
+    "number": "FD-002",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Tatsuro Kiuchi",
+    "generation_name": "Quiet Low-Saturation Japanese Editorial",
+    "traits": "安静平面人物、低饱和、留白、日系现代社论；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；配色控制在柔和低刺激色域，用少量点色区分层次，背景保持轻和干净。"
+  },
+  {
+    "number": "FD-003",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Yu Nagaba",
+    "generation_name": "Minimal Fashion Line Figure",
+    "traits": "极简黑线、时尚人物、无阴影、大白底；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；人物姿态松弛自然，服装靠清楚剪影体现时尚感，避免模板化甜美脸。"
+  },
+  {
+    "number": "FD-004",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Noritake",
+    "generation_name": "Cool Minimal Black-and-White Figure",
+    "traits": "黑白线稿、极简脸、无表情、清冷日常；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；主要依靠黑白关系和大面积留白塑形，表情集中在眼神、眉形与嘴形变化。"
+  },
+  {
+    "number": "FD-005",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Ryohei Yanagihara",
+    "generation_name": "Showa Retro Commercial Cartoon",
+    "traits": "昭和商业插画、圆润人物、明快复古色。"
+  },
+  {
+    "number": "FD-006",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Chihiro Iwasaki",
+    "generation_name": "Airy Transparent Watercolor Figure",
+    "traits": "极轻透明水彩、柔和人物、湿边晕染、大量白纸。"
+  },
+  {
+    "number": "FD-007",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Machiko Hasegawa",
+    "generation_name": "Showa Everyday Family Comic",
+    "traits": "昭和家庭漫画、简洁线条、日常观察。"
+  },
+  {
+    "number": "FD-008",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Shigeru Mizuki",
+    "generation_name": "Folklore Monster Ink Cartoon",
+    "traits": "朴拙漫画线、民俗怪谈、妖怪造型、黑白纹理。"
+  },
+  {
+    "number": "FD-009",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Osamu Tezuka",
+    "generation_name": "Classic Rounded Manga Character",
+    "traits": "圆润漫画轮廓、清楚表演、大眼、强动作可读性。"
+  },
+  {
+    "number": "FD-010",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Yoshitomo Nara",
+    "generation_name": "Rebellious Big-Head Deadpan Figure",
+    "traits": "大头冷脸、叛逆眼神、极少背景、怪可爱；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情偏冷脸、尴尬或突然夸张，姿态要有明确喜剧节奏，避免统一的可爱微笑。"
+  },
+  {
+    "number": "FD-011",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Hisashi Eguchi",
+    "generation_name": "80s Clean-Line Urban Pop Girl",
+    "traits": "清线都市少女、80s 时尚、大块留白、Pop 色；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；配色使用少量高纯度撞色和平涂，让人物剪影和服装保持强图形对比。"
+  },
+  {
+    "number": "FD-012",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Yuko Higuchi",
+    "generation_name": "Ornate Strange Botanical Ink",
+    "traits": "精密钢笔、奇异动植物、古典怪萌、细节密集；保留明显手绘笔压、停顿与轻微不齐整感，让轮廓产生真实纸上绘制的节奏；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FD-013",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "きくちあつこ",
+    "generation_name": "Fashion Diary Sketch Girl",
+    "traits": "纸上手绘笔压与不齐整线条节奏、现代生活手账速写风、利落平面剪影与自然松弛造型、低饱和轻盈色彩点缀。"
+  },
+  {
+    "number": "FD-014",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "しまだなな",
+    "generation_name": "Loose Deadpan Everyday Sketch",
+    "traits": "脱力人物、松散线条、生活吐槽；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情偏冷脸、尴尬或突然夸张，姿态要有明确喜剧节奏，避免统一的可爱微笑。"
+  },
+  {
+    "number": "FD-015",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "のなか海",
+    "generation_name": "Yuru-Surreal Minimal Everyday Cartoon",
+    "traits": "ゆるシュール、极简人物、反逻辑日常；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FD-016",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "tomatomayu",
+    "generation_name": "Notebook Lifestyle Doodle",
+    "traits": "手帐式小人物、小物罗列、文字注记、生活记录；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FD-017",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "鈴芽とろ",
+    "generation_name": "Cute Essay-Manga Everyday",
+    "traits": "可爱 Essay Manga、生活与职场小剧场；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FD-018",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "うめじろう",
+    "generation_name": "Rough Gag-Manga Reaction",
+    "traits": "粗糙搞笑漫画、强 reaction、夸张情绪；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情偏冷脸、尴尬或突然夸张，姿态要有明确喜剧节奏，避免统一的可爱微笑。"
+  },
+  {
+    "number": "FD-019",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "ASUMINA",
+    "generation_name": "Clean Young-Lifestyle Manga Line",
+    "traits": "清秀线稿、年轻女性、轻宅生活感；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；人物姿态松弛自然，服装靠清楚剪影体现时尚感，避免模板化甜美脸。"
+  },
+  {
+    "number": "FD-020",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "モチダちひろ",
+    "generation_name": "Friendly Girl-Diary Cartoon",
+    "traits": "女生日常博客漫画、简单可亲、生活感；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；人物姿态松弛自然，服装靠清楚剪影体现时尚感，避免模板化甜美脸。"
+  },
+  {
+    "number": "FD-021",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "YAGI",
+    "generation_name": "Minimal Absurd Short-Gag Cartoon",
+    "traits": "荒诞短漫画、冷笑话、极简小人物；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；表情偏冷脸、尴尬或突然夸张，姿态要有明确喜剧节奏，避免统一的可爱微笑。"
+  },
+  {
+    "number": "FD-022",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "むらたさき",
+    "generation_name": "Warm Slightly-Strange Everyday Line",
+    "traits": "温暖线条、轻怪角色、小众生活气质；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FD-023",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "よこみねさやか",
+    "generation_name": "Fast Family-Essay Sketch",
+    "traits": "家庭 Essay、快速线稿、日常观察；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FD-024",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "おべとも",
+    "generation_name": "Minimal Quirky Motion Character",
+    "traits": "极简古怪人物、图形化、短动画式节奏；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FD-025",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "そとこ / Sotoko",
+    "generation_name": "Elegant Sparse-Line Girl",
+    "traits": "极少极轻钢笔线条、修长克制造型比例、利落平面剪影对比、大面积呼吸感留白空间、优雅空灵的现代日系审美。"
+  },
+  {
+    "number": "FD-026",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "yasuna",
+    "generation_name": "Delicate Emotional Female Line",
+    "traits": "纤细人物线稿、女性情绪、长线条发丝；线条轻细并保留呼吸感，人物比例偏修长，眉眼与嘴角的小变化承担主要表情；人物姿态松弛自然，服装靠清楚剪影体现时尚感，避免模板化甜美脸。"
+  },
+  {
+    "number": "FD-027",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "オガワナツミ",
+    "generation_name": "Pop-Culture Minimal Figure",
+    "traits": "简化人物、Pop Culture、年轻轻时尚；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；配色使用少量高纯度撞色和平涂，让人物剪影和服装保持强图形对比。"
+  },
+  {
+    "number": "FD-028",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Mira Lou",
+    "generation_name": "Modern Editorial Female Line",
+    "traits": "现代都市插画线稿、利落流畅钢笔线条、克制几何剪影、大面积呼吸感留白、优雅独立的现代视觉语言。"
+  },
+  {
+    "number": "FD-029",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "ソウノナホ",
+    "generation_name": "Soft Magazine Line-and-Wash",
+    "traits": "细线 + 淡水彩、生活方式、日系杂志感；线条轻细并保留呼吸感，人物比例偏修长，眉眼与嘴角的小变化承担主要表情；上色保留透明叠染、柔软边缘和纸纹，允许轻微颜色不均与留白。"
+  },
+  {
+    "number": "FD-030",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Appy",
+    "generation_name": "Minimal Daily-Life Girl Line",
+    "traits": "极简女生日常、细线、低干扰构图；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；人物姿态松弛自然，服装靠清楚剪影体现时尚感，避免模板化甜美脸。"
+  },
+  {
+    "number": "FD-031",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "reism・i",
+    "generation_name": "Transparent Watercolor Magazine Figure",
+    "traits": "简线人物、透明水彩、干净女性杂志感；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；上色保留透明叠染、柔软边缘和纸纹，允许轻微颜色不均与留白。"
+  },
+  {
+    "number": "FD-032",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "北澤平祐",
+    "generation_name": "Playful Marker Fairytale Character",
+    "traits": "彩色马克笔、奇想小物、轻童话人物；以醒目外轮廓和大形组织人物，五官少而有力，动作通过肩胯与手脚方向直接传达；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FD-033",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "白根ゆたんぽ",
+    "generation_name": "Loose Pop Advertising Girl",
+    "traits": "现代广告波普风、极简图形化几何造型、高纯度平面撞色平涂、强对比剪影轮廓、幽默夸张的造型张力。"
+  },
+  {
+    "number": "FD-034",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "藍にいな / Ai Niina",
+    "generation_name": "Transparent Emotional Youth Illustration",
+    "traits": "青春情绪、透明色、MV 感、线条流动；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；上色保留透明叠染、柔软边缘和纸纹，允许轻微颜色不均与留白。"
+  },
+  {
+    "number": "FD-035",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "山中玲奈",
+    "generation_name": "Warm Lifestyle Magazine Figure",
+    "traits": "温暖人物、轻线稿、生活杂志氛围；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；保留纸纹、颗粒、套印或手工媒介的不完美，强化独立出版物的触感。"
+  },
+  {
+    "number": "FD-036",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "はまふぐ",
+    "generation_name": "Soft Empathy Social Comic",
+    "traits": "柔软人物、共感型短漫画、社交媒体情绪；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；配色控制在柔和低刺激色域，用少量点色区分层次，背景保持轻和干净。"
+  },
+  {
+    "number": "FD-037",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "Nah",
+    "generation_name": "High-Saturation Gen-Z Fashion Girl",
+    "traits": "高饱和度潮流波普平面插画、Z世代图形化色块、利落硬边轮廓线、纯色大块平涂与强烈色相对比。"
+  },
+  {
+    "number": "FD-038",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "misato.",
+    "generation_name": "Soft Dreamy Animated Illustration",
+    "traits": "柔和幻想、轻动画感、梦境人物；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；配色控制在柔和低刺激色域，用少量点色区分层次，背景保持轻和干净。"
+  },
+  {
+    "number": "FD-039",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "min²",
+    "generation_name": "Pastel Yami-Kawaii Girly",
+    "traits": "Pastel Girly、梦幻、Yami-kawaii、低对比；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；人物姿态松弛自然，服装靠清楚剪影体现时尚感，避免模板化甜美脸。"
+  },
+  {
+    "number": "FD-040",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "A.YAMI",
+    "generation_name": "Tokyo Street Graphic Girl",
+    "traits": "现代日系图形插画、利落几何色块拼接、清晰剪影节奏、潮流冷暖撞色平涂、极简平面装饰感。"
+  },
+  {
+    "number": "FD-041",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "めめんち",
+    "generation_name": "Mystic Fashion Character Graphic",
+    "traits": "神秘冷艳的暗调与荧光高对比色彩、利落锐利的图形化剪影、平涂色块与细黑轮廓线融合、时尚平面张力。"
+  },
+  {
+    "number": "FD-042",
+    "group": "FD 日本当代插画 / Japanese Contemporary & Manga",
+    "reference": "日系超萌1.5头身Q版",
+    "generation_name": "Japanese Kawaii Mini Chibi 2D Illustration",
+    "traits": "Japanese Mini Chibi /Kawaii Chibi, 2d, 1.5 头身。"
+  },
+  {
+    "number": "FE-001",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "卤猫",
+    "generation_name": "Gentle Nature Dreambook Illustration",
+    "traits": "温柔手绘、人与自然、植物动物、梦境色彩；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FE-002",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "Tango / 高幼军",
+    "generation_name": "Minimal Black-White Visual-Pun Cartoon",
+    "traits": "黑白极简、视觉双关、几笔成梗、无对白冷幽默；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；主要依靠黑白关系和大面积留白塑形，表情集中在眼神、眉形与嘴形变化。"
+  },
+  {
+    "number": "FE-003",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "呼葱觅蒜",
+    "generation_name": "Elongated New-Chinese Minimal Figure",
+    "traits": "修长人物、无脸或弱五官、新中式、古典生活；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；线条带书写性与留白意识，衣褶、发丝和姿势顺势流动，东方感来自形与节奏。"
+  },
+  {
+    "number": "FE-004",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "Victo Ngai / 倪传婧",
+    "generation_name": "Dense East-Asian Fantasy Editorial",
+    "traits": "高密度东方构图、丰富线条、奇幻 Editorial；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；线条带书写性与留白意识，衣褶、发丝和姿势顺势流动，东方感来自形与节奏。"
+  },
+  {
+    "number": "FE-005",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "Oamul Lu",
+    "generation_name": "Seasonal Travel Watercolor Diary",
+    "traits": "柔和水彩、季节与旅行、自然、治愈留白；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；上色保留透明叠染、柔软边缘和纸纹，允许轻微颜色不均与留白。"
+  },
+  {
+    "number": "FE-006",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "吴和平 Luo",
+    "generation_name": "Blue-Orange Grainy Chinese Editorial",
+    "traits": "蓝橙撞色、颗粒色块、中国现代社论；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；线条带书写性与留白意识，衣褶、发丝和姿势顺势流动，东方感来自形与节奏。"
+  },
+  {
+    "number": "FE-007",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "方块阿兽",
+    "generation_name": "Cinematic Saturated Story Illustration",
+    "traits": "强色彩、电影感场景、故事性人物；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FE-008",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "特浓 TN",
+    "generation_name": "Modern New-Guofeng Flat-Line Illustration",
+    "traits": "新国风、流畅线条、黄橙蓝绿、传统元素现代化；人物以圆、方、弧线等大形构成，五官图标化，比例强调图形辨识而非写实解剖；线条带书写性与留白意识，衣褶、发丝和姿势顺势流动，东方感来自形与节奏。"
+  },
+  {
+    "number": "FE-009",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "奇舫社",
+    "generation_name": "Decorative Guochao Character Illustration",
+    "traits": "国潮商业插画、人物 + 建筑 + 装饰纹样；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FE-010",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "唐意 TY",
+    "generation_name": "Ornate Flowing Eastern Fantasy Figure",
+    "traits": "飘逸人物、东方幻想、蓝绿橙红、装饰性强；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；线条带书写性与留白意识，衣褶、发丝和姿势顺势流动，东方感来自形与节奏。"
+  },
+  {
+    "number": "FE-011",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "CAA 陈思佚",
+    "generation_name": "Soft Chinese Watercolor Atmosphere",
+    "traits": "柔和水彩、中国元素、朦胧光线；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；上色保留透明叠染、柔软边缘和纸纹，允许轻微颜色不均与留白。"
+  },
+  {
+    "number": "FE-012",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "李旻",
+    "generation_name": "Contemporary Chinese Cultural Editorial",
+    "traits": "传统文化现代编辑化、干净构图、当代中国气质；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；线条带书写性与留白意识，衣褶、发丝和姿势顺势流动，东方感来自形与节奏。"
+  },
+  {
+    "number": "FE-013",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "伊吹五月",
+    "generation_name": "Freehand Ink-Wash Ancient Figure",
+    "traits": "写意水墨枯笔飞白、透明水色叠染与宣纸晕染肌理、大开大合的潇洒运笔气韵、大面积空灵留白布局。"
+  },
+  {
+    "number": "FE-014",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "早稻 ZAODAO",
+    "generation_name": "Wild Ink Eastern Weirdness",
+    "traits": "野生墨线、水墨怪人、东方妖异、极强作者手感；保留明显手绘笔压、停顿与轻微不齐整感，让轮廓产生真实纸上绘制的节奏；线条带书写性与留白意识，衣褶、发丝和姿势顺势流动，东方感来自形与节奏。"
+  },
+  {
+    "number": "FE-015",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "眠狼",
+    "generation_name": "Elegant Soft Ink Ancient Figure",
+    "traits": "清雅水墨、古风人物、柔和情绪；保留明显手绘笔压、停顿与轻微不齐整感，让轮廓产生真实纸上绘制的节奏；配色控制在柔和低刺激色域，用少量点色区分层次，背景保持轻和干净。"
+  },
+  {
+    "number": "FE-016",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "loli武士",
+    "generation_name": "Refined Eastern Line-Art Character",
+    "traits": "精致手绘线稿、东方人物、清雅漫画感；线条轻细并保留呼吸感，人物比例偏修长，眉眼与嘴角的小变化承担主要表情；线条带书写性与留白意识，衣褶、发丝和姿势顺势流动，东方感来自形与节奏。"
+  },
+  {
+    "number": "FE-017",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "古戈力",
+    "generation_name": "Modern Eastern Fantasy Character",
+    "traits": "新国风人物、东方奇幻、现代角色设计；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；线条带书写性与留白意识，衣褶、发丝和姿势顺势流动，东方感来自形与节奏。"
+  },
+  {
+    "number": "FE-018",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "夏达",
+    "generation_name": "Elegant Historical Manga Line",
+    "traits": "清雅漫画线稿、古风青年、细腻叙事；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；线条带书写性与留白意识，衣褶、发丝和姿势顺势流动，东方感来自形与节奏。"
+  },
+  {
+    "number": "FE-019",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "黑色禁药",
+    "generation_name": "Ornate Dark-Fantasy Figure",
+    "traits": "华丽人物、暗黑幻想、装饰细节、唯美系；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FE-020",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "杉泽",
+    "generation_name": "Mythic Bestiary Ink Character",
+    "traits": "山海经异兽、传统笔意、现代怪物设计；保留明显手绘笔压、停顿与轻微不齐整感，让轮廓产生真实纸上绘制的节奏；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FE-021",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "Lost7",
+    "generation_name": "Blue-Gray Dream Narrative Figure",
+    "traits": "蓝灰梦境、孤独人物、绘本叙事；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FE-022",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "牛轰轰",
+    "generation_name": "Expressive Girl-Life Internet Comic",
+    "traits": "女生生活漫画、夸张表情、网络吐槽；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情偏冷脸、尴尬或突然夸张，姿态要有明确喜剧节奏，避免统一的可爱微笑。"
+  },
+  {
+    "number": "FE-023",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "郭斯特",
+    "generation_name": "Minimal Youth Emotion Comic",
+    "traits": "极简青年日常、社交情绪、轻漫画；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FE-024",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "几米 / Jimmy Liao",
+    "generation_name": "Poetic Urban Dreambook Illustration",
+    "traits": "彩色手绘、诗意都市、童话超现实、孤独感；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FE-025",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "朱德庸",
+    "generation_name": "Minimal Adult Relationship Satire",
+    "traits": "极简成人漫画、都市男女、关系讽刺；脸部与服装主动做减法，依靠清楚轮廓、眼口和少量关键形状建立人物辨识度；表情偏冷脸、尴尬或突然夸张，姿态要有明确喜剧节奏，避免统一的可爱微笑。"
+  },
+  {
+    "number": "FE-026",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "阿梗",
+    "generation_name": "Delicate Eastern Female Comic",
+    "traits": "东方女性漫画、细腻线条、古典氛围；线条轻细并保留呼吸感，人物比例偏修长，眉眼与嘴角的小变化承担主要表情；人物姿态松弛自然，服装靠清楚剪影体现时尚感，避免模板化甜美脸。"
+  },
+  {
+    "number": "FE-027",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "寂地",
+    "generation_name": "Dreamy Youth Picturebook Color",
+    "traits": "绘本色彩、梦境、青春情绪、柔和人物；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；配色控制在柔和低刺激色域，用少量点色区分层次，背景保持轻和干净。"
+  },
+  {
+    "number": "FE-028",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "伟大的安妮",
+    "generation_name": "Internet Girl-Life Story Comic",
+    "traits": "网络少女漫画、清晰情绪、生活叙事；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；人物姿态松弛自然，服装靠清楚剪影体现时尚感，避免模板化甜美脸。"
+  },
+  {
+    "number": "FE-029",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "使徒子",
+    "generation_name": "Fast-Paced Chinese Meme Comic",
+    "traits": "中文互联网梗漫画、表情强、节奏快；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情偏冷脸、尴尬或突然夸张，姿态要有明确喜剧节奏，避免统一的可爱微笑。"
+  },
+  {
+    "number": "FE-030",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "Golo 高佬",
+    "generation_name": "Free-Line Urban Youth Comic",
+    "traits": "青春手绘、自由线条、城市青年；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FE-031",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "插画师卷耳",
+    "generation_name": "Contemporary Urban-Tech Character Illustration",
+    "traits": "当代商业人物、都市/科技、清晰平面语言；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情与肢体动作要服从该风格的人格机制，避免回落为统一的标准Q版表情。"
+  },
+  {
+    "number": "FE-032",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "阿梗",
+    "generation_name": "Delicate Youth Narrative Comic",
+    "traits": "偏写实的人物比例与青春群像；细腻线稿，水彩、水墨与版画经验融入彩色画面；重视光线、环境与人物情绪，画面清爽但不是“大头萌系日常”。"
+  },
+  {
+    "number": "FE-033",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "寂地",
+    "generation_name": "Dreamy Emotional Picturebook Comic",
+    "traits": "清新温暖而带淡淡忧伤；色彩承担情绪表达，现实场景与幻想意象交织；人物和空间具有绘本式象征性，文字与画面共同完成叙事。"
+  },
+  {
+    "number": "FE-034",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "夏达",
+    "generation_name": "Classical Chinese Fine-Line Manga",
+    "traits": "细密、灵秀的线条和人物塑造；古典服饰、建筑与自然背景考究；人物情绪含蓄，擅长历史与古风长篇叙事，不宜简化为“古风美女插画”。"
+  },
+  {
+    "number": "FE-035",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "呼葱觅蒜",
+    "generation_name": "Faceless New-Chinese Figure Illustration",
+    "traits": "标志性的“无脸古装群像”；以发型、服装、轮廓、动作和环境传达身份与情绪；人物多修长、弱化五官，强调衣袂节奏、光影和电影感构图，追求“无脸有魂”。"
+  },
+  {
+    "number": "FE-036",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "白茶",
+    "generation_name": "Chinese Pet Deadpan Cartoon",
+    "traits": "新国风冷幽默萌系手绘、纸上手绘墨线停顿笔压、透明国画水色叠染与纸纹肌理、留白透气、诙谐解构的轻中式日常趣味。"
+  },
+  {
+    "number": "FE-037",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "慕容引刀",
+    "generation_name": "Philosophical Minimal Dog Cartoon",
+    "traits": "极简哲学手绘风、大面积空灵纸面留白、极简线条勾勒孤立主体、少量暖色平涂点缀、微小与空旷对比构图、充满冷幽默与现代哲思寓言感。"
+  },
+  {
+    "number": "FE-038",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "Tango",
+    "generation_name": "Minimal Visual-Pun Cartoon",
+    "traits": "寥寥几笔、黑白或极少色彩、大留白；把日常物件、人物和动物重新组合形成视觉双关；逻辑清晰但结果荒诞，常用无字或极少文字制造“看懂后一笑”的瞬间。"
+  },
+  {
+    "number": "FE-039",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "黄海",
+    "generation_name": "Conceptual Eastern Film Poster Design",
+    "traits": "以电影核心概念为先，而非固定画法；擅长“减法”、视觉隐喻与大尺度留白，常借鉴水墨、书法、传统图形与东方空间意识；摄影、插画、字体、图形会随项目变化。"
+  },
+  {
+    "number": "FE-040",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "张旺",
+    "generation_name": "Digital Chinese Gongbi Fantasy",
+    "traits": "用数位板和数字笔刷模拟中国画皴、擦、点、染；重视白描、工笔人物、衣纹和结构；题材常取古典文学、志怪、神话与历史，具有严谨线描和数字水墨结合的特征。"
+  },
+  {
+    "number": "FE-041",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "熊亮",
+    "generation_name": "Contemporary Chinese Ink Picturebook",
+    "traits": "中国水墨的线条与墨色为核心，但叙事结构现代；造型简练、灵动、略带拙趣与怪趣；把传统神祇、民俗和东方哲学转换成儿童可以进入的日常童话。"
+  },
+  {
+    "number": "FE-042",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "早稻",
+    "generation_name": "Wild Chinese Ink Fantasy Comic",
+    "traits": "铅笔、毛笔、墨水、水彩与有质感纸张并用；墨线狂放、干湿与飞白明显，静态细节与强烈动作并存；常见少年侠客、山林、妖怪与志怪幻想，气质野、孤独而自由。"
+  },
+  {
+    "number": "FE-043",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "门小雷",
+    "generation_name": "Hong Kong Urban Female Comic Illustration",
+    "traits": "强烈的女性主体意识与身体表现；人物自信、性感但不以媚态为核心；水彩、漫画线条、时装与香港都市经验交织，构图自由且有当代独立漫画气质。"
+  },
+  {
+    "number": "FE-044",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "卤猫",
+    "generation_name": "Gentle Seasonal Nature Illustration",
+    "traits": "长期围绕四季、自然、旅行和日常生活；人物常缩小在更大的环境中，强调人与自然的关系；色彩柔和明亮、笔触松弛，画面带梦境感、季节光线和安静的孤独感。"
+  },
+  {
+    "number": "FE-045",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "天朝羽",
+    "generation_name": "Warm Nostalgic Everyday Picturebook",
+    "traits": "作者自述关键词为“温暖、感动、记录”；常以80后成长记忆、家庭、友情与生活阶段为内容；画面偏日记和绘本叙事，柔和温暖，偶尔进入荒诞或黑白想象。"
+  },
+  {
+    "number": "FE-046",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "左手韩",
+    "generation_name": "Realistic Absurdist Webcomic",
+    "traits": "基础造型相对写实，人物面部和肢体却高度表演化；夸张表情、无厘头台词、鬼畜式节奏和电影分镜制造喜剧反差；作者常自拍表情作为绘画参考。"
+  },
+  {
+    "number": "FE-047",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "聂峻",
+    "generation_name": "Beijing Hutong Watercolor Graphic Novel",
+    "traits": "全水彩手绘、明快色彩、轻松线条与流畅分镜；擅长老北京胡同、街坊日常与儿童视角，把现实生活和轻度奇幻自然融合，空间细节丰富但整体温暖轻盈。"
+  },
+  {
+    "number": "FE-048",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "中式复古连环画",
+    "generation_name": "Chinese Retro Lianhuanhua",
+    "traits": "黑色细线、旧纸、有限色、传统叙事。"
+  },
+  {
+    "number": "FE-049",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "新国潮工笔扁平",
+    "generation_name": "New-Guochao Flat Gongbi",
+    "traits": "工笔结构 + 平面色块 + 金色/传统纹样。"
+  },
+  {
+    "number": "FE-050",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "敦煌新插画",
+    "generation_name": "Modern Dunhuang Illustration",
+    "traits": "飞天曲线、矿物色、莲花云纹、壁画颗粒。"
+  },
+  {
+    "number": "FE-051",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "宋画淡彩现代化",
+    "generation_name": "Modernized Song-Dynasty Light Color",
+    "traits": "米白留白、细线、青绿赭石、古典安静。"
+  },
+  {
+    "number": "FE-052",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "新中式水墨小人",
+    "generation_name": "New-Chinese Tiny Ink Figures",
+    "traits": "大留白、水墨晕染、小人物、东方情绪。"
+  },
+  {
+    "number": "FE-053",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "广式早茶国潮",
+    "generation_name": "Cantonese Dim-Sum Guochao",
+    "traits": "岭南元素、点心、暖橙青绿、生活国潮。"
+  },
+  {
+    "number": "FE-054",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "海派月份牌 Retro",
+    "generation_name": "Shanghai Calendar-Poster Retro",
+    "traits": "20–30 年代上海商业画、女性、复古广告色。"
+  },
+  {
+    "number": "FE-055",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "民国广告画再设计",
+    "generation_name": "Republic-Era Advertising Redesign",
+    "traits": "旧商业人物、平涂、复古字体结构、现代化简化。"
+  },
+  {
+    "number": "FE-056",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "素漆螺钿插画风",
+    "generation_name": "Pale Lacquer & Raden Decorative Illustration",
+    "traits": "**当代新中式浅色漆画式二维装饰插画，融合中国古典人物画的造型语言与现代平面设计。整体首先呈现为平面装饰画，而非传统工笔写实绘画。造型高度概括，轮廓完整流畅，人物比例与形态根据主题自适应，但始终保持简化、纤细、含蓄；面部几乎不塑造真实体积，五官简洁、符号化、留白化，肤色均匀平整。** **以清晰轮廓、大面积平涂色块和极少量柔和过渡塑造形体，内部细节明显删减并图案化；弱明暗、弱透视、弱空间纵深，不表现真实光源，不使用空气透视和写实景深。** **整体采用高明度、浅暖色基调，但避免颜色过度灰化、粉化和褪色。画面约 65%–80% 保持象牙白、米白、浅杏、暖灰、浅玉色等明亮区域；朱砂、石青、石绿、灰蓝、浅赭等传统矿物色作为有限的中等面积色块使用。整体饱和度在原有浅雅基础上轻微提升约 10%–15%，使朱砂更鲜润、石青更清透、石绿更明确，但仍保持柔和克制，不进入高饱和、浓艳或艳俗状态。** **色彩关系强调“浅底 + 少量较纯色块”的对比：大面积背景和肤色继续保持低饱和、高明度，服饰边缘、器物、花叶、局部装饰可以使用稍纯一些的朱砂红、石青蓝、石绿色形成视觉节奏。避免整幅画平均增艳，也避免所有颜色同时提高饱和度。** **深色只承担少量轮廓、结构与视觉锚点，禁止形成大面积黑色或深褐色块，避免黑漆底、暗金底和厚重宫廷色调。深色面积应明显少于浅色和中性色，整体仍保持通透、明亮、柔和。** **表面保留中国传统漆艺的温润、细腻和微微矿物质感，但以浅色漆面、哑光漆面和柔和矿物颜料质感为主。色彩表面可以具有轻微矿物颜料的颗粒感、天然色差和温润厚度，但不追求厚重黑漆、金箔堆积、高反射或珠宝般光泽。** **螺钿与贝母仅作为极少量的“装饰性镶嵌层”使用，而不是全局材质。虹彩区域控制在画面约 3%–8%，只出现在具有明确装饰属性的局部纹样、边缘、点缀区域或次要表面中；不得随机覆盖主要造型，不改变主体原本的材质属性。** **螺钿效果应呈现为薄片状、细碎、局部、克制的贝母色偏，可出现极轻微的青绿、粉紫、淡蓝虹彩，但综合色彩必须服从整体矿物色体系，而不是形成大片闪光、水晶化、金属化或珠宝化效果。** **尤其保持主体核心形态、皮肤、面部、主要大色块和大面积背景的材质纯净，不被螺钿纹理侵入。虹彩只作为视觉点睛，而不是画面主要质感。** **画面强调装饰性构成，通过平面叠压、轮廓遮挡、局部越界和形状穿插建立层次；空间更接近漆画、壁画、屏风画与现代装饰画的组织逻辑，而不是现实场景透视。** **整体气质明亮、温润、静谧、古雅、精致、轻盈、含蓄。相比传统低饱和新中式插画，色彩稍微更鲜活、更清澈、更有矿物颜料的纯净感，但仍然保持高级、克制和东方审美，不做浓艳国潮，不做鲜艳商业插画。** **避免：大面积黑色、黑漆底、暗金色调、厚重宫廷感、全局螺钿化、随机虹彩覆盖、大块贝壳拼贴、水晶化、珠宝化、过度灰粉、过度奶油色、全画面褪色、低对比到发白、浓艳国潮、高饱和撞色、荧光色、写实工笔、真实人体塑造、现代古风 CG、摄影感、电影光影、真实三维空间、写实山水透视、复杂衣纹、精细刺绣、高密度环境细节、仙侠氛围。**"
+  },
+  {
+    "number": "FE-057",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "当代戏曲漫画插画风",
+    "generation_name": "Contemporary Peking Opera Comic Illustration",
+    "traits": "当代手绘戏曲漫画插画风，借用中国京剧人物画谱、京剧脸谱和老派中国戏曲漫画的造型语言，并以现代插画审美重新简化和整理。古代人物：保留明显的戏曲角色特征。一张图中如果有多个角色，每个人都要有不同眉眼结构，让角色之间通过眼形、眉形、脸型和妆容直接形成区分；避免所有人物共用同一张“京剧脸”。现代人物：不要用脸谱和头饰，但是可以有戏曲式化妆，除了女主角，其他人都不要吊眼角。所有人物比例整体偏短、偏宽、偏压缩，约2.5～3头身，头部相对较大、躯干较短、腿短、手脚小；即使人物处于坐姿、奔跑、打斗或其他动作中，也不要恢复正常写实人体比例，而要始终保持紧凑、团块化、略带笨拙的戏曲漫画体态。人物、动物、器物和环境都可根据性格与剧情进行概括、压缩、夸张和变形，造型紧凑、歪斜、略带拙趣。使用松弛清晰的黑色手绘墨线，搭配经过现代插画化提亮的朱红、翠绿、湖蓝、鹅黄、粉紫、青绿等中高明度东方色彩，以大色块和平涂为主，整体明快、轻盈、干净，不做灰暗复古和仿古做旧。画面强调大轮廓、低细节密度和大量负空间，人物高度概括，场景不必完整展开，只保留最能说明情境的局部元素和少量环境线索，避免复杂建筑、密集军阵、繁复纹样和满画面铺陈。整体既有京剧脸谱和老派戏曲漫画的怪趣、程式感与角色性，又具有当代插画的简洁、鲜亮、轻松和设计感。人物高度概括，背景简洁，保留大量负空间。"
+  },
+  {
+    "number": "FE-058",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "丰子恺",
+    "generation_name": "Feng Zikai Literati Brushwork & Whimsical Ink Sketch",
+    "traits": "丰子恺文人漫画风格、大面积宣纸意境留白、朴实幽默与生活哲思趣意、简练写意的传统毛笔水墨勾勒、高度概括生动的人形动态、温润清雅的传统国画设色。"
+  },
+  {
+    "number": "FE-059",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "中国奇谭·鹅鹅鹅",
+    "generation_name": "Airy Chinese Ink Fantasy Animation",
+    "traits": "参考作品：中国奇谭《鹅鹅鹅》的画风。仅参考其整体视觉语言、线条、笔触、水墨质感、设色方式、人物造型语言、东方幻想气质与手绘动画感，不直接复制或延续原作中的角色、服装、道具、场景、构图、剧情和具体视觉元素；如果主题没有明确指定，默认不要引入任何原作角色或标志性元素。 保留其古朴、诡谲、含蓄、荒诞的东方水墨动画气质，但整体画面不要过暗。减少大面积黑灰和重墨压暗，避免低曝光、强暗角和大片深色阴影；提高整体明度与空气感，多使用浅墨、淡彩、米白、灰青、浅赭等高明度低饱和色彩，让纸张底色、雾气和留白参与画面。画面可以神秘、诡异，但不要靠“压黑”制造氛围，整体保持清透、柔和、层次分明。"
+  },
+  {
+    "number": "FE-060",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "小林漫画",
+    "generation_name": "Kobayashi Manga Minimal Ink Style",
+    "traits": "白底中国式极简手绘漫画；黑色毛笔/软头笔快速勾画；线条松散粗粝、粗细变化明显、略带断笔与手绘抖动；人物高度概括、比例略夸张、造型笨拙有趣；场景只保留最必要的物件与动作；大面积留白；黑色线稿为主体；脸颊、衣服或小道具加入少量红黄绿局部平涂；中国写意人物画与老式讽刺漫画的味道；"
+  },
+  {
+    "number": "FE-061",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "当代人文水墨漫画",
+    "generation_name": "Contemporary Literati Ink Cartoon",
+    "traits": "现代生活人物、动物和日常小场景；白色或微暖纸面、大面积留白；毛笔和墨线快速画人物；线条松弛、粗细不一、枯湿自然、允许断笔和不闭合轮廓；人物高度概括、比例略笨拙，以姿态和动作表达情绪；人物是画面的主要视觉主体；场景保留少量必要元素；墨色为主，少量朱红、赭石、石绿、湖蓝局部点染；书法题字和朱红印章自然嵌入留白；整体拙朴、松弛、幽默、闲适；现代生活速写与中国写意笔墨结合"
+  },
+  {
+    "number": "FE-062",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "社会主义现实主义宣传画",
+    "generation_name": "Socialist Realist Propaganda Poster",
+    "traits": ""
+  },
+  {
+    "number": "FE-063",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "中国农民画",
+    "generation_name": "Chinese Farmers Painting",
+    "traits": "错透视、鲜艳平涂、大量留白。"
+  },
+  {
+    "number": "FE-064",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "八九十年代中国课本插图风",
+    "generation_name": "1980s-1990s Chinese Textbook Illustration",
+    "traits": ""
+  },
+  {
+    "number": "FE-065",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "中国老式手工木偶定格动画风",
+    "generation_name": "Vintage Chinese Handmade Puppet Stop-Motion Animation",
+    "traits": "中国老式手工木偶定格动画风；东方传统手工人偶；细长且略显笨拙的人体比例；狭长脸型、细眉凤眼、极简手绘五官与淡淡胭脂；苍白哑光的纸偶、木偶与泥偶面部；粗糙毛发纤维；朴素粗布古装，剪裁质朴，保留明显布料纤维与手工针线缝制痕迹；实体微缩手工布景，微缩道具，背景疏朗开阔与大面积空处；低技术微缩定格动画摄影棚质感，轻微胶片颗粒与浅景深；古典中式民间传说与志怪故事气息"
+  },
+  {
+    "number": "FE-066",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "尘世梦影·彩绘红楼梦",
+    "generation_name": "Dreams of the Mortal World: Red Chamber Color Illustration",
+    "traits": "参考风格：尘世梦影：彩绘红楼梦， 孙温，但是整体略微明亮鲜润，亮度提升约15%，饱和度适度提升，画面适当留白有呼吸感，更符合现代年轻人审美"
+  },
+  {
+    "number": "FE-067",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "天书奇谭",
+    "generation_name": "The Legend of Sealed Book Animation Style",
+    "traits": ""
+  },
+  {
+    "number": "FE-068",
+    "group": "FE 新国风与传统工艺 / Chinese Traditional & Folk Craft",
+    "reference": "唐山皮影",
+    "generation_name": "Tangshan Shadow Puppet",
+    "traits": ""
+  },
+  {
+    "number": "FF-001",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "OscarAI",
+    "generation_name": "Stylized 3D Cartoon Personality",
+    "traits": "奇想风格化3D卡通美学、夸张头身比例、富有表现力的大眼、独特剪影轮廓与精细触感材质纹理；具有现代动画长片质感。"
+  },
+  {
+    "number": "FF-002",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "OscarAI",
+    "generation_name": "Stylized Graphic 2D Animation Character",
+    "traits": "现代2D动画概念设计风、干练利落的几何剪影、大块平涂与微质感光影、夸张修长的身体比例、极富个性的面部轮廓与黑框眼镜造型、清新明快的角色概念原画感。"
+  },
+  {
+    "number": "FF-003",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "OscarAI",
+    "generation_name": "Tactile Felt & Knitted 3D Puppet",
+    "traits": "定格动画微缩实体质感、温润质朴的手工羊毛毡与微毛绒纤维肌理、童趣复古粉彩低饱和色系、柔和漫射影棚柔光。"
+  },
+  {
+    "number": "FF-004",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "OscarAI",
+    "generation_name": "Retro 70s Tactile Wool & Clay Stop-Motion Puppet",
+    "traits": "70年代复古定格动画人偶风、温润黏土与羊羔绒/颗粒毛圈布料触感、暖调复古暖棕与姜黄配色、朴拙可爱的五官与夸张大脚大耳、怀旧儿童剧集的微缩实体感。"
+  },
+  {
+    "number": "FF-005",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "OscarAI",
+    "generation_name": "Textured Cut-Paper Collage Storybook",
+    "traits": "复古手工剪纸拼贴绘本风、几何块面切割与质朴纸张撕边肌理、多层纹理纸张套叠、复古哑光大地与红黄色系、简练图形化的人物肖像与版画手工感。"
+  },
+  {
+    "number": "FF-006",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "Ahmed",
+    "generation_name": "Deadpan Stylized 3D Urban Character",
+    "traits": "现代风格化3D黏土/胶体角色雕刻、略带厌世与冷幽默的死鱼眼夸张神态、独特的拉长头部与夸张下颌剪影、哑光微雕质感、生动诙谐的都市通勤者小剧场。"
+  },
+  {
+    "number": "FF-007",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "OscarAI",
+    "generation_name": "Scandinavian Folk-Art Naive Storybook",
+    "traits": "北欧极简民间艺术绘本风、质朴稚拙的童趣造型、柔和哑光大地色系、松弛质感手绘笔触与克制留白、带有温暖手工民俗温度。"
+  },
+  {
+    "number": "FF-008",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "OscarAI",
+    "generation_name": "Fuzzy Plush Toy 3D Character",
+    "traits": "蓬松柔软的雪尼尔毛绒纤维触感、明快马卡龙粉彩配色、圆润几何微缩体块感、温和无影柔光照明、潮流艺术玩具立体质感。"
+  },
+  {
+    "number": "FF-009",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "OscarAI",
+    "generation_name": "Chunky Knit Mohair Stop-Motion Puppet",
+    "traits": "定格动画式粗棒针编织与长毛马海毛微纤维肌理、微缩实体定格偶模型质感、低调复古暖调光影、手工艺温润体块感。"
+  },
+  {
+    "number": "FF-010",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "OscarAI",
+    "generation_name": "Stylized 3D Animation Feature Character",
+    "traits": "现代3D动画长片角色概念质感、温润细腻的次表面散射材质（SSS）、圆润流线形体雕刻感、柔和三点式工作棚暖调布光。"
+  },
+  {
+    "number": "FF-011",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "OscarAI",
+    "generation_name": "Chubby Pastel Knitted Toy 3D Character",
+    "traits": "软萌棉线织物与哑光黏土复合3D质感、糖果粉彩马卡龙高明度配色、圆润饱满的微缩实体造型感、柔和清澈的工作室柔光。"
+  },
+  {
+    "number": "FF-012",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "OscarAI",
+    "generation_name": "Tactile Soft 3D Claymation & Storybook Character",
+    "traits": "手作触感软萌3D黏土定格动画风、圆润柔和造型与趣味夸张身体比例、微颗粒手作黏土肌理、生动鲜明的个性化角色、介于定格动画玩偶与现代儿童插画绘本之间的温暖美学。"
+  },
+  {
+    "number": "FF-013",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "OscarAI",
+    "generation_name": "Tactile Papercraft & Fabric 3D Cartoon",
+    "traits": "纸雕+折纸+布纹质感3D卡通风、夸张生动五官与趣味身体比例、真实微距立体柔光光影。"
+  },
+  {
+    "number": "FF-014",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "OscarAI",
+    "generation_name": "Charming 2D Animation Feature Character Visdev",
+    "traits": "温润细腻的2D动画长片角色概念设计风、大眼与黑框眼镜的生动表情、利落剪影造型与微质感笔触边缘、纯白留白背景、质朴温和的大地与森林色系、极具亲和力与故事感的动画视觉开发(visdev)艺术。"
+  },
+  {
+    "number": "FF-015",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "纸雕",
+    "generation_name": "Paper Sculpture Illustration",
+    "traits": "纸雕，角色高度概括、比例略夸张、造型笨拙有趣；场景只保留最必要的物件与动作；大面积留白"
+  },
+  {
+    "number": "FF-016",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "手撕纸拼贴风",
+    "generation_name": "Hand-Torn Paper Collage Illustration",
+    "traits": "角色高度概括、比例略夸张、造型笨拙有趣；场景只保留最必要的物件与动作；大面积留白"
+  },
+  {
+    "number": "FF-017",
+    "group": "FF 3D黏土毛毡与纸雕 / 3D Clay, Felt & Papercraft",
+    "reference": "VOX 折纸3D立体拼贴动画",
+    "generation_name": "Vox 3D Origami Collage Animation",
+    "traits": "vox 折纸3d立体拼贴动画+微缩摄影，场景有景深"
+  },
+  {
+    "number": "FG-001",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "OscarAI",
+    "generation_name": "Late-80s Cyberpunk Dark OVA Cel Anime",
+    "traits": "80年代末日本黑暗赛博朋克OVA赛璐珞动画风、锐利手绘勾线、浓郁阴郁的丙烯手绘背景、高对比度硬光影、冷艳魅惑的女性肖像与黄金时代动画胶片质感。"
+  },
+  {
+    "number": "FG-002",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "OscarAI",
+    "generation_name": "Classic 60s-70s Xerox Cel Animation",
+    "traits": "60-70年代经典静电复印(Xerox)手绘赛璐珞动画风、生动微糙的石墨铅笔动态勾线、古典手绘水粉城堡背景、优雅灵动的迪士尼黄金时代复古人物造型。"
+  },
+  {
+    "number": "FG-003",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "OscarAI",
+    "generation_name": "Classic 80s-90s Heroic Fantasy Cel Anime",
+    "traits": "80-90年代经典剑与魔法奇幻赛璐珞动画风、纯正手绘赛璐珞质感、红发持剑女勇士与古堡阴影下的重甲战士、古典戏剧性冷暖打光。"
+  },
+  {
+    "number": "FG-004",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "OscarAI",
+    "generation_name": "Vintage 70s European Comic Animation Cel",
+    "traits": "70年代欧洲传统手绘手作动画风、质朴粗糙的手绘石墙背景、夸张滑稽的红发大胡子卫兵与尖帽侍从、古典讽刺动画与阿斯特里克斯式的幽默神态。"
+  },
+  {
+    "number": "FG-005",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "OscarAI",
+    "generation_name": "Modern Cinematic 2D Character Animation",
+    "traits": "现代电影级2D动画角色插画风、灵动深邃的大眼睛与微卷盘发墨镜、细腻柔和的室内环境光影与利落干净的动画清线造型。"
+  },
+  {
+    "number": "FG-006",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "Shinyi",
+    "generation_name": "Stylized Cinematic Action-Comedy Character",
+    "traits": "风格化大块面剪影动画插画风、夸张强壮的胡子大叔与市井风情、干练几何块面平涂与微颗粒光影、充满动势与幽默张力的街头角色原画。"
+  },
+  {
+    "number": "FG-007",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "South Park",
+    "generation_name": "South Park Animation Style",
+    "traits": "扁平几何色块、粗黑轮廓线、简化圆润人物形体、夸张圆眼与极简五官、鲜明高饱和蓝色与海洋色调、电视动画式平涂质感。"
+  },
+  {
+    "number": "FG-008",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "Patapon Remastered",
+    "generation_name": "Patapon Remastered",
+    "traits": ""
+  },
+  {
+    "number": "FG-009",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "Don’t Starve",
+    "generation_name": "Don't Starve Animation Style",
+    "traits": ""
+  },
+  {
+    "number": "FG-010",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "Cartoon Saloon",
+    "generation_name": "Cartoon Saloon Animation Style",
+    "traits": ""
+  },
+  {
+    "number": "FG-011",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "黑白恐怖漫画",
+    "generation_name": "Black and White Horror Manga Style",
+    "traits": "精密排线、高对比实黑、留白式悬念"
+  },
+  {
+    "number": "FG-012",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "久保带人《BLEACH》",
+    "generation_name": "Tite Kubo Bleach Manga Style",
+    "traits": ""
+  },
+  {
+    "number": "FG-013",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "藤本树《电锯人》",
+    "generation_name": "Tatsuki Fujimoto Chainsaw Man Manga Style",
+    "traits": ""
+  },
+  {
+    "number": "FG-014",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "芥见下下《咒术回战》",
+    "generation_name": "Gege Akutami Jujutsu Kaisen Manga Style",
+    "traits": ""
+  },
+  {
+    "number": "FG-015",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "岸本齐史《火影忍者》",
+    "generation_name": "Masashi Kishimoto Naruto Manga Style",
+    "traits": ""
+  },
+  {
+    "number": "FG-016",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "尾田荣一郎《海贼王》",
+    "generation_name": "Eiichiro Oda One Piece Manga Style",
+    "traits": ""
+  },
+  {
+    "number": "FG-017",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "吉卜力 / Studio Ghibli",
+    "generation_name": "Studio Ghibli Nostalgic Hand-Drawn Cel Anime & Painterly Landscape",
+    "traits": "参考吉卜力动画风格"
+  },
+  {
+    "number": "FG-018",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "小疯映画《刺客伍六七》 / Scissor Seven (Sharefun Studio)",
+    "generation_name": "Scissor Seven Season 1 Anime Style, Simple Composition, Highly Generalized Character Design",
+    "traits": "参考风格：小疯映画的刺客伍六七第一季，构图简单，角色高度概括"
+  },
+  {
+    "number": "FG-019",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "高饱和电影感美漫插画 / Cinematic American Comic Illustration",
+    "generation_name": "Cinematic American Comic Illustration, Expressive Anime Emotion, Digital Impasto",
+    "traits": "风格：高饱和电影感美漫插画（Cinematic American Comic Illustration），也可以称作 美漫线稿 × 日漫表情 × 数字厚涂风格。线条：黑色粗描边、密集排线、手绘刮擦纹理。上色：高饱和撞色、厚涂与赛璐璐结合。人物：日漫式夸张表情，美漫式面部结构。构图：广角透视、电影分镜、强烈的视觉冲突。质感：复古印刷漫画、数字厚涂、AI 插画的混合质感。角色：中国普通老百姓的形象"
+  },
+  {
+    "number": "FG-020",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "复古青年漫画与美式叙事插画 / Retro Seinen Manga & American Narrative Illustration",
+    "generation_name": "Retro Seinen Manga Line Art, American Narrative Illustration, Digital Cel Shading",
+    "traits": "复古漫画、半写实人物、日式青年漫画线稿、美式叙事插画、暖色低饱和、手绘墨线、复古纸张纹理、夸张表情、动态速度线、数字赛璐璐上色。"
+  },
+  {
+    "number": "FG-021",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "韩漫webtoon / Korean Webtoon",
+    "generation_name": "Korean Webtoon",
+    "traits": ""
+  },
+  {
+    "number": "FG-022",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "动画片《蜘蛛侠：平行宇宙》 / Spider-Man: Into the Spider-Verse",
+    "generation_name": "Spider-Man: Into the Spider-Verse Animation Style",
+    "traits": ""
+  },
+  {
+    "number": "FG-023",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "复古日系赛璐璐与韩系情绪动画 / Retro 90s Cel Anime & Korean Mood Webtoon",
+    "generation_name": "Retro 90s Cel Anime & Korean Emotional Webtoon Illustration, Grainy Nostalgic Film Aesthetic",
+    "traits": "复古日系二维动画与现代韩系情绪漫画融合的插画风格，具有1990年代手绘赛璐璐动画的朴素视觉质感。二维平面绘制，清晰但略带自然手绘感的深色轮廓线，线条轻微不规则，轮廓简洁，细节适度省略。大面积平涂色块，硬边赛璐璐阴影，明暗层次简化，阴影以完整、清晰的形状呈现，几乎没有柔和渐变或复杂体积塑造。整体配色低饱和、暗调、褪色感，偏砖红、暗青绿、灰蓝、灰褐、褪色粉橙与米灰色，色彩之间具有克制的冷暖对比，暗部厚重，黑色深沉。背景采用概括性的色块、简化的形体与有限的细节，呈现二维动画背景美术的平面感，不刻意追求写实精度。全画面覆盖明显、均匀、细密的模拟胶片噪点，颗粒与画面色彩自然融合，轻微色彩漂移、柔和的旧胶片褪色感，带有细微的模拟影像粗糙度。画面具有克制的光影、略低的清晰度、自然的暗部色彩沉积，整体像经过模拟胶片扫描和统一调色处理的旧动画截图。视觉语言安静、内敛、忧郁、怀旧，带有轻微的梦境感和疏离感，质朴而不精致化，强调二维手绘痕迹、色彩氛围和年代质感。"
+  },
+  {
+    "number": "FG-024",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "新海诚《你的名字。》 / Makoto Shinkai Your Name",
+    "generation_name": "Makoto Shinkai Your Name",
+    "traits": ""
+  },
+  {
+    "number": "FG-025",
+    "group": "FG 动漫和赛璐璐 / Anime, Cel Animation & Retro Game",
+    "reference": "拼豆像素画",
+    "generation_name": "Perler Bead Pixel Art",
+    "traits": "规则排列的圆形拼豆珠孔网格、像素对齐结构、手工塑料熔珠轻微颗粒肌理与受热微熔接痕迹、鲜明纯正的平涂色彩、清晰硬朗的阶梯状像素边缘"
+  },
+  {
+    "number": "FH-001",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Editorial Doodle / 社论涂鸦",
+    "generation_name": "Editorial Doodle",
+    "traits": "随手黑线、少量点色、人物 + 概念、白底。"
+  },
+  {
+    "number": "FH-002",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Loose Ink / 松散墨线",
+    "generation_name": "Loose Ink",
+    "traits": "不稳定笔压、断续墨线、快速动作、即兴感。"
+  },
+  {
+    "number": "FH-003",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Conceptual Line Drawing / 概念线描",
+    "generation_name": "Conceptual Line Drawing",
+    "traits": "极少线条、视觉隐喻、图形脑洞、留白。"
+  },
+  {
+    "number": "FH-004",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "New Yorker 单格社论漫画",
+    "generation_name": "Classic Magazine Single-Panel Cartoon",
+    "traits": "黑线、成人场景、冷脸人物、一个情境一个笑点。"
+  },
+  {
+    "number": "FH-005",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "法式 Café Sketch",
+    "generation_name": "French Café Sketch",
+    "traits": "轻盈钢笔墨线速写、修长写意造型、透明水彩淡彩点染、大面积自然留白、松弛明快的都市速写感。"
+  },
+  {
+    "number": "FH-006",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "日系脱力线稿漫画",
+    "generation_name": "Japanese Deadpan Loose-Line Cartoon",
+    "traits": "极细线、松垮人体、无力表情、社畜/日常梗。"
+  },
+  {
+    "number": "FH-007",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "日系手帐 Doodle",
+    "generation_name": "Japanese Notebook Doodle",
+    "traits": "小人物、手写字、箭头、贴纸、小图标。"
+  },
+  {
+    "number": "FH-008",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "日系杂志随笔插画",
+    "generation_name": "Japanese Magazine Essay Illustration",
+    "traits": "细线、低饱和、穿搭、美食、轻生活场景。"
+  },
+  {
+    "number": "FH-009",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "日系脱线四格漫画风",
+    "generation_name": "Japanese Offbeat Four-Panel Cartoon",
+    "traits": "简单人体、突然夸张表情、短节奏反转。"
+  },
+  {
+    "number": "FH-010",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "韩系 Lifestyle Doodle",
+    "generation_name": "Korean Lifestyle Doodle",
+    "traits": "柔软细线、奶油色、年轻人物、Instagram 日常。"
+  },
+  {
+    "number": "FH-011",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "韩系黑线红点 Editorial",
+    "generation_name": "Korean Black-Line Red-Accent Editorial",
+    "traits": "黑白细线 + 红色点睛、时尚人物、大留白。"
+  },
+  {
+    "number": "FH-012",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Indie Zine 粗糙手绘",
+    "generation_name": "Indie Zine Rough Drawing",
+    "traits": "签字笔、故意不专业、Low-fi、地下刊物感。"
+  },
+  {
+    "number": "FH-013",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Risograph / 双色孔版手绘",
+    "generation_name": "Two-Color Risograph Drawing",
+    "traits": "双色套印、轻微错版、粗颗粒、纸张质感。"
+  },
+  {
+    "number": "FH-014",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Crayon Editorial / 蜡笔社论",
+    "generation_name": "Crayon Editorial",
+    "traits": "粗蜡笔、越界填色、颗粒、成人主题 + 儿童画感。"
+  },
+  {
+    "number": "FH-015",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Colored Pencil Diary / 彩铅日记",
+    "generation_name": "Colored Pencil Diary",
+    "traits": "铅笔轮廓、轻柔彩铅、纸纹、生活记录。"
+  },
+  {
+    "number": "FH-016",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Brush Pen Cartoon / 毛笔漫画",
+    "generation_name": "Brush-Pen Cartoon",
+    "traits": "粗细变化巨大、黑色笔刷、强动作、强表情。"
+  },
+  {
+    "number": "FH-017",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "One-Line Character / 单线人物画",
+    "generation_name": "One-Line Character",
+    "traits": "连续线、极少结构、现代极简、时尚人物。"
+  },
+  {
+    "number": "FH-018",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Naive Folk Cartoon / 稚拙民间漫画",
+    "generation_name": "Naive Folk Cartoon",
+    "traits": "错透视、怪比例、直接色块、朴拙成人幽默。"
+  },
+  {
+    "number": "FH-019",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Primitive Marker Cartoon / 粗马克笔人物",
+    "generation_name": "Primitive Marker Cartoon",
+    "traits": "粗黑线、简单大形、歪比例、极强小尺寸辨识度。"
+  },
+  {
+    "number": "FH-020",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Dry Brush Editorial / 干笔社论",
+    "generation_name": "Dry-Brush Editorial",
+    "traits": "断裂笔刷、干涩纸纹、成熟抽象人物。"
+  },
+  {
+    "number": "FH-021",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Ink + Flat Spot Color / 墨线点色",
+    "generation_name": "Ink with Flat Spot Color",
+    "traits": "黑墨主体 + 单一强调色、极简但醒目。"
+  },
+  {
+    "number": "FH-022",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Notebook Margin Cartoon / 课本边角漫画",
+    "generation_name": "Notebook Margin Cartoon",
+    "traits": "圆珠笔感、小人物、箭头注释、随手草图。"
+  },
+  {
+    "number": "FH-023",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Deadpan Doodle / 冷脸涂鸦",
+    "generation_name": "Deadpan Doodle",
+    "traits": "人物不演、表情平静、荒谬场景制造笑点。"
+  },
+  {
+    "number": "FH-024",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Awkward Cute / 怪尴尬手绘",
+    "generation_name": "Awkward Cute",
+    "traits": "比例别扭、眼神游离、怪但可爱、社恐感。"
+  },
+  {
+    "number": "FH-025",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Heta-Uma / ヘタウマ",
+    "generation_name": "Heta-Uma",
+    "traits": "“画得不好但很好看”、粗糙比例、怪趣成人感。"
+  },
+  {
+    "number": "FH-026",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "昭和レトロ少女",
+    "generation_name": "Showa Retro Girl Illustration",
+    "traits": "昭和杂志人物、旧印刷、有限色、复古少女。"
+  },
+  {
+    "number": "FH-027",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "平成ガールズ日記",
+    "generation_name": "Heisei Girls Diary Illustration",
+    "traits": "90s–00s 手帐、贴纸、圆珠笔、少女杂志感。"
+  },
+  {
+    "number": "FH-028",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "透明水彩淡彩",
+    "generation_name": "Airy Transparent Watercolor",
+    "traits": "大量白纸、轻水彩、低覆盖率、柔和湿边。"
+  },
+  {
+    "number": "FH-029",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Copic Pastel",
+    "generation_name": "Copic Pastel",
+    "traits": "马克笔叠色、柔和糖果色、纸面笔触。"
+  },
+  {
+    "number": "FH-030",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "喫茶店 Retro Sketch",
+    "generation_name": "Kissaten Retro Sketch",
+    "traits": "昭和复古暖褐调、钢笔轻线淡彩、温润琥珀与焦糖色系、质朴慢节奏复古插画质感。"
+  },
+  {
+    "number": "FH-031",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "小红书奶油手绘",
+    "generation_name": "Creamy Social-Media Doodle",
+    "traits": "奶油白、粉黄绿、圆线、轻松可爱。"
+  },
+  {
+    "number": "FH-032",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "小红书高饱和涂鸦",
+    "generation_name": "High-Saturation Social Doodle",
+    "traits": "橙蓝绿粉、高饱和、粗线、Sticker 与 doodle 元素。"
+  },
+  {
+    "number": "FH-033",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "韩国高饱和涂鸦",
+    "generation_name": "Korean High-Saturation Pop Doodle",
+    "traits": "高饱和韩系波普风、圆润流畅粗黑轮廓线、明艳色块平涂、图形化小元素点缀、活泼跳跃的平面节奏。"
+  },
+  {
+    "number": "FH-034",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "油画棒治愈手绘",
+    "generation_name": "Oil-Pastel Healing Illustration",
+    "traits": "粗颗粒、蜡质色块、奶油高饱和、拙朴人物。"
+  },
+  {
+    "number": "FH-035",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "儿童蜡笔稚拙风",
+    "generation_name": "Childlike Crayon Naive Style",
+    "traits": "不准比例、蜡笔越线、高纯色、童真怪萌。"
+  },
+  {
+    "number": "FH-036",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "黑白钢笔冷幽默",
+    "generation_name": "Black-White Pen Deadpan Humor",
+    "traits": "极简黑线、冷脸人物、大留白、视觉梗。"
+  },
+  {
+    "number": "FH-037",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "红蓝双色孔版 / Riso 国潮",
+    "generation_name": "Red-Blue Riso Guochao",
+    "traits": "红蓝套印、错版颗粒、中国元素、青年 Zine。"
+  },
+  {
+    "number": "FH-038",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "Mid-century Deadpan Ink Mascot",
+    "generation_name": "Mid-century Deadpan Ink Mascot",
+    "traits": "黑白墨线、细长身体、成人服装、冷脸、强留白、Mid-century 社论味。"
+  },
+  {
+    "number": "FH-039",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "OscarAI",
+    "generation_name": "Quirky Fantasy Sketchbook Character Concept",
+    "traits": "奇幻动画概念速写风、松散纤细的钢笔墨线、质朴水彩晕染与颗粒纸感、精灵耳与慵懒不羁的叛逆神态、层次丰富的异域服饰设计与独立动画设定集美学。"
+  },
+  {
+    "number": "FH-040",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "OscarAI",
+    "generation_name": "Medieval Dark Fantasy Ink & Ochre Illustration",
+    "traits": "中世纪暗黑奇幻墨线插画风、精密细腻的钢笔交错排线、暗调羊皮纸暖赭色调、压迫感十足的重装牛角铠甲骑士与古老石阶遗迹氛围。"
+  },
+  {
+    "number": "FH-041",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "midlibrary",
+    "generation_name": "Modern Minimalist Sumi-e & Red Gouache Illustration",
+    "traits": "现代极简水墨与高对比度红黑插画风、粗粝松弛的宣纸焦墨飞白干笔、大块纯色水粉撞色平涂、现代几何构图与东方意境留白。"
+  },
+  {
+    "number": "FH-042",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "梵高",
+    "generation_name": "Van Gogh Expressive Impasto Oil Painting",
+    "traits": "后印象派厚涂油画质感、短促而强烈的雕塑感厚堆笔触、充满律动感与生命力的线条走势、纯正浓郁的色彩并置与情感张力；只采用梵高标志性的油画画风与笔触肌理，画面元素的选择必须完全切合指定主题，除非用户明确指定，杜绝默认套用星空漩涡、柏树、向日葵、麦田等梵高惯用符号。"
+  },
+  {
+    "number": "FH-043",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "复古 Risograph 与丝网印刷插画",
+    "generation_name": "Vintage Risograph and Silkscreen Print Illustration",
+    "traits": "暖象牙色纤维旧纸底；深普鲁士蓝与灰珊瑚红限色双色套印；大量纸白留白与大面积负空间；手绘轮廓、蚀刻排线、断续干笔、粗颗粒半调网点、点描与平涂墨块塑形；墨色浓淡不均、磨损边缘、纸纹透出、轻微双色套印错位与局部掉墨；构图简洁疏朗，主体突出，背景层叠概括；20世纪中期复古旅行宣传插画与私人速写怀旧文学感"
+  },
+  {
+    "number": "FH-044",
+    "group": "FH 先锋实验与综合媒介 / Mixed Media & Impasto Arts",
+    "reference": "莫奈 / Claude Monet",
+    "generation_name": "Claude Monet",
+    "traits": ""
+  },
+  {
+    "number": "FI-001",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Apple / 苹果",
+    "generation_name": "Apple Minimalist Tech Product Commercial Photography",
+    "traits": "科技品牌极简商业摄影"
+  },
+  {
+    "number": "FI-002",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "MUJI / 无印良品",
+    "generation_name": "MUJI Japanese Naturalist Warm Home Photography",
+    "traits": "日式自然主义家居品牌摄影"
+  },
+  {
+    "number": "FI-003",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "IKEA / 宜家",
+    "generation_name": "IKEA Nordic Cozy Lifestyle Interior Photography",
+    "traits": "北欧温馨日常家居品牌摄影"
+  },
+  {
+    "number": "FI-004",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Aesop / 伊索",
+    "generation_name": "Aesop Earthy Terrazzo Minimalist Botanical Space Photography",
+    "traits": "澳洲极简矿物美学品牌空间摄影"
+  },
+  {
+    "number": "FI-005",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Nike / 耐克",
+    "generation_name": "Nike Dynamic Athletic Action & Dramatic Contrast Photography",
+    "traits": "运动品牌高对比高动态广告摄影"
+  },
+  {
+    "number": "FI-006",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Patagonia / 巴塔哥尼亚",
+    "generation_name": "Patagonia Rugged Wilderness & Extreme Outdoor Documentary",
+    "traits": "户外探险品牌原生态自然纪实摄影"
+  },
+  {
+    "number": "FI-007",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Gucci / 古驰",
+    "generation_name": "Gucci 1970s Vintage Glamour Cinematic Editorial Photography",
+    "traits": "意大利奢侈品牌1970年代复古时尚大片"
+  },
+  {
+    "number": "FI-008",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Jacquemus / 雅克慕斯",
+    "generation_name": "Jacquemus French Riviera Sun-Drenched Minimal Fashion Photography",
+    "traits": "法国极简阳光时装大片摄影"
+  },
+  {
+    "number": "FI-009",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "National Geographic / 国家地理",
+    "generation_name": "National Geographic Epic Wildlife & Cultural Documentary Photography",
+    "traits": "美国自然探索与人文纪实摄影杂志"
+  },
+  {
+    "number": "FI-010",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Vogue / 时尚杂志",
+    "generation_name": "Vogue Haute Couture Dramatic Lighting Fashion Editorial",
+    "traits": "国际高级时装大片与戏剧光影杂志"
+  },
+  {
+    "number": "FI-011",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Kinfolk",
+    "generation_name": "Kinfolk Slow-Living Low-Saturation Natural Light Photography",
+    "traits": "低饱和慢生活方式独立杂志摄影"
+  },
+  {
+    "number": "FI-012",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Wallpaper*",
+    "generation_name": "Wallpaper* Architectural Modernist Geometric Interior Photography",
+    "traits": "英国现代建筑与几何室内设计杂志摄影"
+  },
+  {
+    "number": "FI-013",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "i-D",
+    "generation_name": "i-D Raw Youth Subculture Direct-Flash Portrait Photography",
+    "traits": "英国青年街头亚文化硬直闪肖像杂志"
+  },
+  {
+    "number": "FI-014",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Dazed",
+    "generation_name": "Dazed Avant-Garde Experimental Fashion & Expressive Mood Photography",
+    "traits": "英国前卫实验时尚与青年文化杂志"
+  },
+  {
+    "number": "FI-015",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "The Gentlewoman",
+    "generation_name": "The Gentlewoman Restrained Monochrome Modern Female Portrait",
+    "traits": "英国克制现代女性黑白肖像杂志"
+  },
+  {
+    "number": "FI-016",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Annie Leibovitz / 安妮·莱博维茨",
+    "generation_name": "Annie Leibovitz Cinematic Staged Narrative Portrait Photography",
+    "traits": "美国电影感置景与叙事肖像摄影大师"
+  },
+  {
+    "number": "FI-017",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Richard Avedon / 理查德·阿维顿",
+    "generation_name": "Richard Avedon Stark White Studio Pure Black-and-White Portrait",
+    "traits": "美国无缝纯白影棚纯黑白肖像摄影大师"
+  },
+  {
+    "number": "FI-018",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Peter Lindbergh / 彼得·林德伯格",
+    "generation_name": "Peter Lindbergh Natural Raw Windblown Monochrome Fashion Photography",
+    "traits": "德国素颜自然人文黑白时尚摄影大师"
+  },
+  {
+    "number": "FI-019",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Helmut Newton / 赫尔穆特·牛顿",
+    "generation_name": "Helmut Newton High-Contrast Bold Monochrome Seductive Noir",
+    "traits": "德裔澳大利亚黑白高反差冷艳时尚摄影大师"
+  },
+  {
+    "number": "FI-020",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Steve McCurry / 史蒂夫·麦凯瑞",
+    "generation_name": "Steve McCurry Saturated Soulful Humanist Cultural Portrait",
+    "traits": "美国国家地理人文摄影大师，代表作：《阿富汗少女》"
+  },
+  {
+    "number": "FI-021",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Martin Parr / 马丁·帕尔",
+    "generation_name": "Martin Parr Saturated Direct-Flash Satirical Everyday Documentary",
+    "traits": "英国高饱和直闪讽刺日常纪实摄影大师，玛格南图片社成员"
+  },
+  {
+    "number": "FI-022",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Gregory Crewdson / 格雷戈里·克鲁德森",
+    "generation_name": "Gregory Crewdson Twilight Cinematic Mystery Staged Photography",
+    "traits": "美国电影级大型置景戏剧摄影大师，代表作：《黄昏》《玫瑰之下》"
+  },
+  {
+    "number": "FI-023",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Saul Leiter / 索尔·莱特",
+    "generation_name": "Saul Leiter Poetic Rainy Street & Window Reflection Color Photography",
+    "traits": "美国诗意街头倒影与彩色胶片摄影先驱，代表作：《Early Color》"
+  },
+  {
+    "number": "FI-024",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Slim Aarons / 斯利姆·亚伦斯",
+    "generation_name": "Slim Aarons Luxurious Poolside Resort & Villa High-Society Photography",
+    "traits": "美国复古名流度假摄影大师，代表作：《池畔闲谈》(Poolside Gossip)"
+  },
+  {
+    "number": "FI-025",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Daido Moriyama / 森山大道",
+    "generation_name": "Daido Moriyama Grainy High-Contrast Noir Street Photography",
+    "traits": "日本粗颗粒高反差黑白街头摄影大师，代表作：《野犬》《新宿》"
+  },
+  {
+    "number": "FI-026",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Andreas Gursky / 安德烈亚斯·古尔斯基",
+    "generation_name": "Andreas Gursky Monumental Scale Repetitive Geometric Architecture Photography",
+    "traits": "德国超大画幅上帝视角几何秩序摄影大师，代表作：《莱茵河二号》《99美分》"
+  },
+  {
+    "number": "FI-027",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Wes Anderson / 韦斯·安德森",
+    "generation_name": "Wes Anderson Pastel Symmetry & Retro Whimsical Cinematic Aesthetic",
+    "traits": "美国对称美学与马卡龙色调电影导演，代表作：《布达佩斯大饭店》《月升王国》"
+  },
+  {
+    "number": "FI-028",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Wong Kar-wai / 王家卫",
+    "generation_name": "Wong Kar-wai Hong Kong Retro Neon Glow Atmospheric Cinematic Mood",
+    "traits": "中国香港复古港风与霓虹光影电影导演，代表作：《花样年华》《重庆森林》《堕落天使》"
+  },
+  {
+    "number": "FI-029",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "Stanley Kubrick / 斯坦利·库布里克",
+    "generation_name": "Stanley Kubrick One-Point Perspective Cold Symmetrical Sci-Fi Cinema",
+    "traits": "美国一点透视与冷峻理性科幻电影导演，代表作：《2001太空漫游》《闪灵》"
+  },
+  {
+    "number": "FI-030",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "David Fincher / 大卫·芬奇",
+    "generation_name": "David Fincher Desaturated Moody Green-Toned Precision Thriller Cinema",
+    "traits": "美国低饱和冷调心理悬疑电影导演，代表作：《七宗罪》《搏击俱乐部》《消失的爱人》"
+  },
+  {
+    "number": "FI-031",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "淘宝电商图 / Taobao E-Commerce",
+    "generation_name": "Taobao E-Commerce Product Commercial Photography",
+    "traits": ""
+  },
+  {
+    "number": "FI-032",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "iPhone 17 随手拍 / iPhone 17 Snapshot",
+    "generation_name": "iPhone 17 Candid Everyday Snapshot Photography",
+    "traits": ""
+  },
+  {
+    "number": "FI-033",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "监控摄像头截屏 / Security Camera Screenshot",
+    "generation_name": "Security Camera CCTV & Doorbell Surveillance Footage Photography",
+    "traits": "安防监控摄像头广角鱼眼与夜视真实视频录像截屏"
+  },
+  {
+    "number": "FI-034",
+    "group": "FI 写实摄影与视觉大片 / Realistic, Photography & Cinematic Styles",
+    "reference": "大疆无人机航拍 / DJI Drone Aerial",
+    "generation_name": "DJI Drone Cinematic Aerial Landscape Photography",
+    "traits": "大疆无人机高清高空俯拍与全景航拍摄影"
+  }
+]

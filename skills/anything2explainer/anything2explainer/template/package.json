@@ -1,0 +1,21 @@
+{
+  "name": "explainer-video",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "studio": "remotion studio src/index.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.507",
+    "@remotion/media": "4.0.507",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remotion": "4.0.507"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.9.3"
+  }
+}

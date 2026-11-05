@@ -1,0 +1,55 @@
+look_id: LOOK-01
+status: generation-pending
+image_count: 1
+purpose: main_visual_preview
+canonical_identity_references: []
+active_identity_references: []
+identity_reference_source: original_user_upload
+identity_lock_version: 2
+per_panel_identity_reset_required: true
+face_readability_gate: true
+participant_count: null
+participants: []
+locked_constraints:
+  participant_outfits: []
+  confirmed_scene: null
+  group_relationship: []
+  hard_avoids: []
+  location_lock: []
+  era_or_world_context: null
+  quality_floor: full_detail_no_compression
+main_visual_prompt: null
+output_path: images/LOOK-01-main.png
+visual_requirements:
+  participant_count_exact: true
+  preserve_each_identity: true
+  preserve_each_outfit: true
+  no_text_or_graphics: true
+  prohibited_elements:
+  - text
+  - letters
+  - logos
+  - watermarks
+  - poster_layout
+  - missing_person
+  - duplicated_person
+  - merged_people
+  - swapped_outfits
+  - obscured_face
+  preserve_exact_location: true
+  preserve_era_or_world_context: true
+quality_check:
+  status: pending
+  attempts_used: 0
+  max_attempts: 2
+  notes: null
+
+
+# 2.24.21: Final generation must follow the confirmed Editorial 专业发型师设计 and Editorial 专业化妆师设计.
+
+# 2.24.21: When real-person references exist, preserve participant_id -> identity_references mapping; never identity-swap faces.
+
+# 2.24.23: Derived images never auto-promote to identity. If used, declare derived_reference_role as composition/pose/style/scene only.
+derived_reference_role: null
+
+identity_reference_hair_policy: "face_only_ignore_original_hair_unless_user_locks_it"

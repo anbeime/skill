@@ -1,0 +1,47 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # Agent 用默认 token 建的 PR 不会触发 pull_request，由 Agent Implement 手动补触发。
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.13"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          # jieba 只有源码包，新版 Python 上要先升级 setuptools 才装得上。
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install -r requirements.txt
+
+      - name: Validate repository
+        run: python tools/validate_repo.py
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Check CLI
+        run: |
+          cd scripts
+          python render.py --help
+          python check_all.py --help
+          python package.py --help

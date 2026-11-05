@@ -1,0 +1,14 @@
+[
+  {
+    "id": "CH-001",
+    "name": "黑猫侍者",
+    "name_en": "Black Cat Butler",
+    "image": "../../../images/characters/CH-001.webp",
+    "layout": "IP-002",
+    "tags": [
+      "官方预置",
+      "拟人角色",
+      "三视图基准图"
+    ]
+  }
+]
