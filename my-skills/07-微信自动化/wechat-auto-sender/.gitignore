@@ -1,0 +1,22 @@
+# ── 隐私与运行产物：请勿提交 ──────────────────────────────
+# config.json 内含联系人/群名与本地路径
+config.json
+# 运行日志与截图（含聊天画面）
+logs/
+launcher.log
+# 校准参考图（含聊天标题截图）
+refs/*.png
+refs/*.jpg
+refs/*.jpeg
+
+# ── Python ────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# ── 系统 ──────────────────────────────────────────────
+Thumbs.db
+desktop.ini
+.DS_Store
