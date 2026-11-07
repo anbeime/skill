@@ -6,7 +6,7 @@
 
 ## ✨ 功能特性
 
-- ✅ **真实 AI 对话**：使用智谱 GLM-4-Flash 模型
+- ✅ **AI chat**: MiniMax-M3.1-Flash by default, with MiniMax-M3 as an alternative
 - ✅ **图片生成**：使用智谱 CogView-3 生成场景图片
 - ✅ **多场景支持**：咖啡馆、办公室、家、健身房、公园
 - ✅ **对话记忆**：自动保存对话历史
@@ -16,10 +16,9 @@
 
 ### 步骤 1：获取 API Key
 
-1. 访问 [智谱 AI 开放平台](https://open.bigmodel.cn/)
-2. 注册并登录（新用户有免费额度）
-3. 进入「API Keys」页面
-4. 创建新的 API Key 并复制
+1. Visit [MiniMax Open Platform](https://platform.minimax.io/) or the [China platform](https://platform.minimaxi.com/).
+2. Sign in and create an API key.
+3. Use the matching regional endpoint in the configuration below.
 
 ### 步骤 2：安装依赖
 
@@ -39,11 +38,23 @@ cp .env.example .env
 # macOS/Linux: nano .env
 ```
 
-将 `your-api-key-here` 替换为你的真实 API Key：
+Set your MiniMax API key in `.env`:
 ```env
-ZHIPU_API_KEY=你的API_KEY
+MINIMAX_API_KEY=your-minimax-api-key-here
+MINIMAX_REGION=global_en
+MINIMAX_MODEL=MiniMax-M3.1-Flash
 PORT=3000
 ```
+
+Use `MINIMAX_REGION=cn_zh` for the China endpoint. `MINIMAX_API_BASE` can override
+the chat endpoint. Ordinary choices are MiniMax-M3.1-Flash and MiniMax-M3; explicit
+legacy or custom IDs in `MINIMAX_MODEL` or a request's `model` are preserved.
+Flash always uses thinking, with the API's default `max` reasoning effort. The
+bounded chat routes allow 16,384 total output tokens for Flash, including thinking;
+this is an application budget, not the model's output limit. Other models retain
+the existing route budgets.
+
+Run `npm test` for offline route and serialized-request regression checks.
 
 ### 步骤 4：启动服务器
 

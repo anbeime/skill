@@ -361,7 +361,7 @@
                         statusText.textContent = '在线';
                     } else {
                         statusText.textContent = '需要配置';
-                        addSystemMessage('⚠️ 请在服务器配置 ZHIPU_API_KEY 环境变量才能使用');
+                        addSystemMessage(`⚠️ Please configure the ${data.provider || 'MiniMax'} API key on the server before using this service.`);
                     }
                 }
             } catch (error) {
@@ -548,5 +548,4 @@
     </script>
 </body>
 </html>
-
 
