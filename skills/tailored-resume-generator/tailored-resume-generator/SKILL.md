@@ -3,7 +3,7 @@ name: tailored-resume-generator
 description: 软件开发工程师、产品经理等求职者，在针对特定职位描述投递或跨行转岗时，可一键深度分析岗位需求，自动提取ATS关键词并重组个人经验，快速生成高命中率的定制简历，大幅提升面试邀约率。
 display_name: 简历定制助手
 version: 1.0.0
-author: <你的开放平台账号ID>
+author: c3b57459-6405-4180-adea-9dcff7bb7e1c
 examples:
   - "对照这份 JD 帮我改简历"
   - "把我的经历改写成 STAR 格式的 bullet"

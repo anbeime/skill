@@ -6,7 +6,7 @@ dependency:
     - python-pptx>=0.6.21
 display_name: PPT 一键生成
 version: 1.0.0
-author: <你的开放平台账号ID>
+author: c3b57459-6405-4180-adea-9dcff7bb7e1c
 examples:
   - "根据这份大纲直接生成 PPT"
   - "把周报内容做成 10 页汇报演示"

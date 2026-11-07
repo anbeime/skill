@@ -3,7 +3,7 @@ name: obsidian-skills-integrated
 description: 内容创作者与技术写作员在让AI撰写Obsidian笔记时，使用此官方技能可精准处理双链、Callout及Bases数据库语法，一键生成格式零破坏的Canvas画布与专业笔记，彻底解决AI破坏专属格式的痛点。
 display_name: Obsidian 知识库助手
 version: 1.0.0
-author: <你的开放平台账号ID>
+author: c3b57459-6405-4180-adea-9dcff7bb7e1c
 examples:
   - "批量清洗我的 Obsidian 笔记并修复双链"
   - "用模板填充这份知识库笔记"

@@ -3,7 +3,7 @@ name: product-manager-toolkit
 description: 产品经理必备利器！当面临海量需求排期、用户调研分析和PRD撰写等场景时，使用此工具可一键计算RICE得分、自动提炼访谈洞察并快速生成标准PRD文档，大幅提升需求决策与产品交付效率，让规划更科学。
 display_name: 产品经理工具箱
 version: 1.0.0
-author: <你的开放平台账号ID>
+author: c3b57459-6405-4180-adea-9dcff7bb7e1c
 examples:
   - "帮我生成这份需求的 PRD 模板"
   - "做一份竞品对比表并列出埋点事件"

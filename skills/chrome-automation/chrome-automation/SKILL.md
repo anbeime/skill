@@ -4,7 +4,7 @@ description: 网页开发工程师与运营专员在需要自动化现有 Chrome
 allowed-tools: Bash(*)
 display_name: 浏览器自动化
 version: 1.0.0
-author: <你的开放平台账号ID>
+author: c3b57459-6405-4180-adea-9dcff7bb7e1c
 examples:
   - "把每天登录签到做成可复用的浏览器自动化"
   - "录制这个表单填写流程并定时执行"

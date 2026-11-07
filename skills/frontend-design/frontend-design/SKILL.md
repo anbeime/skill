@@ -4,7 +4,7 @@ description: 网页与数字界面设计师在构建Web页面或应用组件时�
 license: Complete terms in LICENSE.txt
 display_name: 前端设计助手
 version: 1.0.0
-author: <你的开放平台账号ID>
+author: c3b57459-6405-4180-adea-9dcff7bb7e1c
 examples:
   - "把这段需求描述转成前端页面结构和 Tailwind 草稿"
   - "给我一个落地页的组件布局方案"
