@@ -10,6 +10,13 @@ dependency:
     - pyttsx3==2.90
     - beautifulsoup4==4.12.2
     - nltk==3.8.1
+display_name: 论文研报分析助手
+version: 1.0.0
+author: <你的开放平台账号ID>
+examples:
+  - "帮我拆解这篇论文的结构和核心结论"
+  - "提取这份研报的批判点和数据来源"
+
 ---
 
 # 论文分析助手

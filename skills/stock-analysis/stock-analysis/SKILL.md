@@ -6,6 +6,13 @@ dependency:
     - requests>=2.28.0
     - numpy>=1.24.0
     - pandas>=2.0.0
+display_name: 股票分析助手
+version: 1.0.0
+author: <你的开放平台账号ID>
+examples:
+  - "生成贵州茅台的基本面分析卡片"
+  - "给我这只股票的技术面买卖点提示"
+
 ---
 
 # 股票个股分析

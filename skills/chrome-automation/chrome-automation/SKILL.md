@@ -2,6 +2,13 @@
 name: chrome-automation
 description: 网页开发工程师与运营专员在需要自动化现有 Chrome 浏览器时必用！通过 CDP 协议无缝接管当前浏览器，自动配置环境并实时可视化执行任务。完美保留登录状态，一键完成复杂网页自动化流程，让繁琐操作自动化。
 allowed-tools: Bash(*)
+display_name: 浏览器自动化
+version: 1.0.0
+author: <你的开放平台账号ID>
+examples:
+  - "把每天登录签到做成可复用的浏览器自动化"
+  - "录制这个表单填写流程并定时执行"
+
 ---
 
 # Chrome Browser Automation with Real-time Control

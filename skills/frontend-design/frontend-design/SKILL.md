@@ -2,6 +2,13 @@
 name: frontend-design
 description: 网页与数字界面设计师在构建Web页面或应用组件时，若受够了千篇一律的AI味设计，请用此技能。一键生成极具视觉冲击力、排版独特、动效惊艳的生产级前端代码，告别平庸，打造令人难忘的高品质数字界面。
 license: Complete terms in LICENSE.txt
+display_name: 前端设计助手
+version: 1.0.0
+author: <你的开放平台账号ID>
+examples:
+  - "把这段需求描述转成前端页面结构和 Tailwind 草稿"
+  - "给我一个落地页的组件布局方案"
+
 ---
 
 This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.
