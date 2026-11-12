@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TOPGO Skill Store — AI 技能 & 工作流商店</title>
-<meta name="description" content="收录最全、更新最快的 AI Agent 技能商店：65 原创技能包 + 187 官方技能 + 2326 自动索引 + 4834 N8N 工作流。知易 = AI 智能基座 · 四色卡片记录层。">
+<meta name="description" content="收录最全、更新最快的 AI Agent 技能商店：官方技能自动索引 + GitHub 热门技能榜单实时抓取（按 Star 排序），从内容创作到电商视频，从编程开发到自动化运维，即插即用。知易 = AI 智能基座 · 四色卡片记录层。">
 <meta name="keywords" content="AI技能,Agent Skills,技能商店,知易,ZhiYi,N8N,自动化工作流,TOPGO,智能基座,四色卡片,记录层">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -394,13 +394,13 @@ footer a:hover { color: var(--accent-2); }
       <span class="gradient-text">AI 技能生态</span><br>
       一站式 Agent 能力中心
     </h1>
-    <p>65 个原创技能包 + 187 官方索引（含 5 个本周热门） + 2326 自动爬取 + 4834 N8N 工作流，从内容创作到电商视频，从编程开发到自动化运维，即插即用。</p>
+    <p>官方技能自动索引实时同步 + GitHub 热门技能榜单（按 Star 排序）每日刷新，从内容创作到电商视频，从编程开发到自动化运维，即插即用。</p>
     <div class="hero-stats">
       <div class="hero-stat-wrap">
         <div class="hero-stat"><div class="num">65</div><div class="label">原创技能包</div></div>
       </div>
       <div class="hero-stat-wrap">
-        <div class="hero-stat"><div class="num">182</div><div class="label">官方技能索引</div></div>
+        <div class="hero-stat"><div class="num" id="heroOfficialCount">182</div><div class="label">官方技能索引</div></div>
       </div>
       <div class="hero-stat-wrap">
         <div class="hero-stat"><div class="num">2,326</div><div class="label">GitHub 自动爬取</div></div>
@@ -581,5 +581,15 @@ footer a:hover { color: var(--accent-2); }
   </div>
 </footer>
 
+<script>
+// 官方技能索引实时取自 data/skills.json（与 README / skills.html 同源）
+(function () {
+  fetch('data/skills.json').then(function (r) { return r.json(); }).then(function (d) {
+    var n = (d.skills || []).length || d.total || 0;
+    var el = document.getElementById('heroOfficialCount');
+    if (el) el.textContent = n.toLocaleString();
+  }).catch(function () {});
+})();
+</script>
 </body>
 </html>

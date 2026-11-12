@@ -244,7 +244,7 @@
                         <span class="stat-label">Entity Skills</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">182</span>
+                        <span class="stat-number" id="heroOfficialCountEn">182</span>
                         <span class="stat-label">Official Index</span>
                     </div>
                     <div class="stat-item">
@@ -258,7 +258,7 @@
                 </div>
                 
                 <ul class="features">
-                    <li>182 officially-indexed skills from top international teams</li>
+                    <li>officially-indexed skills (auto-synced from GitHub daily)</li>
                     <li>418 entity skills (main repo + SkillHub collection + local snapshots)</li>
                     <li>Real-time search and category filtering</li>
                     <li>Auto-sync latest data from GitHub</li>
@@ -323,5 +323,15 @@
             Last Updated: 2026-02-11
         </p>
     </div>
+<script>
+// Official Index count pulled live from data/skills.json (same source as README / skills.html)
+(function () {
+  fetch('data/skills.json').then(function (r) { return r.json(); }).then(function (d) {
+    var n = (d.skills || []).length || d.total || 0;
+    var el = document.getElementById('heroOfficialCountEn');
+    if (el) el.textContent = n.toLocaleString();
+  }).catch(function () {});
+})();
+</script>
 </body>
 </html>

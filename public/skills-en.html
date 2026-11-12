@@ -385,7 +385,7 @@
         <div class="stats-bar" id="statsBar">
             <div class="stat-card">
                 <div class="stat-number trending" id="statTrending">4</div>
-                <div class="stat-label">🔥 Trending</div>
+                <div class="stat-label">🔥 GitHub Trending</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number official" id="statOfficial">182</div>
@@ -407,7 +407,7 @@
             <button class="lang-toggle" id="langToggle" onclick="toggleLang()">🌐 中文</button>
             <div class="filter-tabs" id="filterTabs">
                 <div class="filter-tab active" data-filter="all">All</div>
-                <div class="filter-tab" data-filter="trending">🔥 Trending</div>
+                <div class="filter-tab" data-filter="trending">🔥 GitHub Trending</div>
                 <div class="filter-tab" data-filter="official">🌍 Official</div>
                 <div class="filter-tab" data-filter="local">💾 Local</div>
                 <div class="filter-tab" data-filter="category:AI 创意与可视化">🎨 Creative & Visual</div>
@@ -415,7 +415,7 @@
         </div>
 
         <h2 class="section-title trending" id="sectionTrending" style="display:none;">
-            🔥 Trending
+            🔥 GitHub Trending Skills (live · sorted by Stars)
             <span class="section-count" id="trendingCount"></span>
         </h2>
         <div class="skills-grid" id="gridTrending"></div>
@@ -524,7 +524,7 @@
     }
 
     function updateStats() {
-        const trending = allOfficialSkills.filter(s => TRENDING_REPOS.has(s.name));
+        const trending = allOfficialSkills.filter(s => s.trending === true || TRENDING_REPOS.has(s.name));
         document.getElementById('statTrending').textContent = trending.length;
         document.getElementById('statOfficial').textContent = allOfficialSkills.length;
         document.getElementById('statLocal').textContent = allLocalSkills.length;
@@ -539,16 +539,18 @@
             ? currentFilter.replace('category:', '')
             : null;
 
-        const trending = allOfficialSkills.filter(s => TRENDING_REPOS.has(s.name));
-        const trendingFiltered = trending.filter(s => matchSearch(s, term, filterCategory));
+        // Trending（真·动态：GitHub Search API 实时抓取的 trending 条目，按 Star 降序）
+        const trendingRaw = allOfficialSkills.filter(s => s.trending === true || TRENDING_REPOS.has(s.name));
+        const trendingSorted = trendingRaw.slice().sort((a, b) => (b.stars || 0) - (a.stars || 0));
+        const trendingFiltered = trendingSorted.filter(s => matchSearch(s, term, filterCategory));
         renderGrid('gridTrending', 'sectionTrending', 'trendingCount',
-            trendingFiltered, 'trending', 'Trending this week (from anbeime/skill)');
+            trendingFiltered, 'trending', '🔥 GitHub Trending Skills (live · sorted by Stars)');
 
         const localFiltered = allLocalSkills.filter(s => matchSearch(s, term, filterCategory));
         renderGrid('gridLocal', 'sectionLocal', 'localCount',
             localFiltered, 'local', 'Local Skills');
 
-        const nonTrendingOfficial = allOfficialSkills.filter(s => !TRENDING_REPOS.has(s.name));
+        const nonTrendingOfficial = allOfficialSkills.filter(s => !s.trending && !TRENDING_REPOS.has(s.name));
         const officialFiltered = nonTrendingOfficial.filter(s => matchSearch(s, term, filterCategory));
         renderGrid('gridOfficial', 'sectionOfficial', 'officialCount',
             officialFiltered, 'official', 'Official Index (auto-synced)');
@@ -610,6 +612,9 @@
                 html += '<div class="source-line">License: ' + escapeHtml(s.license) + (s.author ? ' · ' + escapeHtml(s.author) : '') + '</div>';
             } else if (s.source) {
                 html += '<div class="source-line">Source: ' + escapeHtml(s.source) + '</div>';
+            }
+            if (s.stars) {
+                html += '<div class="source-line">⭐ ' + Number(s.stars).toLocaleString() + ' · updated ' + (s.pushed_at ? escapeHtml(String(s.pushed_at).slice(0, 10)) : '—') + '</div>';
             }
             html += '</div>';
         }

@@ -389,7 +389,7 @@
         <div class="stats-bar" id="statsBar">
             <div class="stat-card">
                 <div class="stat-number trending" id="statTrending">4</div>
-                <div class="stat-label">🔥 本周热门</div>
+                <div class="stat-label">🔥 GitHub 热门</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number official" id="statOfficial">182</div>
@@ -413,7 +413,7 @@
             <button class="lang-toggle" id="langToggle" onclick="toggleLang()">🌐 EN</button>
             <div class="filter-tabs" id="filterTabs">
                 <div class="filter-tab active" data-filter="all">全部</div>
-                <div class="filter-tab" data-filter="trending">🔥 本周热门</div>
+                <div class="filter-tab" data-filter="trending">🔥 GitHub 热门</div>
                 <div class="filter-tab" data-filter="official">🌍 官方索引</div>
                 <div class="filter-tab" data-filter="local">💾 本地技能</div>
                 <div class="filter-tab" data-filter="category:Document Parsing">📄 文档解析</div>
@@ -424,9 +424,9 @@
             </div>
         </div>
 
-        <!-- 动态渲染：本周热门 -->
+        <!-- 动态渲染：GitHub 热门（真实抓取） -->
         <h2 class="section-title trending" id="sectionTrending" style="display:none;">
-            🔥 本周热门 (Trending)
+            🔥 GitHub 热门技能（实时抓取 · 按 Star 排序）
             <span class="section-count" id="trendingCount"></span>
         </h2>
         <div class="skills-grid" id="gridTrending"></div>
@@ -562,7 +562,7 @@
     }
 
     function updateStats() {
-        const trending = allOfficialSkills.filter(s => TRENDING_REPOS.has(s.name));
+        const trending = allOfficialSkills.filter(s => s.trending === true || TRENDING_REPOS.has(s.name));
         document.getElementById('statTrending').textContent = trending.length;
         document.getElementById('statOfficial').textContent = allOfficialSkills.length;
         document.getElementById('statLocal').textContent = allLocalSkills.length;
@@ -578,11 +578,12 @@
             ? currentFilter.replace('category:', '')
             : null;
 
-        // 1. Trending
-        const trending = allOfficialSkills.filter(s => TRENDING_REPOS.has(s.name));
-        const trendingFiltered = trending.filter(s => matchSearch(s, term, filterCategory));
+        // 1. Trending（真·动态：GitHub Search API 实时抓取的 trending 条目，按 Star 降序）
+        const trendingRaw = allOfficialSkills.filter(s => s.trending === true || TRENDING_REPOS.has(s.name));
+        const trendingSorted = trendingRaw.slice().sort((a, b) => (b.stars || 0) - (a.stars || 0));
+        const trendingFiltered = trendingSorted.filter(s => matchSearch(s, term, filterCategory));
         renderGrid('gridTrending', 'sectionTrending', 'trendingCount',
-            trendingFiltered, 'trending', '本周新收编 (来自 anbeime/skill)');
+            trendingFiltered, 'trending', '🔥 GitHub 热门技能（实时抓取 · 按 Star 排序）');
 
         // 2. Local
         const localFiltered = allLocalSkills.filter(s => matchSearch(s, term, filterCategory));
@@ -590,7 +591,7 @@
             localFiltered, 'local', '本地技能库（66 个 · D:\\\\tool\\\\skills）');
 
         // 3. Official（非 trending）
-        const nonTrendingOfficial = allOfficialSkills.filter(s => !TRENDING_REPOS.has(s.name));
+        const nonTrendingOfficial = allOfficialSkills.filter(s => !s.trending && !TRENDING_REPOS.has(s.name));
         const officialFiltered = nonTrendingOfficial.filter(s => matchSearch(s, term, filterCategory));
         renderGrid('gridOfficial', 'sectionOfficial', 'officialCount',
             officialFiltered, 'official', '官方索引（VoltAgent/awesome-agent-skills 自动同步）');
@@ -652,6 +653,9 @@
                 html += '<div class="source-line">许可：' + escapeHtml(s.license) + (s.author ? ' · ' + escapeHtml(s.author) : '') + '</div>';
             } else if (s.source) {
                 html += '<div class="source-line">来源：' + escapeHtml(s.source) + '</div>';
+            }
+            if (s.stars) {
+                html += '<div class="source-line">⭐ ' + Number(s.stars).toLocaleString() + ' · 更新 ' + (s.pushed_at ? escapeHtml(String(s.pushed_at).slice(0, 10)) : '—') + '</div>';
             }
             html += '</div>';
         }

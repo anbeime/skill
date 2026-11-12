@@ -270,6 +270,58 @@ SELF_REPOS = {
     "inkos_story_ai": ("Narcooo", "inkos"),
 }
 
+# ===== README 统计数据自动注入（A：治本，避免数字脱节）=====
+# 与仓库列表的 AUTO-SYNC-SKILLS 标记区分，单独用 STATS 标记圈住「统计数据」段，
+# 由 sync_skills.py（及 sync_skills_to_search.py）每日用真实计数覆盖。
+STATS_START = "<!-- AUTO-SYNC-STATS-START -->"
+STATS_END = "<!-- AUTO-SYNC-STATS-END -->"
+
+
+def count_local_skills(path: str = "data/local_skills.json") -> int:
+    """本地精选策展技能数（data/local_skills.json）。"""
+    try:
+        d = json.load(open(path, encoding="utf-8"))
+    except Exception:
+        return 0
+    if isinstance(d.get("skills"), list):
+        return len(d["skills"])
+    if "categories" in d:
+        return sum(len(v.get("skills", [])) for v in d["categories"].values())
+    if "total_skills" in d:
+        return d["total_skills"]
+    return 0
+
+
+def count_search_skills(path: str = "public/data/skills.json") -> int:
+    """前端搜索库技能数（public/data/skills.json），以数组实际长度为准。"""
+    try:
+        d = json.load(open(path, encoding="utf-8"))
+    except Exception:
+        return 0
+    skills = d.get("skills") or []
+    return len(skills) if skills else d.get("total", 0)
+
+
+def inject_readme_stats(upstream: int, local: int, search: int, path: str = "README.md") -> None:
+    """把真实计数注入 README 的 AUTO-SYNC-STATS 标记段（bot 每日自保持准确）。"""
+    block = (
+        f"{STATS_START}\n"
+        f"- **官方技能（上游全量）**: {upstream:,} 个（来自 6 个上游，自动爬取）\n"
+        f"- **本地技能（精选策展）**: {local:,} 个\n"
+        f"- **搜索索引（skills.json）**: {search:,} 个\n"
+        f"{STATS_END}"
+    )
+    if not os.path.exists(path):
+        return
+    content = open(path, encoding="utf-8").read()
+    if STATS_START in content and STATS_END in content:
+        new = re.sub(f"{STATS_START}.*?{STATS_END}", block, content, flags=re.DOTALL)
+    else:
+        new = content.rstrip() + "\n\n" + block + "\n"
+    open(path, "w", encoding="utf-8").write(new)
+    print(f"✅ README 统计段已自动注入：上游 {upstream:,} / 本地 {local:,} / 搜索 {search:,}")
+
+
 def main():
     print("🚀 开始同步技能仓库...")
     print(f"⏰ 当前时间: {datetime.now().isoformat()}")
@@ -320,7 +372,14 @@ def main():
     update_readme(sources_data)
     update_readme_en(sources_data)
 
-    print(f"\n✨ 同步完成！共发现 {len(all_repos)} 个技能仓库")
+    # A：自动把真实计数（上游 / 本地 / 搜索库）注入 README 的 AUTO-SYNC-STATS 段
+    inject_readme_stats(
+        upstream=sources_data['total_count'],
+        local=count_local_skills(),
+        search=count_search_skills(),
+    )
+
+    print(f"\n✨ 同步完成！共发现 {len(all_repos)} 个技能仓库（官方技能源总数 {sources_data['total_count']:,}）")
 
 if __name__ == '__main__':
     main()

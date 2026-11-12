@@ -9,8 +9,8 @@
 
 收录最全、更新最快的AI Agent技能库，涵盖**文档处理、内容创作、编程开发、机器学习、自动化工作流**等多个领域的精选技能包。
 
-[![官方技能](https://img.shields.io/badge/官方技能-182-blue?style=flat-square)](https://github.com/anbeime/skill)
-[![本地技能](https://img.shields.io/badge/本地技能-69-green?style=flat-square)](https://github.com/anbeime/skill)
+[![官方技能](https://img.shields.io/badge/官方技能-10729-blue?style=flat-square)](https://github.com/anbeime/skill)
+[![本地技能](https://img.shields.io/badge/本地技能-83-green?style=flat-square)](https://github.com/anbeime/skill)
 [![备份覆盖](https://img.shields.io/badge/备份覆盖-100%25-success?style=flat-square)](https://github.com/anbeime/skill)
 [![自动更新](https://img.shields.io/badge/更新-每24小时-orange?style=flat-square)](https://github.com/anbeime/skill)
 
@@ -19,20 +19,22 @@
 
 ## 📊 统计数据
 
-- **官方技能**: 182 个（来自 OpenAI、VoltAgent、Matt Pocock 等 6 个上游，自动爬取）
-- **本地技能**: 69 个（16 个分类，含 6 个系统内置；另单列 4 个收录开源技能）
-- **技能总数**: 251 个（官方 + 本地）
+<!-- AUTO-SYNC-STATS-START -->
+- **官方技能（上游全量）**: 10,729 个（来自 6 个上游，自动爬取）
+- **本地技能（精选策展）**: 83 个
+- **搜索索引（skills.json）**: 265 个
+<!-- AUTO-SYNC-STATS-END -->
 - **备份覆盖率**: 100%（75个压缩包，完整备份）
-- **自动更新**: 每日自动抓取 6 个上游仓库 + 热门技能榜单
+- **自动更新**: 每日自动抓取 6 个上游仓库 + 热门技能榜单（GitHub Search API 实时抓取，按 Star / 近期活跃排序）
 
 ## 🌟 核心特性
 
 ### 🤖 自动更新
-每日自动爬取 **6 个上游仓库**（OpenAI Skills、VoltAgent Awesome Agent Skills、Awesome DSH Plugin、Matt Pocock Skills、VoltAgent Awesome DESIGN.md、Narcooo/inkos）以及热门技能榜单，确保技能库始终保持最新状态。
+每日自动爬取 **6 个上游仓库**（OpenAI Skills、VoltAgent Awesome Agent Skills、Awesome DSH Plugin、Matt Pocock Skills、VoltAgent Awesome DESIGN.md、Narcooo/inkos），并通过 GitHub Search API 实时抓取「热门技能榜单」（按 Star / 近期活跃排序），确保技能库始终保持最新状态。
 
 ### 📦 双重技能库
-- **官方技能**：182个来自Anthropic、Vercel、Cloudflare、Google Labs、Hugging Face等顶级团队
-- **本地技能**：69个精选中文技能，涵盖内容创作、视频制作、电商营销等垂直领域
+- **官方技能**：6 个上游自动爬取（OpenAI Skills / VoltAgent / Matt Pocock / Awesome DSH Plugin / VoltAgent DESIGN.md / Narcooo-inkos），真实计数见「📊 统计数据」
+- **本地技能**：83 个精选中文技能，涵盖内容创作、视频制作、电商营销等垂直领域
 
 ### 🏷️ 智能分类
 按照功能、来源、Star数量等多维度标签进行分类整理。
@@ -57,7 +59,7 @@
 - **Better Auth** (3个) - best-practices, commands, create-auth
 - **其他团队** - Tinybird, Remotion, Inngest 等
 
-## 💾 本地技能库（69个）
+## 💾 本地技能库（83 个）
 
 ### 📝 内容创作与发布（10个）
 - **content-creation-publisher** ⭐⭐⭐⭐⭐ - 内容创作与发布全流程
