@@ -67,3 +67,7 @@ skills_export.csv
 # Data (可选：如果不想提交数据文件)
 # data/skills.json
 # data/last_update.txt
+
+# 本地开放平台投稿工作区(不入库)
+open-platform-zips/
+*开放平台*.md

@@ -111,12 +111,13 @@
 - **agentkit-multimedia-shopping** ⭐⭐ - 多媒体带货视频
 - **srt-whiteboard-animation** ⭐⭐⭐⭐ - 输入 .srt 字幕，输出笔迹跟随旁白的白板手绘动画 MP4（分镜→线稿→标注→分区→逐幕渲染→合成，预览台免代码拖拽调整）
 
-### 📄 文档与分析（5个）
+### 📄 文档与分析（6个）
 - **paper-analysis-assistant** ⭐⭐⭐⭐ - arXiv论文分析
 - **contract-review** ⭐⭐⭐ - 合同审核
 - **law-to-markdown** ⭐⭐ - 法律文档转换
 - **stock-analysis** ⭐⭐⭐ - 股票个股分析
 - **ontoly-software-graph** ⭐⭐⭐⭐ - 基于 Ontoly Software Graph 的架构审查、请求追踪、依赖分析与影响分析
+- **data-flow-skill** ⭐⭐⭐ - 数据分析全流程：类型检测/预处理/统计/可视化/报告与幻灯片生成
 
 ### 🤝 智能体协作（7个）
 - **agent-team** ⭐⭐⭐ - 智能体团队协作

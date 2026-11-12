@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "total_skills": 83,
+    "total_skills": 84,
     "core_skills": 26,
     "sub_skills": 30,
     "system_builtin": 6,
@@ -86,13 +86,14 @@
       ]
     },
     "文档与分析": {
-      "count": 5,
+      "count": 6,
       "skills": [
         "paper-analysis-assistant",
         "contract-review",
         "law-to-markdown",
         "stock-analysis",
-        "ontoly-software-graph"
+        "ontoly-software-graph",
+        "data-flow-skill"
       ]
     },
     "智能体协作": {
