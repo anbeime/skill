@@ -1,55 +1,20 @@
 {
   "skills": [
     {
-      "name": "morluto/rea",
-      "description": "Reverse engineer anything with agents, from app behavior down to native binaries.",
-      "link": "https://github.com/morluto/rea",
-      "category": "Web Design",
-      "source": "github-trending",
-      "stars": 453067,
-      "forks": 111383,
-      "language": "TypeScript",
-      "topics": [
-        "agent-skills",
-        "ai",
-        "android",
-        "claude-code",
-        "cli",
-        "cpp",
-        "dsh-plugin",
-        "html",
-        "java",
-        "javascript",
-        "linux",
-        "mcp",
-        "nodejs",
-        "python",
-        "rea",
-        "react",
-        "rust",
-        "security",
-        "touhou",
-        "typescript"
-      ],
-      "pushed_at": "2026-11-12T02:45:58Z",
-      "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.649560"
-    },
-    {
       "name": "anthropics/skills",
       "description": "Public repository for Agent Skills",
       "link": "https://github.com/anthropics/skills",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 193216,
-      "forks": 22735,
+      "stars": 193233,
+      "forks": 22737,
       "language": "Python",
       "topics": [
         "agent-skills"
       ],
       "pushed_at": "2026-11-06T22:32:32Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.649606"
+      "crawled_at": "2026-11-12T11:52:49.663778"
     },
     {
       "name": "DietrichGebert/ponytail",
@@ -57,8 +22,8 @@
       "link": "https://github.com/DietrichGebert/ponytail",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 189231,
-      "forks": 10526,
+      "stars": 189242,
+      "forks": 10527,
       "language": "JavaScript",
       "topics": [
         "agent-skills",
@@ -74,7 +39,7 @@
       ],
       "pushed_at": "2026-10-29T11:59:31Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.649636"
+      "crawled_at": "2026-11-12T11:52:49.663842"
     },
     {
       "name": "thedotmack/claude-mem",
@@ -82,8 +47,8 @@
       "link": "https://github.com/thedotmack/claude-mem",
       "category": "Image Generation",
       "source": "github-trending",
-      "stars": 116281,
-      "forks": 10090,
+      "stars": 116291,
+      "forks": 10091,
       "language": "TypeScript",
       "topics": [
         "ai",
@@ -107,9 +72,9 @@
         "sqlite",
         "supermemory"
       ],
-      "pushed_at": "2026-11-12T03:27:24Z",
+      "pushed_at": "2026-11-12T03:36:55Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.208974"
+      "crawled_at": "2026-11-12T11:52:47.308441"
     },
     {
       "name": "addyosmani/agent-skills",
@@ -117,7 +82,7 @@
       "link": "https://github.com/addyosmani/agent-skills",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 116043,
+      "stars": 116057,
       "forks": 12170,
       "language": "JavaScript",
       "topics": [
@@ -130,7 +95,7 @@
       ],
       "pushed_at": "2026-11-01T19:24:49Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.649655"
+      "crawled_at": "2026-11-12T11:52:49.663866"
     },
     {
       "name": "Leonxlnx/taste-skill",
@@ -138,8 +103,8 @@
       "link": "https://github.com/Leonxlnx/taste-skill",
       "category": "Image Generation",
       "source": "github-trending",
-      "stars": 113665,
-      "forks": 7650,
+      "stars": 113681,
+      "forks": 7651,
       "language": "JavaScript",
       "topics": [
         "agent-skills",
@@ -156,7 +121,7 @@
       ],
       "pushed_at": "2026-11-08T21:51:50Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.649669"
+      "crawled_at": "2026-11-12T11:52:49.663883"
     },
     {
       "name": "paperclipai/paperclip",
@@ -164,8 +129,8 @@
       "link": "https://github.com/paperclipai/paperclip",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 113214,
-      "forks": 18797,
+      "stars": 113217,
+      "forks": 18795,
       "language": "TypeScript",
       "topics": [
         "acpx",
@@ -189,9 +154,9 @@
         "project-management",
         "workflow-automation"
       ],
-      "pushed_at": "2026-11-12T03:27:56Z",
+      "pushed_at": "2026-11-12T03:49:57Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209031"
+      "crawled_at": "2026-11-12T11:52:47.308501"
     },
     {
       "name": "nexu-io/open-design",
@@ -199,7 +164,7 @@
       "link": "https://github.com/nexu-io/open-design",
       "category": "Image Generation",
       "source": "github-trending",
-      "stars": 107236,
+      "stars": 107240,
       "forks": 12193,
       "language": "TypeScript",
       "topics": [
@@ -226,7 +191,7 @@
       ],
       "pushed_at": "2026-11-12T01:14:12Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.649703"
+      "crawled_at": "2026-11-12T11:52:49.663918"
     },
     {
       "name": "tt-a1i/archify",
@@ -234,7 +199,7 @@
       "link": "https://github.com/tt-a1i/archify",
       "category": "Image Generation",
       "source": "github-trending",
-      "stars": 95681,
+      "stars": 95689,
       "forks": 6541,
       "language": "JavaScript",
       "topics": [
@@ -259,9 +224,9 @@
         "system-design",
         "visualization"
       ],
-      "pushed_at": "2026-11-12T02:31:21Z",
+      "pushed_at": "2026-11-12T03:36:28Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209053"
+      "crawled_at": "2026-11-12T11:52:47.308519"
     },
     {
       "name": "Egonex-AI/Understand-Anything",
@@ -269,7 +234,7 @@
       "link": "https://github.com/Egonex-AI/Understand-Anything",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 92198,
+      "stars": 92199,
       "forks": 7864,
       "language": "TypeScript",
       "topics": [
@@ -293,7 +258,7 @@
       ],
       "pushed_at": "2026-11-11T04:34:25Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209078"
+      "crawled_at": "2026-11-12T11:52:47.308545"
     },
     {
       "name": "career-ops-hq/career-ops",
@@ -301,8 +266,8 @@
       "link": "https://github.com/career-ops-hq/career-ops",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 82017,
-      "forks": 15055,
+      "stars": 82022,
+      "forks": 15056,
       "language": "JavaScript",
       "topics": [
         "agent-skills",
@@ -326,9 +291,9 @@
         "open-source",
         "resume"
       ],
-      "pushed_at": "2026-11-12T03:02:49Z",
+      "pushed_at": "2026-11-12T03:48:08Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.649749"
+      "crawled_at": "2026-11-12T11:52:49.663969"
     },
     {
       "name": "ComposioHQ/awesome-claude-skills",
@@ -336,8 +301,8 @@
       "link": "https://github.com/ComposioHQ/awesome-claude-skills",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 79293,
-      "forks": 9664,
+      "stars": 79296,
+      "forks": 9666,
       "language": "Python",
       "topics": [
         "agent-skills",
@@ -360,7 +325,7 @@
       ],
       "pushed_at": "2026-09-18T07:16:11Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.649776"
+      "crawled_at": "2026-11-12T11:52:49.663999"
     },
     {
       "name": "code-yeongyu/oh-my-openagent",
@@ -388,9 +353,9 @@
         "tui",
         "typescript"
       ],
-      "pushed_at": "2026-11-12T03:27:13Z",
+      "pushed_at": "2026-11-12T03:49:45Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209086"
+      "crawled_at": "2026-11-12T11:52:47.308553"
     },
     {
       "name": "blader/humanizer",
@@ -398,8 +363,8 @@
       "link": "https://github.com/blader/humanizer",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 68046,
-      "forks": 5343,
+      "stars": 68063,
+      "forks": 5344,
       "language": "Python",
       "topics": [
         "agent-skills",
@@ -418,7 +383,7 @@
       ],
       "pushed_at": "2026-11-10T01:35:15Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.649799"
+      "crawled_at": "2026-11-12T11:52:49.664026"
     },
     {
       "name": "cathrynlavery/diagram-design",
@@ -426,7 +391,7 @@
       "link": "https://github.com/cathrynlavery/diagram-design",
       "category": "Image Generation",
       "source": "github-trending",
-      "stars": 66566,
+      "stars": 66571,
       "forks": 4426,
       "language": "HTML",
       "topics": [
@@ -441,7 +406,7 @@
       ],
       "pushed_at": "2026-11-10T22:44:09Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.649818"
+      "crawled_at": "2026-11-12T11:52:49.664045"
     },
     {
       "name": "ayghri/i-have-adhd",
@@ -449,8 +414,8 @@
       "link": "https://github.com/ayghri/i-have-adhd",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 60902,
-      "forks": 3563,
+      "stars": 60906,
+      "forks": 3564,
       "language": "Python",
       "topics": [
         "adhd",
@@ -462,7 +427,7 @@
       ],
       "pushed_at": "2026-10-19T19:46:23Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209098"
+      "crawled_at": "2026-11-12T11:52:47.308565"
     },
     {
       "name": "coreyhaines31/marketingskills",
@@ -470,7 +435,7 @@
       "link": "https://github.com/coreyhaines31/marketingskills",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 59804,
+      "stars": 59807,
       "forks": 8737,
       "language": "JavaScript",
       "topics": [
@@ -497,7 +462,7 @@
       ],
       "pushed_at": "2026-11-11T17:49:23Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209117"
+      "crawled_at": "2026-11-12T11:52:47.308585"
     },
     {
       "name": "hesreallyhim/awesome-claude-code",
@@ -505,8 +470,8 @@
       "link": "https://github.com/hesreallyhim/awesome-claude-code",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 57799,
-      "forks": 4937,
+      "stars": 57803,
+      "forks": 4938,
       "language": "Python",
       "topics": [
         "agent-skills",
@@ -531,7 +496,7 @@
       ],
       "pushed_at": "2026-11-12T03:07:40Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.649862"
+      "crawled_at": "2026-11-12T11:52:49.664096"
     },
     {
       "name": "K-Dense-AI/scientific-agent-skills",
@@ -539,7 +504,7 @@
       "link": "https://github.com/K-Dense-AI/scientific-agent-skills",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 56855,
+      "stars": 56857,
       "forks": 4990,
       "language": "Python",
       "topics": [
@@ -563,7 +528,7 @@
       ],
       "pushed_at": "2026-11-09T09:17:48Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209143"
+      "crawled_at": "2026-11-12T11:52:47.308609"
     },
     {
       "name": "emilkowalski/skills",
@@ -571,8 +536,8 @@
       "link": "https://github.com/emilkowalski/skills",
       "category": "Web Design",
       "source": "github-trending",
-      "stars": 56174,
-      "forks": 3280,
+      "stars": 56178,
+      "forks": 3281,
       "language": "Markdown",
       "topics": [
         "agent-skills",
@@ -584,7 +549,7 @@
       ],
       "pushed_at": "2026-11-11T23:30:13Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.649877"
+      "crawled_at": "2026-11-12T11:52:49.664113"
     },
     {
       "name": "VoltAgent/awesome-openclaw-skills",
@@ -592,7 +557,7 @@
       "link": "https://github.com/VoltAgent/awesome-openclaw-skills",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 53699,
+      "stars": 53700,
       "forks": 5068,
       "language": "",
       "topics": [
@@ -611,7 +576,7 @@
       ],
       "pushed_at": "2026-10-30T13:21:07Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.649966"
+      "crawled_at": "2026-11-12T11:52:49.664203"
     },
     {
       "name": "CherryHQ/cherry-studio",
@@ -619,7 +584,7 @@
       "link": "https://github.com/CherryHQ/cherry-studio",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 53442,
+      "stars": 53440,
       "forks": 5211,
       "language": "TypeScript",
       "topics": [
@@ -637,7 +602,7 @@
       ],
       "pushed_at": "2026-11-12T03:21:36Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.649993"
+      "crawled_at": "2026-11-12T11:52:49.664233"
     },
     {
       "name": "sickn33/agentic-awesome-skills",
@@ -645,7 +610,7 @@
       "link": "https://github.com/sickn33/agentic-awesome-skills",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 49565,
+      "stars": 49566,
       "forks": 7181,
       "language": "Python",
       "topics": [
@@ -672,7 +637,7 @@
       ],
       "pushed_at": "2026-11-12T03:13:59Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.430648"
+      "crawled_at": "2026-11-12T11:52:48.502123"
     },
     {
       "name": "reactive-resume/reactive-resume",
@@ -680,7 +645,7 @@
       "link": "https://github.com/reactive-resume/reactive-resume",
       "category": "Web Design",
       "source": "github-trending",
-      "stars": 45642,
+      "stars": 45643,
       "forks": 4949,
       "language": "TypeScript",
       "topics": [
@@ -697,7 +662,7 @@
       ],
       "pushed_at": "2026-11-11T20:51:59Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.650019"
+      "crawled_at": "2026-11-12T11:52:49.664263"
     },
     {
       "name": "wshobson/agents",
@@ -705,7 +670,7 @@
       "link": "https://github.com/wshobson/agents",
       "category": "Document Parsing",
       "source": "github-trending",
-      "stars": 42426,
+      "stars": 42428,
       "forks": 4486,
       "language": "Python",
       "topics": [
@@ -732,7 +697,7 @@
       ],
       "pushed_at": "2026-11-09T01:08:33Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209153"
+      "crawled_at": "2026-11-12T11:52:47.308619"
     },
     {
       "name": "github/awesome-copilot",
@@ -740,7 +705,7 @@
       "link": "https://github.com/github/awesome-copilot",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 41054,
+      "stars": 41057,
       "forks": 5340,
       "language": "JavaScript",
       "topics": [
@@ -755,7 +720,7 @@
       ],
       "pushed_at": "2026-11-12T00:23:39Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:17.650041"
+      "crawled_at": "2026-11-12T11:52:49.664288"
     },
     {
       "name": "alchaincyf/nuwa-skill",
@@ -763,7 +728,7 @@
       "link": "https://github.com/alchaincyf/nuwa-skill",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 38075,
+      "stars": 38077,
       "forks": 4882,
       "language": "Python",
       "topics": [
@@ -790,7 +755,7 @@
       ],
       "pushed_at": "2026-11-10T00:41:13Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209182"
+      "crawled_at": "2026-11-12T11:52:47.308654"
     },
     {
       "name": "VoltAgent/awesome-agent-skills",
@@ -798,7 +763,7 @@
       "link": "https://github.com/VoltAgent/awesome-agent-skills",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 37102,
+      "stars": 37103,
       "forks": 4110,
       "language": "",
       "topics": [
@@ -817,7 +782,7 @@
       ],
       "pushed_at": "2026-11-05T10:43:36Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209197"
+      "crawled_at": "2026-11-12T11:52:47.308669"
     },
     {
       "name": "nanocoai/nanoclaw",
@@ -837,7 +802,7 @@
       ],
       "pushed_at": "2026-11-11T18:36:17Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209211"
+      "crawled_at": "2026-11-12T11:52:47.308684"
     },
     {
       "name": "alirezarezvani/claude-skills",
@@ -845,7 +810,7 @@
       "link": "https://github.com/alirezarezvani/claude-skills",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 29664,
+      "stars": 29668,
       "forks": 4117,
       "language": "Python",
       "topics": [
@@ -872,7 +837,7 @@
       ],
       "pushed_at": "2026-11-11T06:17:50Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209249"
+      "crawled_at": "2026-11-12T11:52:47.308721"
     },
     {
       "name": "alchaincyf/huashu-design",
@@ -880,7 +845,7 @@
       "link": "https://github.com/alchaincyf/huashu-design",
       "category": "Web Design",
       "source": "github-trending",
-      "stars": 29265,
+      "stars": 29266,
       "forks": 3142,
       "language": "HTML",
       "topics": [
@@ -907,7 +872,7 @@
       ],
       "pushed_at": "2026-11-10T00:16:14Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209271"
+      "crawled_at": "2026-11-12T11:52:47.308743"
     },
     {
       "name": "OthmanAdi/planning-with-files",
@@ -942,7 +907,7 @@
       ],
       "pushed_at": "2026-11-11T20:55:30Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209283"
+      "crawled_at": "2026-11-12T11:52:47.308755"
     },
     {
       "name": "JimLiu/baoyu-skills",
@@ -950,7 +915,7 @@
       "link": "https://github.com/JimLiu/baoyu-skills",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 27472,
+      "stars": 27475,
       "forks": 2996,
       "language": "TypeScript",
       "topics": [
@@ -961,7 +926,7 @@
       ],
       "pushed_at": "2026-11-06T17:20:33Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209293"
+      "crawled_at": "2026-11-12T11:52:47.308765"
     },
     {
       "name": "titanwings/distilly",
@@ -995,42 +960,7 @@
       ],
       "pushed_at": "2026-10-13T05:57:17Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209316"
-    },
-    {
-      "name": "nocobase/nocobase",
-      "description": "NocoBase is the open-source platform for building, running, and evolving business systems with AI. Agents write the code and do the work, NocoBase provides the foundation and governance, and people make the decisions.",
-      "link": "https://github.com/nocobase/nocobase",
-      "category": "Web Design",
-      "source": "github-trending",
-      "stars": 24897,
-      "forks": 2959,
-      "language": "TypeScript",
-      "topics": [
-        "admin-dashboard",
-        "agent-skills",
-        "agentic-ai",
-        "ai-agent",
-        "ai-agents",
-        "ai-governance",
-        "claude-code",
-        "codex",
-        "crm",
-        "crud",
-        "erp",
-        "internal-tools",
-        "low-code",
-        "no-code",
-        "opencode",
-        "rbac",
-        "self-hosted",
-        "vibe-coding",
-        "workflow-engine",
-        "workflows"
-      ],
-      "pushed_at": "2026-11-12T03:27:48Z",
-      "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.861936"
+      "crawled_at": "2026-11-12T11:52:47.308788"
     },
     {
       "name": "latent-spaces/brag",
@@ -1038,7 +968,7 @@
       "link": "https://github.com/latent-spaces/brag",
       "category": "Image Generation",
       "source": "github-trending",
-      "stars": 21118,
+      "stars": 21119,
       "forks": 1639,
       "language": "Python",
       "topics": [
@@ -1051,7 +981,7 @@
       ],
       "pushed_at": "2026-10-23T21:18:13Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209324"
+      "crawled_at": "2026-11-12T11:52:47.308797"
     },
     {
       "name": "teng-lin/notebooklm-py",
@@ -1080,7 +1010,7 @@
       ],
       "pushed_at": "2026-11-08T22:05:28Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209346"
+      "crawled_at": "2026-11-12T11:52:47.308818"
     },
     {
       "name": "Vincentwei1021/video-shotcraft",
@@ -1088,7 +1018,7 @@
       "link": "https://github.com/Vincentwei1021/video-shotcraft",
       "category": "Image Generation",
       "source": "github-trending",
-      "stars": 18805,
+      "stars": 18810,
       "forks": 1778,
       "language": "TypeScript",
       "topics": [
@@ -1109,7 +1039,7 @@
       ],
       "pushed_at": "2026-11-11T16:30:35Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209365"
+      "crawled_at": "2026-11-12T11:52:47.308837"
     },
     {
       "name": "google/elephant-goldfish-model",
@@ -1117,8 +1047,8 @@
       "link": "https://github.com/google/elephant-goldfish-model",
       "category": "Web Design",
       "source": "github-trending",
-      "stars": 17715,
-      "forks": 1323,
+      "stars": 17717,
+      "forks": 1324,
       "language": "Python",
       "topics": [
         "agent-skills",
@@ -1140,7 +1070,7 @@
       ],
       "pushed_at": "2026-11-12T03:03:12Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209377"
+      "crawled_at": "2026-11-12T11:52:47.308850"
     },
     {
       "name": "nidhinjs/prompt-master",
@@ -1159,7 +1089,7 @@
       ],
       "pushed_at": "2026-10-22T13:26:18Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209389"
+      "crawled_at": "2026-11-12T11:52:47.308861"
     },
     {
       "name": "travisvn/awesome-claude-skills",
@@ -1185,7 +1115,7 @@
       ],
       "pushed_at": "2026-04-28T19:30:24Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209403"
+      "crawled_at": "2026-11-12T11:52:47.308877"
     },
     {
       "name": "yusufkaraaslan/Skill_Seekers",
@@ -1218,7 +1148,7 @@
       ],
       "pushed_at": "2026-09-30T18:49:17Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209410"
+      "crawled_at": "2026-11-12T11:52:47.308884"
     },
     {
       "name": "NevaMind-AI/memU",
@@ -1243,42 +1173,7 @@
       ],
       "pushed_at": "2026-11-10T12:22:11Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:15.209421"
-    },
-    {
-      "name": "aipoch/open-science",
-      "description": "The open-source AI research workbench for scientific research and agent workflows. Local-first, model-agnostic desktop app with extensible skills, MCP tools and connectors, Python/R execution and traceable artifacts for reproducible research on macOS, Windows and Linux.",
-      "link": "https://github.com/aipoch/open-science",
-      "category": "Image Generation",
-      "source": "github-trending",
-      "stars": 5517,
-      "forks": 555,
-      "language": "TypeScript",
-      "topics": [
-        "agent-skills",
-        "ai-agent",
-        "ai-for-science",
-        "ai-research",
-        "ai-research-workbench",
-        "ai-workbench",
-        "desktop-app",
-        "local-first",
-        "mcp",
-        "model-agnostic",
-        "open-science",
-        "open-source",
-        "reproducible-research",
-        "research-tools",
-        "science",
-        "science-agent",
-        "science-package",
-        "scientific-ai",
-        "scientific-computing",
-        "scientific-research"
-      ],
-      "pushed_at": "2026-11-12T03:24:01Z",
-      "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.862012"
+      "crawled_at": "2026-11-12T11:52:47.308896"
     },
     {
       "name": "ciembor/agent-rules-books",
@@ -1312,41 +1207,7 @@
       ],
       "pushed_at": "2026-09-10T11:21:47Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.430718"
-    },
-    {
-      "name": "shinyobjectz/raea",
-      "description": "Render Anything Engine: tell your AI what to make. Videos, motion graphics, 3D and games as React and TypeScript, rendered on your own GPU. Rust + Bevy, macOS, Linux and Windows.",
-      "link": "https://github.com/shinyobjectz/raea",
-      "category": "Image Generation",
-      "source": "github-trending",
-      "stars": 2176,
-      "forks": 154,
-      "language": "TypeScript",
-      "topics": [
-        "3d",
-        "agent-skills",
-        "ai-agents",
-        "ai-video",
-        "bevy",
-        "claude-code",
-        "game-engine",
-        "gpu",
-        "linux",
-        "macos",
-        "motion-design",
-        "motion-graphics",
-        "react",
-        "rust",
-        "typescript",
-        "video-editing",
-        "video-rendering",
-        "wgpu",
-        "windows"
-      ],
-      "pushed_at": "2026-11-12T03:19:58Z",
-      "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.862226"
+      "crawled_at": "2026-11-12T11:52:48.502163"
     },
     {
       "name": "zanwei/design-dna",
@@ -1371,7 +1232,7 @@
       ],
       "pushed_at": "2026-08-28T01:58:49Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.430767"
+      "crawled_at": "2026-11-12T11:52:48.502188"
     },
     {
       "name": "dpearson2699/swift-ios-skills",
@@ -1406,7 +1267,7 @@
       ],
       "pushed_at": "2026-07-31T20:22:45Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.430799"
+      "crawled_at": "2026-11-12T11:52:48.502204"
     },
     {
       "name": "repowise-dev/claude-code-prompts",
@@ -1435,7 +1296,7 @@
       ],
       "pushed_at": "2026-05-11T16:20:18Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.430859"
+      "crawled_at": "2026-11-12T11:52:48.502237"
     },
     {
       "name": "ayi-ai/nie-grassroots-logic",
@@ -1455,7 +1316,7 @@
       ],
       "pushed_at": "2026-08-10T13:45:22Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.430889"
+      "crawled_at": "2026-11-12T11:52:48.502253"
     },
     {
       "name": "mxyhi/ok-skills",
@@ -1486,7 +1347,7 @@
       ],
       "pushed_at": "2026-11-08T09:39:25Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.430923"
+      "crawled_at": "2026-11-12T11:52:48.502270"
     },
     {
       "name": "jabrena/plinth",
@@ -1520,7 +1381,7 @@
       ],
       "pushed_at": "2026-11-11T21:44:07Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.430953"
+      "crawled_at": "2026-11-12T11:52:48.502289"
     },
     {
       "name": "guiguiyan930-source/game-ui-design-workflow",
@@ -1542,7 +1403,7 @@
       ],
       "pushed_at": "2026-08-05T02:53:33Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.430982"
+      "crawled_at": "2026-11-12T11:52:48.502304"
     },
     {
       "name": "testdino-hq/playwright-skill",
@@ -1570,7 +1431,7 @@
       ],
       "pushed_at": "2026-10-12T07:23:03Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.431007"
+      "crawled_at": "2026-11-12T11:52:48.502316"
     },
     {
       "name": "MarcoNasi/AI-Skills",
@@ -1598,7 +1459,7 @@
       ],
       "pushed_at": "2026-09-25T06:19:08Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.431039"
+      "crawled_at": "2026-11-12T11:52:48.502330"
     },
     {
       "name": "arvindrk/extract-design-system",
@@ -1633,7 +1494,7 @@
       ],
       "pushed_at": "2026-09-05T00:23:05Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.431073"
+      "crawled_at": "2026-11-12T11:52:48.502347"
     },
     {
       "name": "seb1n/awesome-ai-agent-skills",
@@ -1668,36 +1529,7 @@
       ],
       "pushed_at": "2026-08-09T22:29:16Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.431128"
-    },
-    {
-      "name": "jiabaobei/skills-constitution",
-      "description": "Skills Constitution — meta-rule governing all skill invocations across agent platforms",
-      "link": "https://github.com/jiabaobei/skills-constitution",
-      "category": "Development Tooling",
-      "source": "github-trending",
-      "stars": 235,
-      "forks": 8,
-      "language": "Python",
-      "topics": [
-        "agent-framework",
-        "agent-memory",
-        "agent-orchestration",
-        "agent-skill",
-        "agent-skills",
-        "agentic",
-        "agentic-workflow",
-        "agents",
-        "prompt-engineering",
-        "prompt-engineering-for-programmers",
-        "prompt-engineering-tool",
-        "skills",
-        "skills-assessment",
-        "skills-sh"
-      ],
-      "pushed_at": "2026-11-12T03:27:26Z",
-      "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.861748"
+      "crawled_at": "2026-11-12T11:52:48.502375"
     },
     {
       "name": "dembrandt/dembrandt-skills",
@@ -1731,7 +1563,7 @@
       ],
       "pushed_at": "2026-11-01T05:37:18Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.431155"
+      "crawled_at": "2026-11-12T11:52:48.502389"
     },
     {
       "name": "hqhq1025/skill-optimizer",
@@ -1765,7 +1597,7 @@
       ],
       "pushed_at": "2026-05-14T07:25:31Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.431190"
+      "crawled_at": "2026-11-12T11:52:48.502406"
     },
     {
       "name": "erfnzdeh/arvancloud-agent-skill",
@@ -1795,32 +1627,7 @@
       ],
       "pushed_at": "2026-09-28T13:35:13Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.431212"
-    },
-    {
-      "name": "trina-app/trina-ax",
-      "description": "Set up Claude Code once. Your whole company gets it. Self-hosted Claude Code and Codex with your company files, team skills, MCP and per-person folder permissions.",
-      "link": "https://github.com/trina-app/trina-ax",
-      "category": "Document Parsing",
-      "source": "github-trending",
-      "stars": 117,
-      "forks": 9,
-      "language": "TypeScript",
-      "topics": [
-        "agent-skills",
-        "ai-workspace",
-        "claude-code",
-        "codex",
-        "document-management",
-        "hwp",
-        "mcp",
-        "self-hosted",
-        "team-collaboration",
-        "typescript"
-      ],
-      "pushed_at": "2026-11-12T03:25:49Z",
-      "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.861768"
+      "crawled_at": "2026-11-12T11:52:48.502418"
     },
     {
       "name": "meshy-dev/meshy-3d-agent",
@@ -1845,7 +1652,7 @@
       ],
       "pushed_at": "2026-11-11T10:39:30Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.431226"
+      "crawled_at": "2026-11-12T11:52:48.502425"
     },
     {
       "name": "Jordanwei1/jiaojie-skill",
@@ -1880,36 +1687,42 @@
       ],
       "pushed_at": "2026-08-20T13:47:18Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.431270"
+      "crawled_at": "2026-11-12T11:52:48.502448"
     },
     {
-      "name": "the911fund/skill-of-skills",
-      "description": "The quality-ranked discovery engine for AI coding skills, plugins and MCP servers across Claude Code, Codex, Cursor, Windsurf, Cline and more.",
-      "link": "https://github.com/the911fund/skill-of-skills",
-      "category": "Development Tooling",
+      "name": "vmware-skills/VMware-AIops",
+      "description": "MCP server and CLI for VMware vCenter/ESXi VM lifecycle, deployment and guest operations. Part of the VMware Skills family; policy checks and audit logging.",
+      "link": "https://github.com/vmware-skills/VMware-AIops",
+      "category": "Image Generation",
       "source": "github-trending",
-      "stars": 84,
-      "forks": 24,
+      "stars": 87,
+      "forks": 11,
       "language": "Python",
       "topics": [
         "agent-skills",
-        "ai-agents",
-        "ai-tools",
+        "aiops",
         "automation",
         "claude-code",
-        "claude-skills",
         "codex",
-        "discovery-engine",
+        "devops",
+        "esxi",
+        "gemini-cli",
+        "gemini-cli-extension",
+        "homelab",
+        "infrastructure",
         "mcp",
-        "mcp-servers",
-        "n8n",
-        "open-source",
-        "plugins",
-        "skills"
+        "mcp-server",
+        "monitoring",
+        "python",
+        "pyvmomi",
+        "vcenter",
+        "vm-lifecycle",
+        "vmware",
+        "vsphere"
       ],
-      "pushed_at": "2026-11-12T03:25:05Z",
+      "pushed_at": "2026-11-12T03:48:39Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.861880"
+      "crawled_at": "2026-11-12T11:52:50.784214"
     },
     {
       "name": "Desko77/cursor-1c-skills",
@@ -1938,7 +1751,7 @@
       ],
       "pushed_at": "2026-11-05T04:43:07Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.431311"
+      "crawled_at": "2026-11-12T11:52:48.502469"
     },
     {
       "name": "xuliang2024/video_skills",
@@ -1963,7 +1776,36 @@
       ],
       "pushed_at": "2026-02-23T03:03:40Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.431333"
+      "crawled_at": "2026-11-12T11:52:48.502480"
+    },
+    {
+      "name": "ouxxyy/ouba-classmate",
+      "description": "一行安装的中文求职 Agent Skills 套件（岗位搜索/简历匹配/面试陪练/查公司）+《中文 AI 求职 Skill 公开横评》数据。Claude Code·Codex·MCP",
+      "link": "https://github.com/ouxxyy/ouba-classmate",
+      "category": "Image Generation",
+      "source": "github-trending",
+      "stars": 67,
+      "forks": 2,
+      "language": "Python",
+      "topics": [
+        "agent-skills",
+        "ai-video",
+        "benchmark",
+        "chinese",
+        "claude-code",
+        "claude-code-plugin",
+        "claude-skills",
+        "codex",
+        "dataset",
+        "employer-research",
+        "job-search",
+        "mcp",
+        "mock-interview",
+        "resume-matching"
+      ],
+      "pushed_at": "2026-11-12T03:51:51Z",
+      "trending": true,
+      "crawled_at": "2026-11-12T11:52:50.783655"
     },
     {
       "name": "jin-s13/ai-research-writing-skill",
@@ -1992,7 +1834,7 @@
       ],
       "pushed_at": "2026-10-18T18:26:20Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.431385"
+      "crawled_at": "2026-11-12T11:52:48.502506"
     },
     {
       "name": "UseOSINT/Skills",
@@ -2027,7 +1869,7 @@
       ],
       "pushed_at": "2026-08-03T00:38:10Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.431435"
+      "crawled_at": "2026-11-12T11:52:48.502532"
     },
     {
       "name": "lintsinghua/paint-mv-skills",
@@ -2058,99 +1900,308 @@
       ],
       "pushed_at": "2026-09-29T08:30:01Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:16.431454"
+      "crawled_at": "2026-11-12T11:52:48.502542"
     },
     {
-      "name": "fantuan-lab/animated-sticker-studio",
-      "description": "One character image → a full pack of animated chat stickers (WeChat / Telegram / LINE / Discord). Claude Code & Codex skill · 给 AI 一张图，做一整套会动的表情包",
-      "link": "https://github.com/fantuan-lab/animated-sticker-studio",
-      "category": "Image Generation",
+      "name": "vmware-skills/VMware-Monitor",
+      "description": "MCP server and CLI for read-only VMware vCenter/ESXi health triage, inventory, alarms and evidence-based VM, host and datastore investigation.",
+      "link": "https://github.com/vmware-skills/VMware-Monitor",
+      "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 50,
-      "forks": 7,
+      "stars": 18,
+      "forks": 5,
       "language": "Python",
       "topics": [
         "agent-skills",
-        "ai-art",
-        "animated-stickers",
+        "ai-skill",
+        "aiops",
         "claude-code",
-        "claude-skills",
         "codex",
-        "gif",
-        "image-generation",
-        "line-stickers",
-        "sticker",
-        "stickers",
-        "telegram-stickers",
-        "wechat"
+        "esxi",
+        "gemini-cli",
+        "gemini-cli-extension",
+        "homelab",
+        "infrastructure",
+        "mcp",
+        "mcp-server",
+        "monitoring",
+        "python",
+        "pyvmomi",
+        "read-only",
+        "vcenter",
+        "vmware",
+        "vsphere"
       ],
-      "pushed_at": "2026-11-12T03:25:12Z",
+      "pushed_at": "2026-11-12T03:48:27Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.861820"
+      "crawled_at": "2026-11-12T11:52:50.784254"
     },
     {
-      "name": "avalonreset/avalonreset",
-      "description": "avalonreset: Sovereign AI agent engineering & open-source cto-legends ecosystem (1 master router + 21 on-demand capability modules)",
-      "link": "https://github.com/avalonreset/avalonreset",
+      "name": "vmware-skills/VMware-NSX",
+      "description": "MCP server and CLI for VMware NSX networking: segments, gateways, NAT, BGP, routes, IP pools and fabric health.",
+      "link": "https://github.com/vmware-skills/VMware-NSX",
       "category": "Development Tooling",
       "source": "github-trending",
-      "stars": 2,
+      "stars": 5,
       "forks": 0,
       "language": "Python",
       "topics": [
         "agent-skills",
-        "ai-agents",
-        "astro",
-        "automation",
+        "ai-skill",
         "claude-code",
-        "cli",
-        "cloudflare",
         "codex",
-        "coolify",
-        "cto-legends",
-        "dataforseo",
-        "developer-tools",
         "gemini-cli",
-        "hetzner",
-        "local-seo",
+        "gemini-cli-extension",
         "mcp",
-        "obsidian-vault",
-        "open-source",
-        "python-cli",
-        "technical-seo"
+        "mcp-server",
+        "networking",
+        "nsx",
+        "nsx-t",
+        "python",
+        "sdn",
+        "vmware",
+        "vsphere"
       ],
-      "pushed_at": "2026-11-12T03:20:42Z",
+      "pushed_at": "2026-11-12T03:49:53Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.862149"
+      "crawled_at": "2026-11-12T11:52:50.783976"
     },
     {
-      "name": "178inaba/atlio",
-      "description": "Confluence Cloud CLI for AI coding agents: read and update page bodies through local files, losslessly, without the body passing through the model.",
-      "link": "https://github.com/178inaba/atlio",
+      "name": "vmware-skills/VMware-VKS",
+      "description": "MCP server and CLI for VMware Supervisor and VKS Kubernetes lifecycle, namespace, ClusterClass and kubeconfig workflows.",
+      "link": "https://github.com/vmware-skills/VMware-VKS",
+      "category": "Development Tooling",
+      "source": "github-trending",
+      "stars": 5,
+      "forks": 1,
+      "language": "Python",
+      "topics": [
+        "agent-skills",
+        "ai-skill",
+        "claude-code",
+        "codex",
+        "gemini-cli",
+        "gemini-cli-extension",
+        "kubernetes",
+        "mcp",
+        "mcp-server",
+        "python",
+        "supervisor",
+        "tanzu",
+        "tkc",
+        "vmware",
+        "vsphere"
+      ],
+      "pushed_at": "2026-11-12T03:51:14Z",
+      "trending": true,
+      "crawled_at": "2026-11-12T11:52:50.783770"
+    },
+    {
+      "name": "vmware-skills/VMware-Harden",
+      "description": "MCP server and CLI for VMware compliance baseline scans, vulnerability evidence and drift analysis; remediation suggestions with separate execution workflows.",
+      "link": "https://github.com/vmware-skills/VMware-Harden",
+      "category": "Development Tooling",
+      "source": "github-trending",
+      "stars": 4,
+      "forks": 0,
+      "language": "Python",
+      "topics": [
+        "agent-skills",
+        "automation",
+        "cis-benchmark",
+        "claude-code",
+        "codex",
+        "compliance",
+        "disa-stig",
+        "drift-detection",
+        "esxi",
+        "gemini-cli",
+        "gemini-cli-extension",
+        "hardening",
+        "homelab",
+        "infrastructure",
+        "mcp",
+        "mcp-server",
+        "pci-dss",
+        "python",
+        "vmware",
+        "vsphere"
+      ],
+      "pushed_at": "2026-11-12T03:49:30Z",
+      "trending": true,
+      "crawled_at": "2026-11-12T11:52:50.784081"
+    },
+    {
+      "name": "vmware-skills/VMware-NSX-Security",
+      "description": "MCP server and CLI for VMware NSX/vDefend firewall policies, security groups, microsegmentation, Traceflow and IDPS operations.",
+      "link": "https://github.com/vmware-skills/VMware-NSX-Security",
+      "category": "Development Tooling",
+      "source": "github-trending",
+      "stars": 4,
+      "forks": 0,
+      "language": "Python",
+      "topics": [
+        "agent-skills",
+        "ai-skill",
+        "claude-code",
+        "codex",
+        "dfw",
+        "firewall",
+        "gemini-cli",
+        "gemini-cli-extension",
+        "mcp",
+        "mcp-server",
+        "nsx",
+        "python",
+        "security",
+        "vmware",
+        "vsphere"
+      ],
+      "pushed_at": "2026-11-12T03:50:10Z",
+      "trending": true,
+      "crawled_at": "2026-11-12T11:52:50.783948"
+    },
+    {
+      "name": "vmware-skills/VMware-Pilot",
+      "description": "MCP server and CLI for VMware multi-skill workflows: planning, checkpoints, write-step confirmation, audit and best-effort rollback.",
+      "link": "https://github.com/vmware-skills/VMware-Pilot",
+      "category": "Development Tooling",
+      "source": "github-trending",
+      "stars": 4,
+      "forks": 0,
+      "language": "Python",
+      "topics": [
+        "agent-skills",
+        "gemini-cli-extension",
+        "mcp",
+        "mcp-server",
+        "python",
+        "vmware",
+        "vsphere"
+      ],
+      "pushed_at": "2026-11-12T03:50:23Z",
+      "trending": true,
+      "crawled_at": "2026-11-12T11:52:50.783873"
+    },
+    {
+      "name": "vmware-skills/VMware-Aria",
+      "description": "MCP server and CLI for VMware Aria Operations metrics, alerts, capacity, rightsizing and operational workflows.",
+      "link": "https://github.com/vmware-skills/VMware-Aria",
+      "category": "Development Tooling",
+      "source": "github-trending",
+      "stars": 3,
+      "forks": 3,
+      "language": "Python",
+      "topics": [
+        "agent-skills",
+        "ai-skill",
+        "aria",
+        "automation",
+        "claude-code",
+        "codex",
+        "gemini-cli",
+        "gemini-cli-extension",
+        "mcp",
+        "mcp-server",
+        "metrics",
+        "monitoring",
+        "python",
+        "vmware",
+        "vrops",
+        "vsphere"
+      ],
+      "pushed_at": "2026-11-12T03:49:06Z",
+      "trending": true,
+      "crawled_at": "2026-11-12T11:52:50.784157"
+    },
+    {
+      "name": "vmware-skills/VMware-Storage",
+      "description": "MCP server and CLI for VMware vSphere datastore inventory, capacity, iSCSI configuration and FC/device-path diagnostics.",
+      "link": "https://github.com/vmware-skills/VMware-Storage",
+      "category": "Development Tooling",
+      "source": "github-trending",
+      "stars": 3,
+      "forks": 0,
+      "language": "Python",
+      "topics": [
+        "agent-skills",
+        "ai-skill",
+        "claude-code",
+        "codex",
+        "gemini-cli",
+        "gemini-cli-extension",
+        "iscsi",
+        "mcp",
+        "mcp-server",
+        "nfs",
+        "python",
+        "storage",
+        "vmware",
+        "vsan",
+        "vsphere"
+      ],
+      "pushed_at": "2026-11-12T03:50:51Z",
+      "trending": true,
+      "crawled_at": "2026-11-12T11:52:50.783821"
+    },
+    {
+      "name": "vmware-skills/VMware-AVI",
+      "description": "MCP server and CLI for VMware AVI / NSX Advanced Load Balancer virtual services, pools, service engines, certificates and AKO workflows.",
+      "link": "https://github.com/vmware-skills/VMware-AVI",
+      "category": "Development Tooling",
+      "source": "github-trending",
+      "stars": 2,
+      "forks": 1,
+      "language": "Python",
+      "topics": [
+        "agent-skills",
+        "ai-skill",
+        "ako",
+        "automation",
+        "avi-controller",
+        "claude-code",
+        "codex",
+        "gemini-cli",
+        "gemini-cli-extension",
+        "homelab",
+        "infrastructure",
+        "kubernetes-ingress",
+        "load-balancer",
+        "mcp",
+        "mcp-server",
+        "nsx-alb",
+        "python",
+        "vmware",
+        "vsphere"
+      ],
+      "pushed_at": "2026-11-12T03:48:52Z",
+      "trending": true,
+      "crawled_at": "2026-11-12T11:52:50.784189"
+    },
+    {
+      "name": "AtesIsf/agent-skills",
+      "description": "The agent skills I use day-to-day.",
+      "link": "https://github.com/AtesIsf/agent-skills",
       "category": "Development Tooling",
       "source": "github-trending",
       "stars": 1,
       "forks": 0,
-      "language": "Go",
+      "language": "Shell",
       "topics": [
         "agent-skills",
-        "ai-agents",
-        "atlassian",
+        "agentic-ai",
+        "antigravity",
         "claude-code",
-        "cli",
-        "confluence",
-        "confluence-api",
-        "go",
-        "golang"
+        "codex"
       ],
-      "pushed_at": "2026-11-12T03:25:25Z",
+      "pushed_at": "2026-11-12T03:50:14Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.861850"
+      "crawled_at": "2026-11-12T11:52:50.783894"
     },
     {
-      "name": "geronco/commandvault-library",
-      "description": "AI prompts, CLAUDE.md/AGENTS.md templates, Cursor rules, Agent Skills and MCP servers from commandvault.ai, synced daily. Claude Code plugin and MCP server included.",
-      "link": "https://github.com/geronco/commandvault-library",
+      "name": "mnaimfaizy/agent-kit",
+      "description": "Agent skills and reusable GitHub Actions workflows that run Claude Code in your repository: a private security audit and a plan, implement, review pipeline. Adopted by tag.",
+      "link": "https://github.com/mnaimfaizy/agent-kit",
       "category": "Development Tooling",
       "source": "github-trending",
       "stars": 1,
@@ -2158,23 +2209,25 @@
       "language": "JavaScript",
       "topics": [
         "agent-skills",
-        "agents-md",
+        "ai-agents",
+        "automation",
+        "claude",
         "claude-code",
-        "claude-code-plugin",
-        "claude-md",
-        "cursor-rules",
-        "mcp",
-        "prompt-library",
-        "prompts"
+        "cli",
+        "code-review",
+        "developer-tools",
+        "github-actions",
+        "reusable-workflows",
+        "security-audit"
       ],
-      "pushed_at": "2026-11-12T03:21:31Z",
+      "pushed_at": "2026-11-12T03:52:05Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.862090"
+      "crawled_at": "2026-11-12T11:52:50.784285"
     },
     {
-      "name": "iknowterry/modelscout",
-      "description": "Knows which AI models you actually have, picks the right one for every task, routes it to a best-fit subagent, and proves what that saved. One open Agent Skills plugin for Claude Code, Codex, ChatGPT, Gemini CLI and Hermes.",
-      "link": "https://github.com/iknowterry/modelscout",
+      "name": "vmware-skills/VMware-Debug",
+      "description": "MCP server and CLI for offline VMware incident triage: event timelines, evidence correlation, hypotheses and next-check recommendations.",
+      "link": "https://github.com/vmware-skills/VMware-Debug",
       "category": "Development Tooling",
       "source": "github-trending",
       "stars": 1,
@@ -2182,116 +2235,66 @@
       "language": "Python",
       "topics": [
         "agent-skills",
-        "ai-agents",
-        "chatgpt",
-        "claude-code",
-        "codex",
-        "cost-optimization",
-        "gemini-cli",
-        "hermes-agent",
-        "llm",
-        "model-router",
-        "model-selection",
-        "openrouter",
-        "rate-limits",
-        "skills",
-        "subagents",
-        "token-optimization"
+        "gemini-cli-extension",
+        "mcp",
+        "mcp-server",
+        "python",
+        "vmware",
+        "vsphere"
       ],
-      "pushed_at": "2026-11-12T03:27:39Z",
+      "pushed_at": "2026-11-12T03:49:18Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.861691"
+      "crawled_at": "2026-11-12T11:52:50.784110"
     },
     {
-      "name": "harshsinghmp/muse-skills",
-      "description": "Curated suite of Agency level universal AI agent skills — autonomous Git release engine, AI-readiness auditing, DOX scaffolding, and editorial anti-slop review.",
-      "link": "https://github.com/harshsinghmp/muse-skills",
-      "category": "Document Parsing",
-      "source": "github-trending",
-      "stars": 1,
-      "forks": 0,
-      "language": "TypeScript",
-      "topics": [
-        "accessibility",
-        "agent-engine",
-        "agent-skills",
-        "ai-agents",
-        "ai-ready",
-        "ai-skills",
-        "code-review",
-        "design-system",
-        "design-tokens",
-        "developer-tools",
-        "devops",
-        "documentation",
-        "dtcg",
-        "figma",
-        "git-workflow",
-        "hermes",
-        "openclaw",
-        "release-automation",
-        "ui-design",
-        "wcag"
-      ],
-      "pushed_at": "2026-11-12T03:28:05Z",
-      "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.862202"
-    },
-    {
-      "name": "viames/aruba-cloud-skill",
-      "description": "Inventory Aruba Cloud from Codex, generate Markdown reports, and compare scans offline. Guided operations use the official Aruba CLI.",
-      "link": "https://github.com/viames/aruba-cloud-skill",
-      "category": "Document Parsing",
+      "name": "zhipenghhuang/AIWorkflow",
+      "description": "面向产品、研发、测试三轨的 AI 工作流规范：声明式 YAML、多 Agent 协作、HITL 确认门、内置技能与文档治理。",
+      "link": "https://github.com/zhipenghhuang/AIWorkflow",
+      "category": "Development Tooling",
       "source": "github-trending",
       "stars": 1,
       "forks": 0,
       "language": "Python",
       "topics": [
         "agent-skills",
-        "aruba-cloud",
-        "cloud-infrastructure",
-        "cloud-management",
-        "codex",
-        "codex-skill",
-        "devops"
+        "agents",
+        "ai-workflow",
+        "human-in-the-loop",
+        "mcp",
+        "multi-agent",
+        "playwright",
+        "prompt-engineering",
+        "qa",
+        "software-engineering"
       ],
-      "pushed_at": "2026-11-12T03:23:26Z",
+      "pushed_at": "2026-11-12T03:49:41Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.862107"
+      "crawled_at": "2026-11-12T11:52:50.784044"
     },
     {
-      "name": "Fallen-leaves089/project-health",
-      "description": "Recommended for enterprise project construction and maintenance; suitable for everyday use too. Evidence-driven audits and delivery acceptance with P0-P3 evidence, real regression, Linux/Windows Server pitfalls, and handover checks. PolyForm Noncommercial 1.0.0; commercial licensing available.",
-      "link": "https://github.com/Fallen-leaves089/project-health",
-      "category": "Web Design",
+      "name": "vmware-skills/VMware-VDI",
+      "description": "MCP server and CLI for VMware/Omnissa Horizon pools, sessions, machines, entitlements and image operations. Community-maintained.",
+      "link": "https://github.com/vmware-skills/VMware-VDI",
+      "category": "Image Generation",
       "source": "github-trending",
       "stars": 1,
       "forks": 0,
       "language": "Python",
       "topics": [
-        "agent-memory",
         "agent-skills",
-        "ai-agents",
-        "claude-code",
-        "code-review",
-        "codex",
-        "codex-skill",
-        "delivery-acceptance",
-        "developer-tools",
-        "devops",
-        "enterprise",
-        "fullstack",
-        "linux-server",
-        "pitfalls",
-        "pre-release",
-        "project-health",
-        "software-audit",
-        "verification",
-        "windows-server"
+        "gemini-cli-extension",
+        "horizon",
+        "mcp",
+        "mcp-server",
+        "omnissa",
+        "python",
+        "vdi",
+        "vmware",
+        "vsphere"
       ],
-      "pushed_at": "2026-11-12T03:24:14Z",
+      "pushed_at": "2026-11-12T03:51:02Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.861975"
+      "crawled_at": "2026-11-12T11:52:50.783789"
     },
     {
       "name": "anthropics/brand-guidelines",
@@ -2438,9 +2441,9 @@
       "crawled_at": "2026-02-02T17:07:33.814751"
     },
     {
-      "name": "sadok-ayari/comms-skills",
-      "description": "Six agent skills for institutional communications: formal Arabic correspondence, voice registers, bilingual parity, terminology, press release review, delivery gate. Copy a folder, use it today.",
-      "link": "https://github.com/sadok-ayari/comms-skills",
+      "name": "EtanHey/golems",
+      "description": "Bun monorepo of AI-agent packages, CLI tooling, and evaluated agent skills.",
+      "link": "https://github.com/EtanHey/golems",
       "category": "Development Tooling",
       "source": "github-trending",
       "stars": 0,
@@ -2448,14 +2451,95 @@
       "language": "Python",
       "topics": [
         "agent-skills",
-        "arabic",
-        "bilingual",
-        "comms",
-        "press-release"
+        "ai-agents",
+        "bun",
+        "claude-code",
+        "codex",
+        "cursor",
+        "developer-tools",
+        "mcp",
+        "orchestration",
+        "typescript"
       ],
-      "pushed_at": "2026-11-12T03:22:30Z",
+      "pushed_at": "2026-11-12T03:52:17Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.862038"
+      "crawled_at": "2026-11-12T11:52:50.783919"
+    },
+    {
+      "name": "vmware-skills/VMware-Log-Insight",
+      "description": "MCP server and CLI for read-only VMware Log Insight / Aria Operations for Logs search, aggregation, alert queries and log-spike investigation.",
+      "link": "https://github.com/vmware-skills/VMware-Log-Insight",
+      "category": "Development Tooling",
+      "source": "github-trending",
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "topics": [
+        "agent-skills",
+        "gemini-cli-extension",
+        "mcp",
+        "mcp-server",
+        "python",
+        "vmware",
+        "vsphere"
+      ],
+      "pushed_at": "2026-11-12T03:49:42Z",
+      "trending": true,
+      "crawled_at": "2026-11-12T11:52:50.784000"
+    },
+    {
+      "name": "vmware-skills/VMware-Policy",
+      "description": "Shared policy, audit and sanitization library for VMware Skills, with the vmware-audit CLI. Dependency library; no standalone MCP server.",
+      "link": "https://github.com/vmware-skills/VMware-Policy",
+      "category": "Development Tooling",
+      "source": "github-trending",
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "topics": [
+        "agent-skills",
+        "ai-skill",
+        "audit-log",
+        "claude-code",
+        "codex",
+        "gemini-cli",
+        "infrastructure",
+        "mcp",
+        "policy-engine",
+        "prompt-injection-defense",
+        "sanitization",
+        "vmware",
+        "vsphere"
+      ],
+      "pushed_at": "2026-11-12T03:48:15Z",
+      "trending": true,
+      "crawled_at": "2026-11-12T11:52:50.784313"
+    },
+    {
+      "name": "vmware-skills/VMware-PrivateAI",
+      "description": "MCP server and CLI for VMware Private AI GPU/vGPU inventory, readiness, profiles, assignment and PAIS queries. Community-maintained.",
+      "link": "https://github.com/vmware-skills/VMware-PrivateAI",
+      "category": "Development Tooling",
+      "source": "github-trending",
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "topics": [
+        "agent-skills",
+        "gemini-cli-extension",
+        "gpu",
+        "mcp",
+        "mcp-server",
+        "nvidia",
+        "private-ai",
+        "python",
+        "vcf",
+        "vmware",
+        "vsphere"
+      ],
+      "pushed_at": "2026-11-12T03:50:36Z",
+      "trending": true,
+      "crawled_at": "2026-11-12T11:52:50.783849"
     },
     {
       "name": "alinaqi/claude-bootstrap",
@@ -2794,48 +2878,33 @@
       "crawled_at": "2026-02-02T17:07:33.814751"
     },
     {
-      "name": "chenyipier-ui/cy-edit-skills",
-      "description": "面向剪辑团队与工作室的内容精剪 Skills：单主题口播、长内容整理与切片，生成可导入剪映的 FCPXML 工程。",
-      "link": "https://github.com/chenyipier-ui/cy-edit-skills",
+      "name": "younglark/photoshop-skills",
+      "description": "Agent skills for driving Adobe Photoshop with UXP .psjs scripts: guarded edits, export, and an agent-driven UI slicing workflow. SKILL.md format for Claude Code, Codex, Cursor, OpenCode, OpenClaw.",
+      "link": "https://github.com/younglark/photoshop-skills",
       "category": "Image Generation",
       "source": "github-trending",
       "stars": 0,
       "forks": 0,
       "language": "Python",
       "topics": [
+        "adobe-photoshop",
         "agent-skills",
-        "chinese",
-        "content-editing",
-        "fcpxml",
-        "jianying",
-        "video-editing"
+        "ai-agents",
+        "batchplay",
+        "claude-code",
+        "claude-skills",
+        "codex",
+        "openclaw",
+        "photoshop",
+        "psjs",
+        "skill-md",
+        "skills",
+        "ui-slicing",
+        "uxp"
       ],
-      "pushed_at": "2026-11-12T03:27:41Z",
+      "pushed_at": "2026-11-12T03:49:18Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.861901"
-    },
-    {
-      "name": "videomd/videomd",
-      "description": "VIDEO.md: an open format for video breakdowns that models read layer by layer. Every skill has a SKILL.md; every video gets a VIDEO.md.",
-      "link": "https://github.com/videomd/videomd",
-      "category": "Image Generation",
-      "source": "github-trending",
-      "stars": 0,
-      "forks": 0,
-      "language": "Python",
-      "topics": [
-        "agent-skills",
-        "agents",
-        "format",
-        "json-schema",
-        "llm",
-        "specification",
-        "video",
-        "video-analysis"
-      ],
-      "pushed_at": "2026-11-12T03:28:01Z",
-      "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.861583"
+      "crawled_at": "2026-11-12T11:52:50.784128"
     },
     {
       "name": "ComposioHQ/competitive-ads-extractor",
@@ -3750,29 +3819,9 @@
       "crawled_at": "2026-02-02T17:07:33.816746"
     },
     {
-      "name": "GauravAlbal/agent-skills",
-      "description": "Five bounded engineering decision skills for coding agents: completion, diagnosis, proof, scope, and design triage.",
-      "link": "https://github.com/GauravAlbal/agent-skills",
-      "category": "Web Design",
-      "source": "github-trending",
-      "stars": 0,
-      "forks": 0,
-      "language": "",
-      "topics": [
-        "agent-skills",
-        "coding-agents",
-        "developer-tools",
-        "llm-tools",
-        "software-engineering"
-      ],
-      "pushed_at": "2026-11-12T03:28:04Z",
-      "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.861648"
-    },
-    {
-      "name": "kbcrtz/better-app-store-review",
-      "description": "Multi-agent App Store rejection audit for React Native, Expo, and Swift iOS apps, checked against Apple's current App Review Guidelines.",
-      "link": "https://github.com/kbcrtz/better-app-store-review",
+      "name": "cardene777/agent-shuriken",
+      "description": "Agent skills for Claude Code and Codex: clean up web accounts you no longer use, and free up disk space on your Mac",
+      "link": "https://github.com/cardene777/agent-shuriken",
       "category": "Web Design",
       "source": "github-trending",
       "stars": 0,
@@ -3780,37 +3829,15 @@
       "language": "Python",
       "topics": [
         "agent-skills",
-        "app-review",
-        "app-store",
         "claude-code",
+        "claude-code-plugin",
         "codex",
-        "expo",
-        "ios",
-        "react-native",
-        "swift"
+        "macos",
+        "privacy"
       ],
-      "pushed_at": "2026-11-12T03:21:48Z",
+      "pushed_at": "2026-11-12T03:52:27Z",
       "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.862062"
-    },
-    {
-      "name": "sanxiadaba/grill-me",
-      "description": "A one-question-at-a-time grilling skill for agents: design-tree interview, structured question cards, MIT.",
-      "link": "https://github.com/sanxiadaba/grill-me",
-      "category": "Web Design",
-      "source": "github-trending",
-      "stars": 0,
-      "forks": 0,
-      "language": "",
-      "topics": [
-        "agent-skills",
-        "dsh",
-        "grilling",
-        "prompt"
-      ],
-      "pushed_at": "2026-11-12T03:25:13Z",
-      "trending": true,
-      "crawled_at": "2026-11-12T11:28:18.861785"
+      "crawled_at": "2026-11-12T11:52:50.783734"
     },
     {
       "name": "czlonkowski/n8n-code-javascript",
@@ -3869,6 +3896,6 @@
       "crawled_at": "2026-02-02T17:07:33.816746"
     }
   ],
-  "total": 265,
-  "updated_at": "2026-11-12T11:28:18.863160"
+  "total": 266,
+  "updated_at": "2026-11-12T11:52:50.785259"
 }

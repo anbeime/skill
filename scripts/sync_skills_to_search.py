@@ -152,6 +152,11 @@ def _is_skill_repo(item: dict) -> bool:
     fn = (item.get("full_name") or "").lower()
     desc = (item.get("description") or "").lower()
     topics = [t.lower() for t in (item.get("topics") or [])]
+    # 超高星但名称/描述都不含 skill 的巨型通用仓库（如 morluto/rea 453k 星，
+    # 仅靠 claude-code/mcp 等泛标签混入）直接排除，避免污染热门榜首。
+    stars = item.get("stargazers_count", 0) or 0
+    if stars > 200000 and "skill" not in fn and "skill" not in desc:
+        return False
     if "skill" in fn or "skill" in desc:
         return True
     return any(t in SKILL_TOPICS_STRICT for t in topics)

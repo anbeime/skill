@@ -240,26 +240,26 @@
                 
                 <div class="stats">
                     <div class="stat-item">
-                        <span class="stat-number">418</span>
-                        <span class="stat-label">Entity Skills</span>
+                        <span class="stat-number" id="enSearchCount">—</span>
+                        <span class="stat-label">Search Index</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" id="heroOfficialCountEn">182</span>
-                        <span class="stat-label">Official Index</span>
+                        <span class="stat-number" id="enTrendingCount">—</span>
+                        <span class="stat-label">GitHub Trending</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">366</span>
-                        <span class="stat-label">Validated</span>
+                        <span class="stat-number" id="enLocalCount">—</span>
+                        <span class="stat-label">Local Skills</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">14</span>
-                        <span class="stat-label">Categories</span>
+                        <span class="stat-number">Daily</span>
+                        <span class="stat-label">Auto Sync</span>
                     </div>
                 </div>
                 
                 <ul class="features">
                     <li>officially-indexed skills (auto-synced from GitHub daily)</li>
-                    <li>418 entity skills (main repo + SkillHub collection + local snapshots)</li>
+                    <li>Skill index auto-synced from upstream sources and live GitHub trending</li>
                     <li>Real-time search and category filtering</li>
                     <li>Auto-sync latest data from GitHub</li>
                     <li>Detailed skill descriptions and guides</li>
@@ -324,12 +324,23 @@
         </p>
     </div>
 <script>
-// Official Index count pulled live from data/skills.json (same source as README / skills.html)
+// All counts pulled live from data files (bot refreshes the JSON daily) - nothing hard-coded.
 (function () {
-  fetch('data/skills.json').then(function (r) { return r.json(); }).then(function (d) {
-    var n = (d.skills || []).length || d.total || 0;
-    var el = document.getElementById('heroOfficialCountEn');
-    if (el) el.textContent = n.toLocaleString();
+  var set = function (id, n) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = Number(n).toLocaleString();
+  };
+  fetch('data/skills.json?ts=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
+    var skills = d.skills || [];
+    set('enSearchCount', skills.length || d.total || 0);
+    set('enTrendingCount', skills.filter(function (s) { return s.trending === true; }).length);
+  }).catch(function () {});
+  fetch('data/local_skills.json?ts=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
+    var n = (d.metadata && d.metadata.total_skills) || 0;
+    if (!n && d.categories) {
+      for (var k in d.categories) n += (d.categories[k].skills || []).length;
+    }
+    set('enLocalCount', n);
   }).catch(function () {});
 })();
 </script>

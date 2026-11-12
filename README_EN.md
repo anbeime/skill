@@ -22,9 +22,9 @@ The most comprehensive and frequently updated AI Agent skill library, featuring 
 <!-- AUTO-SYNC-STATS-START -->
 - **Upstream index entries** (auto-crawled, pending curation): 10,729
 - **Local curated skills**: 83
-- **Search index** (skills.json): 265
-- **Trending board** (live GitHub Search API, by stars): 84
-- **Last synced**: 2026-11-12 11:43 (auto-refreshed daily)
+- **Search index** (skills.json): 266
+- **Trending board** (live GitHub Search API, by stars): 85
+- **Last synced**: 2026-11-12 11:52 (auto-refreshed daily)
 <!-- AUTO-SYNC-STATS-END -->
 - **Backup Coverage**: 100% (75 archive packages, fully backed up)
 - **Auto Update**: Upstream sync + live GitHub trending board, refreshed daily
