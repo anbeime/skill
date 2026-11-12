@@ -42,7 +42,8 @@ from urllib.request import Request, urlopen
 
 # 复用 sync_skills.py 的统计注入能力（A：README 真实计数自动同步）
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from sync_skills import inject_readme_stats, count_local_skills, count_search_skills
+from sync_skills import (inject_readme_stats, count_local_skills,
+                         count_search_skills, count_trending_skills)
 
 
 SOURCE_PATH = Path("SKILL_SOURCES.json")
@@ -352,15 +353,18 @@ def main():
     else:
         sync_trending(dry_run=args.dry_run, enable_github=not args.offline)
 
-    # A：刷新 README 统计段真实计数（搜索库计数以本次最新 skills.json 为准）
+    # A：刷新中英 README 统计段真实计数（搜索库/热门榜单数以本次最新 skills.json 为准）
     if not args.dry_run:
         try:
             src = load_sources()
-            inject_readme_stats(
+            _stats = dict(
                 upstream=src.get("total_count", len(src.get("sources", {}))),
                 local=count_local_skills(),
                 search=count_search_skills(),
+                trending=count_trending_skills(),
             )
+            inject_readme_stats(**_stats, path="README.md", lang="zh")
+            inject_readme_stats(**_stats, path="README_EN.md", lang="en")
         except Exception as e:
             print("[WARN] inject_readme_stats failed: %s" % e)
 

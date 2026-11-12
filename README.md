@@ -9,8 +9,9 @@
 
 收录最全、更新最快的AI Agent技能库，涵盖**文档处理、内容创作、编程开发、机器学习、自动化工作流**等多个领域的精选技能包。
 
-[![官方技能](https://img.shields.io/badge/官方技能-10729-blue?style=flat-square)](https://github.com/anbeime/skill)
-[![本地技能](https://img.shields.io/badge/本地技能-83-green?style=flat-square)](https://github.com/anbeime/skill)
+[![搜索索引](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fanbeime%2Fskill%2Fmain%2Fpublic%2Fdata%2Fskills.json&query=total&label=%E6%90%9C%E7%B4%A2%E7%B4%A2%E5%BC%95&color=blue&style=flat-square)](https://github.com/anbeime/skill)
+[![本地技能](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fanbeime%2Fskill%2Fmain%2Fdata%2Flocal_skills.json&query=metadata.total_skills&label=%E6%9C%AC%E5%9C%B0%E6%8A%80%E8%83%BD&color=green&style=flat-square)](https://github.com/anbeime/skill)
+[![热门榜单](https://img.shields.io/badge/%E7%83%AD%E9%97%A8%E6%A6%9C%E5%8D%95-GitHub%20%E5%AE%9E%E6%97%B6-ec4899?style=flat-square)](https://github.com/anbeime/skill/blob/main/public/data/skills.json)
 [![备份覆盖](https://img.shields.io/badge/备份覆盖-100%25-success?style=flat-square)](https://github.com/anbeime/skill)
 [![自动更新](https://img.shields.io/badge/更新-每24小时-orange?style=flat-square)](https://github.com/anbeime/skill)
 
@@ -20,21 +21,24 @@
 ## 📊 统计数据
 
 <!-- AUTO-SYNC-STATS-START -->
-- **官方技能（上游全量）**: 10,729 个（来自 6 个上游，自动爬取）
+- **上游索引条目**（自动抓取，含待筛选）: 10,729 条
 - **本地技能（精选策展）**: 83 个
 - **搜索索引（skills.json）**: 265 个
+- **热门技能榜单**（GitHub 实时抓取 · 按 Star 排序）: 84 个
+- **最后同步**: 2026-11-12 11:43（每日自动刷新）
 <!-- AUTO-SYNC-STATS-END -->
 - **备份覆盖率**: 100%（75个压缩包，完整备份）
-- **自动更新**: 每日自动抓取 6 个上游仓库 + 热门技能榜单（GitHub Search API 实时抓取，按 Star / 近期活跃排序）
+- **自动更新**: 每日自动同步上游源 + GitHub Search API 实时抓取热门榜单
+- 以上计数（含备份之外的三项）均由脚本从数据文件实时计算后写入，非手工填写
 
 ## 🌟 核心特性
 
 ### 🤖 自动更新
-每日自动爬取 **6 个上游仓库**（OpenAI Skills、VoltAgent Awesome Agent Skills、Awesome DSH Plugin、Matt Pocock Skills、VoltAgent Awesome DESIGN.md、Narcooo/inkos），并通过 GitHub Search API 实时抓取「热门技能榜单」（按 Star / 近期活跃排序），确保技能库始终保持最新状态。
+每日自动同步多个上游技能源，并通过 GitHub Search API（按 Star 数 / 近期活跃度）实时抓取「热门技能榜单」，确保技能库始终保持最新状态。全流程无人值守，计数由脚本从数据文件实时计算后回写，无需手工维护。
 
 ### 📦 双重技能库
-- **官方技能**：6 个上游自动爬取（OpenAI Skills / VoltAgent / Matt Pocock / Awesome DSH Plugin / VoltAgent DESIGN.md / Narcooo-inkos），真实计数见「📊 统计数据」
-- **本地技能**：83 个精选中文技能，涵盖内容创作、视频制作、电商营销等垂直领域
+- **官方技能索引**：来自上游自动同步，真实计数见「📊 统计数据」
+- **本地技能**：精选中文技能，涵盖内容创作、视频制作、电商营销等垂直领域
 
 ### 🏷️ 智能分类
 按照功能、来源、Star数量等多维度标签进行分类整理。
@@ -42,26 +46,13 @@
 ### 📊 数据导出
 支持JSON和CSV格式导出，方便数据分析和二次开发。
 
-## 📚 官方技能来源
+## 📚 技能来源与索引
 
-本技能商店收录了来自以下顶级团队的官方技能：
+官方技能索引由自动化脚本从多个上游技能源同步聚合，热门技能榜单通过 GitHub Search API 实时抓取，两者统一写入 `public/data/skills.json`（前端搜索数据源）。完整清单见下方「社区技能仓库聚合」自动段，或直接在[技能搜索页](https://skill.miyucaicai.cn/skills.html)检索。所有计数均取自数据文件，不在正文写死。
 
-- **Anthropic** (17个) - docx, pptx, xlsx, pdf, mcp-builder, webapp-testing 等
-- **Vercel** (7个) - react-best-practices, next-best-practices, composition-patterns 等
-- **Cloudflare** (7个) - agents-sdk, durable-objects, wrangler 等
-- **Trail of Bits** (26个) - building-secure-contracts, static-analysis, property-based-testing 等
-- **Hugging Face** (8个) - model-trainer, datasets, evaluation, jobs 等
-- **Google Labs** (2个) - design-md, react-components 等
-- **Stripe** (2个) - stripe-best-practices, upgrade-stripe
-- **Supabase** (1个) - postgres-best-practices
-- **Expo** (3个) - expo-app-design, expo-deployment, upgrading-expo
-- **Sentry** (7个) - code-review, commit, create-pr, find-bugs 等
-- **Better Auth** (3个) - best-practices, commands, create-auth
-- **其他团队** - Tinybird, Remotion, Inngest 等
+## 💾 本地技能库
 
-## 💾 本地技能库（83 个）
-
-### 📝 内容创作与发布（10个）
+### 📝 内容创作与发布
 - **content-creation-publisher** ⭐⭐⭐⭐⭐ - 内容创作与发布全流程
 - **intelligent-content-system** ⭐⭐⭐⭐⭐ - 智能内容系统
 - **article-illustrator** ⭐⭐⭐⭐ - 文章智能配图
@@ -72,7 +63,7 @@
 - **baoyu-xhs-images** ⭐⭐⭐⭐ - 小红书图文生成
 - **wechat-hotspot-publisher** ⭐⭐⭐ - 微信热点文章生成
 
-### 🎬 视频创作（9个）
+### 🎬 视频创作
 - **video-creation-suite** ⭐⭐⭐⭐⭐ - 完整视频创作套件
 - **video-creation-collaborator** ⭐⭐⭐⭐ - 多智能体协同视频创作
 - **video-creation-pro** ⭐⭐⭐ - 商品视频创作系统
@@ -83,7 +74,7 @@
 - **historical-interview-scripts** ⭐⭐ - 历史访谈文案
 - **three-body-video-creator** ⭐⭐ - 《三体》视频创作
 
-### 🛒 电商与营销（7个）
+### 🛒 电商与营销
 - **ecommerce-full-pipeline** ⭐⭐⭐⭐⭐ - 跨境电商全链路自动化（1688采集/清洗/上架/推广/视频/代发/爆品挖掘/闲鱼选品捡漏）
 - **pet-commerce-creator** ⭐⭐⭐ - 萌宠带货短视频
 - **ecommerce-copywriter** ⭐⭐⭐ - 电商图片文案
@@ -92,7 +83,7 @@
 - **product-video-creator** ⭐⭐⭐⭐ - 商品视频创作
 - **xiaohongshu-makeup** ⭐⭐⭐ - 小红书美妆内容
 
-### 📊 PPT与演示（6个）
+### 📊 PPT与演示
 - **NanoBanana-PPT-Skills** ⭐⭐⭐⭐⭐ - AI生成PPT图片和视频
 - **ppt-generator** ⭐⭐⭐⭐ - 智能PPT生成
 - **pptx-generator** ⭐⭐⭐ - JSON转PPTX
@@ -100,12 +91,12 @@
 - **ppt-roadshow-generator** ⭐⭐ - PPT路演视频
 - **remotion-video-enhancer** ⭐⭐ - 视频转场动画
 
-### 🎙️ 语音与音频（3个）
+### 🎙️ 语音与音频
 - **tts-voice-synthesis** ⭐⭐⭐⭐⭐ - 智能语音合成
 - **qwen3-tts-local** ⭐⭐⭐⭐ - 本地语音合成（Edge-TTS）
 - **qwen3-asr-assistant** ⭐⭐⭐⭐ - 语音转文字
 
-### 🤖 数字人与视频配音（6个）
+### 🤖 数字人与视频配音
 - **infinitetalk** ⭐⭐⭐⭐⭐ - 音频驱动视频配音
 - **infinitetalk-shopping-avatar** ⭐⭐ - 小省导购员提示词
 - **digital-avatar-shopping-video** ⭐⭐ - 数字人口播带货
@@ -113,7 +104,7 @@
 - **agentkit-multimedia-shopping** ⭐⭐ - 多媒体带货视频
 - **srt-whiteboard-animation** ⭐⭐⭐⭐ - 输入 .srt 字幕，输出笔迹跟随旁白的白板手绘动画 MP4（分镜→线稿→标注→分区→逐幕渲染→合成，预览台免代码拖拽调整）
 
-### 📄 文档与分析（6个）
+### 📄 文档与分析
 - **paper-analysis-assistant** ⭐⭐⭐⭐ - arXiv论文分析
 - **contract-review** ⭐⭐⭐ - 合同审核
 - **law-to-markdown** ⭐⭐ - 法律文档转换
@@ -121,7 +112,7 @@
 - **ontoly-software-graph** ⭐⭐⭐⭐ - 基于 Ontoly Software Graph 的架构审查、请求追踪、依赖分析与影响分析
 - **data-flow-skill** ⭐⭐⭐ - 数据分析全流程：类型检测/预处理/统计/可视化/报告与幻灯片生成
 
-### 🤝 智能体协作（7个）
+### 🤝 智能体协作
 - **agent-team** ⭐⭐⭐ - 智能体团队协作
 - **multi-agent-meeting** ⭐⭐ - 多智能体会议
 - **peers-advisory-group** ⭐⭐ - 同行顾问团
@@ -130,12 +121,12 @@
 - **antinet-four-color-cards** ⭐⭐⭐⭐ - 八官署四色卡片知识管理（Apache-2.0）
 - **antinet-provenance** ⭐⭐⭐⭐ - 来源溯源与可溯分析（Apache-2.0）
 
-### 💼 产品与项目管理（3个）
+### 💼 产品与项目管理
 - **product-manager-toolkit** ⭐⭐⭐ - 产品经理工具包
 - **sales-ai-assistant** ⭐⭐ - 销售AI助手
 - **ledger-tasks-yylo** ⭐⭐⭐⭐ - 基于 YYLO Ledger 的 git 原生看板/任务账本：依赖排序、状态回执、多 worktree 串行交付，驱动 AI 编程代理的多步骤任务
 
-### 🎨 设计与可视化（4个）
+### 🎨 设计与可视化
 - **frontend-design** ⭐⭐⭐ - 前端界面设计
 - **ai-drawio** ⭐⭐⭐⭐ - 流程图绘制
 - **pop-up-book-illustration** ⭐⭐ - 3D纸艺插画
@@ -151,18 +142,18 @@
 - **find-skill** ⭐⭐⭐ - 技能发现工具
 - **skill-creator** ⭐⭐⭐ - 技能创建工具
 
-### 💰 财务分析（3个）
+### 💰 财务分析
 - **creating-financial-models** ⭐⭐⭐⭐ - 财务建模套件
 - **market-research-reports** ⭐⭐⭐⭐ - 市场研究报告
 - **ledger-tasks-yylo** ⭐⭐⭐ - 个人记账与收支任务管理
 
-### 🎭 文化创作（1个）
+### 🎭 文化创作
 - **poetry-music-visual** ⭐⭐ - 古诗词配图配乐
 
-### 📧 邮件与办公自动化（1个）
+### 📧 邮件与办公自动化
 - **email-concierge** ⭐⭐⭐ - 本地 AI 邮件助理（OpenVINO GenAI 端侧推理，数据不出域，支持未读分类摘要、日程冲突检查、语音备忘转写、草稿审批队列）
 
-### 🏥 医疗与行业 Agent（1个）
+### 🏥 医疗与行业 Agent
 - **hospital_agent_upgrade** ⭐⭐⭐ - 虚拟诊疗竞赛医生 Agent 升级版（漏斗式多轮问诊、鉴别诊断驱动、检查维度评估、临床安全网）
 
 ## 🌟 收录开源技能（4个 · 额外收录，不计入上方 69 个）
@@ -312,7 +303,7 @@ python tools/skill_validator.py to-prompt skills/agent-team
 
 ## 🎯 核心技能推荐
 
-### ⭐⭐⭐⭐⭐ 五星技能（11个）
+### ⭐⭐⭐⭐⭐ 五星技能
 
 1. **content-creation-publisher** - 内容创作与发布全流程
 2. **intelligent-content-system** - 智能内容系统

@@ -302,15 +302,44 @@ def count_search_skills(path: str = "public/data/skills.json") -> int:
     return len(skills) if skills else d.get("total", 0)
 
 
-def inject_readme_stats(upstream: int, local: int, search: int, path: str = "README.md") -> None:
-    """把真实计数注入 README 的 AUTO-SYNC-STATS 标记段（bot 每日自保持准确）。"""
-    block = (
-        f"{STATS_START}\n"
-        f"- **官方技能（上游全量）**: {upstream:,} 个（来自 6 个上游，自动爬取）\n"
-        f"- **本地技能（精选策展）**: {local:,} 个\n"
-        f"- **搜索索引（skills.json）**: {search:,} 个\n"
-        f"{STATS_END}"
-    )
+def count_trending_skills(path: str = "public/data/skills.json") -> int:
+    """热门技能榜单条数（skills.json 中 trending:true 的条目，每日随 GitHub 抓取变化）。"""
+    try:
+        d = json.load(open(path, encoding="utf-8"))
+    except Exception:
+        return 0
+    return sum(1 for s in (d.get("skills") or []) if s.get("trending") is True)
+
+
+def inject_readme_stats(upstream: int, local: int, search: int, trending: int = 0,
+                        path: str = "README.md", lang: str = "zh") -> None:
+    """把真实计数注入 README 的 AUTO-SYNC-STATS 标记段（bot 每日自保持准确）。
+
+    口径说明：upstream 是自动抓取的「上游索引条目」（含重复/待筛选链接），
+    不标为「官方技能」，避免夸大；trending 来自 GitHub Search API 实时抓取。
+    带时间戳，让「每日刷新」可见。
+    """
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M")
+    if lang == "en":
+        block = (
+            f"{STATS_START}\n"
+            f"- **Upstream index entries** (auto-crawled, pending curation): {upstream:,}\n"
+            f"- **Local curated skills**: {local:,}\n"
+            f"- **Search index** (skills.json): {search:,}\n"
+            f"- **Trending board** (live GitHub Search API, by stars): {trending:,}\n"
+            f"- **Last synced**: {ts} (auto-refreshed daily)\n"
+            f"{STATS_END}"
+        )
+    else:
+        block = (
+            f"{STATS_START}\n"
+            f"- **上游索引条目**（自动抓取，含待筛选）: {upstream:,} 条\n"
+            f"- **本地技能（精选策展）**: {local:,} 个\n"
+            f"- **搜索索引（skills.json）**: {search:,} 个\n"
+            f"- **热门技能榜单**（GitHub 实时抓取 · 按 Star 排序）: {trending:,} 个\n"
+            f"- **最后同步**: {ts}（每日自动刷新）\n"
+            f"{STATS_END}"
+        )
     if not os.path.exists(path):
         return
     content = open(path, encoding="utf-8").read()
@@ -319,7 +348,7 @@ def inject_readme_stats(upstream: int, local: int, search: int, path: str = "REA
     else:
         new = content.rstrip() + "\n\n" + block + "\n"
     open(path, "w", encoding="utf-8").write(new)
-    print(f"✅ README 统计段已自动注入：上游 {upstream:,} / 本地 {local:,} / 搜索 {search:,}")
+    print(f"✅ {os.path.basename(path)} 统计段已注入：索引 {search:,} / 热门 {trending:,} / 本地 {local:,} / 上游 {upstream:,}")
 
 
 def main():
@@ -372,12 +401,15 @@ def main():
     update_readme(sources_data)
     update_readme_en(sources_data)
 
-    # A：自动把真实计数（上游 / 本地 / 搜索库）注入 README 的 AUTO-SYNC-STATS 段
-    inject_readme_stats(
+    # A：自动把真实计数（上游 / 本地 / 搜索库 / 热门榜单）注入中英 README 的 AUTO-SYNC-STATS 段
+    _stats = dict(
         upstream=sources_data['total_count'],
         local=count_local_skills(),
         search=count_search_skills(),
+        trending=count_trending_skills(),
     )
+    inject_readme_stats(**_stats, path="README.md", lang="zh")
+    inject_readme_stats(**_stats, path="README_EN.md", lang="en")
 
     print(f"\n✨ 同步完成！共发现 {len(all_repos)} 个技能仓库（官方技能源总数 {sources_data['total_count']:,}）")
 

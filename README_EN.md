@@ -11,27 +11,33 @@ The most comprehensive and frequently updated AI Agent skill library, featuring 
 
 [简体中文](README.md) | **English**
 
-[![Official Skills](https://img.shields.io/badge/Official%20Skills-182-blue?style=flat-square)](https://github.com/anbeime/skill)
-[![Local Skills](https://img.shields.io/badge/Local%20Skills-69-green?style=flat-square)](https://github.com/anbeime/skill)
+[![Search Index](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fanbeime%2Fskill%2Fmain%2Fpublic%2Fdata%2Fskills.json&query=total&label=Search%20Index&color=blue&style=flat-square)](https://github.com/anbeime/skill)
+[![Local Skills](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fanbeime%2Fskill%2Fmain%2Fdata%2Flocal_skills.json&query=metadata.total_skills&label=Local%20Skills&color=green&style=flat-square)](https://github.com/anbeime/skill)
+[![Trending](https://img.shields.io/badge/Trending-GitHub%20Live-ec4899?style=flat-square)](https://github.com/anbeime/skill/blob/main/public/data/skills.json)
 [![Backup Coverage](https://img.shields.io/badge/Backup%20Coverage-100%25-success?style=flat-square)](https://github.com/anbeime/skill)
 [![Auto Update](https://img.shields.io/badge/Update-Every%2024h-orange?style=flat-square)](https://github.com/anbeime/skill)
 
 ## 📊 Statistics
 
-- **Official Skills**: 182 (auto-crawled from awesome-agent-skills)
-- **Local Skills**: 69 (across 16 categories, including 6 system-builtin; plus 4 collected open-source skills listed separately)
-- **Total Skills**: 251 (official + local)
+<!-- AUTO-SYNC-STATS-START -->
+- **Upstream index entries** (auto-crawled, pending curation): 10,729
+- **Local curated skills**: 83
+- **Search index** (skills.json): 265
+- **Trending board** (live GitHub Search API, by stars): 84
+- **Last synced**: 2026-11-12 11:43 (auto-refreshed daily)
+<!-- AUTO-SYNC-STATS-END -->
 - **Backup Coverage**: 100% (75 archive packages, fully backed up)
-- **Auto Update**: Crawls 6 upstream repos + trending skill rankings daily
+- **Auto Update**: Upstream sync + live GitHub trending board, refreshed daily
+- All counts above are computed from data files by the sync script, never hard-coded.
 
 ## 🌟 Key Features
 
 ### 🤖 Auto Update
-Every day, the repository auto-crawls **6 upstream repositories** (OpenAI Skills, VoltAgent Awesome Agent Skills, Awesome DSH Plugin, Matt Pocock Skills, VoltAgent Awesome DESIGN.md, Narcooo/inkos) plus trending skill rankings, ensuring the skill library stays up-to-date.
+Upstream skill sources are synced automatically every day, and the trending board is fetched live through the GitHub Search API (sorted by stars and recent activity). Counts are written back to this README by the sync script — no manual edits.
 
 ### 📦 Dual Skill Library
-- **Official Skills**: 182 curated skills from top-tier teams such as Anthropic, Vercel, Cloudflare, Google Labs, and Hugging Face.
-- **Local Skills**: 69 carefully selected Chinese-language skills spanning content creation, video production, e-commerce, and other vertical domains.
+- **Official skill index**: aggregated from upstream sources; live count in the Statistics section
+- **Local skills**: curated Chinese-language skills spanning content creation, video production, e-commerce, and other vertical domains
 
 ### 🏷️ Smart Categorization
 Organized by function, source, star count, and other multi-dimensional tags.
