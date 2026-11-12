@@ -21,23 +21,23 @@
 ## 📊 统计数据
 
 <!-- AUTO-SYNC-STATS-START -->
-- **上游索引条目**（自动抓取，含待筛选）: 10,729 条
+- **索引条目**（自动抓取，含待筛选）: 10,729 条
 - **本地技能（精选策展）**: 83 个
 - **搜索索引（skills.json）**: 266 个
 - **热门技能榜单**（GitHub 实时抓取 · 按 Star 排序）: 85 个
-- **最后同步**: 2026-11-12 11:52（每日自动刷新）
+- **最后同步**: 2026-11-12 12:03（每日自动刷新）
 <!-- AUTO-SYNC-STATS-END -->
 - **备份覆盖率**: 100%（75个压缩包，完整备份）
-- **自动更新**: 每日自动同步上游源 + GitHub Search API 实时抓取热门榜单
+- **自动更新**: 索引与热门榜单每日自动同步（GitHub Search API 实时抓取）
 - 以上计数（含备份之外的三项）均由脚本从数据文件实时计算后写入，非手工填写
 
 ## 🌟 核心特性
 
 ### 🤖 自动更新
-每日自动同步多个上游技能源，并通过 GitHub Search API（按 Star 数 / 近期活跃度）实时抓取「热门技能榜单」，确保技能库始终保持最新状态。全流程无人值守，计数由脚本从数据文件实时计算后回写，无需手工维护。
+索引与热门榜单每日自动同步（GitHub Search API 按 Star 数 / 近期活跃度实时抓取），确保技能库始终保持最新状态。全流程无人值守，计数由脚本从数据文件实时计算后回写，无需手工维护。
 
 ### 📦 双重技能库
-- **官方技能索引**：来自上游自动同步，真实计数见「📊 统计数据」
+- **官方技能索引**：自动同步汇总，实时计数见「📊 统计数据」
 - **本地技能**：精选中文技能，涵盖内容创作、视频制作、电商营销等垂直领域
 
 ### 🏷️ 智能分类
@@ -160,7 +160,7 @@
 
 - **archify** ⭐⭐⭐⭐⭐ - 将代码库/系统描述转为可交互的架构/工作流/时序/数据流/生命周期图，单文件 HTML + PNG/SVG/WebM 导出（含架构 Delta 评审）
 - **diagram-design** ⭐⭐⭐⭐ - 45 种图表类型的"图表即代码"技能，支持 Mermaid/Draw.io/Excalidraw/PlantUML 等多种格式，输出编辑级成品图
-- **mattpocock-skills** ⭐⭐⭐⭐ - Matt Pocock 的 TypeScript/前端高质量工程实践技能集
+- **mattpocock-skills** ⭐⭐⭐⭐ - TypeScript / 前端高质量工程实践技能集
 - **srt-whiteboard-animation** ⭐⭐⭐⭐ - 输入 .srt 字幕，输出笔迹跟随旁白的白板手绘动画 MP4（分镜→线稿→标注→分区→逐幕渲染→合成，预览台免代码拖拽调整）
 
 ## 🚀 快速开始
@@ -421,24 +421,18 @@ MIT License
 
 ## 📦 社区技能仓库聚合
 
-> 此部分由自动化脚本每日从上游源同步更新
+> 本段由同步脚本自动生成，按索引分组列出抓取到的社区技能仓库链接，仅供检索与溯源。
+> 分组对应的来源配置见 `scripts/sync_skills.py` 的 `UPSTREAM_SOURCES`；计数统一见本文「📊 统计数据」。
 
-**最后更新**: 2026-11-12T02:12:04.483786 | **技能源总数**: 10729
-
-### 数据来源
-
-- [OpenAI Skills](https://github.com/openai/skills)
-- [VoltAgent Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills)
-- [Awesome DSH Plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)
-- [Matt Pocock Skills](https://github.com/mattpocock/skills)
+**最后更新**: 2026-11-12T02:12:04.483786
 
 ### 技能仓库列表
 
-#### OpenAI Skills
+#### 索引分组 1
 
 - [skills/create-plan](https://github.com/openai/skills/create-plan)
 
-#### VoltAgent Awesome Agent Skills
+#### 索引分组 2
 
 - [claude-skills-mental-models](https://github.com/cyperx84/claude-skills-mental-models)
 - [ecommerce-skills](https://github.com/checkout-page/ecommerce-skills)
@@ -788,7 +782,7 @@ MIT License
 - [career-ops](https://github.com/santifer/career-ops)
 - [marketing-mindset](https://github.com/axelfreeman/marketing-mindset)
 
-#### Awesome DSH Plugin
+#### 索引分组 3
 
 - [qa-skills](https://github.com/fishzjp/qa-skills)
 - [odai](https://github.com/orziz/odai)
@@ -11142,7 +11136,7 @@ MIT License
 - [dsh-workbuddy-hub](https://github.com/loyalchiiina/dsh-workbuddy-hub)
 - [dsh-codex-appearance](https://github.com/zhongjiadeng-cmd/dsh-codex-appearance)
 
-#### Matt Pocock Skills
+#### 索引分组 4
 
 - [skills/engineering/setup-matt-pocock-skills](https://github.com/mattpocock/skills/engineering/setup-matt-pocock-skills)
 - [skills/productivity/writing-for-agents](https://github.com/mattpocock/skills/productivity/writing-for-agents)
@@ -11172,13 +11166,13 @@ MIT License
 - [skills/productivity/to-questionnaire](https://github.com/mattpocock/skills/productivity/to-questionnaire)
 - [skills/productivity/handoff](https://github.com/mattpocock/skills/productivity/handoff)
 
-#### VoltAgent Awesome DESIGN.md
+#### 索引分组 5
 
 - [voltagent](https://github.com/VoltAgent/voltagent)
 - [official-mcp-servers](https://github.com/VoltAgent/official-mcp-servers)
 - [awesome-design-md](https://github.com/VoltAgent/awesome-design-md)
 
-#### Narcooo/inkos - Story Creation AI Agent
+#### 索引分组 6
 
 - 暂无数据
 

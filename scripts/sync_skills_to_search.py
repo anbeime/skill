@@ -43,7 +43,8 @@ from urllib.request import Request, urlopen
 # 复用 sync_skills.py 的统计注入能力（A：README 真实计数自动同步）
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from sync_skills import (inject_readme_stats, count_local_skills,
-                         count_search_skills, count_trending_skills)
+                         count_search_skills, count_trending_skills,
+                         guard_readme_claims)
 
 
 SOURCE_PATH = Path("SKILL_SOURCES.json")
@@ -370,6 +371,9 @@ def main():
             )
             inject_readme_stats(**_stats, path="README.md", lang="zh")
             inject_readme_stats(**_stats, path="README_EN.md", lang="en")
+            # 防回潮：任何写 README 的入口都清一次头部上游数量/名称宣称
+            guard_readme_claims("README.md")
+            guard_readme_claims("README_EN.md")
         except Exception as e:
             print("[WARN] inject_readme_stats failed: %s" % e)
 
