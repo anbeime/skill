@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "total_skills": 81,
+    "total_skills": 83,
     "core_skills": 26,
     "sub_skills": 30,
     "system_builtin": 6,
@@ -86,12 +86,13 @@
       ]
     },
     "文档与分析": {
-      "count": 4,
+      "count": 5,
       "skills": [
         "paper-analysis-assistant",
         "contract-review",
         "law-to-markdown",
-        "stock-analysis"
+        "stock-analysis",
+        "ontoly-software-graph"
       ]
     },
     "智能体协作": {
@@ -156,10 +157,11 @@
       "note": "系统内置技能"
     },
     "财务分析": {
-      "count": 2,
+      "count": 3,
       "skills": [
         "creating-financial-models",
-        "market-research-reports"
+        "market-research-reports",
+        "ledger-tasks-yylo"
       ]
     },
     "文化创作": {
@@ -231,7 +233,12 @@
       "author": "chengyi-ai",
       "repo": "https://github.com/chengyi-ai/native-subtitle-quote-image",
       "license": "MIT",
-      "tags": ["视频", "字幕", "长图", "Python"],
+      "tags": [
+        "视频",
+        "字幕",
+        "长图",
+        "Python"
+      ],
       "demo": "subtitle"
     },
     "cy-carousel-skill": {
@@ -242,7 +249,12 @@
       "author": "chengyi-ai",
       "repo": "https://github.com/chengyi-ai/cy-carousel-skill",
       "license": "MIT",
-      "tags": ["图文", "轮播", "内容", "质检"],
+      "tags": [
+        "图文",
+        "轮播",
+        "内容",
+        "质检"
+      ],
       "demo": "carousel"
     },
     "hairline": {
@@ -253,7 +265,12 @@
       "author": "lucasmarkes",
       "repo": "https://github.com/lucasmarkes/hairline",
       "license": "MIT",
-      "tags": ["线框图", "等轴测", "SVG", "前端"],
+      "tags": [
+        "线框图",
+        "等轴测",
+        "SVG",
+        "前端"
+      ],
       "demo": "wireframe"
     },
     "anatomy": {
@@ -264,7 +281,12 @@
       "author": "wheresryan22",
       "repo": "https://github.com/wheresryan22/anatomy",
       "license": "MIT",
-      "tags": ["3D", "等轴测", "SVG", "图解"],
+      "tags": [
+        "3D",
+        "等轴测",
+        "SVG",
+        "图解"
+      ],
       "demo": "anatomy"
     },
     "machine-skill": {
@@ -275,7 +297,12 @@
       "author": "AirsupHQ",
       "repo": "https://github.com/AirsupHQ/machine-skill",
       "license": "MIT",
-      "tags": ["3D", "three.js", "物理", "机械"],
+      "tags": [
+        "3D",
+        "three.js",
+        "物理",
+        "机械"
+      ],
       "demo": "turbine"
     },
     "ancient-rap-battle": {
@@ -286,7 +313,12 @@
       "author": "10291124jcjc-dotcom",
       "repo": "https://github.com/10291124jcjc-dotcom/ancient-rap-battle",
       "license": "MIT",
-      "tags": ["视频", "说唱", "Suno", "MiniMax"],
+      "tags": [
+        "视频",
+        "说唱",
+        "Suno",
+        "MiniMax"
+      ],
       "demo": "rap"
     },
     "lemo-opuscar": {
@@ -297,7 +329,12 @@
       "author": "lemomo-ai",
       "repo": "https://github.com/lemomo-ai/lemo-opuscar",
       "license": "MIT",
-      "tags": ["视频", "风格库", "Canvas", "WebGL"],
+      "tags": [
+        "视频",
+        "风格库",
+        "Canvas",
+        "WebGL"
+      ],
       "demo": "ardecogold"
     },
     "awesome-jev": {
@@ -308,7 +345,12 @@
       "author": "BeatAPI",
       "repo": "https://github.com/BeatAPI/awesome-jev",
       "license": "MIT",
-      "tags": ["智能体", "分类", "筛选", "素材"],
+      "tags": [
+        "智能体",
+        "分类",
+        "筛选",
+        "素材"
+      ],
       "demo": "jev"
     },
     "RuiC-card-skill": {
@@ -319,7 +361,12 @@
       "author": "HRuiCcc",
       "repo": "https://github.com/HRuiCcc/RuiC-card-skill",
       "license": "MIT",
-      "tags": ["3D", "闪卡", "Blender", "Three.js"],
+      "tags": [
+        "3D",
+        "闪卡",
+        "Blender",
+        "Three.js"
+      ],
       "demo": "card3d"
     },
     "handraw-style": {
@@ -330,7 +377,12 @@
       "author": "yang0",
       "repo": "https://github.com/yang0/handraw-style",
       "license": "MIT",
-      "tags": ["手绘", "风格", "Prompt", "编号"],
+      "tags": [
+        "手绘",
+        "风格",
+        "Prompt",
+        "编号"
+      ],
       "demo": "handraw"
     },
     "anything2explainer": {
@@ -341,7 +393,12 @@
       "author": "Vincentwei1021",
       "repo": "https://github.com/Vincentwei1021/anything2explainer",
       "license": "MIT",
-      "tags": ["视频", "讲解", "Remotion", "TTS"],
+      "tags": [
+        "视频",
+        "讲解",
+        "Remotion",
+        "TTS"
+      ],
       "demo": "explainer"
     },
     "threejs-scroll-worlds": {
@@ -352,7 +409,12 @@
       "author": "getedgehq",
       "repo": "https://github.com/getedgehq/skills/tree/main/threejs-scroll-worlds",
       "license": "MIT",
-      "tags": ["3D", "Three.js", "滚动", "网页"],
+      "tags": [
+        "3D",
+        "Three.js",
+        "滚动",
+        "网页"
+      ],
       "demo": "scroll3d"
     },
     "scrollytelling-web": {
@@ -363,7 +425,12 @@
       "author": "marcmarti9",
       "repo": "https://github.com/marcmarti9/agentit/tree/main/skills/scrollytelling-web",
       "license": "MIT",
-      "tags": ["滚动", "叙事", "GSAP", "网页"],
+      "tags": [
+        "滚动",
+        "叙事",
+        "GSAP",
+        "网页"
+      ],
       "demo": "scrolly"
     },
     "jack-scroll-3d-sites": {
@@ -374,7 +441,12 @@
       "author": "radustefandumitru",
       "repo": "https://github.com/radustefandumitru/agenticsupercharge/tree/main/skills/jack-scroll-3d-sites",
       "license": "MIT",
-      "tags": ["3D", "滚动", "产品", "网页"],
+      "tags": [
+        "3D",
+        "滚动",
+        "产品",
+        "网页"
+      ],
       "demo": "jack"
     }
   },
