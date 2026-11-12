@@ -397,19 +397,16 @@ footer a:hover { color: var(--accent-2); }
     <p>官方技能自动索引实时同步 + GitHub 热门技能榜单（按 Star 排序）每日刷新，从内容创作到电商视频，从编程开发到自动化运维，即插即用。</p>
     <div class="hero-stats">
       <div class="hero-stat-wrap">
-        <div class="hero-stat"><div class="num">65</div><div class="label">原创技能包</div></div>
+        <div class="hero-stat"><div class="num" id="heroSearchCount">—</div><div class="label">搜索索引（实时）</div></div>
       </div>
       <div class="hero-stat-wrap">
-        <div class="hero-stat"><div class="num" id="heroOfficialCount">182</div><div class="label">官方技能索引</div></div>
+        <div class="hero-stat"><div class="num" id="heroTrendingCount">—</div><div class="label">GitHub 热门榜单</div></div>
       </div>
       <div class="hero-stat-wrap">
-        <div class="hero-stat"><div class="num">2,326</div><div class="label">GitHub 自动爬取</div></div>
+        <div class="hero-stat"><div class="num" id="heroLocalCount">—</div><div class="label">本地精选技能</div></div>
       </div>
       <div class="hero-stat-wrap">
-        <div class="hero-stat"><div class="num">4,834</div><div class="label">N8N 工作流</div></div>
-      </div>
-      <div class="hero-stat-wrap">
-        <div class="hero-stat"><div class="num">5,700+</div><div class="label">GitHub Stars</div></div>
+        <div class="hero-stat"><div class="num">每日</div><div class="label">自动同步</div></div>
       </div>
     </div>
   </div>
@@ -582,12 +579,23 @@ footer a:hover { color: var(--accent-2); }
 </footer>
 
 <script>
-// 官方技能索引实时取自 data/skills.json（与 README / skills.html 同源）
+// 首页所有计数实时取自数据文件（bot 每日更新 JSON，页面随之变化），不写死数字。
 (function () {
-  fetch('data/skills.json').then(function (r) { return r.json(); }).then(function (d) {
-    var n = (d.skills || []).length || d.total || 0;
-    var el = document.getElementById('heroOfficialCount');
-    if (el) el.textContent = n.toLocaleString();
+  var set = function (id, n) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = Number(n).toLocaleString();
+  };
+  fetch('data/skills.json?ts=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
+    var skills = d.skills || [];
+    set('heroSearchCount', skills.length || d.total || 0);
+    set('heroTrendingCount', skills.filter(function (s) { return s.trending === true; }).length);
+  }).catch(function () {});
+  fetch('data/local_skills.json?ts=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
+    var n = (d.metadata && d.metadata.total_skills) || 0;
+    if (!n && d.categories) {
+      for (var k in d.categories) n += (d.categories[k].skills || []).length;
+    }
+    set('heroLocalCount', n);
   }).catch(function () {});
 })();
 </script>
