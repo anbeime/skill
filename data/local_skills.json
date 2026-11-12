@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "total_skills": 83,
+    "total_skills": 89,
     "core_skills": 26,
     "sub_skills": 30,
     "system_builtin": 6,
-    "last_updated": "2026-10-30T00:00:00",
+    "last_updated": "2026-11-12",
     "location": "D:\\tool\\skills",
     "backup_location": "D:\\tool\\skills\\skill压缩文件",
     "backup_coverage": "100%",
@@ -12,7 +12,7 @@
   },
   "categories": {
     "内容创作与发布": {
-      "count": 11,
+      "count": 10,
       "skills": [
         "content-creation-publisher",
         "intelligent-content-system",
@@ -76,13 +76,14 @@
       ]
     },
     "数字人与视频配音": {
-      "count": 5,
+      "count": 6,
       "skills": [
         "infinitetalk",
         "infinitetalk-shopping-avatar",
         "digital-avatar-shopping-video",
         "dream-video-prompt-generator",
-        "agentkit-multimedia-shopping"
+        "agentkit-multimedia-shopping",
+        "srt-whiteboard-animation"
       ]
     },
     "文档与分析": {
@@ -146,16 +147,14 @@
         "xlsx",
         "pdf",
         "docx"
-      ],
-      "note": "系统内置技能"
+      ]
     },
     "技能管理": {
       "count": 2,
       "skills": [
         "find-skill",
         "skill-creator"
-      ],
-      "note": "系统内置技能"
+      ]
     },
     "财务分析": {
       "count": 3,
@@ -170,19 +169,40 @@
       "skills": [
         "poetry-music-visual"
       ]
+    },
+    "邮件与办公自动化": {
+      "count": 1,
+      "skills": [
+        "email-concierge"
+      ]
+    },
+    "医疗与行业 Agent": {
+      "count": 1,
+      "skills": [
+        "hospital_agent_upgrade"
+      ]
+    },
+    "收录开源技能": {
+      "count": 4,
+      "skills": [
+        "archify",
+        "diagram-design",
+        "mattpocock-skills",
+        "srt-whiteboard-animation"
+      ]
     }
   },
   "statistics": {
     "by_api_requirement": {
-      "必需API": 15,
       "可选API": 20,
-      "完全免费": 30
+      "必需API": 15,
+      "完全免费": 32
     },
     "by_usage_frequency": {
       "⭐⭐⭐⭐⭐": 10,
-      "⭐⭐⭐⭐": 22,
       "⭐⭐⭐": 21,
-      "⭐⭐": 12
+      "⭐⭐": 12,
+      "⭐⭐⭐⭐": 24
     }
   },
   "highlights": {
@@ -499,6 +519,13 @@
         "初始版本发布",
         "包含49个技能",
         "建立技能仓库"
+      ]
+    },
+    {
+      "date": "2026-11-12",
+      "version": "auto-sync",
+      "changes": [
+        "前端/README 同步：技能总数 83 → 89（合并 data/ 与 public/ 分叉）"
       ]
     }
   ]
