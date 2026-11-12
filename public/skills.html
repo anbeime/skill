@@ -578,7 +578,7 @@
             ? currentFilter.replace('category:', '')
             : null;
 
-        // 1. Trending（真·动态：GitHub Search API 实时抓取的 trending 条目，按 Star 降序）
+        // Trending（按 Star 降序）
         const trendingRaw = allOfficialSkills.filter(s => s.trending === true || TRENDING_REPOS.has(s.name));
         const trendingSorted = trendingRaw.slice().sort((a, b) => (b.stars || 0) - (a.stars || 0));
         const trendingFiltered = trendingSorted.filter(s => matchSearch(s, term, filterCategory));

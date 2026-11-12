@@ -20,23 +20,22 @@ The most comprehensive and frequently updated AI Agent skill library, featuring 
 ## 📊 Statistics
 
 <!-- AUTO-SYNC-STATS-START -->
-- **Index entries** (auto-crawled, pending curation): 10,729
+- **Index entries** (pending curation): 10,729
 - **Local curated skills**: 83
 - **Search index** (skills.json): 266
-- **Trending board** (live GitHub Search API, by stars): 85
-- **Last synced**: 2026-11-12 12:03 (auto-refreshed daily)
+- **Trending board** (by stars): 85
+- **Last synced**: 2026-11-12 12:36 (auto-refreshed daily)
 <!-- AUTO-SYNC-STATS-END -->
-- **Backup Coverage**: 100% (75 archive packages, fully backed up)
-- **Auto Update**: Index sync + live GitHub trending board, refreshed daily
-- All counts above are computed from data files by the sync script, never hard-coded.
+- **Backup Coverage**: 100% (fully backed up)
+- **Auto Update**: Index and trending board refreshed daily
 
 ## 🌟 Key Features
 
 ### 🤖 Auto Update
-The index and trending board are synced automatically every day (GitHub Search API, sorted by stars and recent activity). Counts are written back to this README by the sync script — no manual edits.
+The index and trending board are refreshed daily to keep the library up to date.
 
 ### 📦 Dual Skill Library
-- **Official skill index**: auto-aggregated; live count in the Statistics section
+- **Official skill index**: auto-aggregated · [Browse online](https://skill.miyucaicai.cn/skills.html)
 - **Local skills**: curated Chinese-language skills spanning content creation, video production, e-commerce, and other vertical domains
 
 ### 🏷️ Smart Categorization
@@ -45,26 +44,8 @@ Organized by function, source, star count, and other multi-dimensional tags.
 ### 📊 Data Export
 Supports JSON and CSV export for data analysis and downstream use.
 
-## 📚 Official Skill Sources
-
-The Skill Store aggregates official skills from the following top-tier teams:
-
-- **Anthropic** (17) — docx, pptx, xlsx, pdf, mcp-builder, webapp-testing, etc.
-- **Vercel** (7) — react-best-practices, next-best-practices, composition-patterns, etc.
-- **Cloudflare** (7) — agents-sdk, durable-objects, wrangler, etc.
-- **Trail of Bits** (26) — building-secure-contracts, static-analysis, property-based-testing, etc.
-- **Hugging Face** (8) — model-trainer, datasets, evaluation, jobs, etc.
-- **Google Labs** (2) — design-md, react-components, etc.
-- **Stripe** (2) — stripe-best-practices, upgrade-stripe
-- **Supabase** (1) — postgres-best-practices
-- **Expo** (3) — expo-app-design, expo-deployment, upgrading-expo
-- **Sentry** (7) — code-review, commit, create-pr, find-bugs, etc.
-- **Better Auth** (3) — best-practices, commands, create-auth
-- **Other teams** — Tinybird, Remotion, Inngest, etc.
-
-## 💾 Local Skill Library (69)
-
-### 📝 Content Creation & Publishing (10)
+## 💾 Local Skill Library
+### 📝 Content Creation & Publishing
 - **content-creation-publisher** ⭐⭐⭐⭐⭐ — End-to-end content creation and publishing workflow
 - **intelligent-content-system** ⭐⭐⭐⭐⭐ — Intelligent content system
 - **article-illustrator** ⭐⭐⭐⭐ — Article illustration with AI
@@ -75,7 +56,7 @@ The Skill Store aggregates official skills from the following top-tier teams:
 - **baoyu-xhs-images** ⭐⭐⭐⭐ — Xiaohongshu image-text generator
 - **wechat-hotspot-publisher** ⭐⭐⭐ — WeChat hot-topic article generator
 
-### 🎬 Video Production (9)
+### 🎬 Video Production
 - **video-creation-suite** ⭐⭐⭐⭐⭐ — Complete video creation suite
 - **video-creation-collaborator** ⭐⭐⭐⭐ — Multi-agent collaborative video creation
 - **video-creation-pro** ⭐⭐⭐ — Product video creation system
@@ -86,7 +67,7 @@ The Skill Store aggregates official skills from the following top-tier teams:
 - **historical-interview-scripts** ⭐⭐ — Historical interview scripts
 - **three-body-video-creator** ⭐⭐ — *The Three-Body Problem* video creation
 
-### 🛒 E-commerce & Marketing (7)
+### 🛒 E-commerce & Marketing
 - **ecommerce-full-pipeline** ⭐⭐⭐⭐⭐ — Cross-border e-commerce end-to-end automation (1688 sourcing / cleansing / listing / promotion / video / dropshipping / product mining / Xianyu sourcing)
 - **pet-commerce-creator** ⭐⭐⭐ — Pet-product short videos
 - **ecommerce-copywriter** ⭐⭐⭐ — E-commerce image-text copywriting
@@ -95,7 +76,7 @@ The Skill Store aggregates official skills from the following top-tier teams:
 - **product-video-creator** ⭐⭐⭐⭐ — Product video creation
 - **xiaohongshu-makeup** ⭐⭐⭐ — Xiaohongshu beauty content
 
-### 📊 PPT & Presentation (6)
+### 📊 PPT & Presentation
 - **NanoBanana-PPT-Skills** ⭐⭐⭐⭐⭐ — AI-generated PPT images and videos
 - **ppt-generator** ⭐⭐⭐⭐ — Smart PPT generation
 - **pptx-generator** ⭐⭐⭐ — JSON to PPTX
@@ -103,12 +84,12 @@ The Skill Store aggregates official skills from the following top-tier teams:
 - **ppt-roadshow-generator** ⭐⭐ — PPT roadshow videos
 - **remotion-video-enhancer** ⭐⭐ — Video transitions and motion
 
-### 🎙️ Voice & Audio (3)
+### 🎙️ Voice & Audio
 - **tts-voice-synthesis** ⭐⭐⭐⭐⭐ — Smart voice synthesis
 - **qwen3-tts-local** ⭐⭐⭐⭐ — Local voice synthesis (Edge-TTS)
 - **qwen3-asr-assistant** ⭐⭐⭐⭐ — Speech-to-text
 
-### 🤖 Digital Avatars & Video Voice-over (6)
+### 🤖 Digital Avatars & Video Voice-over
 - **infinitetalk** ⭐⭐⭐⭐⭐ — Audio-driven video voice-over
 - **infinitetalk-shopping-avatar** ⭐⭐ — Shopping-avatar prompts
 - **digital-avatar-shopping-video** ⭐⭐ — Digital-human product videos
@@ -116,13 +97,13 @@ The Skill Store aggregates official skills from the following top-tier teams:
 - **agentkit-multimedia-shopping** ⭐⭐ — Multimedia product videos
 - **srt-whiteboard-animation** ⭐⭐⭐⭐ — Turn a .srt subtitle file into a whiteboard hand-drawn animation MP4 with strokes synced to the narration (storyboard → line art → annotations → zones → render → merge; browser preview for code-free drag adjustments)
 
-### 📄 Documents & Analysis (4)
+### 📄 Documents & Analysis
 - **paper-analysis-assistant** ⭐⭐⭐⭐ — arXiv paper analysis
 - **contract-review** ⭐⭐⭐ — Contract review
 - **law-to-markdown** ⭐⭐ — Legal document conversion
 - **stock-analysis** ⭐⭐⭐ — Individual stock analysis
 
-### 🤝 Multi-Agent Collaboration (7)
+### 🤝 Multi-Agent Collaboration
 - **agent-team** ⭐⭐⭐ — Multi-agent team collaboration
 - **multi-agent-meeting** ⭐⭐ — Multi-agent meetings
 - **peers-advisory-group** ⭐⭐ — Peer advisory group
@@ -131,11 +112,11 @@ The Skill Store aggregates official skills from the following top-tier teams:
 - **antinet-four-color-cards** ⭐⭐⭐⭐ — Eight-bureau four-color-card knowledge management (Apache-2.0)
 - **antinet-provenance** ⭐⭐⭐⭐ — Provenance tracing and traceability analysis (Apache-2.0)
 
-### 💼 Product & Project Management (2)
+### 💼 Product & Project Management
 - **product-manager-toolkit** ⭐⭐⭐ — Product manager toolkit
 - **sales-ai-assistant** ⭐⭐ — Sales AI assistant
 
-### 🎨 Design & Visualization (4)
+### 🎨 Design & Visualization
 - **frontend-design** ⭐⭐⭐ — Front-end interface design
 - **ai-drawio** ⭐⭐⭐⭐ — Flowchart and diagram drawing
 - **pop-up-book-illustration** ⭐⭐ — 3D pop-up illustration
@@ -151,17 +132,17 @@ The Skill Store aggregates official skills from the following top-tier teams:
 - **find-skill** ⭐⭐⭐ — Skill discovery tool
 - **skill-creator** ⭐⭐⭐ — Skill creation tool
 
-### 💰 Financial Analysis (2)
+### 💰 Financial Analysis
 - **creating-financial-models** ⭐⭐⭐⭐ — Financial modeling suite
 - **market-research-reports** ⭐⭐⭐⭐ — Market research reports
 
-### 🎭 Cultural Creation (1)
+### 🎭 Cultural Creation
 - **poetry-music-visual** ⭐⭐ — Classical poetry illustration & music
 
-### 📧 Email & Office Automation (1)
+### 📧 Email & Office Automation
 - **email-concierge** ⭐⭐⭐ — Local AI email assistant (OpenVINO GenAI on-device inference, data stays on-device; unread sorting & summary, schedule conflict checks, voice memo transcription, draft approval queue)
 
-### 🏥 Medical & Industry Agents (1)
+### 🏥 Medical & Industry Agents
 - **hospital_agent_upgrade** ⭐⭐⭐ — Upgraded virtual-diagnosis competition doctor agent (funnel-style multi-round triage, differential-diagnosis driven, clinical safety net)
 
 ## 🌟 Collected Open-Source Skills (4 · listed separately, not counted in the 69 above)
@@ -311,8 +292,7 @@ See the [tool documentation](tools/README.md).
 
 ## 🎯 Recommended Core Skills
 
-### ⭐⭐⭐⭐⭐ Five-Star Skills (12)
-
+### ⭐⭐⭐⭐⭐ Five-Star Skills
 1. **content-creation-publisher** — End-to-end content creation and publishing workflow
 2. **intelligent-content-system** — Intelligent content system
 3. **video-creation-suite** — Complete video creation suite
@@ -408,8 +388,7 @@ MIT License
 
 ## 📦 Community Skill Repositories Aggregation
 
-> This section is generated by the sync script; repositories are grouped by index for lookup and provenance.
-> Source configuration lives in `scripts/sync_skills.py` (`UPSTREAM_SOURCES`); live counts are in the Statistics section.
+> Community skill repositories, grouped for easy browsing.
 
 **Last updated**: 2026-11-12T02:12:04.483786
 

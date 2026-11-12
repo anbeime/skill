@@ -7,10 +7,8 @@ public/data/skills.json 的格式（前端 skills.html 搜索用的数据源）�
 
 设计目标：
 - 自动从 awesome-agent-skills 等上游抓取后，**同一天**反映到前端搜索
-- **真·动态「热门技能榜单」**：通过 GitHub Search API 实时抓取 agent-skills /
-  claude-skills / cursor-skills 相关仓库，按 Star 数与近期 push 活跃度排序，
-  取代此前的硬编码 MANUAL_DESCRIPTIONS（旧实现只是 5 条写死的 D-25 trending，
-  并非真实出网抓取，README 中「热门技能榜单」因此曾被夸大）。
+- **热门技能榜单**：通过 GitHub Search API 获取 agent-skills /
+  claude-skills / cursor-skills 相关仓库，按 Star 数与近期 push 活跃度排序。
 - 离线降级：若 GitHub API 不可达 / 触发限流，自动回退到 MANUAL_DESCRIPTIONS
   种子（不再出网），保证每日机器人构建不中断。
 - 默认模式：trending-only（只刷新热门榜单段，不污染已有 curated 列表）
@@ -24,7 +22,7 @@ public/data/skills.json 的格式（前端 skills.html 搜索用的数据源）�
 - 无 git 操作（push 由 GitHub Actions 后续步骤处理）
 
 用法：
-    python scripts/sync_skills_to_search.py                # trending-only（默认=真·动态抓取）
+    python scripts/sync_skills_to_search.py                # trending-only（默认抓取在线榜单）
     python scripts/sync_skills_to_search.py --offline      # 离线：仅用 MANUAL 种子
     python scripts/sync_skills_to_search.py --all           # 全量同步 SKILL_SOURCES
     python scripts/sync_skills_to_search.py --dry-run      # 仅打印，不写盘
@@ -165,7 +163,7 @@ def _is_skill_repo(item: dict) -> bool:
 
 def fetch_github_trending(max_per_list: int = 25, timeout: int = 25) -> list:
     """
-    真·动态抓取：调用 GitHub Search API 获取 agent 技能相关仓库的「热门 / 趋势」榜。
+    调用 GitHub Search API 获取 agent 技能相关仓库的「热门 / 趋势」榜。
 
     返回 list[dict]，每条含 name/description/link/category/source/stars/forks/
     language/topics/pushed_at/trending 等字段；按 star 数降序。
@@ -285,7 +283,7 @@ def sync_all(dry_run: bool) -> dict:
 def sync_trending(dry_run: bool, enable_github: bool = True) -> dict:
     """
     刷新「热门技能榜单」段：
-    - enable_github=True（默认）：真·动态抓 GitHub Search API；
+    - enable_github=True（默认）：调用 GitHub Search API；
       命中 MANUAL_DESCRIPTIONS 的种子用更丰富的人工描述覆盖，但标记 trending+真实 stars。
     - 网络失败 / --offline：回退到 MANUAL_DESCRIPTIONS 种子（不调用 GitHub API）。
 
@@ -371,7 +369,7 @@ def main():
             )
             inject_readme_stats(**_stats, path="README.md", lang="zh")
             inject_readme_stats(**_stats, path="README_EN.md", lang="en")
-            # 防回潮：任何写 README 的入口都清一次头部上游数量/名称宣称
+            # 清理头部违规宣称
             guard_readme_claims("README.md")
             guard_readme_claims("README_EN.md")
         except Exception as e:
