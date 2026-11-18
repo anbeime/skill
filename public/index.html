@@ -173,6 +173,21 @@ nav {
 }
 .card p { color: var(--text-2); font-size: 0.92rem; line-height: 1.7; margin-bottom: 18px; }
 
+
+/* Featured 知易动态示意图 */
+.zy-demo { width:100%; height:170px; border-radius:14px; overflow:hidden; border:1px solid var(--border); background:#0f1226; margin:6px 0 18px; }
+.zy-demo svg { width:100%; height:100%; display:block; }
+.zy-card { animation: zyFloat 3.2s ease-in-out infinite; }
+.zy-card:nth-child(2){ animation-delay:.25s; }
+.zy-card:nth-child(3){ animation-delay:.5s; }
+.zy-card:nth-child(4){ animation-delay:.75s; }
+.zy-flow { stroke-dasharray:5 4; animation: zyFlow 1.2s linear infinite; }
+.zy-hub { animation: zyPulse 2s ease-in-out infinite; transform-origin:center; }
+@keyframes zyFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-4px);} }
+@keyframes zyFlow { to{stroke-dashoffset:-18;} }
+@keyframes zyPulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.06);} }
+@media (prefers-reduced-motion: reduce){ .zy-card,.zy-flow,.zy-hub{animation:none;} }
+
 /* Featured card - 知易 */
 .card-featured {
   grid-column: span 7;
@@ -425,6 +440,31 @@ footer a:hover { color: var(--accent-2); }
       <span class="card-badge">🧠 智能基座</span>
       <span class="card-icon">🧠</span>
       <h3>知易 ZhiYi</h3>
+
+      <div class="zy-demo" aria-label="知易系统四色卡片与多智能体流水线动态示意图">
+        <svg viewBox="0 0 640 170" preserveAspectRatio="xMidYMid meet">
+          <rect width="640" height="170" fill="#0f1226"/>
+          <text x="14" y="20" fill="#6a7a9a" font-size="10" font-family="monospace">ZhiYi · 八署 Agent 流水线 / 数据不出域</text>
+          <!-- 输入源 -->
+          <g class="zy-hub"><rect x="14" y="70" width="72" height="42" rx="8" fill="#1b2a4a" stroke="#7fd1ff" stroke-width="1.5"/><text x="50" y="88" fill="#bfe3ff" font-size="11" text-anchor="middle" font-family="sans-serif">📄 输入</text><text x="50" y="103" fill="#7fd1ff" font-size="9" text-anchor="middle" font-family="sans-serif">本地文档/URL</text></g>
+          <!-- 安全闸门 -->
+          <g><rect x="104" y="70" width="76" height="42" rx="8" fill="#152238" stroke="#06d6a0" stroke-width="1.5"/><text x="142" y="88" fill="#8affd1" font-size="11" text-anchor="middle" font-family="sans-serif">🛡️ 锦衣卫</text><text x="142" y="103" fill="#06d6a0" font-size="9" text-anchor="middle" font-family="sans-serif">安全扫描</text></g>
+          <!-- 连接线 -->
+          <g class="zy-flow" stroke="#4a6" stroke-width="2" fill="none"><line x1="86" y1="91" x2="104" y2="91"/><line x1="180" y1="91" x2="212" y2="91"/></g>
+          <!-- 四色卡片 -->
+          <g class="zy-card"><rect x="212" y="40" width="104" height="34" rx="7" fill="#1b4f72"/><text x="264" y="62" fill="#7fd1ff" font-size="11" text-anchor="middle" font-family="sans-serif">🔵 蓝卡·事实</text></g>
+          <g class="zy-card"><rect x="212" y="80" width="104" height="34" rx="7" fill="#145a32"/><text x="264" y="102" fill="#7ff0a8" font-size="11" text-anchor="middle" font-family="sans-serif">🟢 绿卡·完成</text></g>
+          <g class="zy-card"><rect x="212" y="120" width="104" height="34" rx="7" fill="#7d6608"/><text x="264" y="142" fill="#ffe580" font-size="11" text-anchor="middle" font-family="sans-serif">🟡 黄卡·进行中</text></g>
+          <g class="zy-card"><rect x="328" y="80" width="104" height="34" rx="7" fill="#78281f"/><text x="380" y="102" fill="#ff9a8f" font-size="11" text-anchor="middle" font-family="sans-serif">🔴 红卡·紧急</text></g>
+          <!-- 汇聚到太史阁 -->
+          <g class="zy-flow" stroke="#a07cff" stroke-width="1.6" fill="none"><line x1="316" y1="57" x2="470" y2="91"/><line x1="316" y1="97" x2="470" y2="91"/><line x1="316" y1="137" x2="470" y2="91"/><line x1="432" y1="97" x2="470" y2="91"/></g>
+          <g class="zy-hub"><circle cx="510" cy="91" r="34" fill="#3a2d6b" stroke="#a07cff" stroke-width="2"/><text x="510" y="88" fill="#d9c9ff" font-size="11" text-anchor="middle" font-family="sans-serif">太史阁</text><text x="510" y="103" fill="#a07cff" font-size="9" text-anchor="middle" font-family="sans-serif">溯源留痕</text></g>
+          <!-- 输出 -->
+          <g><rect x="566" y="70" width="62" height="42" rx="8" fill="#1b3a2a" stroke="#06d6a0" stroke-width="1.5"/><text x="597" y="96" fill="#8affd1" font-size="11" text-anchor="middle" font-family="sans-serif">✅ 结论</text></g>
+          <line class="zy-flow" x1="544" y1="91" x2="566" y2="91" stroke="#4a6" stroke-width="2"/>
+          <text x="320" y="166" fill="#5a6a8a" font-size="9" text-anchor="middle" font-family="sans-serif">密卷房解析 → 通政司分发 → 各官署协作 → 太史阁留痕 · 每张卡片可溯源</text>
+        </svg>
+      </div>
       <p>AI 智能基座 · 四色卡片记录层——一个对话框调度所有模型，四色卡片让 AI 真正记住你。免费 LLM 网关 + 八署 Agent + 240+ 技能即插即用，端侧 NPU 保底。</p>
       <div class="featured-grid">
         <div class="featured-stat"><div class="v">8</div><div class="l">八署 Agent</div></div>

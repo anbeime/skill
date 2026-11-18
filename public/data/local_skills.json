@@ -469,6 +469,190 @@
         "网页"
       ],
       "demo": "jack"
+    },
+    "antinet-four-color-cards": {
+      "title_cn": "知易·四色卡片知识引擎",
+      "title_en": "ZhiYi Four-Color Cards",
+      "description_cn": "知易系统的知识记录层。由通政司主调用，把信息拆成蓝卡(事实)、绿卡(解释)、黄卡(风险)、红卡(行动)，黄卡经监察院复核、红卡由丞相府补全策略，全部经太史阁留痕，保证每张卡片可溯源。",
+      "description_en": "The knowledge layer of ZhiYi. Splits information into Blue(fact)/Green(explanation)/Yellow(risk)/Red(action) cards, cross-reviewed by agents and fully recorded for provenance.",
+      "author": "TOPGO 知易",
+      "repo": "https://github.com/anbeime/antinet",
+      "license": "",
+      "tags": [
+        "知易",
+        "四色卡片",
+        "知识管理",
+        "多智能体"
+      ],
+      "demo": "fourcolor"
+    },
+    "antinet-doc-parse": {
+      "title_cn": "知易·密卷房文档解析",
+      "title_en": "ZhiYi Doc Parse",
+      "description_cn": "知易系统的文档结构化入口。由密卷房 Worker 调用，仅处理已通过安全扫描的本地文件，三级 fallback 依次尝试，输出结构化结果与置信度；数据不出域。",
+      "description_en": "ZhiYi's document structuring entry. Called by the archive worker on security-scanned local files; three-tier fallback yields structured results with confidence, data stays on-device.",
+      "author": "TOPGO 知易",
+      "repo": "https://github.com/anbeime/antinet",
+      "license": "",
+      "tags": [
+        "知易",
+        "文档解析",
+        "OCR",
+        "本地优先"
+      ],
+      "demo": "docparse"
+    },
+    "antinet-provenance": {
+      "title_cn": "知易·太史阁溯源留痕",
+      "title_en": "ZhiYi Provenance Ledger",
+      "description_cn": "知易系统的证据链与审计层。各官署在关键操作节点写入事件(actor/action/target/trace_id)，支持按 trace_id、时间窗、官署维度检索，支撑审计面板与回滚定位。",
+      "description_en": "ZhiYi's evidence-chain layer. Agents log events at key steps; query by trace_id, time window or agent to power audit dashboards and rollback.",
+      "author": "TOPGO 知易",
+      "repo": "https://github.com/anbeime/antinet",
+      "license": "",
+      "tags": [
+        "知易",
+        "溯源",
+        "审计",
+        "证据链"
+      ],
+      "demo": "provenance"
+    },
+    "antinet-security-scan": {
+      "title_cn": "知易·锦衣卫安全扫描",
+      "title_en": "ZhiYi Security Scan",
+      "description_cn": "知易系统的第一道安全闸门。由锦衣卫 Worker 在收到文件/URL 时调用，输出结构化判定(pass/reject)并写入 provenance 留痕，保障数据不出域流水线的前端防线。",
+      "description_en": "ZhiYi's first security gate. Scans files/URLs, returns a structured pass/reject verdict and logs it to provenance — the frontline of the on-device pipeline.",
+      "author": "TOPGO 知易",
+      "repo": "https://github.com/anbeime/antinet",
+      "license": "",
+      "tags": [
+        "知易",
+        "安全扫描",
+        "合规",
+        "数据不出域"
+      ],
+      "demo": "security"
+    },
+    "ppt-generator": {
+      "title_cn": "大纲一键生成 PPT",
+      "title_en": "Outline to PPT",
+      "description_cn": "给一份大纲或主题，直接产出结构化 PPT：逐页标题、要点、配图建议与演讲备注，适合周报、汇报、答辩快速成稿。",
+      "description_en": "Turn an outline or topic into a structured deck: per-slide titles, bullets, image suggestions and speaker notes.",
+      "author": "anbeime",
+      "repo": "https://github.com/anbeime/skill/tree/main/skills/ppt-generator",
+      "license": "",
+      "tags": [
+        "PPT",
+        "演示",
+        "办公"
+      ],
+      "demo": "ppt"
+    },
+    "video-creation-suite": {
+      "title_cn": "短视频创作套件",
+      "title_en": "Video Creation Suite",
+      "description_cn": "短视频一站式流水线：脚本→分镜→配音→字幕→成片，覆盖选题到发布的完整创作链路。",
+      "description_en": "End-to-end short-video pipeline: script, storyboard, voiceover, subtitles and final render.",
+      "author": "anbeime",
+      "repo": "https://github.com/anbeime/skill/tree/main/skills/video-creation-suite",
+      "license": "",
+      "tags": [
+        "视频",
+        "分镜",
+        "配音"
+      ],
+      "demo": "video"
+    },
+    "ecommerce-full-pipeline": {
+      "title_cn": "电商全链路流水线",
+      "title_en": "E-commerce Full Pipeline",
+      "description_cn": "电商从选品到内容到投放的一站式技能：选品分析、文案、图文、短视频批量产出。",
+      "description_en": "One-stop e-commerce skill: product research, copywriting, image posts and short videos at scale.",
+      "author": "anbeime",
+      "repo": "https://github.com/anbeime/skill/tree/main/skills/ecommerce-full-pipeline",
+      "license": "",
+      "tags": [
+        "电商",
+        "选品",
+        "营销"
+      ],
+      "demo": "ecommerce"
+    },
+    "pdf": {
+      "title_cn": "PDF 批量处理",
+      "title_en": "PDF Processing",
+      "description_cn": "PDF 批量转 Markdown、表格抽取、合并拆分与页码重排，把重复劳动一次跑完。",
+      "description_en": "Batch PDF to Markdown, table extraction, merge/split and page reordering.",
+      "author": "anbeime",
+      "repo": "https://github.com/anbeime/skill/tree/main/skills/pdf",
+      "license": "",
+      "tags": [
+        "PDF",
+        "文档",
+        "办公"
+      ],
+      "demo": "pdf"
+    },
+    "xlsx": {
+      "title_cn": "表格批处理",
+      "title_en": "Spreadsheet Processing",
+      "description_cn": "Excel/xlsx 读写、清洗、透视与公式填充，适合台账、对账与批量报表。",
+      "description_en": "Read/write, clean, pivot and fill formulas in Excel/xlsx — built for ledgers and batch reports.",
+      "author": "anbeime",
+      "repo": "https://github.com/anbeime/skill/tree/main/skills/xlsx",
+      "license": "",
+      "tags": [
+        "Excel",
+        "表格",
+        "数据"
+      ],
+      "demo": "xlsx"
+    },
+    "ai-drawio": {
+      "title_cn": "AI 流程图绘制",
+      "title_en": "AI Diagram Drawio",
+      "description_cn": "用代码生成 draw.io 流程图/架构图，流程图、时序图、思维导图结构一键成图。",
+      "description_en": "Generate draw.io flowcharts, architecture and mind-map diagrams from code.",
+      "author": "anbeime",
+      "repo": "https://github.com/anbeime/skill/tree/main/skills/ai-drawio",
+      "license": "",
+      "tags": [
+        "流程图",
+        "架构图",
+        "可视化"
+      ],
+      "demo": "diagram"
+    },
+    "agent-team": {
+      "title_cn": "多智能体协同编排",
+      "title_en": "Agent Team Orchestration",
+      "description_cn": "多 Agent 角色分工、任务分发与协同编排，像一支团队一样完成复杂任务。",
+      "description_en": "Multi-agent role definition, task dispatch and orchestration to tackle complex work as a team.",
+      "author": "anbeime",
+      "repo": "https://github.com/anbeime/skill/tree/main/skills/agent-team",
+      "license": "",
+      "tags": [
+        "多智能体",
+        "协作",
+        "编排"
+      ],
+      "demo": "agents"
+    },
+    "multi-agent-meeting": {
+      "title_cn": "多智能体虚拟会议",
+      "title_en": "Multi-Agent Meeting",
+      "description_cn": "让多个 Agent 围绕议题基于卡片发言、辩论并产出结论，支持会议卡片溯源。",
+      "description_en": "Run virtual meetings where agents speak and debate around an issue, producing traceable conclusions.",
+      "author": "TOPGO 知易",
+      "repo": "https://github.com/anbeime/antinet",
+      "license": "",
+      "tags": [
+        "多智能体",
+        "会议",
+        "知易"
+      ],
+      "demo": "meeting"
     }
   },
   "update_log": [
@@ -527,6 +711,11 @@
       "changes": [
         "前端/README 同步：技能总数 83 → 89（合并 data/ 与 public/ 分叉）"
       ]
+    },
+    {
+      "version": "2.4",
+      "date": "2026-11-18",
+      "note": "新增知易系统4技能与高频技能的动态示意图映射；可视化技能前置；首页知易展示区"
     }
   ]
 }
