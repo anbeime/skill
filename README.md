@@ -12170,7 +12170,7 @@ MIT License
 <!-- clawhub-sync-start -->
 ## ClawHub (Skill Registry)
 
-Latest commit: `4fff918`
+Latest commit: `9b6b850`
 
 ### Packages
 
