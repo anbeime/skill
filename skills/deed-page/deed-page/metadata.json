@@ -1,0 +1,31 @@
+{
+  "name": "deed-page",
+  "version": "1.8.1",
+  "description": "Publish a generated HTML file or a clean build folder to a public https://<slug>.deed.page/ URL with one curl request, after the user asks to publish or confirms. No account needed.",
+  "author": "Avatar 8 LLC",
+  "homepage": "https://deed.page",
+  "source": "https://github.com/f-o-x11/deed-page-skill",
+  "license": "MIT",
+  "dependencies": {
+    "curl": "*",
+    "tar": "*",
+    "node": ">=18 (only for folders over 4 MB)"
+  },
+  "platforms": ["macOS", "Linux", "Windows (WSL / Git Bash)"],
+  "tags": [
+    "deed-page",
+    "static-hosting",
+    "publish",
+    "deploy",
+    "html",
+    "share-link"
+  ],
+  "triggers": [
+    "publish this page",
+    "deploy the site",
+    "host this HTML",
+    "give me a link",
+    "发布网页",
+    "部署网站"
+  ]
+}
