@@ -1,0 +1,141 @@
+{
+  "generated": "2026-10-06T14:41:04",
+  "repo": "anbeime/skill",
+  "target_dir": "my-skills",
+  "categories": [
+    {
+      "dir": "01-汽车营销获客",
+      "icon": "🚗",
+      "desc": "面向汽车经销商的获客内容生产：品牌视觉海报提示词、小红书爆款文案。",
+      "skills": [
+        {
+          "name": "auto-poster-seedance",
+          "path": "01-汽车营销获客/auto-poster-seedance/SKILL.md",
+          "source": "C:\\Users\\39107\\.trae-cn\\skills\\auto-poster-seedance\\SKILL.md",
+          "size": 4072,
+          "description": "Builds paste-ready AI image prompts for 9:16 automotive brand posters (早安/午安/晚安/雨夜/商务/节气) with swappable car model, paint color, scene and lighting. Invoke for 汽车海报提示词/生图提示词/换车型换颜色/海报风格库."
+        },
+        {
+          "name": "小红书爆款文案",
+          "path": "01-汽车营销获客/小红书爆款文案/SKILL.md",
+          "source": "C:\\Users\\39107\\AppData\\Roaming\\TRAE SOLO CN\\ModularData\\ai-agent\\work-mode-projects\\6a49bb0ff781e648f2c872fb\\.trae\\skills\\小红书爆款文案\\SKILL.md",
+          "size": 7259,
+          "description": "为宝驰汇·三禾名车生成小红书爆款文案。输入车型/关键词，输出完整标题+正文+标签+投放建议。当用户提供车型关键词（如\\\"宝马X5\\\"、\\\"适合女生的车\\\"）时立即调用。"
+        }
+      ]
+    },
+    {
+      "dir": "02-短视频创作",
+      "icon": "🎬",
+      "desc": "从选题钩子到拍摄台本再到标题文案的短视频全链路生产工具。",
+      "skills": [
+        {
+          "name": "storyline-video-shooting-script",
+          "path": "02-短视频创作/storyline-video-shooting-script/SKILL.md",
+          "source": "C:\\Users\\39107\\.trae-cn\\skills\\storyline-video-shooting-script\\SKILL.md",
+          "size": 4303,
+          "description": "故事线纪实爆款短视频拍摄台本生成器。为汽修/服务类门店生成可直接执行的完整拍摄台本（接单→上门→痛点→维修→交车全流程），坚持真实记录、禁止摆拍。当用户描述一个真实服务事件（如上门修车、售后保养、救援）并要求按故事线拍成爆款视频时调用。"
+        },
+        {
+          "name": "video-title-subtitle-copywriter",
+          "path": "02-短视频创作/video-title-subtitle-copywriter/SKILL.md",
+          "source": "C:\\Users\\39107\\.trae-cn\\skills\\video-title-subtitle-copywriter\\SKILL.md",
+          "size": 5285,
+          "description": "汽修/汽车短视频标题、副标题与话题标签生成器。输入车型、维修项目与亮点，一键产出可直接发布的标题、副标题、#话题标签、封面大字和转发推荐语，适配视频号/抖音/小红书。当用户剪完视频要写标题、副标题、文案或话题标签时调用。"
+        },
+        {
+          "name": "car-video-prompt",
+          "path": "02-短视频创作/car-video-prompt/SKILL.md",
+          "source": "C:\\Users\\39107\\AppData\\Roaming\\TRAE SOLO CN\\ModularData\\ai-agent\\work-mode-projects\\6a4b6eea794eaf9d1e0db7ce\\.trae\\skills\\car-video-prompt\\SKILL.md",
+          "size": 6858,
+          "description": "Automotive video prompt specialist for Seedream/Seedance. Invoke when user provides a car photo and needs a professional video generation prompt for AI video tools."
+        },
+        {
+          "name": "viral-hooks",
+          "path": "02-短视频创作/viral-hooks/SKILL.md",
+          "source": "C:\\Users\\39107\\AppData\\Roaming\\TRAE SOLO CN\\ModularData\\ai-agent\\work-mode-projects\\6a6866de937df4ec10b6c8d5\\.trae\\skills\\viral-hooks\\SKILL.md",
+          "size": 11454,
+          "description": "Analyzes Douyin/TikTok videos to extract viral hooks, and generates viral copy using a 200+ hook database. Invoke when user provides a video URL for hook analysis or asks to write viral copy/hooks."
+        }
+      ]
+    },
+    {
+      "dir": "03-直播运营",
+      "icon": "📺",
+      "desc": "售后/维修门店的可持续系列直播策划与台本体系。",
+      "skills": [
+        {
+          "name": "aftersales-live-script",
+          "path": "03-直播运营/aftersales-live-script/SKILL.md",
+          "source": "C:\\Users\\39107\\.trae-cn\\skills\\aftersales-live-script\\SKILL.md",
+          "size": 5156,
+          "description": "为汽修/名车/售后门店生成可持续系列直播的完整脚本体系：板块排期 + 对话式车间走播台本 + 留资钩子话术 + 合规红线 + 复盘口径。当用户要做售后维修保养直播、开播台本、直播话术、板块排期或直播策划时调用。"
+        }
+      ]
+    },
+    {
+      "dir": "04-内容创作与改写",
+      "icon": "✍️",
+      "desc": "公众号文章深度改写与日常口播稿生成。",
+      "skills": [
+        {
+          "name": "wechat-rewrite",
+          "path": "04-内容创作与改写/wechat-rewrite/SKILL.md",
+          "source": "C:\\Users\\39107\\AppData\\Roaming\\TRAE SOLO CN\\ModularData\\ai-agent\\work-mode-projects\\6a49b3f9f781e648f2c8723d\\.trae\\skills\\wechat-rewrite\\SKILL.md",
+          "size": 4815,
+          "description": "微信公众号文章洗稿改写。用户提供公众号文章时触发，进行深度重写、去AI味处理、规避平台违规风险。参考了AIWriteX等多智能体协作框架的洗稿方法论，安全合规地输出高品质原创内容。"
+        },
+        {
+          "name": "morning-greeter",
+          "path": "04-内容创作与改写/morning-greeter/SKILL.md",
+          "source": "C:\\Users\\39107\\AppData\\Roaming\\TRAE SOLO CN\\ModularData\\ai-agent\\work-mode-projects\\6a52e51b46d9f3b3cefb6a37\\.trae\\skills\\morning-greeter\\SKILL.md",
+          "size": 5164,
+          "description": "私人早安播报员 - 生成懂节气、知农历、有温度的30秒早安口播稿。融入汽车行业视角。自动查2026年节气节日。Invoke when user says '早安' '早安文案' '早安播报' 'morning greeting' or asks for daily oral script."
+        }
+      ]
+    },
+    {
+      "dir": "05-数据采集与分析",
+      "icon": "📊",
+      "desc": "视频号数据采集与商业文章/案例的批判性分析。",
+      "skills": [
+        {
+          "name": "wechat-channels-helper",
+          "path": "05-数据采集与分析/wechat-channels-helper/SKILL.md",
+          "source": "C:\\Users\\39107\\AppData\\Roaming\\TRAE SOLO CN\\ModularData\\ai-agent\\work-mode-projects\\6a4da441017a8f04d07f4a44\\.trae\\skills\\wechat-channels-helper\\SKILL.md",
+          "size": 3314,
+          "description": "微信视频号数据采集与分析助手。支持视频搜索、博主搜索、评论采集、单条/批量视频数据提取、口播文案提取、视频分析、文案改写。当用户需要采集视频号数据、分析视频号内容、提取视频号博主信息时调用。"
+        },
+        {
+          "name": "business-insight-analyzer",
+          "path": "05-数据采集与分析/business-insight-analyzer/SKILL.md",
+          "source": "C:\\Users\\39107\\.trae-cn\\skills\\business-insight-analyzer\\SKILL.md",
+          "size": 3037,
+          "description": "商业文章与案例的深度批判性分析框架，将分析升级为审计报告。当用户提供文章链接（微信/公众号/网页/PDF）、粘贴全文或商业案例，并要求分析、评价、判断对错、拆解逻辑、验证观点时使用。Deep critical analysis of business articles and cases with evidence audit, logic review, interest analysis and reliability rating. Invoke when the user asks to analyze or evaluate an article, case study, or business insight."
+        }
+      ]
+    },
+    {
+      "dir": "06-效率工具",
+      "icon": "🛠️",
+      "desc": "网页离线归档与 GitHub CLI 操作参考。",
+      "skills": [
+        {
+          "name": "webpage-archiver",
+          "path": "06-效率工具/webpage-archiver/SKILL.md",
+          "source": "C:\\Users\\39107\\AppData\\Roaming\\TRAE SOLO CN\\ModularData\\ai-agent\\work-mode-projects\\6a6424bdb9a2205ddb3815a1\\.trae\\skills\\webpage-archiver\\SKILL.md",
+          "size": 1681,
+          "description": "封装完整网页（HTML+图片+CSS+JS）到本地归档。当用户提供URL需要保存网页离线副本、打包网页做公司背书存档、或批量归档网页内容时使用。保存到 D:\\\\家富三禾农林\\\\网页封装\\\\"
+        },
+        {
+          "name": "gh-cli",
+          "path": "06-效率工具/gh-cli/SKILL.md",
+          "source": "C:\\Users\\39107\\.trae-cn\\skills\\gh-cli\\SKILL.md",
+          "size": 39016,
+          "description": "GitHub CLI (gh) comprehensive reference for repositories, issues, pull requests, Actions, projects, releases, gists, codespaces, organizations, extensions, and all GitHub operations from the command line."
+        }
+      ]
+    }
+  ],
+  "total": 13
+}
