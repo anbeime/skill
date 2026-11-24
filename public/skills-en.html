@@ -407,24 +407,24 @@
             <button class="lang-toggle" id="langToggle" onclick="toggleLang()">🌐 中文</button>
             <div class="filter-tabs" id="filterTabs">
                 <div class="filter-tab active" data-filter="all">All</div>
+                <div class="filter-tab" data-filter="local">💾 Local</div>
                 <div class="filter-tab" data-filter="trending">🔥 GitHub Trending</div>
                 <div class="filter-tab" data-filter="official">🌍 Official</div>
-                <div class="filter-tab" data-filter="local">💾 Local</div>
                 <div class="filter-tab" data-filter="category:AI 创意与可视化">🎨 Creative & Visual</div>
             </div>
         </div>
+
+        <h2 class="section-title local" id="sectionLocal" style="display:none;">
+            💾 Local Skills (visual / ZhiYi first)
+            <span class="section-count" id="localCount"></span>
+        </h2>
+        <div class="skills-grid" id="gridLocal"></div>
 
         <h2 class="section-title trending" id="sectionTrending" style="display:none;">
             🔥 GitHub Trending Skills (live · sorted by Stars)
             <span class="section-count" id="trendingCount"></span>
         </h2>
         <div class="skills-grid" id="gridTrending"></div>
-
-        <h2 class="section-title local" id="sectionLocal" style="display:none;">
-            💾 Local Skills
-            <span class="section-count" id="localCount"></span>
-        </h2>
-        <div class="skills-grid" id="gridLocal"></div>
 
         <h2 class="section-title" id="sectionOfficial" style="display:none;">
             🌍 Official Index
@@ -465,6 +465,7 @@
             allLocalSkills = buildLocalSkillsList(localData);
             updateStats();
             render();
+            scrollToHash();
         } catch (e) {
             console.error('Load failed:', e);
             document.getElementById('searchInfo').innerHTML =
@@ -552,17 +553,17 @@
             ? currentFilter.replace('category:', '')
             : null;
 
+        let localFiltered = allLocalSkills.filter(s => matchSearch(s, term, filterCategory));
+        localFiltered = sortByDemo(localFiltered);
+        renderGrid('gridLocal', 'sectionLocal', 'localCount',
+            localFiltered, 'local', 'Visual / ZhiYi skills first · Local Skills');
+
         // Trending (sorted by stars)
         const trendingRaw = allOfficialSkills.filter(s => s.trending === true || TRENDING_REPOS.has(s.name));
         const trendingSorted = trendingRaw.slice().sort((a, b) => (b.stars || 0) - (a.stars || 0));
         const trendingFiltered = trendingSorted.filter(s => matchSearch(s, term, filterCategory));
         renderGrid('gridTrending', 'sectionTrending', 'trendingCount',
             trendingFiltered, 'trending', '🔥 GitHub Trending Skills (live · sorted by Stars)');
-
-        let localFiltered = allLocalSkills.filter(s => matchSearch(s, term, filterCategory));
-        localFiltered = sortByDemo(localFiltered);
-        renderGrid('gridLocal', 'sectionLocal', 'localCount',
-            localFiltered, 'local', 'Visual / ZhiYi skills first · Local Skills');
 
         const nonTrendingOfficial = allOfficialSkills.filter(s => !s.trending && !TRENDING_REPOS.has(s.name));
         const officialFiltered = nonTrendingOfficial.filter(s => matchSearch(s, term, filterCategory));
@@ -705,6 +706,17 @@
             t = setTimeout(() => fn(...args), ms);
         };
     }
+
+    // Jump to #sectionLocal / #sectionTrending / #sectionOfficial
+    function scrollToHash() {
+        const id = (location.hash || '').replace('#', '');
+        if (!id) return;
+        const el = document.getElementById(id);
+        if (el && el.style.display !== 'none') {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+    window.addEventListener('hashchange', scrollToHash);
 
     document.addEventListener('DOMContentLoaded', loadAll);
     </script>

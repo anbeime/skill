@@ -413,9 +413,9 @@
             <button class="lang-toggle" id="langToggle" onclick="toggleLang()">🌐 EN</button>
             <div class="filter-tabs" id="filterTabs">
                 <div class="filter-tab active" data-filter="all">全部</div>
+                <div class="filter-tab" data-filter="local">💾 本地技能</div>
                 <div class="filter-tab" data-filter="trending">🔥 GitHub 热门</div>
                 <div class="filter-tab" data-filter="official">🌍 官方索引</div>
-                <div class="filter-tab" data-filter="local">💾 本地技能</div>
                 <div class="filter-tab" data-filter="category:Document Parsing">📄 文档解析</div>
                 <div class="filter-tab" data-filter="category:Image Generation">🎨 图像生成</div>
                 <div class="filter-tab" data-filter="category:3D / Three.js">🧊 3D 模型</div>
@@ -424,19 +424,19 @@
             </div>
         </div>
 
+        <!-- 动态渲染：本地技能（置顶优先） -->
+        <h2 class="section-title local" id="sectionLocal" style="display:none;">
+            💾 本地技能库（可视化技能与知易系统优先）
+            <span class="section-count" id="localCount"></span>
+        </h2>
+        <div class="skills-grid" id="gridLocal"></div>
+
         <!-- 动态渲染：GitHub 热门（真实抓取） -->
         <h2 class="section-title trending" id="sectionTrending" style="display:none;">
             🔥 GitHub 热门技能（实时抓取 · 按 Star 排序）
             <span class="section-count" id="trendingCount"></span>
         </h2>
         <div class="skills-grid" id="gridTrending"></div>
-
-        <!-- 动态渲染：本地技能 -->
-        <h2 class="section-title local" id="sectionLocal" style="display:none;">
-            💾 本地技能库
-            <span class="section-count" id="localCount"></span>
-        </h2>
-        <div class="skills-grid" id="gridLocal"></div>
 
         <!-- 动态渲染：官方索引 -->
         <h2 class="section-title" id="sectionOfficial" style="display:none;">
@@ -517,6 +517,7 @@
             allLocalSkills = buildLocalSkillsList(localData);
             updateStats();
             render();
+            scrollToHash();
         } catch (e) {
             console.error('加载失败:', e);
             document.getElementById('searchInfo').innerHTML =
@@ -605,18 +606,18 @@
             ? currentFilter.replace('category:', '')
             : null;
 
-        // Trending（按 Star 降序）
+        // 1. Local（置顶优先）
+        let localFiltered = allLocalSkills.filter(s => matchSearch(s, term, filterCategory));
+        localFiltered = sortByDemo(localFiltered);
+        renderGrid('gridLocal', 'sectionLocal', 'localCount',
+            localFiltered, 'local', '可视化技能与知易系统优先 · 本地技能库');
+
+        // 2. Trending（按 Star 降序）
         const trendingRaw = allOfficialSkills.filter(s => s.trending === true || TRENDING_REPOS.has(s.name));
         const trendingSorted = trendingRaw.slice().sort((a, b) => (b.stars || 0) - (a.stars || 0));
         const trendingFiltered = trendingSorted.filter(s => matchSearch(s, term, filterCategory));
         renderGrid('gridTrending', 'sectionTrending', 'trendingCount',
             trendingFiltered, 'trending', '🔥 GitHub 热门技能（实时抓取 · 按 Star 排序）');
-
-        // 2. Local
-        let localFiltered = allLocalSkills.filter(s => matchSearch(s, term, filterCategory));
-        localFiltered = sortByDemo(localFiltered);
-        renderGrid('gridLocal', 'sectionLocal', 'localCount',
-            localFiltered, 'local', '可视化技能与知易系统优先 · 本地技能库');
 
         // 3. Official（非 trending）
         const nonTrendingOfficial = allOfficialSkills.filter(s => !s.trending && !TRENDING_REPOS.has(s.name));
@@ -721,6 +722,17 @@
             t = setTimeout(() => fn(...args), ms);
         };
     }
+
+    // 支持 #sectionLocal / #sectionTrending / #sectionOfficial 锚点跳转
+    function scrollToHash() {
+        const id = (location.hash || '').replace('#', '');
+        if (!id) return;
+        const el = document.getElementById(id);
+        if (el && el.style.display !== 'none') {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+    window.addEventListener('hashchange', scrollToHash);
 
     document.addEventListener('DOMContentLoaded', loadAll);
     </script>
