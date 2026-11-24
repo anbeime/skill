@@ -259,6 +259,52 @@ nav {
   border: 1px solid rgba(124,110,240,0.15);
 }
 
+/* ===== 首页本地技能精选 ===== */
+.local-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px;
+}
+.local-card {
+  position: relative; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 18px; overflow: hidden; text-decoration: none; color: inherit;
+  display: flex; flex-direction: column; transition: all 0.25s;
+}
+.local-card:hover { border-color: var(--border-bright); transform: translateY(-3px); background: var(--surface-hover); }
+.local-card .lc-demo { width: 100%; aspect-ratio: 2 / 1; background: #0f1226; overflow: hidden; }
+.local-card .lc-demo svg { width: 100%; height: 100%; display: block; }
+.local-card .lc-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.local-card .lc-top { display: flex; align-items: center; gap: 8px; }
+.local-card .lc-name { font-size: 0.98rem; font-weight: 700; letter-spacing: -0.01em; flex: 1;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.local-card .lc-badge {
+  font-size: 0.66rem; font-weight: 700; padding: 2px 8px; border-radius: 100px; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--accent), var(--pink)); color: #fff;
+}
+.local-card .lc-badge.plain { background: rgba(124,110,240,0.15); color: var(--accent-2); border: 1px solid rgba(124,110,240,0.25); }
+.local-card .lc-desc { font-size: 0.82rem; color: var(--text-2); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.local-card .lc-cat { font-size: 0.72rem; color: var(--text-3); margin-top: auto; }
+.local-cta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+@media (max-width: 560px) { .local-grid { grid-template-columns: 1fr 1fr; gap: 10px; } .local-card .lc-desc { display: none; } }
+
+/* 本地技能示意图动效（与 skills 页一致） */
+@keyframes dmSlide { 0%,100%{opacity:.35;} 50%{opacity:1;} }
+@keyframes dmFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-5px);} }
+@keyframes dmDraw { to{stroke-dashoffset:0;} }
+@keyframes dmPulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.12);opacity:.85;} }
+@keyframes dmSpin { to{transform:rotate(360deg);} }
+@keyframes dmProg { 0%{width:0;} 100%{width:120px;} }
+@keyframes dmSheen { 0%{transform:translateX(-60px);opacity:0;} 50%{opacity:.5;} 100%{transform:translateX(60px);opacity:0;} }
+.dm-slide { animation: dmSlide 3s ease-in-out infinite; }
+.dm-float { animation: dmFloat 3.4s ease-in-out infinite; }
+.dm-draw { stroke-dasharray: 120; stroke-dashoffset: 120; animation: dmDraw 2.2s ease forwards infinite alternate; }
+.dm-pulse { animation: dmPulse 2.4s ease-in-out infinite; transform-origin: center; }
+.dm-spin { animation: dmSpin 14s linear infinite; }
+.dm-prog { animation: dmProg 2.6s ease-in-out infinite alternate; }
+.dm-sheen { animation: dmSheen 3.2s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .dm-slide,.dm-float,.dm-draw,.dm-pulse,.dm-spin,.dm-prog,.dm-sheen { animation: none; }
+}
+
 /* Buttons */
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
@@ -558,6 +604,20 @@ footer a:hover { color: var(--accent-2); }
     </div>
   </div>
 
+  <!-- Local Skills Showcase -->
+  <div class="section-head" id="local-skills">
+    <h2>💾 本地精选技能</h2>
+    <div class="line"></div>
+    <span class="count" id="localSkillCount">加载中…</span>
+  </div>
+  <div class="local-grid" id="localGrid">
+    <div class="local-card"><div class="lc-body"><div class="lc-desc">加载中…</div></div></div>
+  </div>
+  <div class="local-cta">
+    <a href="skills.html#sectionLocal" class="btn btn-primary">浏览全部本地技能 →</a>
+    <a href="skills.html" class="btn btn-ghost">技能商店</a>
+  </div>
+
   <!-- Ecosystem -->
   <div class="section-head" id="ecosystem">
     <h2>🌐 TOPGO 站群矩阵</h2>
@@ -621,7 +681,45 @@ footer a:hover { color: var(--accent-2); }
 </footer>
 
 <script>
-// 首页计数取自数据文件
+// ===== 首页本地技能精选（取自 data/local_skills.json，与 skills 页同源） =====
+const LOCAL_DEMOS = {
+    subtitle: () => '<svg viewBox="0 0 320 160" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="gsub" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b2a4a"/><stop offset="1" stop-color="#3a1b4a"/></linearGradient></defs><rect width="320" height="160" fill="url(#gsub)"/><circle cx="160" cy="58" r="20" fill="rgba(255,255,255,.14)"/><polygon points="153,48 153,68 173,58" fill="#fff"/><rect class="dm-slide" x="16" y="118" width="288" height="28" rx="6" fill="rgba(0,0,0,.55)"/><text class="dm-slide" x="160" y="137" fill="#fff" font-size="13" text-anchor="middle" font-family="sans-serif">“这句话，值得被记住。”</text></svg>',
+    carousel: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><clipPath id="ccar"><rect x="50" y="18" width="220" height="124" rx="12"/></clipPath><g clip-path="url(#ccar)"><g class="dm-slide"><rect x="50" y="18" width="66" height="124" rx="8" fill="#ec4899"/><rect x="126" y="18" width="66" height="124" rx="8" fill="#667eea"/><rect x="202" y="18" width="66" height="124" rx="8" fill="#f59e0b"/></g></g><rect x="50" y="18" width="220" height="124" rx="12" fill="none" stroke="rgba(255,255,255,.3)"/></svg>',
+    fourcolor: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><rect x="22" y="26" width="60" height="46" rx="6" fill="#1b4f72"/><text x="52" y="55" fill="#7fd1ff" font-size="12" text-anchor="middle" font-family="sans-serif">蓝·事实</text><rect x="92" y="26" width="60" height="46" rx="6" fill="#145a32"/><text x="122" y="55" fill="#7ff0a8" font-size="12" text-anchor="middle" font-family="sans-serif">绿·解释</text><rect x="162" y="26" width="60" height="46" rx="6" fill="#7d6608"/><text x="192" y="55" fill="#ffe580" font-size="12" text-anchor="middle" font-family="sans-serif">黄·风险</text><rect x="232" y="26" width="60" height="46" rx="6" fill="#78281f"/><text x="262" y="55" fill="#ff9a8f" font-size="12" text-anchor="middle" font-family="sans-serif">红·行动</text><g stroke="#456" stroke-width="1.5"><line x1="52" y1="72" x2="150" y2="112"/><line x1="122" y1="72" x2="152" y2="112"/><line x1="192" y1="72" x2="168" y2="112"/><line x1="262" y1="72" x2="170" y2="112"/></g><g class="dm-pulse"><circle cx="160" cy="122" r="20" fill="#3a2d6b" stroke="#a07cff" stroke-width="2"/><text x="160" y="127" fill="#d9c9ff" font-size="11" text-anchor="middle" font-family="sans-serif">太史阁</text></g><text x="160" y="154" fill="#888" font-size="10" text-anchor="middle" font-family="sans-serif">每张卡片可溯源</text></svg>',
+    docparse: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><g class="dm-float"><rect x="26" y="34" width="56" height="72" rx="4" fill="#e8edf5"/><rect x="36" y="48" width="36" height="5" rx="2" fill="#94a3b8"/><rect x="36" y="60" width="36" height="5" rx="2" fill="#94a3b8"/><rect x="36" y="72" width="26" height="5" rx="2" fill="#94a3b8"/><rect x="36" y="84" width="32" height="5" rx="2" fill="#94a3b8"/></g><path class="dm-draw" d="M90 70 L128 70 M122 64 L128 70 L122 76" fill="none" stroke="#6cf" stroke-width="2.5"/><g class="dm-float" style="animation-delay:.4s"><rect x="140" y="30" width="150" height="34" rx="5" fill="#16203a" stroke="#06d6a0"/><text x="152" y="51" fill="#8affd1" font-size="10" font-family="monospace">{ type: doc, ... }</text><rect x="140" y="70" width="150" height="34" rx="5" fill="#16203a" stroke="#7fd1ff" opacity=".8"/><text x="152" y="91" fill="#bfe3ff" font-size="10" font-family="monospace">fallback L2 → L3</text></g><rect x="140" y="116" width="150" height="6" rx="3" fill="#333"/><rect class="dm-prog" x="140" y="116" width="120" height="6" rx="3" fill="#06d6a0"/><text x="215" y="142" fill="#888" font-size="10" text-anchor="middle" font-family="sans-serif">置信度 92%</text></svg>',
+    provenance: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><path d="M40 80 H280" stroke="#334" stroke-width="3"/><g class="dm-pulse"><circle cx="60" cy="80" r="12" fill="#667eea"/><text x="60" y="84" fill="#fff" font-size="10" text-anchor="middle" font-family="sans-serif">1</text></g><circle cx="130" cy="80" r="10" fill="#ec4899"/><text x="130" y="84" fill="#fff" font-size="10" text-anchor="middle" font-family="sans-serif">2</text><circle cx="200" cy="80" r="10" fill="#f59e0b"/><text x="200" y="84" fill="#fff" font-size="10" text-anchor="middle" font-family="sans-serif">3</text><g class="dm-pulse" style="animation-delay:.6s"><circle cx="270" cy="80" r="12" fill="#06d6a0"/><text x="270" y="84" fill="#fff" font-size="10" text-anchor="middle" font-family="sans-serif">4</text></g><g fill="#9aa" font-size="9" font-family="monospace" text-anchor="middle"><text x="60" y="112">t0</text><text x="130" y="112">t1</text><text x="200" y="112">t2</text><text x="270" y="112">t3</text></g><text x="160" y="144" fill="#888" font-size="11" text-anchor="middle" font-family="sans-serif">trace_id · 时间窗 · 官署</text></svg>',
+    security: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><path d="M160 30 L214 52 V90 C214 122 160 142 160 142 C160 142 106 122 106 90 V52 Z" fill="#152238" stroke="#06d6a0" stroke-width="2.5"/><g class="dm-sheen"><rect x="106" y="52" width="108" height="90" fill="rgba(6,214,160,.18)"/></g><path class="dm-draw" d="M136 88 L153 104 L188 70" fill="none" stroke="#06d6a0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><text x="160" y="22" fill="#8affd1" font-size="10" text-anchor="middle" font-family="sans-serif">锦衣卫 · PASS / REJECT</text></svg>',
+    video: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><g class="dm-float"><rect x="24" y="46" width="80" height="60" rx="4" fill="#26416e"/><rect x="120" y="46" width="80" height="60" rx="4" fill="#3a5c99"/><rect x="216" y="46" width="80" height="60" rx="4" fill="#26416e"/></g><g fill="#0f1226"><rect x="24" y="42" width="10" height="8"/><rect x="44" y="42" width="10" height="8"/><rect x="64" y="42" width="10" height="8"/><rect x="84" y="42" width="10" height="8"/><rect x="120" y="42" width="10" height="8"/><rect x="140" y="42" width="10" height="8"/><rect x="160" y="42" width="10" height="8"/><rect x="180" y="42" width="10" height="8"/><rect x="216" y="42" width="10" height="8"/><rect x="236" y="42" width="10" height="8"/><rect x="256" y="42" width="10" height="8"/><rect x="276" y="42" width="10" height="8"/></g><g class="dm-pulse"><circle cx="160" cy="76" r="16" fill="rgba(255,255,255,.9)"/><path d="M155 68 L170 76 L155 84 Z" fill="#0f1226"/></g><text x="160" y="132" fill="#888" font-size="10" text-anchor="middle" font-family="sans-serif">脚本→分镜→配音→成片</text></svg>',
+    agents: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><g class="dm-spin" style="transform-origin:160px 80px"><circle cx="160" cy="26" r="10" fill="#667eea"/><circle cx="228" cy="53" r="10" fill="#ec4899"/><circle cx="228" cy="107" r="10" fill="#f59e0b"/><circle cx="160" cy="134" r="10" fill="#06d6a0"/><circle cx="92" cy="107" r="10" fill="#a07cff"/><circle cx="92" cy="53" r="10" fill="#7fd1ff"/></g><g stroke="#456" stroke-width="1"><line x1="160" y1="26" x2="160" y2="80"/><line x1="228" y1="53" x2="160" y2="80"/><line x1="228" y1="107" x2="160" y2="80"/><line x1="160" y1="134" x2="160" y2="80"/><line x1="92" y1="107" x2="160" y2="80"/><line x1="92" y1="53" x2="160" y2="80"/></g><g class="dm-pulse"><circle cx="160" cy="80" r="20" fill="#3a2d6b" stroke="#a07cff" stroke-width="2"/><text x="160" y="85" fill="#d9c9ff" font-size="10" text-anchor="middle" font-family="sans-serif">编排</text></g></svg>',
+    rap: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#1a1030"/><g fill="#ff5c8a"><rect x="64" y="52" width="14" height="46" rx="7"/><rect x="64" y="94" width="14" height="7" rx="3"/></g><g fill="#5cc8ff"><rect x="242" y="52" width="14" height="46" rx="7"/><rect x="242" y="94" width="14" height="7" rx="3"/></g><g class="dm-pulse" stroke="#fff" stroke-width="2" fill="none"><path d="M88 66 q14 -18 28 0 q14 18 28 0"/><path d="M204 66 q14 -18 28 0 q14 18 28 0"/></g><text x="160" y="142" fill="#fff" font-size="12" text-anchor="middle" font-family="sans-serif" letter-spacing="2">RAP BATTLE</text></svg>',
+    wireframe: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><g fill="none" stroke="#7fd1ff" stroke-width="2" stroke-linejoin="round" class="dm-draw"><polygon points="160,38 212,66 212,114 160,142 108,114 108,66"/><line x1="160" y1="38" x2="160" y2="90"/><line x1="108" y1="66" x2="160" y2="90"/><line x1="212" y1="66" x2="160" y2="90"/><line x1="160" y1="90" x2="160" y2="142"/><line x1="108" y1="114" x2="160" y2="90"/><line x1="212" y1="114" x2="160" y2="90"/></g></svg>',
+    anatomy: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#0f1226"/><g class="dm-float"><g class="dm-spin" style="transform-origin:120px 80px"><circle cx="120" cy="80" r="26" fill="none" stroke="#ffd166" stroke-width="3"/><g stroke="#ffd166" stroke-width="3"><line x1="120" y1="46" x2="120" y2="34"/><line x1="120" y1="114" x2="120" y2="126"/><line x1="86" y1="80" x2="74" y2="80"/><line x1="154" y1="80" x2="166" y2="80"/><line x1="96" y1="56" x2="88" y2="48"/><line x1="144" y1="104" x2="152" y2="112"/><line x1="144" y1="56" x2="152" y2="48"/><line x1="96" y1="104" x2="88" y2="112"/></g></g></g><g class="dm-float" style="animation-delay:.6s"><rect x="186" y="60" width="40" height="40" rx="6" fill="none" stroke="#06d6a0" stroke-width="3"/><line x1="206" y1="60" x2="206" y2="40" stroke="#06d6a0" stroke-width="3"/><circle cx="206" cy="38" r="4" fill="#06d6a0"/></g><line x1="146" y1="80" x2="186" y2="80" stroke="#888" stroke-dasharray="4"/></svg>',
+    card3d: () => '<svg viewBox="0 0 320 160"><defs><linearGradient id="gc3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a07cff"/><stop offset=".5" stop-color="#6cf"/><stop offset="1" stop-color="#f59e0b"/></linearGradient></defs><rect width="320" height="160" fill="#0f1226"/><g class="dm-float"><rect x="118" y="34" width="84" height="100" rx="10" fill="#3a2d6b" stroke="#a07cff" stroke-width="2"/><rect x="132" y="48" width="56" height="56" rx="6" fill="url(#gc3)"/><rect x="132" y="112" width="56" height="8" rx="4" fill="#a07cff" opacity=".6"/><g class="dm-sheen"><rect x="118" y="34" width="26" height="100" fill="rgba(255,255,255,.22)"/></g></g></svg>',
+    handraw: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#fbf6ec"/><path class="dm-draw2" d="M30 110 C 70 50, 120 40, 150 86 S 250 140, 290 64" fill="none" stroke="#2b2b2b" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="400" stroke-dashoffset="400" style="animation:dmDraw 3s ease forwards infinite alternate"/></svg>',
+    explainer: () => '<svg viewBox="0 0 320 160"><rect width="320" height="160" fill="#000"/><g class="dm-slide" fill="#fff"><rect x="34" y="36" width="130" height="14" rx="3"/><rect x="34" y="60" width="210" height="14" rx="3" opacity=".6"/><rect x="34" y="84" width="160" height="14" rx="3" opacity=".4"/></g><rect x="34" y="128" width="252" height="6" rx="3" fill="#333"/><rect class="dm-prog" x="34" y="128" width="252" height="6" rx="3" fill="#06d6a0"/></svg>'
+};
+const LOCAL_PRIORITY = ['antinet-four-color-cards','antinet-security-scan','antinet-doc-parse','antinet-provenance'];
+const LOCAL_LINKS = {
+    'archify': 'https://github.com/tt-a1i/archify',
+    'diagram-design': 'https://github.com/cathrynlavery/diagram-design',
+    'mattpocock-skills': 'https://github.com/mattpocock/skills',
+    'native-subtitle-quote-image': 'https://github.com/chengyi-ai/native-subtitle-quote-image',
+    'cy-carousel-skill': 'https://github.com/chengyi-ai/cy-carousel-skill',
+    'hairline': 'https://github.com/lucasmarkes/hairline',
+    'anatomy': 'https://github.com/wheresryan22/anatomy',
+    'machine-skill': 'https://github.com/AirsupHQ/machine-skill',
+    'ancient-rap-battle': 'https://github.com/10291124jcjc-dotcom/ancient-rap-battle',
+    'lemo-opuscar': 'https://github.com/lemomo-ai/lemo-opuscar',
+    'awesome-jev': 'https://github.com/BeatAPI/awesome-jev',
+    'RuiC-card-skill': 'https://github.com/HRuiCcc/RuiC-card-skill',
+    'handraw-style': 'https://github.com/yang0/handraw-style',
+    'anything2explainer': 'https://github.com/Vincentwei1021/anything2explainer',
+    'threejs-scroll-worlds': 'https://github.com/getedgehq/skills/tree/main/threejs-scroll-worlds',
+    'scrollytelling-web': 'https://github.com/marcmarti9/agentit/tree/main/skills/scrollytelling-web',
+    'jack-scroll-3d-sites': 'https://github.com/radustefandumitru/agenticsupercharge/tree/main/skills/jack-scroll-3d-sites'
+};
+function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
 (function () {
   var set = function (id, n) {
     var el = document.getElementById(id);
@@ -632,13 +730,68 @@ footer a:hover { color: var(--accent-2); }
     set('heroSearchCount', skills.length || d.total || 0);
     set('heroTrendingCount', skills.filter(function (s) { return s.trending === true; }).length);
   }).catch(function () {});
+
   fetch('data/local_skills.json?ts=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
+    // hero 计数
     var n = (d.metadata && d.metadata.total_skills) || 0;
-    if (!n && d.categories) {
-      for (var k in d.categories) n += (d.categories[k].skills || []).length;
-    }
+    if (!n && d.categories) { for (var k in d.categories) n += (d.categories[k].skills || []).length; }
     set('heroLocalCount', n);
-  }).catch(function () {});
+
+    // 首页精选卡片
+    var det = d.skill_details || {};
+    var items = [];
+    var cats = d.categories || {};
+    for (var cat in cats) {
+      var list = cats[cat].skills || [];
+      for (var i = 0; i < list.length; i++) {
+        var s = list[i];
+        var name = (typeof s === 'string') ? s : s.name;
+        if (!name) continue;
+        var dd = det[name] || {};
+        items.push({
+          name: name, category: cat,
+          title: dd.title_cn || (typeof s === 'object' && s.title_cn) || name,
+          desc: dd.description_cn || (typeof s === 'object' && s.description_cn) || '',
+          demo: dd.demo || null,
+          license: dd.license || '',
+          link: LOCAL_LINKS[name] || ('https://github.com/anbeime/skill')
+        });
+      }
+    }
+    // 排序：知易4置顶 → 有示意图 → 其余
+    function rank(it) {
+      if (it.demo && LOCAL_PRIORITY.indexOf(it.name) >= 0) return 3;
+      if (it.demo) return 2;
+      return 1;
+    }
+    items.sort(function (a, b) {
+      var ra = rank(a), rb = rank(b);
+      if (ra !== rb) return rb - ra;
+      if (ra === 3) return LOCAL_PRIORITY.indexOf(a.name) - LOCAL_PRIORITY.indexOf(b.name);
+      return 0;
+    });
+    var top = items.slice(0, 8);   // 首页只展示前 8 个
+    var grid = document.getElementById('localGrid');
+    var html = '';
+    for (var j = 0; j < top.length; j++) {
+      var it = top[j];
+      var isZy = LOCAL_PRIORITY.indexOf(it.name) >= 0;
+      html += '<a class="local-card" href="' + esc(it.link) + '" target="_blank" rel="noopener">';
+      if (it.demo && LOCAL_DEMOS[it.demo]) html += '<div class="lc-demo">' + LOCAL_DEMOS[it.demo]() + '</div>';
+      html += '<div class="lc-body">';
+      html += '<div class="lc-top"><span class="lc-name">' + esc(it.title) + '</span>';
+      html += '<span class="lc-badge' + (isZy ? '' : ' plain') + '">' + (isZy ? '知易' : esc(it.category)) + '</span></div>';
+      if (it.desc) html += '<div class="lc-desc">' + esc(it.desc) + '</div>';
+      html += '<div class="lc-cat">' + esc(it.category) + (it.license ? ' · ' + esc(it.license) : '') + '</div>';
+      html += '</div></a>';
+    }
+    grid.innerHTML = html;
+    var cnt = document.getElementById('localSkillCount');
+    if (cnt) cnt.textContent = '共 ' + items.length + ' 个 · 展示前 ' + top.length + ' 个';
+  }).catch(function (e) {
+    var grid = document.getElementById('localGrid');
+    if (grid) grid.innerHTML = '<div class="local-card"><div class="lc-body"><div class="lc-desc">加载失败：' + esc(e.message) + '</div></div></div>';
+  });
 })();
 </script>
 </body>
