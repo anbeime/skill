@@ -4,7 +4,7 @@
 [![Forks](https://img.shields.io/github/forks/anbeime/skill?style=social)](https://github.com/anbeime/skill/network/members)
 [![Last Commit](https://img.shields.io/github/last-commit/anbeime/skill)](https://github.com/anbeime/skill/commits/main)
 [![Issues](https://img.shields.io/github/issues/anbeime/skill)](https://github.com/anbeime/skill/issues)
-[![License](https://img.shields.io/badge/license-CC--BY--4.0-blue)](https://creativecommons.org/licenses/by/4.0/)
+[![License](https://img.shields.io/badge/license-CC--BY--NC--4.0-orange)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Auto Sync](https://img.shields.io/badge/auto--sync-24h-brightgreen)](https://github.com/anbeime/skill/blob/main/.github/workflows)
 
 收录最全、更新最快的AI Agent技能库，涵盖**文档处理、内容创作、编程开发、机器学习、自动化工作流**等多个领域的精选技能包。
@@ -369,7 +369,7 @@ python tools/skill_validator.py to-prompt skills/agent-team
 
 ## 📄 许可证
 
-MIT License
+**CC BY-NC 4.0**（署名-非商业性使用 4.0 国际）—— 本仓库仅供学习与研究使用，禁止商业用途与再分发。商业授权版本见独立仓库（双轨制）。详见 [LICENSE](LICENSE)。
 
 ## 📝 更新日志
 

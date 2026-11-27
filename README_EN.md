@@ -4,7 +4,7 @@
 [![Forks](https://img.shields.io/github/forks/anbeime/skill?style=social)](https://github.com/anbeime/skill/network/members)
 [![Last Commit](https://img.shields.io/github/last-commit/anbeime/skill)](https://github.com/anbeime/skill/commits/main)
 [![Issues](https://img.shields.io/github/issues/anbeime/skill)](https://github.com/anbeime/skill/issues)
-[![License](https://img.shields.io/badge/license-CC--BY--4.0-blue)](https://creativecommons.org/licenses/by/4.0/)
+[![License](https://img.shields.io/badge/license-CC--BY--NC--4.0-orange)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Auto Sync](https://img.shields.io/badge/auto--sync-24h-brightgreen)](https://github.com/anbeime/skill/blob/main/.github/workflows)
 
 The most comprehensive and frequently updated AI Agent skill library, featuring curated skill packs across **document processing, content creation, programming, machine learning, automated workflows**, and many more domains.
@@ -337,7 +337,7 @@ Thanks to everyone who has contributed to this project:
 
 ## 📄 License
 
-MIT License
+**CC BY-NC 4.0** (Attribution-NonCommercial 4.0) — for learning and research only; commercial use and redistribution are prohibited. A separately licensed commercial edition is maintained in a dedicated repository (dual-track). See [LICENSE](LICENSE).
 
 ## 📝 Changelog
 

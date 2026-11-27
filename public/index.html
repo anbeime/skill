@@ -290,7 +290,17 @@ nav {
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .local-card .lc-cat { font-size: 0.72rem; color: var(--text-3); margin-top: auto; }
 .local-cta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
-@media (max-width: 560px) { .local-grid { grid-template-columns: 1fr 1fr; gap: 10px; } .local-card .lc-desc { display: none; } }
+.promo-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  flex-wrap: wrap; margin: 0 0 22px; padding: 16px 22px;
+  background: linear-gradient(100deg, rgba(124,110,240,0.14), rgba(236,72,153,0.10));
+  border: 1px solid rgba(124,110,240,0.28); border-radius: 14px;
+}
+.promo-banner .pb-text { display: flex; flex-direction: column; gap: 4px; }
+.promo-banner .pb-title { font-size: 1rem; font-weight: 800; color: var(--text-1); }
+.promo-banner .pb-sub { font-size: 0.82rem; color: var(--text-2); }
+.promo-banner .btn { white-space: nowrap; }
+@media (max-width: 560px) { .local-grid { grid-template-columns: 1fr 1fr; gap: 10px; } .local-card .lc-desc { display: none; } .promo-banner { padding: 14px 16px; } }
 
 /* 本地技能示意图动效（与 skills 页一致） */
 @keyframes dmSlide { 0%,100%{opacity:.35;} 50%{opacity:1;} }
@@ -467,8 +477,8 @@ footer a:hover { color: var(--accent-2); }
       <div class="hero-point"><span class="hp-icon">🧠</span><span class="hp-text"><b>知易基座</b><small>四色卡片 · 数据不出域</small></span></div>
     </div>
     <div class="hero-actions">
-      <a href="skills.html#sectionLocal" class="btn btn-primary">💾 浏览本地技能 →</a>
-      <a href="skills.html" class="btn btn-ghost">🌍 全部技能</a>
+      <a href="https://vcn9bv28ym2o.feishu.cn/share/base/shrcn9wdoM01PzUqdVKY0q73rnc" target="_blank" class="btn btn-primary">🎁 免费预约知易试用 →</a>
+      <a href="skills.html#sectionLocal" class="btn btn-ghost">💾 浏览本地技能</a>
     </div>
   </div>
 </section>
@@ -608,6 +618,13 @@ footer a:hover { color: var(--accent-2); }
     <h2>💾 本地精选技能</h2>
     <div class="line"></div>
     <span class="count" id="localSkillCount">加载中…</span>
+  </div>
+  <div class="promo-banner">
+    <div class="pb-text">
+      <span class="pb-title">🎁 知易多模型知识管家 · 免费试用预约</span>
+      <span class="pb-sub">20+ 模型自由切换 · 技能市场 · 四色卡片知识库，留邮箱锁定名额并订阅 AI 周刊</span>
+    </div>
+    <a href="https://vcn9bv28ym2o.feishu.cn/share/base/shrcn9wdoM01PzUqdVKY0q73rnc" target="_blank" class="btn btn-primary">立即预约 →</a>
   </div>
   <div class="local-grid" id="localGrid">
     <div class="local-card"><div class="lc-body"><div class="lc-desc">加载中…</div></div></div>

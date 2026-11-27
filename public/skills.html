@@ -182,6 +182,22 @@
             border-left-color: #f59e0b;
         }
 
+        .promo-banner {
+            display: flex; align-items: center; justify-content: space-between; gap: 16px;
+            flex-wrap: wrap; margin: 0 0 20px; padding: 15px 20px;
+            background: linear-gradient(100deg, #f0edff, #fdeef6);
+            border: 1px solid #ddd6fe; border-radius: 12px;
+        }
+        .promo-banner .pb-text { display: flex; flex-direction: column; gap: 4px; }
+        .promo-banner .pb-title { font-size: 16px; font-weight: 800; color: #4c1d95; }
+        .promo-banner .pb-sub { font-size: 13px; color: #6b7280; }
+        .promo-banner .pb-cta {
+            white-space: nowrap; text-decoration: none; padding: 10px 18px;
+            border-radius: 8px; font-weight: 700; font-size: 14px; color: #fff;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        .promo-banner .pb-cta:hover { opacity: 0.9; }
+
         .section-count {
             font-size: 14px;
             color: #888;
@@ -429,6 +445,13 @@
             💾 本地技能库（可视化技能与知易系统优先）
             <span class="section-count" id="localCount"></span>
         </h2>
+        <div class="promo-banner" id="promoLocal" style="display:none;">
+            <div class="pb-text">
+                <span class="pb-title">🎁 知易多模型知识管家 · 免费试用预约</span>
+                <span class="pb-sub">20+ 模型自由切换 · 技能市场 · 四色卡片知识库，留邮箱锁定名额并订阅 AI 周刊</span>
+            </div>
+            <a href="https://vcn9bv28ym2o.feishu.cn/share/base/shrcn9wdoM01PzUqdVKY0q73rnc" target="_blank" class="pb-cta">立即预约 →</a>
+        </div>
         <div class="skills-grid" id="gridLocal"></div>
 
         <!-- 动态渲染：GitHub 热门（真实抓取） -->
@@ -652,9 +675,17 @@
         if (items.length === 0) {
             grid.innerHTML = '';
             section.style.display = 'none';
+            if (sectionId === 'sectionLocal') {
+                const promo = document.getElementById('promoLocal');
+                if (promo) promo.style.display = 'none';
+            }
             return;
         }
         section.style.display = '';
+        if (sectionId === 'sectionLocal') {
+            const promo = document.getElementById('promoLocal');
+            if (promo) promo.style.display = '';
+        }
         countEl.textContent = '(' + items.length + ' 个 · ' + hintText + ')';
 
         const L = currentLang;
