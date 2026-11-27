@@ -31,6 +31,11 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Sync local skills (merge + dedupe -> local_skills.json + README local section)
+        run: python scripts/sync_frontend.py
+        env:
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+
       - name: Run sync script (upstream -> SKILL_SOURCES.json)
         run: python scripts/sync_skills.py
         env:
@@ -55,8 +60,9 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add SKILL_SOURCES.json README.md public/data/skills.json
+          git add SKILL_SOURCES.json README.md README_EN.md public/data/skills.json data/local_skills.json public/data/local_skills.json
           git commit -m "🔄 Auto-sync: Update skill sources from upstream [$(date +%Y-%m-%d)]" \
+            -m "- sync_frontend.py: merge + dedupe local skills -> local_skills.json (x2) + README local section" \
             -m "- sync_skills.py: refresh SKILL_SOURCES.json + README.md" \
             -m "- sync_skills_to_search.py: refresh public/data/skills.json (trending-only, no curated pollution)"
           git push
@@ -69,6 +75,9 @@ jobs:
           else
             echo "ℹ️ No changes detected" >> $GITHUB_STEP_SUMMARY
           fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Local skills:**" >> $GITHUB_STEP_SUMMARY
+          echo "- merge + dedupe data/ + public/data/local_skills.json (via sync_frontend.py)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Upstream Sources:**" >> $GITHUB_STEP_SUMMARY
           echo "- OpenAI Skills" >> $GITHUB_STEP_SUMMARY

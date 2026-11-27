@@ -11,6 +11,7 @@
 用法: python scripts/sync_frontend.py [--dry-run]
 """
 import json
+import os
 import re
 import sys
 from datetime import date
@@ -87,8 +88,13 @@ def readme_section(data: dict) -> str:
     lines = ["## 💾 本地技能库", "",
              f"共 **{data['metadata']['total_skills']}** 个精选技能，按用途分类"
              f"（最后同步 {data['metadata']['last_updated']}，由 `scripts/sync_frontend.py` 自动生成本段）。", ""]
+    listed = set()  # 跨分类去重：同一技能只列一次，避免清单条数与 metadata 漂移
     for cat in order:
-        skills = data["categories"][cat]["skills"]
+        skills = [s for s in data["categories"][cat]["skills"] if s not in listed]
+        for s in skills:
+            listed.add(s)
+        if not skills:
+            continue
         lines.append(f"### {cat}（{len(skills)}个）")
         for s in skills:
             d = data["skill_details"].get(s) or {}
@@ -116,7 +122,7 @@ def apply_readme(text: str, section: str) -> str:
 
 
 def main():
-    dry = "--dry-run" in sys.argv
+    dry = "--dry-run" in sys.argv or os.environ.get("DRY_RUN", "").lower() == "true"
     a = json.loads(DATA_A.read_text(encoding="utf-8"))
     b = json.loads(DATA_B.read_text(encoding="utf-8"))
     merged = merge(a, b)

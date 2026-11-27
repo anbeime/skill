@@ -323,15 +323,27 @@ STATS_END = "<!-- AUTO-SYNC-STATS-END -->"
 
 
 def count_local_skills(path: str = "data/local_skills.json") -> int:
-    """本地精选策展技能数（data/local_skills.json）。"""
+    """本地精选策展技能数（data/local_skills.json）。
+
+    口径与 scripts/sync_frontend.py 一致：按 categories 内技能去重计数，
+    避免同一技能在多个分类重复登记时统计虚高（曾出现统计段 90 / 清单段 89 漂移）。
+    """
     try:
         d = json.load(open(path, encoding="utf-8"))
     except Exception:
         return 0
+    meta = d.get("metadata") or {}
+    if isinstance(meta.get("total_skills"), int) and "categories" in d:
+        # metadata 由 sync_frontend.py 写入（去重口径），优先采用
+        return meta["total_skills"]
     if isinstance(d.get("skills"), list):
         return len(d["skills"])
     if "categories" in d:
-        return sum(len(v.get("skills", [])) for v in d["categories"].values())
+        names = set()
+        for v in d["categories"].values():
+            for s in v.get("skills", []):
+                names.add(s if isinstance(s, str) else s.get("name"))
+        return len(names)
     if "total_skills" in d:
         return d["total_skills"]
     return 0

@@ -22,10 +22,10 @@
 
 <!-- AUTO-SYNC-STATS-START -->
 - **索引条目**（含待筛选）: 13,613 条
-- **本地技能（精选策展）**: 90 个
+- **本地技能（精选策展）**: 89 个
 - **搜索索引（skills.json）**: 267 个
 - **热门技能榜单**（按 Star 排序）: 86 个
-- **最后同步**: 2026-11-27 02:12（每日自动刷新）
+- **最后同步**: 2026-11-28 00:09（每日自动刷新）
 <!-- AUTO-SYNC-STATS-END -->
 - **备份覆盖率**: 100%（完整备份）
 - **自动更新**: 索引与热门榜单每日自动同步
@@ -48,7 +48,7 @@
 <!-- LOCAL-SKILLS-START -->
 ## 💾 本地技能库
 
-共 **89** 个精选技能，按用途分类（最后同步 2026-11-12，由 `scripts/sync_frontend.py` 自动生成本段）。
+共 **89** 个精选技能，按用途分类（最后同步 2026-11-28，由 `scripts/sync_frontend.py` 自动生成本段）。
 
 ### 内容创作与发布（10个）
 - **content-creation-publisher**
@@ -63,7 +63,7 @@
 - **cy-carousel-skill**  - 给选题交回可直接发布的封面 + 10 页竖版轮播 (1440×1920)。带质检流水线：选题比稿→事实核查回论文/史料→只用开放授权素材→手排逐页→渲染→零错误自检→打包，附置顶评论与来源清单。自带 ELIZA、聪明汉斯等样板。
 
 ### 视频创作（13个）
-- **video-creation-suite**
+- **video-creation-suite**  - 短视频一站式流水线：脚本→分镜→配音→字幕→成片，覆盖选题到发布的完整创作链路。
 - **video-creation-collaborator**
 - **video-creation-pro**
 - **video-recreation**
@@ -78,7 +78,7 @@
 - **anything2explainer**  - 任意主题/文章→黑幕运动图形讲解视频（1280×720@30fps，词级字幕/章节进度条/顶部 HUD）。研究→旁白→TTS→时间线对齐→故事板→并行 Remotion 构建→QC，4 检查点；每帧代码绘制不用视频模型，中文云希/英文 kokoro 配音，全程留档。
 
 ### 电商与营销（7个）
-- **ecommerce-full-pipeline**
+- **ecommerce-full-pipeline**  - 电商从选品到内容到投放的一站式技能：选品分析、文案、图文、短视频批量产出。
 - **pet-commerce-creator**
 - **ecommerce-copywriter**
 - **ecommerce-video-marketing**
@@ -88,7 +88,7 @@
 
 ### PPT与演示（6个）
 - **NanoBanana-PPT-Skills**
-- **ppt-generator**
+- **ppt-generator**  - 给一份大纲或主题，直接产出结构化 PPT：逐页标题、要点、配图建议与演讲备注，适合周报、汇报、答辩快速成稿。
 - **pptx-generator**
 - **nanobanana-ppt-visualizer**
 - **ppt-roadshow-generator**
@@ -116,13 +116,13 @@
 - **data-flow-skill**
 
 ### 智能体协作（9个）
-- **agent-team**
-- **multi-agent-meeting**
+- **agent-team**  - 多 Agent 角色分工、任务分发与协同编排，像一支团队一样完成复杂任务。
+- **multi-agent-meeting**  - 让多个 Agent 围绕议题基于卡片发言、辩论并产出结论，支持会议卡片溯源。
 - **peers-advisory-group**
-- **antinet-security-scan**
-- **antinet-doc-parse**
-- **antinet-four-color-cards**
-- **antinet-provenance**
+- **antinet-security-scan**  - 知易系统的第一道安全闸门。由锦衣卫 Worker 在收到文件/URL 时调用，输出结构化判定(pass/reject)并写入 provenance 留痕，保障数据不出域流水线的前端防线。
+- **antinet-doc-parse**  - 知易系统的文档结构化入口。由密卷房 Worker 调用，仅处理已通过安全扫描的本地文件，三级 fallback 依次尝试，输出结构化结果与置信度；数据不出域。
+- **antinet-four-color-cards**  - 知易系统的知识记录层。由通政司主调用，把信息拆成蓝卡(事实)、绿卡(解释)、黄卡(风险)、红卡(行动)，黄卡经监察院复核、红卡由丞相府补全策略，全部经太史阁留痕，保证每张卡片可溯源。
+- **antinet-provenance**  - 知易系统的证据链与审计层。各官署在关键操作节点写入事件(actor/action/target/trace_id)，支持按 trace_id、时间窗、官署维度检索，支撑审计面板与回滚定位。
 - **expert-prompt-migrator**
 - **awesome-jev**  - 只做选择题的极廉价分类模型 Jev，把『先读再筛』倒成『先判再读』：不把全文塞上下文就对批次分类，概率近 0.5 的留人工复核。228 个项目按 6 大场景编目，npx skills add 装完让 Agent 找参考实现。
 
@@ -132,7 +132,7 @@
 
 ### 设计与可视化（4个）
 - **frontend-design**
-- **ai-drawio**
+- **ai-drawio**  - 用代码生成 draw.io 流程图/架构图，流程图、时序图、思维导图结构一键成图。
 - **pop-up-book-illustration**
 - **web-to-app**
 
@@ -148,8 +148,8 @@
 
 ### 文档处理（4个）
 - **pptx**
-- **xlsx**
-- **pdf**
+- **xlsx**  - Excel/xlsx 读写、清洗、透视与公式填充，适合台账、对账与批量报表。
+- **pdf**  - PDF 批量转 Markdown、表格抽取、合并拆分与页码重排，把重复劳动一次跑完。
 - **docx**
 
 ### 技能管理（2个）
@@ -170,11 +170,10 @@
 ### 医疗与行业 Agent（1个）
 - **hospital_agent_upgrade**
 
-### 收录开源技能（4个）
+### 收录开源技能（3个）
 - **archify**
 - **diagram-design**
 - **mattpocock-skills**
-- **srt-whiteboard-animation**
 
 <!-- LOCAL-SKILLS-END -->
 ## 🌟 收录开源技能（4个 · 额外收录，不计入上方 69 个）
@@ -369,7 +368,9 @@ python tools/skill_validator.py to-prompt skills/agent-team
 
 ## 📄 许可证
 
-**CC BY-NC 4.0**（署名-非商业性使用 4.0 国际）—— 本仓库仅供学习与研究使用，禁止商业用途与再分发。商业授权版本见独立仓库（双轨制）。详见 [LICENSE](LICENSE)。
+**CC BY-NC 4.0**（署名-非商业性使用 4.0 国际）—— 本仓库仅供学习与研究使用，禁止商业用途与再分发。详见 [LICENSE](LICENSE)。
+
+> 💼 **需要商用？** 双轨制第二轨：[anbeime/skill-pro](https://github.com/anbeime/skill-pro) 提供明确商用授权（单技能 / 全库 / 团队），含价格分层表与定制服务。商用请走授权仓，勿直接使用主仓 NC 资产。
 
 ## 📝 更新日志
 

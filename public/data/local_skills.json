@@ -4,7 +4,7 @@
     "core_skills": 26,
     "sub_skills": 30,
     "system_builtin": 6,
-    "last_updated": "2026-11-12",
+    "last_updated": "2026-11-28",
     "location": "D:\\tool\\skills",
     "backup_location": "D:\\tool\\skills\\skill压缩文件",
     "backup_coverage": "100%",
@@ -199,8 +199,8 @@
       "完全免费": 32
     },
     "by_usage_frequency": {
-      "⭐⭐⭐⭐⭐": 10,
       "⭐⭐⭐": 21,
+      "⭐⭐⭐⭐⭐": 10,
       "⭐⭐": 12,
       "⭐⭐⭐⭐": 24
     }
