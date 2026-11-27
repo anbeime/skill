@@ -123,22 +123,28 @@ nav {
   font-size: 1.15rem; color: var(--text-2); max-width: 600px;
   margin: 0 auto 36px; line-height: 1.7;
 }
-.hero-stats {
-  display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+/* Hero 价值主张（替代原数字统计条） */
+.hero-points {
+  display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;
+  margin: 0 auto 30px;
 }
-.hero-stat { text-align: center; }
-.hero-stat .num {
-  font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--accent-2), var(--pink));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
+.hero-point {
+  display: flex; align-items: center; gap: 10px; text-align: left;
+  padding: 12px 18px; border-radius: 14px;
+  background: var(--surface); border: 1px solid var(--border);
+  transition: all 0.25s;
 }
-.hero-stat .label { font-size: 0.82rem; color: var(--text-3); margin-top: 2px; }
-.hero-stat .divider {
-  width: 1px; height: 36px; background: var(--border);
-  position: absolute; right: -16px; top: 50%; transform: translateY(-50%);
+.hero-point:hover { border-color: var(--border-bright); background: var(--surface-hover); transform: translateY(-2px); }
+.hero-point .hp-icon {
+  font-size: 1.25rem; line-height: 1; flex-shrink: 0;
 }
-.hero-stat-wrap { position: relative; }
+.hero-point .hp-text b { display: block; font-size: 0.9rem; font-weight: 700; color: var(--text); }
+.hero-point .hp-text small { display: block; font-size: 0.75rem; color: var(--text-3); margin-top: 2px; }
+.hero-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+@media (max-width: 600px) {
+  .hero-points { flex-direction: column; align-items: stretch; max-width: 320px; }
+  .hero-point { padding: 10px 14px; }
+}
 
 /* ===== Bento Grid ===== */
 .bento {
@@ -415,8 +421,6 @@ footer a:hover { color: var(--accent-2); }
   .card-featured, .card-starclaw, .card-cards, .card-skills, .card-n8n { grid-column: span 12; }
   .eco-grid { grid-template-columns: 1fr; }
   .featured-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-stats { gap: 20px; }
-  .hero-stat .divider { display: none; }
   .nav-links a:not(.nav-cta) { display: none; }
 }
 @media (max-width: 600px) {
@@ -451,25 +455,20 @@ footer a:hover { color: var(--accent-2); }
 <!-- Hero -->
 <section class="hero">
   <div class="container">
-    <div class="hero-badge"><span class="pulse"></span> 每 24 小时自动同步 · 数据实时更新</div>
+    <div class="hero-badge"><span class="pulse"></span> 持续自动同步 · 数据实时更新</div>
     <h1>
       <span class="gradient-text">AI 技能生态</span><br>
       一站式 Agent 能力中心
     </h1>
-    <p>官方技能自动索引实时同步 + GitHub 热门技能榜单（按 Star 排序）每日刷新，从内容创作到电商视频，从编程开发到自动化运维，即插即用。</p>
-    <div class="hero-stats">
-      <div class="hero-stat-wrap">
-        <div class="hero-stat"><div class="num" id="heroSearchCount">—</div><div class="label">搜索索引（实时）</div></div>
-      </div>
-      <div class="hero-stat-wrap">
-        <div class="hero-stat"><div class="num" id="heroTrendingCount">—</div><div class="label">GitHub 热门榜单</div></div>
-      </div>
-      <div class="hero-stat-wrap">
-        <div class="hero-stat"><div class="num" id="heroLocalCount">—</div><div class="label">本地精选技能</div></div>
-      </div>
-      <div class="hero-stat-wrap">
-        <div class="hero-stat"><div class="num">每日</div><div class="label">自动同步</div></div>
-      </div>
+    <p>官方技能自动索引实时同步 + GitHub 热门技能榜单每日刷新，从内容创作到电商视频，从编程开发到自动化运维，即插即用。</p>
+    <div class="hero-points">
+      <div class="hero-point"><span class="hp-icon">💾</span><span class="hp-text"><b>本地精选</b><small>自有技能 · 开箱即用</small></span></div>
+      <div class="hero-point"><span class="hp-icon">🔄</span><span class="hp-text"><b>持续同步</b><small>官方索引 · 自动更新</small></span></div>
+      <div class="hero-point"><span class="hp-icon">🧠</span><span class="hp-text"><b>知易基座</b><small>四色卡片 · 数据不出域</small></span></div>
+    </div>
+    <div class="hero-actions">
+      <a href="skills.html#sectionLocal" class="btn btn-primary">💾 浏览本地技能 →</a>
+      <a href="skills.html" class="btn btn-ghost">🌍 全部技能</a>
     </div>
   </div>
 </section>
@@ -721,22 +720,7 @@ const LOCAL_LINKS = {
 function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
 (function () {
-  var set = function (id, n) {
-    var el = document.getElementById(id);
-    if (el) el.textContent = Number(n).toLocaleString();
-  };
-  fetch('data/skills.json?ts=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
-    var skills = d.skills || [];
-    set('heroSearchCount', skills.length || d.total || 0);
-    set('heroTrendingCount', skills.filter(function (s) { return s.trending === true; }).length);
-  }).catch(function () {});
-
   fetch('data/local_skills.json?ts=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
-    // hero 计数
-    var n = (d.metadata && d.metadata.total_skills) || 0;
-    if (!n && d.categories) { for (var k in d.categories) n += (d.categories[k].skills || []).length; }
-    set('heroLocalCount', n);
-
     // 首页精选卡片
     var det = d.skill_details || {};
     var items = [];
