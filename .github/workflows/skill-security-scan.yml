@@ -1,0 +1,46 @@
+name: Skill Security Scan
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**'
+      - 'scripts/security_scan.py'
+      - '.github/workflows/skill-security-scan.yml'
+  schedule:
+    - cron: '0 3 * * 1'  # 每周一全量复扫（上游技能内容可能被静默更改）
+  workflow_dispatch:
+    inputs:
+      fail_on:
+        description: 'Fail CI on this severity or above'
+        required: false
+        default: 'high'
+        type: choice
+        options:
+          - 'high'
+          - 'medium'
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Scan bundled skills for dangerous patterns
+        run: |
+          python scripts/security_scan.py --path skills \
+            --fail-on "${{ github.event.inputs.fail_on || 'high' }}"
+
+      - name: Step summary note
+        if: always()
+        run: |
+          echo "扫描覆盖 skills/ 下随仓分发的技能文件（远程仓库仅索引不分发，不在扫描范围）。" >> $GITHUB_STEP_SUMMARY
+          echo "high 级别（远程代码执行/凭证外传）直接阻断；medium 级别仅注解警告，可在 workflow_dispatch 里调阈值复跑。" >> $GITHUB_STEP_SUMMARY
