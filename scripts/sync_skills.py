@@ -10,7 +10,6 @@ import os
 import sys
 from datetime import datetime
 import urllib.request
-import ssl
 
 # 上游源配置
 UPSTREAM_SOURCES = {
@@ -59,16 +58,11 @@ UPSTREAM_SOURCES = {
     }
 }
 
-def create_ssl_context():
-    context = ssl.create_default_context()
-    context.check_hostname = False
-    context.verify_mode = ssl.CERT_NONE
-    return context
-
 def fetch_content(url):
     try:
-        context = create_ssl_context()
-        with urllib.request.urlopen(url, context=context, timeout=30) as response:
+        # 使用默认 SSL 上下文（校验证书）。此前显式设置 CERT_NONE 关闭了证书校验，
+        # 同步内容会直接写入仓库数据文件，存在中间人篡改的供应链风险。
+        with urllib.request.urlopen(url, timeout=30) as response:
             return response.read().decode('utf-8')
     except Exception as e:
         print(f"❌ 获取内容失败 {url}: {e}")
@@ -257,21 +251,7 @@ def update_readme(sources_data):
 
     skills_content += f"{MARKER_END}"
 
-    existing_content = ""
-    if os.path.exists('README.md'):
-        with open('README.md', 'r', encoding='utf-8') as f:
-            existing_content = f.read()
-
-    if MARKER_START in existing_content and MARKER_END in existing_content:
-        new_content = re.sub(
-            f"{MARKER_START}.*?{MARKER_END}",
-            skills_content.replace('\\', '\\\\'),
-            existing_content,
-            flags=re.DOTALL
-        )
-    else:
-        new_content = existing_content.rstrip() + "\n\n" + skills_content
-
+    # 用 lambda 作为替换串，避免 content 中的反斜杠/分组引用被 re.sub 误解为转义
     _apply_readme("README.md", skills_content)
     print("✅ 已在 README.md 写入技能列表（自动段）")
 

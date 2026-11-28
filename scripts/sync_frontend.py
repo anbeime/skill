@@ -137,9 +137,6 @@ def main():
     print(f"合并结果: {n_cats} 个分类 / {total} 个技能")
     for cat, c in merged["categories"].items():
         print(f"  - {cat}: {c['count']}")
-    changed_b = set()
-    for cat in merged["categories"]:
-        pass
     print(f"README: {'将更新' if new_readme != readme else '无变化'}"
           f"（{len(new_readme.splitlines())} 行）")
     if dry:
