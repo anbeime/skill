@@ -14086,7 +14086,7 @@ python tools/skill_validator.py to-prompt skills/agent-team
 <!-- clawhub-sync-start -->
 ## ClawHub (Skill Registry)
 
-Latest commit: `a6f03ad`
+Latest commit: `6d0423f`
 
 ### Packages
 
