@@ -194,9 +194,9 @@
   },
   "statistics": {
     "by_api_requirement": {
-      "可选API": 20,
       "必需API": 15,
-      "完全免费": 32
+      "完全免费": 32,
+      "可选API": 20
     },
     "by_usage_frequency": {
       "⭐⭐⭐": 21,
